@@ -1,0 +1,76 @@
+// inheritable properties
+=normalize-block($color: $boss-global-font-color, $cursor: auto)
+  margin: 0
+  padding: 0
+  list-style: none
+  border: none
+  outline: 0
+  color: $color
+  text-decoration: none
+  cursor: $cursor
+  border-collapse: separate
+  border-spacing: 0
+  empty-cells: show
+  font-family: $boss-global-font-family
+  font-size: $boss-global-font-size
+  font-style: normal
+  font-variant: normal
+  font-weight: $boss-global-weight-normal
+  letter-spacing: normal
+  line-height: $boss-global-line-height
+  text-align: left
+  text-indent: 0
+  text-transform: none
+  white-space: normal
+  word-spacing: normal
+
+
+// box model fix
+// Should be included in reset.sass for all page elements
+=box-model-normalizer
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+  & *
+    -moz-box-sizing: border-box
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+
+
+// Light version of normalize-block for text elements
+=text-normalizer()
+  margin: 0
+  padding: 0
+  color: $boss-global-font-color
+  font-family: $boss-global-font-family
+  font-size: $boss-global-font-size
+  font-style: normal
+  font-variant: normal
+  font-weight: $boss-global-weight-normal
+  letter-spacing: normal
+  line-height: $boss-global-line-height
+  text-align: left
+  text-indent: 0
+  text-transform: none
+  white-space: normal
+  word-spacing: normal
+
+
+=clear-fix()
+  content: ""
+  display: table
+  clear: both
+
+
+// DEV MIXINS
+=testbg($red: 255, $green: 0, $blue: 0, $alpha: 0.3)
+  background-color: rgba($red, $green, $blue, $alpha)
+
+
+=testbd($width: 1px, $line-type: solid, $color: green)
+  border: $width $line-type $color
+
+
+=testout($width: 1px, $line-type: solid, $color: blue)
+  outline: $width $line-type $color

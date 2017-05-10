@@ -1,0 +1,59 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Info fields block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-info-fields-block"
+
+#{$block}
+  +normalize-block()
+
+
+  // $Info fields block list item
+  &__list-item
+    +normalize-block()
+
+    & + &
+      margin-top: 10px
+
+
+  // $Info fields block field name
+  &__field-name
+    display: inline-block
+    width: 120px
+    font-weight: 600
+
+    // $Info fields block field name MOD: type
+    &_type
+      // $Info fields block field name MOD: type unfilled
+      &_unfilled
+        color: $boss-light-gray
+
+
+  // $Info fields block field value
+  &__field-value
+    display: inline-block
+
+
+  // $Info fields block field errors
+  &__field-errors
+    +normalize-block()
+
+    margin-top: 3px
+    padding: 0 15px
+    border-radius: $boss-global-border-radius
+    color: map-get($boss-app-palette, error-text)
+
+
+  // $Info fields block field error
+  &__field-error
+    list-style: disc

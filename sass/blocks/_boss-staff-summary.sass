@@ -1,0 +1,248 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Staff summary
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-staff-summary"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+
+  // $Staff summary row
+  &__row
+    +text-normalizer()
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+    border-bottom: 1px solid #eee
+    background-color: #FFF
+
+    @media screen and (max-width: 960px)
+      flex-wrap: wrap
+      border-bottom: none
+
+    // $Staff summary row MOD: role header
+    &_role_header
+      text-transform: uppercase
+      color: #808080
+
+      @media screen and (max-width: 960px)
+        display: none
+
+    &:last-of-type
+      border-bottom: none
+
+
+  // $Staff summary cell
+  &__cell
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    padding: 15px 10px 20px 0
+
+    @media screen and (max-width: 960px)
+      border-top: 1px solid #d8e5eb
+
+    // $Staff summary cell MOD: role header
+    &_role_header
+      flex-grow: 1
+      padding: 15px 10px
+
+      &:nth-child(1)
+        flex-grow: 0
+        flex-shrink: 0
+        width: 280px
+
+      &:nth-child(2)
+        width: 19.8%
+
+        @media screen and (max-width: 1120px)
+          width: 33%
+
+      &:nth-child(3)
+        width: 19.8%
+
+        @media screen and (max-width: 1120px)
+          width: 33%
+
+      &:nth-child(4)
+        width: 26.4%
+
+        @media screen and (max-width: 1120px)
+          display: none
+
+      &:nth-child(5)
+        flex-grow: 0
+        flex-shrink: 0
+        width: 130px
+
+    // $Staff summary cell MOD: role name
+    &_role_name
+      flex-grow: 0
+      flex-shrink: 0
+      width: 280px
+
+      @media screen and (max-width: 960px)
+        flex-grow: 1
+        flex-shrink: 1
+        width: 50%
+        padding-top: 20px
+        padding-left: 30px
+        padding-right: 20px
+
+    // $Staff summary cell MOD: role info
+    &_role_info
+      flex-grow: 1
+      flex-shrink: 1
+      width: 66%
+      padding: 0
+
+      @media screen and (max-width: 960px)
+        order: 2
+        display: none
+        border-top: none
+
+
+    // $Staff summary cell MOD: role shifts
+    &_role_shifts
+      flex-grow: 1
+      width: 30%
+      padding-right: 30px
+
+      @media screen and (max-width: 1280px)
+        padding-right: 20px
+
+      @media screen and (max-width: 1120px)
+        width: 50%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+        padding-right: 15%
+        padding-left: 15%
+
+    // $Staff summary cell MOD: role holidays
+    &_role_holidays
+      flex-grow: 1
+      width: 30%
+      padding-right: 30px
+
+      @media screen and (max-width: 1280px)
+        padding-right: 20px
+
+      @media screen and (max-width: 1120px)
+        width: 50%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+        padding-right: 15%
+        padding-left: 15%
+
+    // $Staff summary cell MOD: role preferences
+    &_role_preferences
+      flex-grow: 1
+      width: 40%
+      padding-right: 30px
+
+      @media screen and (max-width: 1280px)
+        padding-right: 20px
+
+      @media screen and (max-width: 1120px)
+        width: 100%
+
+      @media screen and (max-width: 960px)
+        padding-right: 15%
+        padding-left: 15%
+
+    // $Staff summary cell MOD: role action
+    &_role_action
+      flex-grow: 0
+      flex-shrink: 0
+      width: auto
+
+      @media screen and (max-width: 960px)
+        padding-top: 20px
+        padding-right: 15px
+
+    // $Staff summary cell MOD: state opened
+    &_state_opened
+      @media screen and (max-width: 960px)
+        display: block
+
+
+  // $Staff summary info container
+  &__info
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    padding: 0
+
+    @media screen and (max-width: 1120px)
+      flex-wrap: wrap
+
+    @media screen and (max-width: 960px)
+      border-top: none
+
+
+  // $Staff summary label
+  &__label
+    +text-normalizer()
+    display: none
+    text-transform: uppercase
+    color: #808080
+
+    @media screen and (max-width: 1120px)
+      display: block
+
+
+  // $Staff summary toggle
+  &__toggle
+    +text-normalizer()
+    position: absolute
+    top: 55px
+    left: 10px
+    display: none
+    font-size: 0
+    color: transparent
+    line-height: 0
+    outline: none
+
+    @media screen and (max-width: 960px)
+      display: block
+
+    @media screen and (max-width: 640px)
+      top: 40px
+
+    &:hover,
+    &:focus
+      outline: none
+
+    &:after
+      content: ''
+      display: block
+      width: 9px
+      height: 9px
+      background: url(../icons/icon-down-arrow-medium-gray.svg) no-repeat 0 0
+
+    // $Staff summary toggle MOD: state opened
+    &_state_opened
+      &:after
+        transform: rotate(-180deg)
+

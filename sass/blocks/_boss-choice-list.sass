@@ -1,0 +1,136 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Choice list
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-choice-list"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+  // $Choice list MOD: state error
+  &_state_error
+
+  // $Choice list MOD: type required
+  &_type_required
+
+
+  // $Choice list header
+  &__header
+    padding: 20px
+    background-color: map-get($boss-app-palette, primary)
+    border: 1px solid map-get($boss-app-palette, primary)
+    border-top-right-radius: 2px
+    border-top-left-radius: 2px
+    border-bottom: none
+
+    #{$block}_state_error &
+      border-color: map-get($boss-app-palette, alert-border)
+
+
+  // $Choice list title
+  &__title
+    +text-normalizer()
+    margin: 0
+    font-size: 16px
+    color: #FFF
+
+    // $Choice list title CONTEXT: $Choice list MOD: required field
+    #{$block}_type_required &
+      &:after
+        content: '*'
+        margin-left: 2px
+
+
+  // $Choice list content
+  &__content
+    padding: 20px 20px 50px
+    border: 1px solid $boss-very-light-gray
+    border-top: none
+    border-bottom-right-radius: 2px
+    border-bottom-left-radius: 2px
+
+    #{$block}_state_error &
+      border-color: map-get($boss-app-palette, alert-border)
+
+
+  // $Choice list text
+  &__text
+    +text-normalizer()
+    margin-bottom: 20px
+
+
+  // $Choice list controls
+  &__controls
+
+
+  // $Choice list radio label
+  &__radio-label
+    +text-normalizer()
+    display: block
+    margin-bottom: 20px
+    cursor: pointer
+
+    &:last-of-type
+      margin-bottom: 0
+
+
+  // $Choice list radio button
+  &__radio-button
+    display: none
+
+
+  // $Choice list radio label text
+  &__radio-label-text
+    position: relative
+    display: inline-block
+    line-height: 25px
+    padding-left: 35px
+
+    &:before
+      content: ""
+      box-sizing: border-box
+      position: absolute
+      top: 3px
+      left: 0
+      display: block
+      width: 20px
+      height: 20px
+      background-color: #FFF
+      border: 2px solid map-get($boss-app-palette, inactive)
+      border-radius: 5px
+
+      #{$block}__radio-button:checked ~ &
+        background-color: map-get($boss-app-palette, primary)
+        border-color: map-get($boss-app-palette, primary)
+
+    &:after
+      content: ""
+      box-sizing: border-box
+      position: absolute
+      top: 8px
+      left: 5px
+      display: block
+      width: 10px
+      height: 10px
+      background-image: url('../icons/checked-white.svg')
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      visibility: hidden
+
+      #{$block}__radio-button:checked ~ &
+        visibility: visible
+

@@ -1,0 +1,490 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Question
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-question"
+
+#{$block}
+  +box-model-normalizer()
+
+
+  // $Question form
+  &__form
+
+
+  // $Question main
+  &__main
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+    padding: 20px 25px 15px 20px
+
+    @media screen and (max-width: 1280px)
+      align-items: flex-start
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+      justify-content: flex-start
+      align-items: stretch
+      padding-right: 15px
+
+
+  // $Question info
+  &__info
+    flex-grow: 1
+    flex-shrink: 0
+    margin-bottom: 8px
+
+
+  // $Question actions
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    align-items: center
+    flex-grow: 1
+
+    @media screen and (max-width: 1280px)
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+      flex-wrap: wrap
+      flex-grow: 1
+      width: 100%
+      margin-bottom: 5px
+      padding-top: 0
+
+    @media screen and (max-width: 479px)
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-start
+
+
+  // $Question number
+  &__number
+    +text-normalizer()
+    margin: 0
+    font-size: 15px
+    font-weight: bold
+    color: $boss-light-gray
+
+
+  // $Question number label
+  &__number-label
+    color: $boss-very-light-gray
+
+
+  // $Question subject
+  &__subject
+    +text-normalizer()
+    margin: 0
+    font-weight: normal
+
+
+  // $Question subject note
+  &__subject-note
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    cursor: pointer
+    width: 15px
+    height: 15px
+    margin-left: 5px
+    text-align: center
+    color: map-get($boss-app-palette, inactive)
+    vertical-align: top
+    border: 1px solid map-get($boss-app-palette, inactive)
+    border-radius: 50%
+
+    &:before
+      content: "!"
+      position: absolute
+      top: 50%
+      left: 50%
+      margin-top: -5px
+      margin-left: -1px
+      display: inline-block
+      line-height: 1
+      font-size: 10px
+      font-weight: bold
+
+
+  // $Question controls
+  &__controls
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    max-width: 100%
+    white-space: nowrap
+    text-align: right
+
+    @media screen and (max-width: 1280px)
+      text-align: left
+
+    @media screen and (max-width: 960px)
+      white-space: normal
+
+
+  // $Question radio button
+  &__radio-button
+    display: none
+
+
+  // $Question radio label
+  &__radio-label
+    +text-normalizer()
+    display: inline-block
+    margin-right: 25px
+    cursor: pointer
+    white-space: nowrap
+
+    @media screen and (max-width: 1280px)
+      margin-right: 15px
+
+    &:last-of-type
+      margin-right: 0
+
+
+  // $Question radio label text
+  &__radio-label-text
+    position: relative
+    display: inline-block
+    line-height: 18px
+    padding-left: 25px
+
+    @media screen and (max-width: 960px)
+      padding-left: 22px
+      margin-bottom: 8px
+
+    &:before
+      content: ""
+      box-sizing: border-box
+      position: absolute
+      top: 0
+      left: 0
+      display: block
+      width: 18px
+      height: 18px
+      border: 2px solid map-get($boss-app-palette, inactive)
+      border-radius: 50%
+
+    &:after
+      content: ""
+      box-sizing: border-box
+      position: absolute
+      top: 5px
+      left: 5px
+      display: block
+      width: 8px
+      height: 8px
+      background-color: map-get($boss-app-palette, primary)
+      border-radius: 50%
+      visibility: hidden
+
+    #{$block}__radio-button:checked ~ &:after
+      visibility: visible
+
+
+  // $Question helpers
+  &__helpers
+    flex-grow: 0
+    flex-shrink: 0
+    min-width: 115px
+    text-align: right
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      min-width: 0
+
+    @media screen and (max-width: 479px)
+      margin-bottom: 0
+
+    // $Question helpers MOD: review mode
+    &_mode_review
+      min-width: 0
+
+
+  // $Question icon
+  &__icon
+    display: inline-block
+    margin-left: 15px
+    font-size: 0
+    color: transparent
+    vertical-align: middle
+    white-space: nowrap
+
+    &:before
+      content: ""
+      display: inline-block
+      width: 14px
+      height: 14px
+      margin-right: 5px
+      white-space: nowrap
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      opacity: 1
+      transition: all .4s
+
+    &:hover:before
+      opacity: 0.5
+
+    // $Question icon MOD: role attachment
+    &_role_att
+      &:before
+        background-image: url(../icons/envelope-medium-gray.svg)
+
+    // $Question icon MOD: state visible
+    &_state_visible
+      display: block
+
+    // $Question icon MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Question helpers link
+  &__helpers-link
+    +text-normalizer()
+    display: inline-block
+    margin-left: 15px
+    color: map-get($boss-app-palette, primary)
+    outline: none
+    vertical-align: middle
+    text-decoration: none
+
+    @media screen and (max-width: 960px)
+      margin-left: 10px
+
+    @media screen and (max-width: 479px)
+      margin-left: auto
+      margin-right: 10px
+
+    &:hover
+      text-decoration: underline
+      color: map-get($boss-app-palette, primary)
+
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    &:before
+      content: ""
+      display: inline-block
+      width: 12px
+      height: 12px
+      margin-right: 5px
+      white-space: nowrap
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+
+    // $Question helpers link MOD: role edit
+    &_role_edit
+      &:before
+        background-image: url(../icons/icon-pencil-primary.svg)
+
+    // $Question helpers link MOD: role add
+    &_role_add
+      &:before
+        background-image: url(../icons/icon-plus-primary.svg)
+
+    // $Question helpers link MOD: role cancel
+    &_role_cancel
+      &:before
+        width: 10px
+        height: 10px
+        background-image: url(../icons/icon-close-primary.svg)
+
+    // $Question helpers link MOD: state visible
+    &_state_visible
+      display: block
+
+    // $Question helpers link MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Question helpers button
+  &__helpers-button
+    margin-left: 15px
+
+    @media screen and (max-width: 960px)
+      margin-left: 10px
+      padding: 5px 10px
+      background-position: center center
+      font-size: 0
+      color: transparent
+
+    @media screen and (max-width: 479px)
+      margin-left: auto
+
+    // $Question helpers button MOD: state visible
+    &_state_visible
+      display: block
+
+    // $Question helpers button MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Question note
+  &__note
+    display: none
+
+    // $Question note MOD: state opened
+    &_state_opened
+      display: block
+
+    // $Question note MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Question note inner container
+  &__note-inner
+    padding: 10px 25px 5px 20px
+    border-top: 1px solid map-get($boss-app-palette, inactive)
+
+    @media screen and (max-width: 960px)
+      padding-right: 15px
+
+
+  // $Question message textarea
+  &__message-textarea
+    +text-normalizer()
+    resize: vertical
+    box-sizing: border-box
+    display: block
+    width: 100%
+    height: 55px
+    margin-bottom: 15px
+    padding: 15px 20px 15px
+    font-family: $boss-global-font-family
+    font-size: $boss-global-font-size
+    line-height: $boss-global-line-height
+    color: $boss-dark-gray
+    text-align: left
+    font-weight: normal
+    border: 2px solid map-get($boss-app-palette, inactive)
+    border-radius: 6px
+    height: auto
+    box-shadow: none
+
+    &:focus
+      outline: none
+      box-shadow: none
+      border: 2px solid map-get($boss-app-palette, inactive)
+
+
+  // $Question end area
+  &__end
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: flex-start
+
+    @media screen and (max-width: 960px)
+      flex-wrap: wrap
+
+
+  // $Question file upload label
+  &__file-label
+    +text-normalizer()
+    flex-shrink: 0
+    position: relative
+    cursor: pointer
+    margin-bottom: 10px
+
+
+  // $Question file input
+  &__file-input
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 10
+    display: block
+    width: 110px
+    margin: 0
+    padding: 0
+    cursor: pointer
+    opacity: 0
+
+
+  // $Question file label text
+  &__file-label-text
+    position: relative
+    padding-left: 30px
+    color: $boss-very-light-gray
+
+    &:before
+      content: ""
+      box-sizing: border-box
+      position: absolute
+      top: 0
+      left: 0
+      display: block
+      width: 20px
+      height: 20px
+      background: url(../icons/icon-camera-very-light-gray.svg) center center no-repeat
+      background-size: contain
+
+
+  // $Question submit
+  &__submit
+    margin-bottom: 10px
+
+
+  // Question preview
+  &__preview
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: flex-start
+    align-items: stretch
+    padding: 0 20px
+
+    @media screen and (max-width: 960px)
+      order: 3
+      width: 100%
+      padding: 10px 0 0
+      border-top: 1px solid map-get($boss-app-palette, inactive)
+
+
+
+  // Question preview link
+  &__preview-link
+    display: block
+    width: 50px
+    height: 35px
+    margin-right: 10px
+    margin-bottom: 10px
+    overflow: hidden
+    opacity: 0.7
+    transition: all .5s
+
+    &:hover
+      opacity: 1
+
+
+  // Question preview image
+  &__preview-image
+    display: block
+    height: 100%
+    width: 100%
+

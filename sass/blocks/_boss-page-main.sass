@@ -1,0 +1,360 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Page main container
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-page-main"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+  // $Page main container dashboard
+  &__dashboard
+    display: block
+    width: 100%
+    padding: 30px 0 0
+    background-color: #FFF
+
+    @media screen and (max-width: 1280px)
+      padding: 30px 40px 0
+
+    @media screen and (max-width: 1120px)
+      padding: 30px 35px 0
+
+    @media screen and (max-width: 960px)
+      padding: 30px 30px 0
+
+    @media screen and (max-width: 800px)
+      padding: 30px 25px 0
+
+    @media screen and (max-width: 640px)
+      padding: 30px 20px 0
+
+    @media screen and (max-width: 480px)
+      padding: 30px 15px 0
+
+
+  // $Page main container content
+  &__content
+    position: relative
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    width: 100%
+    padding: 25px 0 60px
+
+    @media screen and (max-width: 1280px)
+      padding: 25px 40px 50px
+
+    @media screen and (max-width: 1120px)
+      padding: 25px 35px 45px
+
+    @media screen and (max-width: 960px)
+      padding: 25px 30px 40px
+
+    @media screen and (max-width: 800px)
+      padding: 25px 25px 35px
+
+    @media screen and (max-width: 640px)
+      padding: 25px 20px 30px
+
+    @media screen and (max-width: 480px)
+      padding: 20px 15px
+
+    // $Page main container content MOD: state inactive
+    &_state_inactive
+      &:after
+        content: ""
+        position: absolute
+        display: none
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        z-index: 999
+        background-color: rgba(255,255,255,.8)
+
+        @media screen and (max-width: 960px)
+          display: block
+
+    // $Page main container content MOD: context stack
+    &_context_stack
+      padding: 25px 0
+
+      @media screen and (max-width: 1280px)
+        padding: 25px 40px
+
+      @media screen and (max-width: 1120px)
+        padding: 25px 35px
+
+      @media screen and (max-width: 960px)
+        padding: 25px 30px
+
+      @media screen and (max-width: 800px)
+        padding: 25px 25px
+
+      @media screen and (max-width: 640px)
+        padding: 25px 20px
+
+      @media screen and (max-width: 480px)
+        padding: 20px 15px
+
+    // $Page main container content MOD: mobile visible
+    &_desktop
+      display: flex
+
+      @media screen and (max-width: 960px)
+        display: none
+
+    // $Page main container content MOD: state inactive
+    &_mobile
+      display: none
+
+      @media screen and (max-width: 960px)
+        display: flex
+
+
+  // $Page main container inner
+  &__inner
+    display: block
+    width: 100%
+    max-width: 1200px
+    margin: 0 auto
+
+    // $Page main container inner MOD: opaque view
+    &_opaque
+      background-color: #FFF
+
+    // $Page main container inner MOD: layout with sidebar
+    &_layout_sidebar
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: flex-start
+
+      @media screen and (max-width: 1120px)
+        // $Page main container inner MOD: layout with sidebar CONTEXT: $Page main container MOD: hrc page
+        #{$block}_page_hrc &
+          flex-direction: column
+
+      @media screen and (max-width: 960px)
+        flex-direction: column
+
+    // $Page main container inner MOD: space regular
+    &_space_regular
+      padding: 25px 20px 30px
+
+
+  // $Page main container sidebar area
+  &__sidebar
+    flex-grow: 0
+    flex-shrink: 0
+    width: 30%
+    margin-right: 30px
+    background-color: #FFF
+
+    @media screen and (max-width: 1120px)
+      // $Page main container sidebar area CONTEXT: $Page main container MOD: hrc page
+      #{$block}_page_hrc &
+        width: 100%
+        margin-right: 0
+        margin-bottom: 20px
+
+    @media screen and (max-width: 960px)
+      width: 100%
+      margin-right: 0
+      margin-bottom: 20px
+
+
+  // $Page main container widget
+  &__widget
+    display: block
+    width: 100%
+    margin-bottom: 30px
+    padding: 15px
+
+    &:first-of-type
+      #{$block}_page_hrc &
+        padding-top: 60px
+
+    &:last-of-type
+      margin-bottom: 0
+
+
+  // $Page main container middle area
+  &__middle
+    display: block
+    width: 70%
+    background-color: #FFF
+
+    @media screen and (max-width: 1120px)
+      // $Page main container middle area CONTEXT: $Page main container MOD: hrc page
+      #{$block}_page_hrc &
+        width: 100%
+
+    @media screen and (max-width: 960px)
+      width: 100%
+
+
+  // $Page main container react root
+  &__root
+
+
+  // $Page main container group
+  &__group
+    padding: 20px 45px 40px
+
+    @media screen and (max-width: 1280px)
+      padding: 20px 20px 30px
+
+    @media screen and (max-width: 960px)
+      padding: 20px 15px
+
+    @media screen and (max-width: 479px)
+      padding: 20px 10px
+
+    // $Page main container group MOD: space extra
+    &_space_extra
+      padding-bottom: 60px
+
+      @media screen and (max-width: 1280px)
+        padding-bottom: 50px
+
+      @media screen and (max-width: 960px)
+        padding-bottom: 40px
+
+
+  // $Page main container flow layout
+  &__flow
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    flex-wrap: wrap
+    align-content: flex-start
+    padding: 45px 30px 0 45px
+
+    @media screen and (max-width: 1280px)
+      padding: 30px 20px 0 20px
+
+    @media screen and (max-width: 960px)
+      padding: 20px 15px 0 15px
+
+    @media screen and (max-width: 479px)
+      padding: 20px 10px 0 10px
+
+
+  // $Page main container isle area
+  &__isle
+    width: 50%
+    display: block
+    margin-bottom: 60px
+
+    @media screen and (max-width: 960px)
+      width: 100%
+
+
+  // $Page main container tabs
+  &__tabs
+    display: block
+    width: 100%
+
+
+  // $Page main container tab
+  &__tab
+    display: none
+
+    // $Page main container tab MOD: state visible
+    &_state_visible
+      display: block
+
+    // $Page main container tab MOD: state hidden
+    &_state_hidden
+      display: none
+
+  // $Page main container filter
+  &__filter
+    display: block
+    width: 100%
+    margin-bottom: 30px
+
+  // $Page main container list
+  &__list
+    display: block
+    width: 100%
+    margin-bottom: 30px
+    background-color: #FFF
+
+  // $Page main container list item
+  &__list-item
+    display: block
+    width: 100%
+    padding: 25px
+    border-bottom: 1px solid #eee
+
+    &:nth-of-type(even)
+      background-color: #fbfbfb
+
+
+  // $Page main container controls
+  &__controls
+
+    // $Page main container controls MOD: position last
+    &_position_last
+      margin-top: 20px
+
+
+  // $Page main container control
+  &__control
+    +text-normalizer()
+
+    display: inline-block
+    padding: 25px 30px
+    background-color: #FFF
+    text-decoration: none
+    outline: none
+    color: map-get($boss-app-palette, primary)
+    font-weight: 600
+    white-space: nowrap
+    transition: .4s
+
+    @media screen and (max-width: 960px)
+      display: block
+      width: 100%
+      text-align: center
+
+    &:before
+      content: ""
+      display: none
+      width: 15px
+      height: 15px
+      margin-right: 15px
+      line-height: 100%
+      vertical-align: middle
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: underline
+      color: map-get($boss-app-palette, primary)
+
+    // $Page main container control MOD: view history
+    &_role_view-history
+      &:before
+        display: inline-block
+        background-image: url('../icons/icon-text-paper-primary.svg')
+

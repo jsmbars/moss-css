@@ -1,0 +1,112 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Chart
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-chart"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+
+  // $Chart MOD: role questionnaire
+  &_role_questionnaire
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+
+  // $Chart inner container
+  &__inner
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    margin-bottom: 10px
+
+    // $Chart inner container CONTEXT: $Chart MOD: role questionnaire
+    #{$block}_role_questionnaire &
+      margin-bottom: 0
+      margin-right: 20px
+
+    @media screen and (max-width: 640px)
+      #{$block}_role_questionnaire &
+        margin-right: 10px
+
+
+  // $Chart graph
+  &__graph
+
+
+  // $Chart information
+  &__info
+    text-align: center
+
+  // $Chart information number
+  &__info-number
+    +text-normalizer()
+
+
+  // $Chart information label
+  &__info-label
+    +text-normalizer()
+
+
+  // $Chart score
+  &__score
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    padding-bottom: 10px
+    border-bottom: 1px solid $boss-very-light-gray
+
+    // $Chart score CONTEXT: $Chart MOD: role questionnaire
+    #{$block}_role_questionnaire &
+      display: block
+      padding-bottom: 0
+      border-bottom: none
+
+
+  // $Chart score label
+  &__score-label
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    font-size: 16px
+
+
+  // $Chart score value
+  &__score-value
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    font-size: 16px
+
+    // $Chart score value CONTEXT: $Chart MOD: role questionnaire
+    #{$block}_role_questionnaire &
+      font-size: 14px
+
+
+  // $Chart score current value
+  &__score-current
+
+
+  // $Chart score total
+  &__score-total
+    font-weight: bold
+
+    // $Chart score total CONTEXT: $Chart MOD: role questionnaire
+    #{$block}_role_questionnaire &
+      font-weight: normal
+

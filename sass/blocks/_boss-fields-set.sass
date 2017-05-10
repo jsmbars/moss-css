@@ -1,0 +1,74 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Fields set
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-fields-set"
+
+#{$block}
+  $padding: 20px
+
+  +normalize-block()
+
+  padding: $padding
+  border: 1px solid $boss-very-light-gray
+
+  // $Fields set MOD: adjust
+  &_adjust
+    // $Fields set MOD: adjust header
+    &_header
+      $header-margin: -($padding + 1)
+      margin: $header-margin $header-margin 0 $header-margin !important
+
+    // $Fields set MOD: adjust section header
+    &_section-header
+      margin-top: 15px !important
+
+    // $Fields set MOD: adjust inputs list
+    &_boss3-inputs-list
+      margin-top: 15px !important
+
+  &_state
+    &_error
+      border-color: map-get($boss-app-palette, alert-border)
+
+
+  // $Fields set header
+  &__header
+    +normalize-block()
+
+    padding: 12px 20px
+    display: block
+    color: white
+    background-color: map-get($boss-app-palette, item-background1)
+    border: 1px solid map-get($boss-app-palette, item-background1)
+    border-bottom: none
+    font-family: $boss-global-font-family
+    font-size: 14px
+
+    #{$block}_state_error &
+      border-color: map-get($boss-app-palette, alert-border)
+
+    // $Fields set header MOD: type
+    &_type
+      // $Fields set header MOD: type required
+      &_required
+        &:after
+          content: '*'
+          margin-left: 2px
+
+
+  // $Fields set section header
+  &__section-header
+    +normalize-block()
+
+    font-size: 14px

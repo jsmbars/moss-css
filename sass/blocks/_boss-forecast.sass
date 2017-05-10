@@ -1,0 +1,180 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Forecast
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-forecast"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+
+  // $Forecast row
+  &__row
+    +text-normalizer()
+
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    width: 100%
+    height: 70px
+    border-bottom: 1px solid #eee
+
+    &:nth-child(even)
+      background-color: #f8f8f8
+
+    &_role_header,
+    &_role_footer
+      font-size: 16px
+      font-weight: bold
+      background-color: #FFF
+
+      &:nth-child(even)
+        background-color: #FFF
+
+    // $Forecast row MOD: role header
+    &_role_header
+      border-bottom: 2px solid #000
+
+    // $Forecast row MOD: role footer
+    &_role_footer
+      border-top: 2px solid #000
+      border-bottom: none
+
+
+  // $Forecast cell
+  &__cell
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    padding: 5px
+
+    &:nth-child(1)
+      width: 30%
+      padding-left: 20px
+
+      @media screen and (max-width: 1280px)
+        padding-left: 15px
+
+      @media screen and (max-width: 479px)
+        flex-shrink: 1
+        width: auto
+
+      @media screen and (max-width: 400px)
+        padding-left: 10px
+
+    &:nth-child(2)
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
+      justify-content: flex-end
+
+    &:nth-child(3)
+      width: 30%
+      padding-right: 20px
+      justify-content: flex-end
+
+      @media screen and (max-width: 1280px)
+        padding-right: 15px
+
+      @media screen and (max-width: 479px)
+        width: 110px
+
+      @media screen and (max-width: 400px)
+        padding-right: 10px
+
+
+  // $Forecast amount form
+  &__amount
+    +text-normalizer()
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 150px
+    height: 40px
+    margin: 0
+    vertical-align: middle
+
+    @media screen and (max-width: 479px)
+      width: 120px
+
+    @media screen and (max-width: 400px)
+      width: 90px
+
+
+  // $Forecast amount form currency
+  &__amount-currency
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
+    width: 40px
+    height: 40px
+    text-align: center
+    line-height: 40px
+    font-size: 16px
+    font-weight: bold
+    vertical-align: middle
+    border: 1px solid #c3c3c3
+    border-right: none
+    background-color: #f7f7f7
+
+    @media screen and (max-width: 479px)
+      width: 20px
+
+    @media screen and (max-width: 400px)
+      position: absolute
+      z-index: 10
+      width: 20px
+      background-color: transparent
+
+
+  // $Forecast amount form input
+  &__amount-input
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 1
+    box-sizing: border-box
+    display: inline-block
+    height: 40px
+    width: 110px
+    margin: auto
+    padding: 0
+    padding-left: 20px
+    font-size: 16px
+    font-weight: bold
+    vertical-align: middle
+    border: 1px solid #c3c3c3
+    box-shadow: none
+
+    @media screen and (max-width: 479px)
+      padding-left: 15px
+      width: 100px
+
+    @media screen and (max-width: 400px)
+      padding-left: 20px
+      letter-spacing: -1px
+
+    &:focus
+      outline: none
+      box-shadow: none
+      border-color: #c3c3c3
+
+

@@ -1,0 +1,94 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common elements
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss"
+
+#{$block}
+
+  // $Common elements h2
+  &-h2
+    +normalize-block()
+
+    font-size: 24px
+    font-weight: 400
+
+    &_role_fail
+      color: map-get($boss-app-palette, alert)
+
+    &_type
+      &_with-info
+        display: flex
+        align-items: center
+
+
+  // $Common elements h4
+  &-h4
+    +normalize-block()
+
+    display: inline-block
+    font-size: 20px
+    font-weight: 400
+
+
+  &-root
+    display: block
+    width: 100%
+    min-height: 100vh
+    position: relative
+    background-color: $boss-body-background
+
+    &_role
+      &_manager
+        background-color: #ffd9ac
+
+        & .boss-main-content
+          margin: $main-content-margin-top auto 0
+          min-height: initial
+
+      &_normal
+        & .boss-main-content
+          margin: $main-content-margin-top auto 0
+          min-height: initial
+
+
+  &-username
+    font-size: 16px
+
+
+  &-submenu
+    top: 55px
+
+
+  &-flex-row
+    display: flex
+    flex-wrap: wrap
+
+
+  &-table-scroll
+    overflow-x: visible
+
+
+  &-tooltip-portal
+    &__background
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 3
+      background-color: rgba(0, 0, 0, 0.3)
+
+
+  &-hidden
+    display: none

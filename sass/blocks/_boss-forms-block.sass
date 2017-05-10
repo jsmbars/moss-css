@@ -1,0 +1,62 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Forms wrapper
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-forms-block"
+
+#{$block}
+  +normalize-block()
+
+  position: relative
+  padding: 20px 0 60px
+  background-color: white
+  // border-bottom: 1px solid $boss-very-light-gray
+
+  @media screen and (max-width: 960px)
+    padding-bottom: 30px
+    padding-top: 0
+
+  // $Forms wrapper MOD: adjust
+  &_adjust
+
+    // $Forms wrapper MOD: adjust buttons single
+    &_buttons-single
+      margin: $boss-buttons-group-margin !important
+      text-align: center !important
+
+      @media screen and (max-width: 960px)
+        display: flex
+        flex-direction: column
+        align-items: stretch
+        justify-content: flex-start
+
+    // $Forms wrapper MOD: adjust buttons group
+    &_buttons-group
+      margin: $boss-buttons-group-margin !important
+      text-align: center !important
+
+      @media screen and (max-width: 960px)
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+
+
+    // $Forms wrapper MOD: adjust info block
+    &_info-block
+      width: 49% !important
+      margin-bottom: 30px !important
+
+      @media screen and (max-width: 960px)
+        width: 100% !important
+        margin-bottom: 50px !important

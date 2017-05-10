@@ -1,0 +1,128 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Alert
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-alert"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  position: relative
+  padding: 10px 20px
+  background-color: map-get($boss-app-palette, alert)
+  border-radius: $boss-global-border-radius
+
+  &:before
+    content: ""
+    position: absolute
+    top: 50%
+    left: 20px
+    display: block
+    width: 14px
+    height: 14px
+    margin-top: -7px
+    background-image: url(../icons/danger-white.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+
+  // $Alert MOD: role time
+  &_role_time
+    &:before
+      background-image: url(../icons/icon-clock-white.svg)
+
+  // $Alert MOD: role page notification
+  &_role_page-note
+    padding: 15px 15px 15px 25px
+    border-radius: 0
+
+    &:before
+      width: 30px
+      height: 30px
+      margin-top: -15px
+      background-color: #b35456
+      background-image: url(../icons/checked-white.svg)
+      background-size: 12px 12px
+      border-radius: 50%
+
+  // $Alert MOD: role page notification status success
+  &_role_page-note#{&}_status_success
+    &:before
+      background-color: #58cd4c
+
+  &_status_success
+    background-color: map-get($boss-app-palette, secondary)
+
+
+  // $Alert MOD: role notification
+  &_role_note
+    &:before
+      display: none
+
+  // $Alert MOD: state opened
+  &_state_opened
+    display: block
+
+  // $Alert MOD: state closed
+  &_state_closed
+    display: none
+
+
+  // $Alert text
+  &__text
+    +text-normalizer()
+    position: relative
+    display: block
+    max-width: 100%
+    padding: 0 30px
+    font-weight: 300
+    color: #FFF
+
+    // $Alert text CONTEXT: $Alert MOD: role page notification
+    #{$block}_role_page-note &
+      padding: 0 30px 0 45px
+      font-weight: bold
+
+    // $Alert text CONTEXT: $Alert MOD: role notification
+    #{$block}_role_note &
+      padding: 0
+      font-weight: bold
+
+
+  // $Alert text line
+  &__line
+    display: block
+
+
+  // $Alert close button
+  &__button-close
+    position: absolute
+    width: 10px
+    height: 10px
+    top: 50%
+    right: 20px
+    display: block
+    margin-top: -5px
+    background-image: url(../icons/icon-close-white.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+
+    // $Alert close button CONTEXT: $Alert MOD: role page notification
+    #{$block}_role_page-note &
+      right: 15px
+      background-image: url(../icons/icon-close-alert-dark.svg)
+
+    #{$block}_role_page-note#{$block}_status_success &
+      background-image: url(../icons/icon-close-success-dark.svg)

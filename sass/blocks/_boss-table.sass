@@ -1,0 +1,642 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common table
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-table"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+  &_page_change-order-history
+    border: 1px solid #eee
+
+    @media screen and (max-width: 960px)
+      border: none
+
+
+  // $Common table row
+  &__row
+    +text-normalizer()
+
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    width: 100%
+    min-height: 90px
+    border-bottom: 1px solid #eee
+    background-color: #FFF
+
+    #{$block}_page_holidays-report &
+      padding-top: 15px
+      padding-bottom: 25px
+      min-height: 0
+
+    #{$block}_page_change-order-history &
+      min-height: 55px
+      border-bottom: none
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+      min-height: 0
+
+      #{$block}_page_fruit-order-history &
+        padding-top: 20px
+        padding-bottom: 20px
+
+      #{$block}_page_staff-members-index &
+        padding-top: 40px
+        padding-bottom: 40px
+
+      #{$block}_page_holidays-report &
+        padding-bottom: 15px
+
+      #{$block}_page_change-order-report &
+        padding-bottom: 20px
+        padding-top: 20px
+
+      #{$block}_page_change-order-history &
+        background-color: transparent
+
+    &:nth-child(odd)
+      #{$block}_page_change-order-report &
+        background-color: #fbfbfb
+
+    // $Common table first row
+    &:nth-child(1)
+      min-height: 60px
+
+      #{$block}_page_change-order-history &
+        min-height: 40px
+        background-color: $boss-dark-gray
+        color: #FFF
+
+      #{$block}_page_change-order-report &
+        background-color: #FFF
+
+      @media screen and (max-width: 960px)
+        display: none
+        min-height: 0
+
+        #{$block}_page_holidays-report &
+          display: flex
+
+    // $Common table second row
+    &:nth-child(2)
+      @media screen and (max-width: 960px)
+        #{$block}_page_change-order-report &
+          padding-top: 0
+
+
+  // $Common table cell
+  &__cell
+    flex-grow: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    padding: 15px
+
+    #{$block}_page_holidays-report &
+      align-items: flex-start
+
+    #{$block}_page_change-order-history &
+      padding: 10px 15px
+
+    @media screen and (max-width: 960px)
+      justify-content: center
+      padding: 10px
+
+      #{$block}_page_change-order-history &
+        padding-left: 0
+        padding-right: 0
+
+    &:first-child
+      padding-left: 25px
+
+      @media screen and (max-width: 960px)
+        padding-left: 15px
+
+        #{$block}_page_change-order-history &
+          padding-left: 0
+
+    &:last-child
+      padding-right: 25px
+
+      @media screen and (max-width: 960px)
+        padding-right: 15px
+
+        #{$block}_page_change-order-history &
+          padding-right: 0
+
+    // $Common table cell first column
+    &:nth-child(1)
+
+      #{$block}_page_staff-members-index &
+        width: 8%
+
+      #{$block}_page_fruit-order-history &
+        width: 18%
+        padding-left: 55px
+
+      #{$block}_page_holidays-report &
+        flex-shrink: 0
+        flex-grow: 0
+        width: 160px
+        padding-left: 30px
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &
+          width: 100%
+          padding-bottom: 25px
+
+        #{$block}_page_fruit-order-history &
+          width: 100%
+          padding-left: 10px
+
+        #{$block}_page_holidays-report &
+          width: 100%
+          padding-left: 0
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+        #{$block}_page_change-order-history &
+          width: 100%
+
+    // $Common table cell second column
+    &:nth-child(2)
+
+      #{$block}_page_staff-members-index &
+        width: 23%
+
+      #{$block}_page_fruit-order-history &
+        width: 25%
+
+      #{$block}_page_holidays-report &
+        width: 19%
+        padding-left: 0
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &
+          width: 100%
+
+        #{$block}_page_fruit-order-history &
+          width: 100%
+
+        #{$block}_page_holidays-report &
+          width: 100%
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+        #{$block}_page_change-order-history &
+          width: 100%
+
+    // $Common table cell third column
+    &:nth-child(3)
+
+      #{$block}_page_staff-members-index &
+        width: 23%
+
+      #{$block}_page_fruit-order-history &
+        width: 25%
+
+      #{$block}_page_holidays-report &
+        width: 19%
+        padding-left: 0
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &
+          width: 100%
+
+        #{$block}_page_fruit-order-history &
+          width: 100%
+
+        #{$block}_page_holidays-report &
+          width: 100%
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+        #{$block}_page_change-order-history &
+          width: 100%
+
+    // $Common table cell fourth column
+    &:nth-child(4)
+
+      #{$block}_page_staff-members-index &
+        width: 23%
+
+      #{$block}_page_fruit-order-history &
+        width: 32%
+        padding-right: 55px
+
+      #{$block}_page_holidays-report &
+        width: 19%
+        padding-left: 0
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &
+          width: 100%
+
+        #{$block}_page_fruit-order-history &
+          width: 100%
+          padding-right: 0
+
+        #{$block}_page_holidays-report &
+          width: 100%
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+        #{$block}_page_change-order-history &
+          width: 100%
+
+
+    // $Common table cell fifth column
+    &:nth-child(5)
+
+      #{$block}_page_staff-members-index &
+        width: 23%
+
+      #{$block}_page_holidays-report &
+        width: 19%
+        padding-left: 0
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &
+          width: 100%
+
+        #{$block}_page_holidays-report &
+          width: 100%
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+        #{$block}_page_change-order-history &
+          width: 100%
+
+    // $Common table cell sixth column
+    &:nth-child(6)
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 150px
+        padding-left: 0
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_holidays-report &
+          width: 100%
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+        #{$block}_page_change-order-history &
+          width: 100%
+
+    // $Common table cell seventh column
+    &:nth-child(7)
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      @media screen and (max-width: 960px)
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+        #{$block}_page_change-order-history &
+          width: 100%
+
+    // $Common table cell eighth column
+    &:nth-child(8)
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      @media screen and (max-width: 960px)
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+    // $Common table cell ninth column
+    &:nth-child(9)
+
+      #{$block}_page_change-order-report &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 140px
+
+      @media screen and (max-width: 960px)
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+    // $Common table cell MOD: role header
+    // $Common table cell MOD: role footer
+    &_role_header,
+    &_role_footer
+      font-size: 16px
+      text-transform: uppercase
+
+  // $Common table info
+  &__info
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+
+    #{$block}_page_holidays-report &
+      display: block
+      padding-top: 55px
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_holidays-report &
+        display: flex
+        justify-content: center
+        align-items: flex-start
+        padding-top: 0
+
+      #{$block}_page_change-order-report &
+        align-items: flex-start
+
+
+  // $Common table label
+  &__label
+    +text-normalizer()
+    display: none
+    text-transform: uppercase
+    text-align: right
+
+    #{$block}_page_holidays-report &
+      display: block
+      text-align: left
+      text-transform: none
+      font-size: 18px
+      color: $boss-medium-gray
+
+    #{$block}_page_change-order-report &
+      text-transform: none
+      font-weight: 600
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_holidays-report &
+        font-size: 16px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 0
+      display: block
+      width: 50%
+      padding-right: 50px
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        width: 220px
+        font-size: 18px
+        padding-right: 25px
+        padding-left: 25px
+
+      #{$block}_page_change-order-history &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 70px
+        padding-left: 0
+        padding-right: 35px
+
+      #{$block}_page_change-order-history &
+        text-transform: none
+        font-weight: 600
+
+    @media screen and (max-width: 640px)
+      padding-right: 40px
+
+      #{$block}_page_fruit-order-history &
+        width: 40%
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_fruit-order-history &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 120px
+        padding-right: 20px
+
+      #{$block}_page_holidays-report &
+        width: 50%
+        padding-right: 10px
+        font-size: 16px
+
+
+  // $Common table text
+  &__text
+    +text-normalizer()
+
+    #{$block}_page_holidays-report &
+      color: $boss-medium-gray
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 0
+      width: 50%
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        width: 220px
+        padding-right: 25px
+        padding-left: 25px
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_fruit-order-history &
+        width: 60%
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_holidays-report &
+        padding-left: 10px
+        width: 50%
+
+    &_role_date
+      white-space: nowrap
+      vertical-align: middle
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 12px
+        height: 12px
+        margin-right: 7px
+        background-size: cover
+        vertical-align: middle
+        background-image: url(../icons/icon-calendar-dark-gray.svg)
+
+    &_role_date#{&}_type_faded
+      &:before
+        background-image: url(../icons/icon-calendar-medium-gray.svg)
+
+
+
+  // $Common table actions
+  &__actions
+
+    #{$block}_page_fruit-order-history &
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
+    #{$block}_page_change-order-report &
+      display: flex
+      flex-direction: column
+      align-items: stretch
+      justify-content: flex-start
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 0
+      width: 50%
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        width: auto
+
+      #{$block}_page_change-order-report &
+        flex-direction: row
+        align-items: flex-start
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_fruit-order-history &
+        width: 60%
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_change-order-report &
+        flex-direction: column
+
+
+
+  // $Common table action
+  &__action
+    #{$block}_page_fruit-order-history &
+      margin-right: 15px
+
+    #{$block}_page_change-order-report &
+      margin-bottom: 10px
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_change-order-report &
+        margin-bottom: 0
+        margin-right: 10px
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_fruit-order-history &
+        margin-right: 10px
+
+      #{$block}_page_change-order-report &
+        margin-right: 0
+        margin-bottom: 10px
+
+    &:last-of-type
+      #{$block}_page_fruit-order-history &
+        margin-right: 0
+
+      #{$block}_page_change-order-report &
+        margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+
+        #{$block}_page_change-order-report &
+          margin-right: 0
+
+      @media screen and (max-width: 479px)
+
+        #{$block}_page_change-order-report &
+          margin-bottom: 0
+
+    // $Common table action MOD: desktop visible
+    &_desktop
+      display: inline-block
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_fruit-order-history &
+          display: none
+
+    // $Common table action MOD: mobile visible
+    &_mobile
+      display: none
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_fruit-order-history &
+          display: inline-block
+
+
+  // $Common table image
+  &__image
+    flex-grow: 0
+    flex-shrink: 0
+    display: block

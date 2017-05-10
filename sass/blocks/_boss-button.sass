@@ -1,0 +1,528 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common button
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+=button-common($background-color: map-get($boss-app-palette, primary) )
+  background-color: $background-color
+
+
+=button-common-hover-behavior($background-color, $amount: 3%)
+  cursor: pointer
+
+  &:hover,
+  &:focus
+    background-color: lighten($background-color, $amount)
+
+=button-bordered($primary-color: '#4c4c4c', $secondary-color: '#fff')
+  border: 2px solid $primary-color
+  background-color: $secondary-color
+  color: $primary-color
+
+
+=button-bordered-hover-behavior($primary-color: '#4c4c4c', $secondary-color: '#fff', $icon-hover-url: '')
+  cursor: pointer
+
+  &:hover,
+  &:focus
+    color: $secondary-color
+    background-color: $primary-color
+
+    &:after,
+    &:before
+      background-image: url($icon-hover-url)
+
+
+=button-bordered-active-behavior($primary-color: '#4c4c4c', $secondary-color: '#fff', $icon-active-url: '')
+
+  &#{$block}_state_active
+    color: $secondary-color
+    background-color: $primary-color
+
+    &:after,
+    &:before
+      background-image: url($icon-active-url)
+
+=button-with-icon-left($icon-url: '', $background-height: 13px)
+  white-space: nowrap
+  vertical-align: middle
+
+  &:before
+    content: ""
+    display: inline-block
+    width: 15px
+    height: 15px
+    margin-right: 10px
+    line-height: 100%
+    vertical-align: middle
+    background-image: url($icon-url)
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: auto $background-height
+
+
+=button-with-icon-right($icon-url: '', $background-height: 13px)
+  white-space: nowrap
+  vertical-align: middle
+
+  &:after
+    content: ""
+    display: inline-block
+    width: 15px
+    height: 15px
+    margin-left: 10px
+    line-height: 100%
+    vertical-align: middle
+    background-image: url($icon-url)
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: auto $background-height
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-button"
+
+#{$block}
+  $background-color: map-get($boss-app-palette, primary)
+
+  +normalize-block()
+  +box-model-normalizer()
+  +button-common($background-color: $background-color)
+  +button-common-hover-behavior($background-color: $background-color)
+
+  display: inline-block
+  padding: 15px 20px
+  border-radius: $boss-global-border-radius
+  line-height: 1
+  color: #fff
+  font-weight: 300
+  white-space: nowrap
+  transition: all .4s
+
+  @media screen and (max-width: 400px)
+    padding: 10px 15px
+
+  &:hover,
+  &:focus
+    color: #FFF
+
+  // $Common button MOD: MOD: adjust full width on mobile
+  &_adjust_full-mobile
+    @media screen and (max-width: 960px)
+      width: 100%
+      text-align: center
+
+  // $Common button MOD: type small
+  &_type_small
+    padding: 10px 15px
+
+    @media screen and (max-width: 400px)
+      padding: 6px 10px
+
+  // $Common button MOD: type label
+  &_type_label
+    padding: 8px 10px
+    font-size: 11px
+    font-weight: 400
+    text-transform: uppercase
+    cursor: default !important
+
+    @media screen and (max-width: 400px)
+      padding: 5px 6px
+      font-size: 10px
+
+  // $Common button MOD: type label action
+  &_type_action
+    position: relative
+    padding-right: 35px
+
+  // $Common button MOD: type icon
+  &_type_icon
+    &:before
+      margin-right: 0 !important
+
+    &:after
+      margin-left: 0 !important
+
+  // $Common button MOD: state disabled
+  &_state_disabled[disabled],
+  &_state_disabled,
+  &[disabled],
+    background-color: map-get($boss-app-palette, inactive) !important
+    cursor: not-allowed !important
+
+    &:hover,
+    &:focus
+      background-color: map-get($boss-app-palette, inactive) !important
+
+  // $Common button MOD: state visible
+  &_state_visible
+    display: inline-block
+
+  // $Common button MOD: state hidden
+  &_state_hidden
+    display: none
+
+
+  // Buttons without icons
+
+  // $Common button MOD: role primary
+  // $Common button MOD: role submit
+  &_role_primary,
+  &_role_submit
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role secondary
+  // $Common button MOD: role file
+  // $Common button MOD: role back
+  // $Common button MOD: role enabled
+  &_role_secondary,
+  &_role_file,
+  &_role_back,
+  &_role_enabled
+    $background-color: map-get($boss-app-palette, secondary)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role alert
+  // $Common button MOD: role disabled
+  &_role_alert,
+  &_role_disabled
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role inactive
+  &_role_inactive
+    $background-color: map-get($boss-app-palette, inactive)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role published
+  &_role_published
+    $background-color: map-get($boss-app-palette, published)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: label floor manager
+  &_role_floor
+    $background-color: map-get($boss-roles-palette, floor-staff)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role manager
+  &_role_manager
+    $background-color: map-get($boss-roles-palette, manager)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role gm
+  &_role_gm
+    $background-color: map-get($boss-roles-palette, gm)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role bar-supervisor
+  &_role_bar-supervisor
+    $background-color: map-get($boss-roles-palette, bar-supervisor)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role bartender
+  &_role_bartender
+    $background-color: map-get($boss-roles-palette, bartender)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role floor-staff
+  &_role_floor-staff
+    $background-color: map-get($boss-roles-palette, floor-staff)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role waitress
+  &_role_waitress
+    $background-color: map-get($boss-roles-palette, waitress)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role kp
+  &_role_kp
+    $background-color: map-get($boss-roles-palette, kp)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role hostess
+  &_role_hostess
+    $background-color: map-get($boss-roles-palette, hostess)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role chef
+  &_role_chef
+    $background-color: map-get($boss-roles-palette, chef)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role security
+  &_role_security
+    $background-color: map-get($boss-roles-palette, security)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role pr
+  &_role_pr
+    $background-color: map-get($boss-roles-palette, pr)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  // $Legend item MOD: role bar-back
+  &_role_bar-back
+    $background-color: map-get($boss-roles-palette, bar-back)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // Buttons with icons
+  // $Common button MOD: role edit
+  &_role_edit
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role view orders
+  &_role_view-orders
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-text-paper-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role view order
+  &_role_view-order
+    $background-color: map-get($boss-app-palette, secondary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role add
+  &_role_add
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/plus-white.svg', $background-height: 12px)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role add secondary
+  &_role_add-secondary
+    $background-color: map-get($boss-app-palette, secondary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/plus-white.svg', $background-height: 12px)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  &_role_delete
+    $background-color: map-get($boss-app-palette, delete)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-close-white.svg', $background-height: 11px)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  &_role_pdf-download
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-text-paper-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  &_role_csv-download
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-text-paper-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  &_role_download
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-download-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role exclamation
+  &_role_exclamation
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/danger-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role fail
+  &_role_fail
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/thumb-down.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role fail reverse
+  &_role_fail_reverse
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-right($icon-url: '../icons/thumb-down.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  &_role_calendar
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-calendar-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+    background-position-y: 48%
+
+
+  // $Common button MOD: role cancel
+  &_role_cancel
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-close-white.svg', $background-height: 10px)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role cancel reverse
+  &_role_cancel_reverse
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-right($icon-url: '../icons/icon-close-white.svg', $background-height: 10px)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role block
+  &_role_block
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-block-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role block reverse
+  &_role_block_reverse
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-right($icon-url: '../icons/icon-block-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role review
+  &_role_review
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/checked-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: role success
+  &_role_success
+    $background-color: map-get($boss-app-palette, secondary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/checked-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // $Common button MOD: success reverse
+  &_role_success_reverse
+    $background-color: map-get($boss-app-palette, secondary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-right($icon-url: '../icons/checked-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
+  // Bordered buttons
+  // $Common button MOD: role details
+  &_role_details
+    $primary-color: map-get($boss-app-palette, secondary)
+    $secondary-color: #fff
+    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-with-icon-left($icon-url: '../icons/icon-plus-secondary.svg', $background-height: 12px)
+    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-plus-white.svg')
+    +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-plus-white.svg')
+
+
+  // $Common button MOD: monochrome button profile
+  &_role_profile
+    $primary-color: #4c4c4c
+    $secondary-color: #fff
+    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-with-icon-left($icon-url: '../icons/icon-users-dark-gray.svg')
+    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-users-white.svg')
+    +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-users-white.svg')
+
+
+  // $Common button MOD: monochrome button holidays
+  &_role_holidays
+    $primary-color: #4c4c4c
+    $secondary-color: #fff
+    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-with-icon-left($icon-url: '../icons/icon-holidays-dark-gray.svg')
+    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-holidays-white.svg')
+    +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-holidays-white.svg')
+
+  // $Common button MOD: monochrome button timelog
+  &_role_timelog
+    $primary-color: #4c4c4c
+    $secondary-color: #fff
+    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-with-icon-left($icon-url: '../icons/icon-clock-dark-gray.svg')
+    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-clock-white.svg')
+    +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-clock-white.svg')
+
+
+  &__action
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    display: block
+    width: 25px
+    font-size: 0
+    color: transparent
+    background-color: rgba(0,0,0,.2)
+    border-top-right-radius: $boss-global-border-radius
+    border-bottom-right-radius: $boss-global-border-radius
+    cursor: pointer
+
+    &:before
+      content: ""
+      display: block
+      position: absolute
+      top: 50%
+      left: 50%
+      width: 10px
+      height: 10px
+      margin-top: -5px
+      margin-left: -5px
+      background-size: contain
+      background-repeat: no-repeat
+      background-position: center center
+
+    &_role_close
+      &:before
+        background-image: url('../icons/icon-close-white.svg');
+
