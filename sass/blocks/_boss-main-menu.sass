@@ -1,0 +1,164 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Main menu
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-main-menu"
+
+#{$block}
+  $menu-min-height: 60px
+  $button-padding-side: 12px
+
+  +normalize-block()
+
+  display: flex
+  width: 100%
+  min-height: $menu-min-height
+  background-color: white
+  border-bottom: 1px solid $boss-very-light-gray
+
+  @media screen and (max-width: 1360px)
+    align-items: center
+    justify-content: space-between
+
+  // $Main menu navigation icon
+  &__navicon
+    display: none
+    width: 30px
+    margin-right: 30px
+    cursor: pointer
+
+    @media screen and (max-width: 1360px)
+      display: block
+
+    &:after
+      content: ""
+      display: block
+      width: 30px
+      height: 30px
+      background: url(../icons/icon-hamburger-dark-gray.svg) center center no-repeat
+      background-size: contain
+
+    // span
+    //   display: block
+    //   height: 4px
+    //   border-radius: 5px
+    //   background-color: $boss-dark-gray
+
+    //   &:not(:last-of-type)
+    //     margin-bottom: 5px
+
+
+  // $Main menu logo button
+  &__logo-button
+    +normalize-block($color: $boss-global-font-color)
+
+    display: inline-block
+    padding: 0 30px
+    font-size: 20px
+    line-height: $menu-min-height
+    font-weight: 600
+
+
+  // $Main menu buttons
+  &__buttons
+    +normalize-block()
+
+    display: flex
+    flex-wrap: wrap
+
+    @media screen and (max-width: 1360px)
+      display: none
+
+
+    // $Main menu buttons type primary
+    &_type_primary
+
+    // $Main menu buttons type secondary
+    &_type_secondary
+      margin-left: auto
+      flex-wrap: nowrap
+
+
+  // $Main menu button
+  &__button
+    @at-root .menu > li#{&}
+      display: inline-flex
+      box-sizing: border-box
+      height: $menu-min-height
+      align-items: center
+      cursor: pointer
+
+      @media screen and (max-width: 1024px)
+        height: 35px
+
+    // $Main menu button MOD: state active
+    &_state_active
+      border-bottom: 3px solid map-get($boss-app-palette, primary)
+
+    // $Main menu button MOD: type dropdown
+    &_type_dropdown
+      padding-right: 10px
+      background: url(../icons/icon-down-arrow-medium-gray.svg) no-repeat right 10px center
+      background-size: auto 9px
+
+      &:hover
+        background-image: url(../icons/icon-down-arrow-dark-gray.svg)
+
+    // $Main menu button MOD: type initials
+    &_type_initials
+      padding: 0 $button-padding-side
+
+
+  // $Main menu button link
+  &__button-link
+    @at-root .menu > li > a#{&},
+    .dropdown.menu > li.is-dropdown-submenu-parent > a#{&}
+      +normalize-block($color: $boss-light-gray)
+
+      display: block
+      padding: 0 $button-padding-side
+      font-size: 12px
+      font-weight: 500
+      line-height: $menu-min-height
+
+      &:after
+        display: none
+
+      &:hover
+        color: $boss-dark-gray
+
+    // $Main menu button link CONTEXT: $Main menu button MOD: state active
+    // $Main menu button link CONTEXT: $Main menu button STATE: hover
+    #{$block}__button_state_active &,
+    #{$block}__button:hover &
+      color: $boss-dark-gray
+
+    // $Main menu button link MOD: type initials
+    &_type_initials
+      $side-size: 40px
+
+      +normalize-block($color: white)
+
+      width: $side-size
+      height: $side-size
+      padding: 0
+      text-align: center
+      line-height: $side-size
+      border-radius: 50%
+      background-color: map-get($boss-app-palette, secondary)
+      color: white
+
+
+  // $Main menu dropdown list
+  &__dropdown-list
+    display: none

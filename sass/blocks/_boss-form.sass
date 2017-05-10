@@ -1,0 +1,1124 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common form
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-form"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+  &_role
+    &_enter_key
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      width: 100%
+
+  // $Common form MOD: context stack
+  &_context_stack
+    margin-bottom: 30px
+
+
+  // $Common form group
+  &__group
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 25px
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 20px
+    // $Common form group MOD: layout half
+    // $Common form group MOD: layout third
+    &_layout_half,
+    &_layout_third
+      flex-grow: 0
+      flex-shrink: 1
+      margin-right: 30px
+      margin-bottom: 0
+
+      @media screen and (max-width: 1280px)
+        margin-right: 20px
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+        margin-bottom: 20px
+
+      &:last-of-type
+        margin-right: 0
+        margin-bottom: 0
+
+        @media screen and (max-width: 1280px)
+          margin-right: 0
+          margin-bottom: 0
+
+        @media screen and (max-width: 960px)
+          margin-bottom: 0
+
+    &_layout_half
+      width: 50%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+    &_layout_third
+      width: 33%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+    // $Common form group MOD: last position
+    &_position_last
+      margin-right: 0
+      margin-bottom: 0
+
+      @media screen and (max-width: 1280px)
+        margin-right: 0
+        margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+    // $Common form group MOD: role board
+    &_role_board
+      padding: 25px 30px
+      background-color: #FFF
+      box-shadow: 0 0 30px 0 rgba(0,0,0,.1)
+
+      @media screen and (max-width: 960px)
+        padding: 0
+        box-shadow: none
+
+    // $Common form group MOD: state visible
+    &_state_visible
+      display: inline-block
+
+    // $Common form group MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Common form row
+  &__row
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    margin-bottom: 25px
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+      align-items: flex-start
+      margin-bottom: 20px
+
+    // $Common form row MOD: last position
+    &:last-of-type,
+    &_position_last
+      margin-bottom: 0
+
+    // $Common form row MOD: justify space
+    &_justify_space
+      justify-content: space-between
+
+    // $Common form row MOD: layout no-wrap
+    &_layout_nowrap
+      flex-direction: row
+
+      @media screen and (max-width: 960px)
+        flex-direction: row
+
+    // $Common form row MOD: desktop visible
+    &_desktop
+      display: flex
+
+      @media screen and (max-width: 960px)
+        display: none
+
+    // $Common form row MOD: mobile visible
+    &_mobile
+      display: none
+
+      @media screen and (max-width: 960px)
+        display: flex
+
+
+  // $Common form field
+  &__field
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 25px
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 20px
+
+    // $Common form field MOD: layout half
+    // $Common form field MOD: layout third
+    // $Common form field MOD: layout max
+    // $Common form field MOD: layout min
+    &_layout_half,
+    &_layout_third,
+    &_layout_max,
+    &_layout_min
+      flex-grow: 0
+      flex-shrink: 1
+      margin-right: 30px
+      margin-bottom: 0
+
+      @media screen and (max-width: 1280px)
+        margin-right: 20px
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+        margin-bottom: 20px
+
+        #{$block}__row_layout_nowrap &
+          margin-bottom: 0
+          margin-right: 20px
+
+      @media screen and (max-width: 640px)
+        #{$block}__row_layout_nowrap &
+          margin-right: 15px
+
+    &_layout_half
+      width: 50%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+    &_layout_third
+      width: 33%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+    &_layout_max
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
+
+    &_layout_min
+      flex-grow: 0
+      flex-shrink: 0
+      width: auto
+
+    &_layout_fluid
+      flex-grow: 0
+      flex-shrink: 0
+      width: auto
+
+      @media screen and (max-width: 960px)
+        flex-grow: 1
+        flex-shrink: 1
+        width: 100%
+
+    // $Common form field MOD: position last
+    &:last-of-type,
+    &_position_last
+      margin-right: 0
+      margin-bottom: 0
+
+      @media screen and (max-width: 1280px)
+        margin-right: 0
+        margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+    // $Common form field MOD: no label
+    &_no-label
+      padding-top: 35px
+
+      @media screen and (max-width: 960px)
+        padding-top: 0
+
+    // $Common form field MOD: justify end
+    &_justify_end
+      text-align: right
+
+    // $Common form field MOD: justify start
+    &_justify_start
+      text-align: left
+
+    // $Common form field MOD: justify mobile center
+    &_justify_mobile-center
+      @media screen and (max-width: 960px)
+        text-align: center
+
+    // $Common form field MOD: role controls
+    &_role_controls
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+
+      @media screen and (max-width: 960px)
+        justify-content: space-between
+
+    // $Common form field MOD: type control
+    &_role_control
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: stretch
+
+      @media screen and (max-width: 960px)
+        flex-grow: 1
+        flex-shrink: 1
+        width: 100%
+
+
+  // $Common form field note
+  &__field-note
+    margin-top: 10px
+    margin-bottom: 0
+    color: #808080
+    line-height: 1
+
+
+  // $Common form interval
+  &__interval
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-end
+    width: 100%
+
+    @media screen and (max-width: 640px)
+      padding-left: 25px
+
+    &:before
+      content: ''
+      position: absolute
+      bottom: 15px
+      left: 0
+      z-index: 10
+      display: none
+      width: 15px
+      height: 15px
+      background: url(../icons/icon-clock-medium-gray.svg) no-repeat 0 0
+      background-size: contain
+
+      @media screen and (max-width: 640px)
+        display: block
+
+
+  // $Common form interval item
+  &__interval-item
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+
+
+  // $Common form interval delimiter
+  &__interval-delimiter
+    flex-grow: 0
+    flex-shrink: 0
+    position: relative
+    display: block
+    width: 40px
+    height: 45px
+
+    @media screen and (max-width: 640px)
+      width: 25px
+      height: 35px
+
+    &:after
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 10px
+      height: 0
+      margin-top: -5px
+      border: 1px solid $boss-medium-gray
+      transform: translate(-50%, -50%)
+
+
+
+  // $Common form control
+  &__control
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: auto
+    margin-right: 30px
+    margin-bottom: 0
+    background-color: #FFF
+
+    @media screen and (max-width: 1280px)
+      margin-right: 20px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
+      margin-right: 0
+      margin-bottom: 20px
+
+    &:last-of-type,
+    &_position_last
+      margin-right: 0
+
+      @media screen and (max-width: 1280px)
+        margin-right: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+
+  // $Common form label
+  &__label
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    margin: 0
+
+    // $Common form label CONTEXT: $Common form control
+    #{$block}__field_role_control &,
+    #{$block}__control &
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+      padding: 15px 20px
+      border: 1px solid $boss-very-light-gray
+      border-right: none
+      background-color: #FFF
+
+    #{$block}__field_role_control  &_type_light,
+    #{$block}__control &_type_light
+      border: none
+      padding-left: 0
+      background-color: transparent
+
+    @media screen and (max-width: 960px)
+      #{$block}__field_role_control &,
+      #{$block}__control &
+        flex-grow: 0
+        flex-shrink: 0
+
+    // $Common form label MOD: type venue icon
+    // $Common form label MOD: type filter icon
+    // $Common form label MOD: type date icon
+    &_type_icon-venue,
+    &_type_icon-filter,
+    &_type_icon-date
+      &:before
+        content: ""
+        flex-grow: 0
+        flex-shrink: 0
+        display: inline-block
+        width: 15px
+        height: 15px
+        margin-right: 10px
+        line-height: 100%
+        vertical-align: middle
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+
+    &_type_icon-venue
+      &:before
+        background-image: url('../icons/icon-storefront-dark-gray.svg')
+
+    &_type_icon-filter
+
+      &:before
+        background-image: url('../icons/icon-filter-dark-gray.svg')
+
+    &_type_icon-date
+
+      &:before
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    // $Common form label MOD: type icon-single
+    &_type_icon-single
+      &:before
+        margin-right: 0
+
+    &_desktop
+      @media screen and(max-width: 960px)
+        #{$block}__field_role_control &,
+        #{$block}__control &
+          display: none
+
+
+  // $Common form label-text
+  &__label-text
+    display: block
+    margin-bottom: 12px
+    line-height: 1
+
+    // $Common form label text CONTEXT: $Common form control
+    #{$block}__field_role_control &,
+    #{$block}__control &
+      margin-bottom: 0
+      white-space: nowrap
+
+    // $Common form label-text MOD: typerequired field
+    &_type_required
+      &:after
+        content: '*'
+        margin-left: 2px
+
+    // $Common form label-text MOD: type hidden
+    &_type_hidden
+      font-size: 0
+      color: transparent
+
+
+  // $Common form units label
+  &__units
+    display: flex
+    flex-direction: row
+    align-items: stretch
+    justify-content: flex-start
+    width: 100%
+
+
+  // $Common form units label value
+  &__units-value
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 50px
+    padding: 13px 5px
+    text-align: center
+    font-size: 16px
+    background-color: $boss-extra-light-gray
+    border: 1px solid $boss-very-light-gray
+    border-right: none
+    font-weight: bold
+
+
+  // $Common form input
+  &__input
+    +text-normalizer()
+    display: block
+    width: 100%
+    height: auto
+    box-sizing: border-box
+    border: 1px solid $boss-very-light-gray
+    padding: 15px 20px
+    border-radius: 2px
+    box-shadow: none
+
+    #{$block}__search &
+      border: none
+
+    #{$block}__units &
+      width: calc(100% - 50px)
+
+    &:focus
+      outline: none
+      box-shadow: none
+      border-color: $boss-very-light-gray
+
+    // $Common form input MOD: state error
+    &_state_error
+      border-color: map-get($boss-app-palette, alert-border)
+      color: map-get($boss-app-palette, alert)
+
+      &:focus
+        border-color: map-get($boss-app-palette, alert)
+
+
+  // $Common form textarea
+  &__textarea
+    +text-normalizer()
+    resize: vertical
+    display: block
+    width: 100%
+    height: 50px
+    box-sizing: border-box
+    border: 1px solid $boss-very-light-gray
+    padding: 15px 20px
+    box-shadow: none
+
+    &:focus
+      outline: none
+      box-shadow: none
+      border-color: $boss-very-light-gray
+
+    // $Common form textarea MOD: state error
+    &_state_error
+      border-color: map-get($boss-app-palette, alert-border)
+      color: map-get($boss-app-palette, alert)
+
+      &:focus
+        border-color: map-get($boss-app-palette, alert)
+
+
+  // $Common form submit button
+  &__submit,
+  &__button
+
+    &_adjust_single
+      @media screen and(max-width: 960px)
+        width: 100%
+        text-align: center
+
+    &_adjust_row
+      margin-right: 10px
+
+    &_adjust_max
+      flex-grow: 1
+      text-align: center
+
+
+  // $Common form search
+  &__search
+    position: relative
+    display: block
+    width: 100%
+    padding-left: 25px
+    border: 1px solid $boss-very-light-gray
+    border-radius: 2px
+    background-color: #FFF
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 20px
+      margin-top: -5px
+      display: block
+      width: 12px
+      height: 12px
+      background-size: cover
+      vertical-align: middle
+      background-image: url(../icons/icon-lens-gray.svg)
+
+    &_type_light
+      border: none
+      padding-left: 10px
+
+      &:before
+        left: 0
+
+
+  // $Common form select
+  &__select
+    position: relative
+    display: block
+    width: 100%
+    border: 1px solid $boss-very-light-gray
+    border-radius: 2px
+    background-color: #FFF
+
+    // $Common form select CONTEXT: $Common form control
+    #{$block}__field_role_control &,
+    #{$block}__control &
+      min-width: 150px
+
+    @media screen and (max-width: 960px)
+      #{$block}__field_role_control &,
+      #{$block}__control &
+        flex-grow: 1
+        width: 50%
+
+    &:before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 15px
+      z-index: 10
+      display: none
+      width: 15px
+      height: 15px
+      background-size: contain
+      transform: translateY(-50%)
+
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      right: 20px
+      z-index: 10
+      display: block
+      width: 9px
+      height: 9px
+      background: url(../icons/icon-down-arrow-medium-gray.svg) no-repeat 0 0
+      transform: translateY(-50%)
+
+      @media screen and (max-width: 640px)
+        right: 10px
+
+    // $Common form select MOD: state error
+    &_state_error
+      border: 1px solid map-get($boss-app-palette, alert-border)
+
+    // $Common form select MOD: size small
+    &_size_small
+      width: 240px
+
+      @media screen and(max-width: 960px)
+        #{$block}_page_hrc &
+          width: 100%
+
+    // $Common form select MOD: size small fluid
+    &_size_small-fluid
+      width: 240px
+
+      @media screen and(max-width: 960px)
+        width: 100%
+
+    &_role_time
+      &:before
+        display: block
+        background: url(../icons/icon-clock-medium-gray.svg) no-repeat 0 0
+
+        @media screen and (max-width: 640px)
+          display: none
+
+
+  // $Common form select options
+  &__select-options,
+  &__select select
+    +text-normalizer()
+
+    position: relative
+    z-index: 1
+    display: block
+    width: 100%
+    height: auto
+    box-sizing: border-box
+    background: none
+    padding: 15px 40px 15px 15px
+    border: none
+    appearance: none
+    -moz-appearance: none
+    -webkit-appearance: none
+    transition: all .3s
+    outline: none
+
+    &::-ms-expand
+      display: none
+
+    &:focus::-ms-value
+      background-color: transparent
+      color: #4c4c4c
+
+  &__select-options
+    // $Common form select options CONTEXT: $Common form select MOD: state selected
+    #{$block}__select_state_selected &
+      display: none
+
+    #{$block}__select_role_time &
+      padding-left: 40px
+
+    @media screen and (max-width: 640px)
+      #{$block}__select_role_time &
+        padding: 10px 20px 10px 10px
+
+  &__select_state_selected select
+    display: none
+
+  &__select_role_time select
+    padding-left: 40px
+
+    @media screen and (max-width: 640px)
+      padding: 10px 20px 10px 10px
+
+
+  // $Common form select option
+  &__select-option,
+  &__select option
+    display: block
+    width: 100%
+    max-width: 100%
+    font-weight: normal
+    outline: none
+    border: none
+
+
+  // $Common form select value
+  &__select-value
+    +text-normalizer()
+    position: relative
+    display: none
+    width: 100%
+    height: auto
+    box-sizing: border-box
+    background: none
+    padding: 15px 20px 15px 15px
+
+    &_role_label
+      padding-top: 10px
+      padding-bottom: 10px
+      padding-right: 100px
+
+    // $Common form select option CONTEXT: $Common form select MOD: state selected
+    #{$block}__select_state_selected &
+      display: block
+
+    #{$block}__select_role_time &
+      padding-left: 40px
+
+    @media screen and (max-width: 640px)
+      #{$block}__select_role_time &
+        padding: 10px 20px 10px 10px
+
+
+  // $Common form select cancel
+  &__select-cancel
+    display: block
+    position: absolute
+    top: 50%
+    right: 50px
+    width: 10px
+    height: 10px
+    margin-top: -5px
+    font-size: 0
+    color: transparent
+    background-image: url('../icons/icon-close-light-gray.svg');
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center center
+
+    @media screen and (max-width: 960px)
+      right: 40px
+
+    @media screen and (max-width: 640px)
+      right: 30px
+
+
+  // $Common form switcher
+  &__switcher
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+
+    // $Common form field MOD: size small
+    &_size_small
+      width: 33%
+
+      @media screen and (max-width: 1280px)
+        width: 66%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+
+  // $Common form switcher radio
+  &__switcher-radio
+    display: none
+
+
+  // $Common form switcher label
+  &__switcher-label
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 50%
+
+
+  // $Common form switcher label text
+  &__switcher-label-text
+    position: relative
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    padding: 15px 30px
+    border: 1px solid map-get($boss-app-palette, inactive)
+    border-left: none
+    border-radius: 2px
+    white-space: nowrap
+    text-align: center
+    cursor: pointer
+    background-color: #FFF
+    transition: all .4s
+
+    // $Common form switcher label CONTEXT: $Common form switcher radio STATE: checked
+    #{$block}__switcher-radio:checked ~ &,
+    &_state_active
+      background-color: map-get($boss-app-palette, primary)
+      color: #fff
+      cursor: default
+
+    #{$block}__switcher-radio:checked ~ &_type_border,
+    &_type_border#{&}_state_active
+      background-color: #FFF
+      color: #4c4c4c
+
+    // $Common form switcher label CONTEXT: $Common form switcher label first
+    #{$block}__switcher-label:first-of-type &
+      border-left: 1px solid map-get($boss-app-palette, inactive)
+
+    &:hover
+      color: #4c4c4c
+
+      #{$block}__switcher-radio:checked ~ &
+        color: #fff
+
+      #{$block}__switcher-radio:checked ~ &_type_border
+        color: #4c4c4c
+
+    // $Common form switcher label text MOD: type border
+    &_type_border
+      &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        right: 0
+        left: 0
+        height: 5px
+        background-color: #FFF
+        transition: all .4s
+
+        #{$block}__switcher-radio:checked ~ &_type_border
+          background-color: map-get($boss-app-palette, primary)
+
+    // $Common form switcher label text MOD: state active
+    &_state_active
+      &:hover
+        color: #fff
+
+    // $Common form switcher label text MOD: type border state active
+    &_type_border#{&}_state_active
+      &:hover
+        color: #4c4c4c
+
+      &:after
+        background-color: map-get($boss-app-palette, primary)
+
+    @media screen and (max-width: 960px)
+      padding: 13px 20px
+
+
+  // $Common form checkbox input
+  &__checkbox-input
+    display: none
+
+
+  // $Common form checkbox label
+  &__checkbox-label
+    +text-normalizer()
+    display: block
+    cursor: pointer
+
+
+  // $Common form checkbox label text
+  &__checkbox-label-text
+    position: relative
+    display: inline-block
+    padding-left: 30px
+
+    @media screen and (max-width: 640px)
+      padding-left: 25px
+
+    &:before
+      content: ""
+      box-sizing: border-box
+      position: absolute
+      top: 0
+      left: 0
+      display: block
+      width: 20px
+      height: 20px
+      background-color: #FFF
+      border: 1px solid map-get($boss-app-palette, inactive)
+      border-radius: 3px
+
+      @media screen and (max-width: 640px)
+        width: 15px
+        height: 15px
+        top: 3px
+
+      #{$block}__checkbox-input:checked ~ &
+        background-color: map-get($boss-app-palette, primary)
+        border-color: map-get($boss-app-palette, primary)
+
+    &:after
+      content: ""
+      box-sizing: border-box
+      position: absolute
+      top: 5px
+      left: 5px
+      display: block
+      width: 10px
+      height: 10px
+      background-image: url('../icons/checked-white.svg')
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      visibility: hidden
+
+      @media screen and (max-width: 640px)
+        left: 3px
+
+      #{$block}__checkbox-input:checked ~ &
+        visibility: visible
+
+
+
+  // $Common form pagination
+  &__pagination
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 100%
+    padding: 20px
+    background-color: #FFF
+
+    @media screen and (max-width: 960px)
+      padding: 13px 15px
+
+    @media screen and (max-width: 640px)
+      padding-left: 10px
+      padding-right: 10px
+
+
+  // $Common form pagination control
+  &__pagination-control
+    position: relative
+    display: inline-block
+    width: 28px
+    height: 28px
+    font-size: 0
+    color: transparent
+    line-height: 0
+    vertical-align: middle
+    cursor: pointer
+    outline: none
+    transition: .4s
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 20px
+      height: 20px
+      background-image: url(../icons/icon-arrow-left-light-gray.svg)
+      transform: translate(-50%, -50%)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+      transform-origin: center center
+      transition: all .4s
+
+    // $Common form pagination control MOD: prev
+    &_prev
+      &:before
+        background-image: url(../icons/icon-arrow-left-light-gray.svg)
+
+    // $Common form pagination control MOD: next
+    &_next
+      &:before
+        background-image: url(../icons/icon-arrow-left-light-gray.svg)
+        transform: translate(-50%, -50%) rotate(-180deg)
+
+
+  // $Common form pagination label
+  &__pagination-label
+    +text-normalizer()
+    font-size: 16px
+    padding: 0 80px
+    white-space: nowrap
+
+    @media screen and(max-width: 960px)
+      padding-right: 60px
+      padding-left: 60px
+
+    @media screen and(max-width: 640px)
+      padding-right: 40px
+      padding-left: 40px
+
+    @media screen and(max-width: 479px)
+      padding-right: 15px
+      padding-left: 15px
+
+
+  // $Common form error message
+  &__error
+    display: block
+    position: relative
+    margin: 10px 0
+    padding: 10px 20px
+    background-color: map-get($boss-app-palette, error-background)
+    border-radius: $boss-global-border-radius
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 20px
+      display: block
+      width: 18px
+      height: 18px
+      margin-top: -9px
+      background-image: url(../icons/danger-white.svg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+
+  // $Common form error message text
+  &__error-text
+    +text-normalizer()
+    position: relative
+    display: block
+    padding-left: 30px
+    font-weight: 300
+    color: #FFF
+
+  // $Common form error message text line
+  &__error-line
+    display: block
+
+
+  ::-webkit-input-placeholder
+    color: $boss-input-placeholder-color
+    opacity:  1 !important
+
+
+  :-moz-placeholder
+    color: $boss-input-placeholder-color
+    opacity:  1 !important
+
+
+  ::-moz-placeholder
+    color: $boss-input-placeholder-color
+    opacity:  1 !important
+
+
+  :-ms-input-placeholder
+    color: $boss-input-placeholder-color
+    opacity:  1 !important
+
+
+  :placeholder-shown
+    color: $boss-input-placeholder-color
+    opacity:  1 !important
+

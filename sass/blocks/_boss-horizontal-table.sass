@@ -1,0 +1,381 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Horizontal table
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-horizontal-table"
+
+#{$block}
+  +box-model-normalizer()
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-start
+  width: 100%
+
+
+  // $Horizontal table column
+  &__column
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+
+    // $Horizontal table first column
+    &:nth-child(1)
+      width: 33%
+
+      #{$block}_page_fruit-order-report &
+        flex-shrink: 1
+        width: 280px
+        background-color: #FFF
+
+      @media screen and (max-width: 800px)
+        #{$block}_page_fruit-order-report &
+          flex-grow: 1
+          width: 100%
+
+    // $Horizontal table second column
+    &:nth-child(2)
+      width: 33%
+
+      #{$block}_page_fruit-order-report &
+        flex-grow: 1
+        flex-shrink: 1
+        width: 50%
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_fruit-order-report &
+          width: 40%
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_fruit-order-report &
+          width: 35%
+
+      @media screen and (max-width: 800px)
+        #{$block}_page_fruit-order-report &
+          flex-grow: 0
+          flex-shrink: 0
+          width: 160px
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_fruit-order-report &
+          width: 120px
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_fruit-order-report &
+          width: 100px
+
+      @media screen and (max-width: 400px)
+        #{$block}_page_fruit-order-report &
+          width: 80px
+
+    // $Horizontal table third column
+    &:nth-child(3)
+      width: 33%
+
+      #{$block}_page_fruit-order-report &
+        width: 220px
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_fruit-order-report &
+          width: 180px
+
+      @media screen and (max-width: 960px)
+        #{$block}_page_fruit-order-report &
+          width: 160px
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_fruit-order-report &
+          width: 120px
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_fruit-order-report &
+          width: 80px
+
+  // $Horizontal table group
+  &__group
+    #{$block}_page_fruit-order-report &
+      border-left: 2px solid $boss-extra-light-gray
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_fruit-order-report &
+        border-left: none
+
+  // $Horizontal table scroll
+  &__scroll
+    position: relative
+    width: 100%
+
+
+  // $Horizontal table scroll item
+  &__scroll-item
+    position: relative
+    width: 100%
+
+
+  // $Horizontal table cell
+  &__cell
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    text-align: center
+    padding: 15px
+    height: 60px
+
+    #{$block}_page_fruit-order-report &
+      padding: 15px 25px
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_fruit-order-report &
+        padding-left: 0
+        padding-right: 0
+
+    // $Horizontal table cell MOD: role header
+    // $Horizontal table cell MOD: role footer
+    &_role_header,
+    &_role_footer
+      text-transform: uppercase
+      font-weight: 600
+
+    &_role_header
+      justify-content: flex-start
+      text-align: left
+
+      @media screen and (max-width: 960px)
+        #{$block}_page_fruit-order-report &
+          padding-left: 15px
+          padding-right: 15px
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_fruit-order-report &
+          padding-left: 0
+          padding-right: 0
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_fruit-order-report &
+          font-size: 13px
+
+    &_role_footer
+      background-color: $boss-extra-light-gray
+
+    // $Horizontal table cell MOD: role actions
+    &_role_actions
+      height: auto
+      padding: 25px 15px 0
+
+      @media screen and (max-width: 1120px)
+        padding-left: 10px
+        padding-right: 10px
+
+
+  // $Horizontal table actions
+  &__actions
+
+    #{$block}_page_fruit-order-report &
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
+    @media screen and (max-width: 400px)
+      #{$block}_page_fruit-order-report &
+        flex-direction: column
+
+
+  // $Horizontal table action
+  &__action
+    #{$block}_page_fruit-order-report &
+      margin-right: 15px
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_fruit-order-report &
+        margin-right: 10px
+
+    @media screen and (max-width: 400px)
+      #{$block}_page_fruit-order-report &
+        margin-right: 0
+        margin-bottom: 10px
+
+    &:last-of-type
+      #{$block}_page_fruit-order-report &
+        margin-right: 0
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_fruit-order-report &
+          margin-right: 0
+
+      @media screen and (max-width: 400px)
+        #{$block}_page_fruit-order-report &
+          margin-bottom: 0
+
+    // $Horizontal table action MOD: desktop visible
+    &_desktop
+      display: inline-block
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_fruit-order-report &
+          display: none
+
+    // $Horizontal table action MOD: mobile visible
+    &_mobile
+      display: none
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_fruit-order-report &
+          display: inline-block
+
+    // $Horizontal table action MOD: complete all button
+    &_role_complete-all
+      @media screen and (max-width: 800px)
+        display: none
+
+
+
+  // Owl slider custom theming
+  @at-root
+    #pending-orders,
+    #accepted-orders
+      .owl-wrapper-outer
+        position: relative
+
+
+      .owl-wrap
+        overflow: hidden
+
+
+      .owl-controls
+        position: absolute
+        right: -220px
+        top: -70px
+        white-space: nowrap
+        vertical-align: middle
+
+        @media screen and (max-width: 1120px)
+          right: -180px
+
+        @media screen and (max-width: 960px)
+          right: -160px
+
+        @media screen and (max-width: 640px)
+          top: -55px
+          right: -120px
+
+        @media screen and (max-width: 479px)
+          right: -80px
+
+        &.clickable
+          cursor: default
+
+
+      .owl-buttons
+        display: inline-block
+        white-space: nowrap
+        vertical-align: middle
+
+      .owl-prev,
+      .owl-next
+        flex-shrink: 0
+        flex-grow: 0
+        position: relative
+        display: inline-block
+        vertical-align: middle
+        width: 30px
+        height: 30px
+        margin: 0
+        padding: 0
+        font-size: 0
+        color: transparent
+        opacity: 1
+        border-radius: 6px
+        border: 2px solid $boss-extra-light-gray
+        background-color: transparent
+        box-shadow: none
+
+        &:before
+          content: ""
+          position: absolute
+          top: 50%
+          left: 50%
+          margin-top: -8px
+          margin-left: -8px
+          display: block
+          width: 16px
+          height: 16px
+          background-repeat: no-repeat
+          background-position: center center
+          background-size: contain
+
+      .owl-prev
+        margin-right: 10px
+
+        &:before
+          background-image: url('../icons/icon-arrow-left-light-gray.svg')
+
+
+      .owl-next
+        border-color: $boss-very-light-gray
+
+        &:before
+          transform: rotate(-180deg)
+          background-image: url('../icons/icon-arrow-left-light-gray.svg')
+
+      .owl-pagination
+        flex-grow: 0
+        flex-shrink: 0
+        display: inline-block
+        white-space: nowrap
+        vertical-align: middle
+        max-width: calc(100vw - 400px)
+        margin-right: 5px
+        overflow: hidden
+
+        @media screen and (max-width: 640px)
+          max-width: calc(100vw - 150px)
+
+
+
+      .owl-page
+        display: inline-block
+        margin-right: 10px
+        font-size: 0
+        cursor: pointer
+        vertical-align: middle
+        color: transparent
+        transition: border-color .3s
+        margin-right: 5px
+
+        & span
+          width: 10px
+          height: 10px
+          margin: 0
+          opacity: 1
+          background-color: $boss-extra-light-gray
+
+          @media screen and (max-width: 960px)
+            width: 8px
+            height: 8px
+
+        &.active
+          & span
+            opacity: 1
+            background-color: $boss-very-light-gray
+
+
+      .owl-item
+
+        &:nth-child(odd) #{$block}__cell:not(#{$block}__cell_role_actions)
+          background-color: $boss-extra-light-gray
+
+          @media screen and (max-width: 800px)
+            background-color: transparent
+

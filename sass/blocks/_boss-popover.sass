@@ -1,0 +1,268 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Popover
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-popover"
+
+#{$block}
+  +box-model-normalizer()
+  position: absolute
+  z-index: 10000
+  display: none
+  background-color: #FFF
+  border-radius: 2px
+  box-shadow: 0 7px 20px 10px fade-out(#000, .9)
+  border: 1px solid $boss-very-light-gray
+  cursor: default
+
+  &:before
+    content: ''
+    position: absolute
+    z-index: 10
+    left: 50%
+    bottom: 100%
+    display: block
+    margin-left: -5px
+    border-bottom: 10px solid #fff
+    border-left: 10px solid transparent
+    border-right: 10px solid transparent
+
+  &:after
+    content: ''
+    position: absolute
+    z-index: 9
+    left: 50%
+    bottom: 100%
+    display: block
+    margin-left: -6px
+    border-bottom: 11px solid $boss-very-light-gray
+    border-left: 11px solid transparent
+    border-right: 11px solid transparent
+
+  // $Popover MOD: context results end
+  &_context_results-end
+    right: 100px
+    top: 50px
+    width: 340px
+    border: none
+    transform: translateX(170px)
+
+    @media screen and (max-width: 1360px)
+    	right: 130px
+
+    @media screen and (max-width: 960px)
+      left: 0
+      right: 0
+      width: 100%
+      transform: translateX(0)
+
+    &:before
+      left: 190px
+
+      @media screen and (max-width: 1360px)
+      	left: 220px
+
+      @media screen and (max-width: 1280px)
+        left: 215px
+
+      @media screen and (max-width: 960px)
+        left: auto
+        right: 60px
+
+    &:after
+      display: none
+
+  // $Popover MOD: context order details
+  &_context_order-details
+    right: 32%
+    top: 100%
+    width: 530px
+    margin-right: -270px
+    border: none
+
+    @media screen and (max-width: 960px)
+      right: 0
+      left: 0
+      width: 100%
+      margin-right: 0
+
+    &:before
+      left: auto
+      right: 50%
+      margin-right: -80px
+
+
+      @media screen and (max-width: 960px)
+        right: 50%
+        margin-right: -70px
+
+      @media screen and (max-width: 640px)
+        right: 60%
+
+      @media screen and (max-width: 479px)
+        right: auto
+        left: 180px
+        margin-right: 0
+
+    &:after
+      display: none
+
+  // $Popover MOD: context dashboard calendar
+  &_context_dashboard-calendar
+    left: 0
+    top: calc(100% + 20px)
+    width: 470px
+
+    @media screen and (max-width: 960px)
+      position: relative
+      left: auto
+      top: auto
+      margin-top: 20px
+      width: 100%
+
+  // $Popover MOD: context rotas daily
+  &_context_rotas-daily
+    left: auto
+    right: -20px
+    top: 65px
+    width: 340px
+    border: none
+
+    @media screen and (max-width: 960px)
+      position: fixed
+      top: 50%
+      left: 50%
+      width: 320px
+      transform: translate(-50%, -50%)
+
+    &:before
+      left: auto
+      right: 80px
+
+      @media screen and (max-width: 960px)
+        display: none
+
+    &:after
+      display: none
+
+  // $Popover MOD: state opened
+  &_state_opened
+    display: block
+
+  // $Popover MOD: state closed
+  &_state_closed
+    display: none
+
+
+  // $Popover inner container
+  &__inner
+    padding: 20px
+
+    // $Popover inner container CONTEXT: $Popover MOD: context order details
+    #{$block}_context_order-details &
+      padding-left: 30px
+
+
+  // $Popover close button
+  &__close
+    position: absolute
+    top: 20px
+    right: 20px
+    display: block
+    width: 9px
+    height: 9px
+    background-image: url(../icons/icon-close-alert.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+    cursor: pointer
+    font-size: 0
+    color: transparent
+    line-height: 0
+    outline: none
+
+    &:hover,
+    &:focus
+      outline: none
+
+
+  // RESULTS NOTE POPOVER CONTENT
+  // $Popover header area
+  &__header
+    padding: 15px
+    border-bottom: 1px solid #eee
+
+
+  // $Popover content area
+  &__content
+    padding: 15px
+
+
+  // $Popover icon
+  &__icon
+    display: inline-block
+    vertical-align: middle
+    width: 15px
+    height: 15px
+    background: url(../icons/envelope.svg) no-repeat
+    background-size: cover
+    margin-right: 5px
+
+
+  // $Popover title
+  &__title
+    +text-normalizer()
+    display: inline-block
+    vertical-align: middle
+    margin: 0
+    font-size: 18px
+    font-weight: bold
+    color: $boss-global-font-color
+
+
+  // $Popover subtitle
+  &__subtitle
+    +text-normalizer()
+    margin: 0
+    margin-bottom: 10px
+    font-size: 14px
+    font-weight: bold
+
+
+  // $Popover text
+  &__text
+    +text-normalizer()
+    margin: 0
+    margin-bottom: 15px
+
+
+  // $Popover gallery
+  &__gallery
+    display: block
+
+
+  // $Popover image
+  &__image
+    display: inline-block
+    vertical-align: middle
+    width: 45%
+    height: 140px
+    margin-bottom: 8%
+    overflow: hidden
+
+    &:nth-of-type(2n+1)
+      margin-right: 8%
+
+    & > img
+      width: 100%
+      height: 100%

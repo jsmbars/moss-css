@@ -1,0 +1,171 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Details
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-details"
+
+#{$block}
+  +box-model-normalizer()
+
+  position: relative
+  display: block
+  width: 100%
+  padding-left: 60px
+  padding-top: 5px
+
+  @media screen and (max-width: 1280px)
+    padding-left: 50px
+
+  @media screen and (max-width: 479px)
+    padding-left: 35px
+    padding-top: 1px
+
+
+  // $Details pointer
+  &__pointer
+    +text-normalizer()
+    position: absolute
+    top: 0
+    left: 0
+    display: block
+    width: 35px
+    height: 35px
+    margin: 0
+    background-color: map-get($boss-app-palette, primary)
+    border-radius: 50%
+    font-size: 18px
+    color: #FFF
+
+    @media screen and (max-width: 1280px)
+      width: 35px
+      height: 35px
+      font-size: 14px
+
+    @media screen and (max-width: 479px)
+      width: 25px
+      height: 25px
+
+
+  // $Details pointer text
+  &__pointer-text
+    position: absolute
+    top: 50%
+    left: 50%
+    display: block
+    transform: translate(-50%, -50%)
+
+
+  // $Details content
+  &__content
+
+
+  // $Details title
+  &__title
+    +text-normalizer()
+    margin-top: 0
+    margin-bottom: 25px
+    font-weight: bold
+
+
+  // $Details list
+  &__list
+    list-style: none
+    padding: 0
+    margin: 0
+
+
+  // $Details item
+  &__item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    margin-top: 0
+    margin-bottom: 20px
+
+    &:last-of-type
+      margin-bottom: 0
+
+
+  // $Details label
+  &__label
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 0
+    display: block
+    width: 260px
+    margin: 0
+    padding-right: 30px
+    font-weight: bold
+
+    @media screen and (max-width: 1280px)
+      width: 180px
+
+    @media screen and (max-width: 960px)
+      width: 160px
+      padding-right: 20px
+
+    @media screen and (max-width: 640px)
+      width: 140px
+      padding-right: 10px
+
+    @media screen and (max-width: 479px)
+      width: 100px
+
+    @media screen and (max-width: 400px)
+      width: 50px
+
+    // $Details label MOD: size small
+    &_size_small
+      width: 180px
+
+      @media screen and (max-width: 1280px)
+        width: 100px
+
+      @media screen and (max-width: 960px)
+        width: 160px
+
+      @media screen and (max-width: 640px)
+        width: 140px
+
+      @media screen and (max-width: 479px)
+        width: 100px
+
+      @media screen and (max-width: 400px)
+        width: 50px
+
+
+  // $Details value
+  &__value
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 0
+    display: block
+    padding-right: 30px
+    width: 40%
+    margin: 0
+
+    @media screen and (max-width: 960px)
+      padding-right: 20px
+
+    @media screen and (max-width: 479px)
+      padding-right: 0
+
+  // $Details value new line
+  &__value-line
+    display: block
+    margin-bottom: 20px
+
+    &:last-of-type
+      margin-bottom: 0
+

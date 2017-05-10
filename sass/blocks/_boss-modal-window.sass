@@ -1,0 +1,270 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Modal window
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-modal-window"
+
+#{$block}
+  $border-radius: 5px
+  +normalize-block()
+  +box-model-normalizer()
+
+  position: absolute
+  top: 200px
+  left: 50%
+  display: block
+  transform: translateX(-50%)
+
+  border-radius: $border-radius !important
+  padding: 0 !important
+
+  // $Modal window MOD: adjust submit button
+  &_adjust_submit-button
+    width: 340px !important
+
+  // $Modal window MOD: adjust input pin
+  &_adjust_input-pin
+    width: 340px !important
+    margin-bottom: 0.7em !important
+
+  // $Modal window MOD: adjust textarea
+  &_adjust_textarea
+    margin-bottom: 1.7em !important
+
+  // $Modal window MOD: role note
+  &_role_note
+    width: 75%
+    max-width: 750px
+
+  // $Modal window MOD: role preview
+  &_role_preview
+    top: 100px
+    width: 75%
+    max-width: 750px
+
+
+  // $Modal window close
+  &__close
+    position: absolute
+    top: 0
+    right: 0
+    display: block
+    width: 40px
+    height: 40px
+    cursor: pointer
+    outline: none
+    transform: translate(50%, -50%)
+
+
+  // $Modal window close inner
+  &__close-inner
+    position: absolute
+    top: 12px
+    right: 12px
+    display: block
+    width: 12px
+    height: 12px
+    cursor: pointer
+    outline: none
+    background-image: url(../icons/icon-close-light-gray.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+
+
+  // $Modal window header
+  &__header
+    background-color: #77dd6f
+    color: white
+    padding: 15px 10px
+    text-transform: uppercase
+    text-align: center
+    font-size: 16px
+    font-weight: 600
+    border-top-left-radius: $border-radius
+    border-top-right-radius: $border-radius
+
+    // $Modal window header MOD: error
+    &_error
+      background-color: #dd6f70
+
+    // $Modal window header MOD: warning
+    &_warning
+      background-color: #f3a74d
+
+    // $Modal window header MOD: add note
+    &_add-note
+      background-color: #f3a84d
+
+
+  // $Modal window content
+  &__content
+    display: block
+    width: 100%
+    padding: 20px 30px 30px 30px
+    background-color: #FFF
+    border-bottom-right-radius: $border-radius !important
+    border-bottom-left-radius: $border-radius !important
+
+    // $Modal window message block CONTEXT: $Modal window MOD: role preview
+    #{$block}_role_preview &
+      padding: 30px
+      border-radius: $border-radius !important
+
+    @media screen and (max-width: 960px)
+      padding-right: 15px
+      padding-left: 15px
+
+    // $Modal window content MOD: role error
+    &_role_error
+      padding-top: 230px
+      background: #fff url('../icons/icon-error-red.svg') center 35px no-repeat
+      background-size: 165px 165px
+
+    // $Modal window content MOD: role add note
+    &_rol_add-note
+      padding-top: 1.7em
+
+
+  // $Modal window form
+  &__form
+    display: flex
+    flex-direction: column
+    align-items: center
+
+
+  // $Modal window message block
+  &__message-block
+    display: block
+    width: 100%
+
+    // $Modal window message block CONTEXT: $Modal window MOD: role note
+    #{$block}_role_note &
+      margin-bottom: 30px
+
+    // $Modal window message block CONTEXT: $Modal window MOD: role preview
+    #{$block}_role_preview &
+      margin-bottom: 20px
+
+    // $Modal window message block MOD: role error
+    &_role_error
+      margin-bottom: 3em
+
+    // $Modal window message block MOD: role add note
+    &_role_add-note
+      margin-bottom: 1.7em
+
+
+  // $Modal window message text
+  &__message-text
+    display: block
+    text-align: center
+    color: $boss-medium-gray
+    font-size: 1.2rem
+
+    // $Modal window message text CONTEXT: $Modal window MOD: role note
+    #{$block}_role_note &
+      text-align: left
+      margin-bottom: 10px
+
+    &:last-of-type
+      #{$block}_role_note &
+        margin-bottom: 0
+
+
+  // $Modal window message image
+  &__message-image
+    display: block
+    width: 100%
+    max-width: 100%
+
+
+  // $Modal window controls block
+  &__controls-block
+    display: flex
+    flex-direction: column
+    align-items: center
+
+
+  // $Modal window actions
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: flex-start
+    width: 100%
+
+    // $Modal window actions CONTEXT: $Modal window MOD: role note
+    #{$block}_role_note &
+      justify-content: flex-end
+
+    @media screen and (max-width: 960px)
+      #{$block}_role_note &
+        justify-content: center
+
+
+  // $Modal window button
+  &__button
+    margin-right: 10px
+
+    &:last-of-type
+      margin-right: 0
+
+
+  // $Modal window numpad
+  &__numpad
+    display: table
+    width: 340px
+    border-collapse: collapse
+    margin-bottom: 1.2rem
+
+
+  // $Modal window numpad row
+  &__numpad-row
+    display: table-row
+
+
+  // $Modal window numpad button
+  &__numpad-button
+    display: table-cell
+    height: 80px
+    color: $boss-light-gray
+    text-align: center
+    border: 2px solid $boss-light-gray
+    vertical-align: middle
+    font-size: 3.2rem
+    padding: 0
+    line-height: 1em
+    font-weight: 300
+    user-select: none
+    cursor: pointer
+    transition: background-color 0.2s
+    animation-timing-function: ease-out
+
+    &:active
+      background-color: $boss-light-gray
+
+
+  & .closeButton--jss-0-1
+    width: 66px !important
+    height: 66px !important
+    left: auto !important
+    right: -33px !important
+    top: -30px !important
+    background: transparent url('../icons/icon-close-modal.svg') center center no-repeat !important
+    background-size: 100% !important
+    border-radius: 50%
+    box-shadow: 5px 5px 40px rgba(0, 0, 0, 0.3)
+
+    & svg
+      display: none !important

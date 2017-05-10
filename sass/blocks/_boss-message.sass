@@ -1,0 +1,69 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Message
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-message"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+  padding: 20px 20px 15px
+  border-radius: 5px
+  background-color: map-get($boss-app-palette, primary)
+
+  // $Message MOD: status success
+  &_status_success
+    background-color: map-get($boss-app-palette, secondary)
+
+  // $Message MOD: size small
+  &_size_small
+    padding: 10px 15px
+
+  // $Message MOD: role calendar-note
+  &_role_calendar-note
+    padding: 20px 25px
+    border-radius: 10px
+    background-color: map-get($boss-app-palette, secondary)
+
+  // $Message MOD: role note
+  &_role_note
+    padding: 10px 15px
+
+
+  // $Message title
+  &__title
+    +text-normalizer()
+    margin: 0
+    text-transform: uppercase
+    font-weight: bold
+    font-size: 18px
+    color: #fff
+
+
+  // $Message text
+  &__text
+    +text-normalizer()
+    margin: 0
+    font-size: 18px
+    color: #fff
+
+    #{$block}_role_calendar-note &
+      font-size: 14px
+
+    #{$block}_role_note &
+      font-size: 14px
+
+    // $Message text MOD: marked text
+    &_marked
+      font-weight: 600

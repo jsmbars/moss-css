@@ -1,0 +1,120 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Dropdown
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-dropdown"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+
+  // $Dropdown header
+  &__header
+    display: block
+    width: 100%
+
+    @media screen and (max-width: 960px)
+      text-align: center
+
+  // $Dropdown switch button
+  &__switch
+    +text-normalizer()
+
+    position: relative
+    display: inline-block
+    padding-right: 13px
+    cursor: pointer
+
+    &:after
+      content: ''
+      position: absolute
+      right: 0
+      top: 50%
+      display: block
+      width: 9px
+      height: 9px
+      margin-top: -4px
+      background: url(../icons/icon-down-arrow-dark-gray.svg) no-repeat 0 0
+      transform: rotate(0)
+      transition: all .4s
+
+    &:hover,
+    &:focus
+      color: $boss-global-font-color
+
+    // $Dropdown button MOD: state opened
+    &_state_opened
+      &:after
+        transform: rotate(180deg)
+
+    // $Dropdown button MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+    // $Dropdown button MOD: role filter
+    &_role_filter
+      padding-left: 22px
+
+      &:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 50%
+        display: block
+        width: 15px
+        height: 15px
+        margin-top: -8px
+        background: url(../icons/filter-dark-gray.svg) no-repeat center center
+        background-size: contain
+
+    // $Dropdown button MOD: role user review
+    &_role_user-review
+      padding-left: 22px
+
+      &:before
+        content: ""
+        position: absolute
+        left: 0
+        top: 50%
+        display: block
+        width: 15px
+        height: 15px
+        margin-top: -8px
+        background: url(../icons/icon-users-dark-gray.svg) no-repeat center center
+        background-size: contain
+
+
+  // $Dropdown content
+  &__content
+    display: none
+    width: 100%
+
+    // $Dropdown area MOD: state opened
+    &_state_opened
+      display: block
+
+    // $Dropdown area MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Dropdown content inner container
+  &__content-inner
+    display: block
+    width: 100%
+    margin-top: 10px
+    padding-top: 15px
+    border-top: 1px solid map-get($boss-app-palette, inactive)

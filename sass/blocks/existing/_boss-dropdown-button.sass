@@ -1,0 +1,62 @@
+@import '../../helpers/settings'
+@import '../../helpers/mixins'
+
+////////////////////////////////////////
+// $Dropdown button
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-dropdown-button"
+
+#{$block}
+  +normalize-block()
+
+  position: relative
+  display: block
+  padding-right: 13px
+  cursor: pointer
+
+  &:after
+    content: ''
+    position: absolute
+    right: 0
+    top: 50%
+    display: block
+    width: 9px
+    height: 9px
+    margin-top: -4px
+    background: url(../icons/icon-down-arrow-dark-gray.svg) no-repeat 0 0
+    opacity: 1
+    transition: all .4s
+
+  // $Dropdown button MOD: state opened
+  &_state_opened
+    &:after
+      opacity: 0
+
+  // $Dropdown button MOD: state closed
+  &_state_closed
+    &:after
+      opacity: 1
+
+  // $Dropdown button MOD: role filter
+  &_role_filter
+    padding-left: 22px
+
+    &:before
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      display: block
+      width: 15px
+      height: 15px
+      margin-top: -8px
+      background: url(../icons/filter-dark-gray.svg) no-repeat center center
+      background-size: contain

@@ -1,0 +1,27 @@
+@import '../../helpers/settings'
+@import '../../helpers/mixins'
+
+.boss-edit-image-block
+  +normalize-block()
+
+  display: flex
+  align-items: center
+
+  &_adjust
+    &_buttons-group
+      margin-bottom: 10px !important
+
+
+  &__cropper
+    width: 300px
+    height: 300px
+    margin-right: 40px
+    margin-bottom: 10px
+
+
+  &__preview-section
+    width: 200px
+    height: 200px
+    overflow: hidden
+    border-radius: 50%
+

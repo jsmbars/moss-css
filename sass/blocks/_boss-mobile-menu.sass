@@ -1,0 +1,165 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Mobile menu
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-mobile-menu"
+
+#{$block}
+  position: absolute
+  left: 0
+  top: 0
+  bottom: 0
+  right: 0
+  overflow-x: hidden
+  display: none
+  width: 100%
+  height: 100%
+  text-align: right
+  background-color: fade-out(#000, .4)
+  z-index: 0
+  opacity: 0
+  visibility: hidden
+  transition: .4s
+
+  @media screen and (max-width: 1360px)
+    display: block
+
+  // $Mobile shadow MOD: active
+  &_state_active
+    z-index: 199
+    opacity: 1
+    visibility: visible
+
+
+  // $Mobile shadow close area
+  &__closearea
+    position: absolute
+    top: 0
+    left: 0
+    width: calc(100% - 300px)
+    height: 100%
+    cursor: pointer
+
+
+  // $Mobile menu side area
+  &__side
+    display: inline-block
+    width: 300px
+    min-height: 100%
+    text-align: left
+    background-color: #fff
+
+    transform: translateX(100%)
+    transition: .4s
+
+
+    // $Mobile menu MOD: active state
+    &_state_active
+      transform: translateX(0)
+
+
+  // $Mobile menu close icon
+  &__close
+    margin-right: 30px
+    float: right
+    line-height: 60px
+    font-size: 25px
+    cursor: pointer
+
+
+  // $Mobile menu logo
+  &__logo
+    +normalize-block($color: $boss-global-font-color)
+
+    margin-left: 15px
+    font-size: 20px
+    line-height: 60px
+    font-weight: 600
+    float: left
+
+
+  // $Mobile menu buttons
+  &__buttons
+    +normalize-block()
+    clear: both
+
+    &:not(:last-of-type)
+      margin-bottom: 40px
+
+
+  // $Mobile menu button
+  &__button
+    &:not(:last-of-type)
+      border-bottom: 1px solid map-get($boss-app-palette, inactive)
+
+    // $Mobile menu button MOD: dropdown
+    &_dropdown
+      position: relative
+
+
+  // $Mobile menu button link
+  &__button-link
+    +normalize-block()
+    display: block
+    height: 40px
+    line-height: 40px
+    padding-left: 15px
+    font-size: 12px
+    transition: .4s
+
+    // $Mobile menu button link CONTEXT: $Mobile menu dropdown
+    #{$block}__dropdown &
+      padding-left: 30px
+      width: 100%
+
+    // $Mobile menu button link CONTEXT: $Mobile menu button MOD: dropdown
+    #{$block}__button_dropdown &
+      width: calc(100% - 55px)
+
+    // $Mobile menu button link CONTEXT: $Mobile menu button MOD: initials
+    #{$block}__button_initials &
+      background-color: map-get($boss-app-palette, secondary)
+      color: #fff
+
+    &:hover
+      background-color: lighten(map-get($boss-app-palette, inactive), 15%)
+
+      #{$block}__button_initials &
+        background-color: map-get($boss-app-palette, secondary)
+
+
+  // $Mobile menu button drop
+  &__button-drop
+    position: absolute
+    right: 0
+    top: 0
+    width: 40px
+    height: 40px
+    background: url(../icons/icon-down-arrow-medium-gray.svg) 50% 50% no-repeat
+    background-size: 9px
+    cursor: pointer
+
+    &:hover
+      background-color: lighten(map-get($boss-app-palette, inactive), 10%)
+
+
+  // $Mobile menu dropdown
+  &__dropdown
+    display: none
+    +normalize-block()
+    border-top: 1px solid map-get($boss-app-palette, inactive)
+
+    // $Mobile menu dropdown MOD: active state
+    &_state_active
+      display: block
+
