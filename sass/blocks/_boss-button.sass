@@ -438,6 +438,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: role reload
+  &_role_reload
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-reload-white.svg', $background-height: 13px)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: role success
   &_role_success
     $background-color: map-get($boss-app-palette, secondary)
