@@ -1,0 +1,202 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Week picker
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".week-picker"
+
+#{$block}
+
+  &#week-picker
+    +box-model-normalizer()
+
+    & .ui-datepicker
+      box-sizing: border-box
+      width: 100%
+      padding: 0 30px
+      font-size: 14px
+      background-color: transparent
+      border: none
+      overflow: hidden
+
+      @media screen and (max-width: 479px)
+        padding: 0 15px
+
+
+    & .ui-datepicker-header
+      position: relative
+      padding: 20px 25px
+      background: none
+      background-color: transparent
+      border: none
+
+
+    & .ui-datepicker-prev
+      left: 20px
+      top: 50%
+      width: 20px
+      height: 20px
+      margin-top: -10px
+      cursor: pointer
+
+      @media screen and (max-width: 479px)
+        left: 15px
+
+      & span
+        display: block
+        width: 20px
+        height: 20px
+        background-image: url(../icons/icon-arrow-left-light-gray.svg)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: contain
+
+
+    & .ui-datepicker-next
+      right: 20px
+      top: 50%
+      width: 20px
+      height: 20px
+      margin-top: -10px
+      cursor: pointer
+
+      @media screen and (max-width: 479px)
+        right: 15px
+
+      & span
+        display: block
+        width: 20px
+        height: 20px
+        background-image: url(../icons/icon-arrow-left-light-gray.svg)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: contain
+        transform: rotate(-180deg)
+
+
+    & .ui-datepicker-next-hover,
+    & .ui-datepicker-prev-hover
+      background: none
+      background-color: transparent
+      border: none
+
+
+    & .ui-datepicker-title
+      +text-normalizer()
+      font-size: 14px
+      color: #4c4c4c
+      text-align: center
+      font-weight: 400
+
+
+    & .ui-datepicker-calendar
+      position: relative
+      z-index: 1
+      width: 100%
+      margin: 0
+      border-spacing: 0
+      border: none
+
+      &:before
+        content: ''
+        z-index: -1
+        position: absolute
+        top: 0
+        right: -30px
+        left: -30px
+        display: block
+        height: 100px
+        box-shadow: inset 0 60px 60px -60px rgba(0, 0, 0, .2)
+
+        @media screen and (max-width: 479px)
+          right: -15px
+          left: -15px
+
+      & thead,
+      & tbody,
+      & tfoot
+        border: none
+        background-color: transparent
+
+      & tr
+        background-color: transparent
+
+      & th
+        +text-normalizer()
+        padding: 0
+        font-size: 14px
+        color: #4c4c4c
+        text-align: center
+        font-weight: 600
+        border-top: none
+        background-color: transparent
+
+        & span
+          display: block
+          padding: 30px 0 20px
+
+          @media screen and (max-width: 479px)
+            padding: 20px 0 10px
+
+      & td
+        padding: 0
+        background-color: transparent
+
+        & a
+          +text-normalizer()
+          padding: 20px 10px
+          background: none
+          background-color: transparent
+          border: none
+          text-align: center
+          font-size: 14px
+          color: #4c4c4c
+
+          @media screen and (max-width: 479px)
+            padding: 10px
+
+          &.ui-state-active
+            background-color: #84bef0
+            color: #fff
+
+          &.ui-state-hover
+            background-color: lighten(#84bef0, 10%)
+            color: #fff
+
+          &.ui-state-highlight.ui-state-hover
+            background-color: lighten(#84bef0, 10%)
+
+          &.ui-state-active.ui-state-hover
+            background-color: #84bef0
+
+
+        &:first-child a.ui-state-active,
+        &:first-child a.ui-state-hover
+          border-top-left-radius: 30px
+          border-bottom-left-radius: 30px
+
+        &:last-child a.ui-state-active,
+        &:last-child a.ui-state-hover
+          border-top-right-radius: 30px
+          border-bottom-right-radius: 30px
+
+        &.ui-datepicker-other-month
+          background-color: transparent
+
+          & a
+            opacity: 1
+            color: #d8d8d8
+
+            &.ui-state-active,
+            &.ui-state-hover
+              color: #fff
+
