@@ -20,6 +20,7 @@ $block: ".boss-hrc"
   display: block
   width: 100%
 
+
   // $HRC form header
   &__header
     display: flex
@@ -165,7 +166,7 @@ $block: ".boss-hrc"
       margin-bottom: 50px
 
     @media screen and (max-width: 1120px)
-      width: calc(100% - 170px)
+      width: calc(100% - 200px)
       margin-bottom: 0
 
     @media screen and (max-width: 960px)
@@ -175,8 +176,10 @@ $block: ".boss-hrc"
 
   // $HRC form graph inner container
   &__graph-inner
+    position: relative
     display: block
     width: 100%
+    overflow: hidden
 
     //Temporary placeholder styles
     // Remove when chart markup will be styled
