@@ -15,14 +15,18 @@
 $block: ".rota-chart"
 
 #{$block}
-  position: relative
-  display: flex
-  flex-direction: row
-  justify-content: flex-start
-  align-items: flex-start
-
+  +box-model-normalizer()
+  padding-bottom: 10px
 
   &__content
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+
+
+  &__graph
     flex-grow: 0
     flex-shrink: 0
 
@@ -38,27 +42,24 @@ $block: ".rota-chart"
     stroke: #d8d8d8
 
 
-  &__previewed-staff rect
-    // fill: #777 !important
+  &__previewed-staff
+    & text
+      fill: white
+
+    & rect
+      // fill: #777 !important
 
 
-  &__previewed-staff text
-    fill: white
+  &__selected-staff
+    & text
+      fill: white
 
-
-  &__selected-staff rect
-    // fill: black !important
-
-
-  &__selected-staff text
-    fill: white
+    & rect
 
 
   &__shift
-
-
-  &__shift rect
-    cursor: pointer
+    & rect
+      cursor: pointer
 
 
   &__shift-label
@@ -120,3 +121,10 @@ $block: ".rota-chart"
     &>span
       display: inline-block
       border-bottom: 1px solid $boss-very-light-gray
+
+
+  &__meta
+
+
+  &__meta-text
+    +text-normalizer()
