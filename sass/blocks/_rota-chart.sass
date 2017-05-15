@@ -1,0 +1,137 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Hours chart
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".rota-chart"
+
+#{$block}
+  position: relative
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-start
+
+
+  &__content
+    flex-grow: 0
+    flex-shrink: 0
+
+  & text
+    fill: #4c4c4c
+    font-size: 14px
+    text-anchor: end
+
+
+  & .axis path,
+  & .axis line
+    fill: none
+    stroke: #d8d8d8
+    shape-rendering: crispEdges
+
+
+  & .tick line
+    stroke: #d8d8d8
+
+
+  &__previewed-staff rect
+    fill: #777 !important
+
+
+  &__previewed-staff text
+    fill: white
+
+
+  &__selected-staff rect
+    fill: black !important
+
+
+  &__selected-staff text
+    fill: white
+
+
+  &__shift
+
+
+  &__shift rect
+    cursor: pointer
+
+
+  &__shift-label
+    text-anchor: start
+    font-weight: bold
+    dominant-baseline: central
+    pointer-events: none
+    fill: white
+
+
+  &__tooltip
+    flex-grow: 0
+    flex-shrink: 0
+    position: relative
+    z-index: 10
+    display: block
+    width: 330px
+    min-height: 450px
+    border-radius: 10px
+    background-color: #FFF
+    box-shadow: #FFF
+    box-shadow: 0 7px 20px 10px fade-out(#000, .9)
+
+    &_position_top
+      align-self: flex-start
+
+    &_position_middle
+      align-self: center
+
+    &_position_bottom
+      align-self: flex-end
+
+
+  &__tooltip-pointer
+    position: absolute
+    z-index: 10
+    right: 100%
+    top: 50%
+    display: block
+    margin-top: -5px
+    border-right: 10px solid #fff
+    border-top: 10px solid transparent
+    border-bottom: 10px solid transparent
+
+
+  &__tooltip-content
+
+
+  &__tooltip-header
+    padding: 25px
+    border-bottom: 1px solid $boss-very-light-gray
+
+
+  &__tooltip-form
+    padding: 25px
+    border-bottom: 1px solid $boss-very-light-gray
+
+
+  &__tooltip-meta
+    padding: 25px
+
+
+  &__tooltip-label
+    +text-normalizer()
+    display: block
+    text-transform: uppercase
+    text-align: left
+
+    &>span
+      display: inline-block
+      border-bottom: 1px solid $boss-very-light-gray
