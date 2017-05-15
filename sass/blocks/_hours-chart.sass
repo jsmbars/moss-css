@@ -34,38 +34,48 @@ $block: ".hours-chart"
     fill: #4c4c4c
     font-size: 13px
 
-  &__labels text
-    fill: #4c4c4c
-    font-size: 13px
+  &__labels
+    & text
+      fill: #4c4c4c
+      font-size: 13px
 
 
-  &__rotaed-interval rect
-    stroke: none
-    fill: #84bef0
+  &__rotaed-interval
+    & rect
+      stroke: none
+      fill: #84bef0
+
+    & text
+      stroke: none
+      fill: white
+      font-size: 13px
 
 
-  &__rotaed-interval text
-    stroke: none
-    fill: white
+  &__clocked-interval
+
+    &--hours
+      fill: #9df084
+
+    &--break
+      fill: orange
+
+    &--incomplete
+      fill: lime
 
 
-  &__clocked-interval--hours
-    fill: #9df084
+  &__clock-in-out-markers
+    stroke: #4c4c4c
 
 
-  &__amended-interval--hours
-    fill: #45ca45
+  &__amended-interval
 
+    &--hours
+      fill: #45ca45
 
-  &__amended-interval--break
-    fill: #f3c537
+    &--break
+      fill: #f3c537
 
-
-  &__clocked-interval--break
-    fill: orange
-
-
-  &__clocked-interval--incomplete
-    fill: lime
+    &--error
+      fill: #f98a83
 
 
