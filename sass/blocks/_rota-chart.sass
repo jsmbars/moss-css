@@ -20,15 +20,12 @@ $block: ".rota-chart"
 
   &__content
     position: relative
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: flex-start
+    display: block
+    text-align: left
 
 
   &__graph
-    flex-grow: 0
-    flex-shrink: 0
+    display: inline-block
 
 
   & .axis path,
@@ -72,9 +69,7 @@ $block: ".rota-chart"
 
 
   &__tooltip
-    flex-grow: 0
-    flex-shrink: 0
-    position: relative
+    position: absolute
     z-index: 10
     display: block
     width: 330px
