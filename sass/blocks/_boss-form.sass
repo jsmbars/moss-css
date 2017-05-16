@@ -538,7 +538,7 @@ $block: ".boss-form"
 
     // $Common form input MOD: state error
     &_state_error
-      border-color: map-get($boss-app-palette, alert-border)
+      outline: 1px solid map-get($boss-app-palette, alert-border)
       color: map-get($boss-app-palette, alert)
 
       &:focus
@@ -564,7 +564,7 @@ $block: ".boss-form"
 
     // $Common form textarea MOD: state error
     &_state_error
-      border-color: map-get($boss-app-palette, alert-border)
+      outline: 1px solid map-get($boss-app-palette, alert-border)
       color: map-get($boss-app-palette, alert)
 
       &:focus
@@ -624,8 +624,8 @@ $block: ".boss-form"
     position: relative
     display: block
     width: 100%
-    border: 1px solid $boss-very-light-gray
-    border-radius: 2px
+    // border: 1px solid $boss-very-light-gray
+    // border-radius: 2px
     background-color: #FFF
 
     // $Common form select CONTEXT: $Common form control
@@ -651,24 +651,24 @@ $block: ".boss-form"
       background-size: contain
       transform: translateY(-50%)
 
-    &:after
-      content: ''
-      position: absolute
-      top: 50%
-      right: 20px
-      z-index: 10
-      display: block
-      width: 9px
-      height: 9px
-      background: url(../icons/icon-down-arrow-medium-gray.svg) no-repeat 0 0
-      transform: translateY(-50%)
+    // &:after
+    //   content: ''
+    //   position: absolute
+    //   top: 50%
+    //   right: 20px
+    //   z-index: 10
+    //   display: block
+    //   width: 9px
+    //   height: 9px
+    //   background: url(../icons/icon-down-arrow-medium-gray.svg) no-repeat 0 0
+    //   transform: translateY(-50%)
 
-      @media screen and (max-width: 640px)
-        right: 10px
+    //   @media screen and (max-width: 640px)
+    //     right: 10px
 
     // $Common form select MOD: state error
     &_state_error
-      border: 1px solid map-get($boss-app-palette, alert-border)
+      outline: 1px solid map-get($boss-app-palette, alert-border)
 
     // $Common form select MOD: size small
     &_size_small
