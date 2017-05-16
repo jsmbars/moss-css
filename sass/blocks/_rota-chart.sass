@@ -1,0 +1,125 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Hours chart
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".rota-chart"
+
+#{$block}
+  +box-model-normalizer()
+  padding-bottom: 10px
+
+  &__content
+    position: relative
+    display: block
+    text-align: left
+
+
+  &__graph
+    display: inline-block
+
+
+  & .axis path,
+  & .axis line
+    fill: none
+    stroke: #d8d8d8
+    shape-rendering: crispEdges
+
+
+  & .tick line
+    stroke: #d8d8d8
+
+
+  &__previewed-staff
+    & text
+      fill: white
+
+    & rect
+      // fill: #777 !important
+
+
+  &__selected-staff
+    & text
+      fill: white
+
+    & rect
+
+
+  &__shift
+    & rect
+      cursor: pointer
+
+
+  &__shift-label
+    font-size: 12px
+    text-anchor: start
+    font-weight: 400
+    dominant-baseline: central
+    pointer-events: none
+    fill: white
+
+
+  &__tooltip
+    position: absolute
+    z-index: 10
+    display: block
+    width: 330px
+    min-height: 450px
+    border-radius: 10px
+    background-color: #FFF
+    box-shadow: #FFF
+    box-shadow: 0 0 20px 10px fade-out(#000, .9)
+
+
+  &__tooltip-pointer
+    position: absolute
+    z-index: 11
+    display: block
+    margin-top: -10px
+    border-right: 20px solid #fff
+    border-top: 20px solid transparent
+    border-bottom: 20px solid transparent
+
+
+  &__tooltip-content
+
+
+  &__tooltip-header
+    padding: 25px
+    border-bottom: 1px solid $boss-very-light-gray
+
+
+  &__tooltip-form
+    padding: 25px
+    border-bottom: 1px solid $boss-very-light-gray
+
+
+  &__tooltip-meta
+    padding: 25px
+
+
+  &__tooltip-label
+    +text-normalizer()
+    display: block
+    text-transform: uppercase
+    text-align: left
+
+    &>span
+      display: inline-block
+      border-bottom: 1px solid $boss-very-light-gray
+
+
+  &__meta
+
+
+  &__meta-text
+    +text-normalizer()
