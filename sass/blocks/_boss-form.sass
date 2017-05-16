@@ -624,8 +624,6 @@ $block: ".boss-form"
     position: relative
     display: block
     width: 100%
-    // border: 1px solid $boss-very-light-gray
-    // border-radius: 2px
     background-color: #FFF
 
     // $Common form select CONTEXT: $Common form control
@@ -650,21 +648,6 @@ $block: ".boss-form"
       height: 15px
       background-size: contain
       transform: translateY(-50%)
-
-    // &:after
-    //   content: ''
-    //   position: absolute
-    //   top: 50%
-    //   right: 20px
-    //   z-index: 10
-    //   display: block
-    //   width: 9px
-    //   height: 9px
-    //   background: url(../icons/icon-down-arrow-medium-gray.svg) no-repeat 0 0
-    //   transform: translateY(-50%)
-
-    //   @media screen and (max-width: 640px)
-    //     right: 10px
 
     // $Common form select MOD: state error
     &_state_error
@@ -694,115 +677,80 @@ $block: ".boss-form"
           display: none
 
 
-  // $Common form select options
-  &__select-options,
-  &__select select
-    +text-normalizer()
+  // React-select adjusments
+  &__select
 
-    position: relative
-    z-index: 1
-    display: block
-    width: 100%
-    height: auto
-    box-sizing: border-box
-    background: none
-    padding: 15px 40px 15px 15px
-    border: none
-    appearance: none
-    -moz-appearance: none
-    -webkit-appearance: none
-    transition: all .3s
-    outline: none
+    & .Select-control
+      height: 53px
+      border-radius: 2px
 
-    &::-ms-expand
-      display: none
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      line-height: 53px
+      padding-left: 20px
+      padding-right: 10px
 
-    &:focus::-ms-value
+    & .Select-option
+      padding: 10px 10px 10px 20px
+
+    & .Select--multi .Select-multi-value-wrapper
+      margin-top: 7px
+
+    & .Select--multi .Select-value
+      margin-left: 10px
+      background-color: map-get($boss-app-palette, primary)
+      border: none
+      border-radius: 5px
+      line-height: 1
+
+    & .Select--multi .Select-value-icon
+      position: relative
+      z-index: 1
       background-color: transparent
-      color: #4c4c4c
+      border: none
+      color: #FFF
+      font-size: 20px
+      padding: 3px 8px 3px 8px
+      overflow: hidden
 
-  &__select-options
-    // $Common form select options CONTEXT: $Common form select MOD: state selected
-    #{$block}__select_state_selected &
-      display: none
+      &:after
+        content: ""
+        z-index: -1
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        display: block
+        background-color: rgba(0,0,0,.2)
+        border-top-left-radius: 5px
+        border-bottom-left-radius: 5px
 
-    #{$block}__select_role_time &
-      padding-left: 35px
+      &:hover
+        &:after
+          background-color: rgba(0,0,0,.6)
 
-    @media screen and (max-width: 640px)
-      #{$block}__select_role_time &
-        padding: 10px 20px 10px 10px
+    & .Select--multi .Select-value-label
+      background-color: transparent
+      white-space: nowrap
+      text-transform: uppercase
+      color: #FFF
+      border: none
+      padding: 3px 10px
 
-  &__select_state_selected select
-    display: none
+    &_role_time
+      & .Select-placeholder,
+      & .Select--single > .Select-control .Select-value
+        padding-left: 35px
 
-  &__select_role_time select
-    padding-left: 40px
+        @media screen and (max-width: 640px)
+          padding-left: 10px
 
-    @media screen and (max-width: 640px)
-      padding: 10px 20px 10px 10px
+      & .Select-option
+        padding-left: 35px
 
-
-  // $Common form select option
-  &__select-option,
-  &__select option
-    display: block
-    width: 100%
-    max-width: 100%
-    font-weight: normal
-    outline: none
-    border: none
-
-
-  // $Common form select value
-  &__select-value
-    +text-normalizer()
-    position: relative
-    display: none
-    width: 100%
-    height: auto
-    box-sizing: border-box
-    background: none
-    padding: 15px 20px 15px 15px
-
-    &_role_label
-      padding-top: 10px
-      padding-bottom: 10px
-      padding-right: 100px
-
-    // $Common form select option CONTEXT: $Common form select MOD: state selected
-    #{$block}__select_state_selected &
-      display: block
-
-    #{$block}__select_role_time &
-      padding-left: 40px
-
-    @media screen and (max-width: 640px)
-      #{$block}__select_role_time &
-        padding: 10px 20px 10px 10px
-
-
-  // $Common form select cancel
-  &__select-cancel
-    display: block
-    position: absolute
-    top: 50%
-    right: 50px
-    width: 10px
-    height: 10px
-    margin-top: -5px
-    font-size: 0
-    color: transparent
-    background-image: url('../icons/icon-close-light-gray.svg');
-    background-size: contain
-    background-repeat: no-repeat
-    background-position: center center
-
-    @media screen and (max-width: 960px)
-      right: 40px
-
-    @media screen and (max-width: 640px)
-      right: 30px
+        @media screen and (max-width: 640px)
+          padding-left: 10px
 
 
   // $Common form switcher
