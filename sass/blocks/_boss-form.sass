@@ -685,6 +685,7 @@ $block: ".boss-form"
     & .Select-control
       height: 53px
       border-radius: 2px
+      border-color: #d8d8d8
       white-space: nowrap
 
     & .Select-placeholder,
@@ -692,6 +693,10 @@ $block: ".boss-form"
       line-height: 53px
       padding-left: 20px
       padding-right: 10px
+
+    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+      color: #4c4c4c
 
     & .Select-input
       height: auto
@@ -713,6 +718,7 @@ $block: ".boss-form"
       border-radius: 5px
       line-height: 1
       white-space: nowrap
+      direction: rtl
 
     & .Select--multi .Select-value-icon
       position: relative
@@ -721,12 +727,13 @@ $block: ".boss-form"
       border: none
       color: #FFF
       font-size: 20px
-      padding: 3px 8px 3px 8px
+      padding: 3px 7px 3px 8px
       overflow: hidden
+      direction: ltr
 
       @media screen and (max-width: 479px)
         padding-left: 6px
-        padding-right: 6px
+        padding-right: 5px
 
       &:after
         content: ""
@@ -738,8 +745,8 @@ $block: ".boss-form"
         left: 0
         display: block
         background-color: rgba(0,0,0,.2)
-        border-top-left-radius: 5px
-        border-bottom-left-radius: 5px
+        border-top-right-radius: 5px
+        border-bottom-right-radius: 5px
         transition: all .4s
 
       &:hover
@@ -753,10 +760,15 @@ $block: ".boss-form"
       color: #FFF
       border: none
       padding: 3px 10px
+      direction: ltr
+      font-size: 12px
 
       @media screen and (max-width: 479px)
         font-size: 11px
         padding: 3px 6px
+
+    & .Select-menu-outer
+      border-color: #d8d8d8
 
     &_state_error
       & .Select-control,

@@ -260,6 +260,7 @@ $block: ".boss-time-shift"
     & .Select-control
       height: 48px
       border-radius: 2px
+      border-color: #d8d8d8
 
     & .Select-placeholder,
     & .Select--single > .Select-control .Select-value
@@ -270,11 +271,19 @@ $block: ".boss-time-shift"
       @media screen and (max-width: 400px)
           padding-left: 35px
 
+    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+      color: #808080
+
     & .Select-option
       padding: 10px 10px 10px 40px
+      color: #808080
 
       @media screen and (max-width: 400px)
           padding-left: 35px
+
+    & .Select-menu-outer
+      border-color: #d8d8d8
 
     &_state_error
       & .Select-control,
