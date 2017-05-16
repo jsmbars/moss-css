@@ -245,8 +245,6 @@ $block: ".boss-time-shift"
 
     // $Time shift MOD: error
     &_state_error
-      outline: 1px solid map-get($boss-app-palette, alert)
-
       &:before
         background: url(../icons/icon-clock-alert.svg) no-repeat 0 0
         background-size: contain
@@ -279,6 +277,10 @@ $block: ".boss-time-shift"
           padding-left: 35px
 
     &_state_error
+      & .Select-control,
+      & .Select-menu-outer
+        border-color: map-get($boss-app-palette, alert)
+
       & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
       & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
         color: map-get($boss-app-palette, alert)
