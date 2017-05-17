@@ -62,7 +62,7 @@ $block: ".boss-page-dashboard"
     width: 100%
 
     // $Page dashboard group CONTEXT: $Page dashboard group MOD: add staff member page
-    #{$block}_page_add-staff-member &:first-of-type
+    #{$block}_page_add-staff-member &
       margin-bottom: 20px
 
     @media screen and(max-width: 960px)
@@ -87,6 +87,27 @@ $block: ".boss-page-dashboard"
       #{$block}_page_profile-edit &:first-of-type
         flex-direction: column
         justify-content: center
+
+    &_spaced
+      #{$block}_page_add-staff-member &
+        padding-left: 45px
+        padding-right: 45px
+
+      @media screen and (max-width: 1280px)
+        #{$block}_page_add-staff-member &
+          padding-left: 20px
+          padding-right: 20px
+
+      @media screen and (max-width: 960px)
+        #{$block}_page_add-staff-member &
+          padding-left: 15px
+          padding-right: 15px
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_add-staff-member &
+          padding-left: 10px
+          padding-right: 10px
+
 
 
   // $Page dashboard sub group contain
