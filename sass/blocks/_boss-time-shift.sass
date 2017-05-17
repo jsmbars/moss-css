@@ -222,11 +222,6 @@ $block: ".boss-time-shift"
     display: block
     width: 100%
     height: 45px
-    border: 1px solid $boss-very-light-gray
-
-    // $Time shift select CONTEXT: $Time shift log MOD: state accepted
-    #{$block}__log_state_accepted &
-      border: none
 
     &:before
       content: ''
@@ -247,82 +242,58 @@ $block: ".boss-time-shift"
       @media screen and (max-width: 400px)
         left: 10px
 
-    &:after
-      content: ''
-      position: absolute
-      top: 50%
-      right: 15px
-      z-index: 10
-      display: block
-      width: 9px
-      height: 9px
-      background: url(../icons/icon-down-arrow-medium-gray.svg) no-repeat 0 0
-      background-size: contain
-      transform: translateY(-50%)
-
-      #{$block}__log_state_accepted &
-        display: none
-
-      @media screen and (max-width: 400px)
-        right: 10px
-
 
     // $Time shift MOD: error
     &_state_error
-      border: 1px solid map-get($boss-app-palette, alert)
-
       &:before
         background: url(../icons/icon-clock-alert.svg) no-repeat 0 0
         background-size: contain
 
 
-  // $Time shift options
-  &__select-options
-    +text-normalizer()
+  &__select
 
-    position: relative
-    z-index: 1
-    display: block
-    width: 100%
-    height: auto
-    box-sizing: border-box
-    background: none
-    padding: 12px 20px 12px 40px
-    border: none
-    appearance: none
-    -moz-appearance: none
-    -webkit-appearance: none
-    transition: all .3s
-    outline: none
-    color: $boss-medium-gray
-
-    // $Time shift options CONTEXT: $Time shift select MOD: state error
-    #{$block}__select_state_error &
-      color: map-get($boss-app-palette, alert)
-
-    // $Time shift options CONTEXT: $Time shift log MOD: state accepted
     #{$block}__log_state_accepted &
-      display: none
-
-    @media screen and (max-width: 400px)
-      padding-left: 30px
-      padding-right: 15px
-
-    &::-ms-expand
-      display: none
-
-    &:focus::-ms-value
-      background-color: transparent
+      & .Select
+        display: none
 
 
-  // $Time shift select option
-  &__select-option
-    display: block
-    width: 100%
-    max-width: 100%
-    font-weight: normal
-    outline: none
-    border: none
+    & .Select-control
+      height: 48px
+      border-radius: 2px
+      border-color: #d8d8d8
+
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      line-height: 48px
+      padding-left: 40px
+      padding-right: 10px
+
+      @media screen and (max-width: 400px)
+          padding-left: 35px
+
+    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+      color: #808080
+
+    & .Select-option
+      padding: 10px 10px 10px 40px
+      color: #808080
+
+      @media screen and (max-width: 400px)
+          padding-left: 35px
+
+    & .Select-menu-outer
+      border-color: #d8d8d8
+
+    &_state_error
+      & .Select-control,
+      & .Select-menu-outer
+        border-color: map-get($boss-app-palette, alert)
+
+      & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+      & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+        color: map-get($boss-app-palette, alert)
+
 
 
   // $Time shift select value

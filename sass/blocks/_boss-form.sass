@@ -210,11 +210,14 @@ $block: ".boss-form"
     &_layout_max
       flex-grow: 1
       flex-shrink: 1
-      width: 100%
+      width: auto
+
+      @media screen and (max-width: 960px)
+        width: 100%
 
     &_layout_min
       flex-grow: 0
-      flex-shrink: 0
+      flex-shrink: 1
       width: auto
 
     &_layout_fluid
@@ -306,7 +309,7 @@ $block: ".boss-form"
     &:before
       content: ''
       position: absolute
-      bottom: 15px
+      bottom: 20px
       left: 0
       z-index: 10
       display: none
@@ -333,11 +336,11 @@ $block: ".boss-form"
     position: relative
     display: block
     width: 40px
-    height: 45px
+    height: 53px
 
     @media screen and (max-width: 640px)
       width: 25px
-      height: 35px
+      height: 53px
 
     &:after
       content: ""
@@ -347,7 +350,6 @@ $block: ".boss-form"
       display: block
       width: 10px
       height: 0
-      margin-top: -5px
       border: 1px solid $boss-medium-gray
       transform: translate(-50%, -50%)
 
@@ -356,7 +358,7 @@ $block: ".boss-form"
   // $Common form control
   &__control
     flex-grow: 0
-    flex-shrink: 0
+    flex-shrink: 1
     display: flex
     flex-direction: row
     justify-content: flex-start
@@ -406,6 +408,14 @@ $block: ".boss-form"
       border: 1px solid $boss-very-light-gray
       border-right: none
       background-color: #FFF
+
+      @media screen and(max-width: 960px)
+        padding-right: 15px
+        padding-left: 15px
+
+      @media screen and(max-width: 640px)
+        padding-right: 10px
+        padding-left: 10px
 
     #{$block}__field_role_control  &_type_light,
     #{$block}__control &_type_light
@@ -538,7 +548,7 @@ $block: ".boss-form"
 
     // $Common form input MOD: state error
     &_state_error
-      border-color: map-get($boss-app-palette, alert-border)
+      outline: 1px solid map-get($boss-app-palette, alert-border)
       color: map-get($boss-app-palette, alert)
 
       &:focus
@@ -564,7 +574,7 @@ $block: ".boss-form"
 
     // $Common form textarea MOD: state error
     &_state_error
-      border-color: map-get($boss-app-palette, alert-border)
+      outline: 1px solid map-get($boss-app-palette, alert-border)
       color: map-get($boss-app-palette, alert)
 
       &:focus
@@ -624,9 +634,6 @@ $block: ".boss-form"
     position: relative
     display: block
     width: 100%
-    border: 1px solid $boss-very-light-gray
-    border-radius: 2px
-    background-color: #FFF
 
     // $Common form select CONTEXT: $Common form control
     #{$block}__field_role_control &,
@@ -650,25 +657,6 @@ $block: ".boss-form"
       height: 15px
       background-size: contain
       transform: translateY(-50%)
-
-    &:after
-      content: ''
-      position: absolute
-      top: 50%
-      right: 20px
-      z-index: 10
-      display: block
-      width: 9px
-      height: 9px
-      background: url(../icons/icon-down-arrow-medium-gray.svg) no-repeat 0 0
-      transform: translateY(-50%)
-
-      @media screen and (max-width: 640px)
-        right: 10px
-
-    // $Common form select MOD: state error
-    &_state_error
-      border: 1px solid map-get($boss-app-palette, alert-border)
 
     // $Common form select MOD: size small
     &_size_small
@@ -694,115 +682,114 @@ $block: ".boss-form"
           display: none
 
 
-  // $Common form select options
-  &__select-options,
-  &__select select
-    +text-normalizer()
+  // React-select adjusments
+  &__select
 
-    position: relative
-    z-index: 1
-    display: block
-    width: 100%
-    height: auto
-    box-sizing: border-box
-    background: none
-    padding: 15px 40px 15px 15px
-    border: none
-    appearance: none
-    -moz-appearance: none
-    -webkit-appearance: none
-    transition: all .3s
-    outline: none
+    & .Select-control
+      height: 53px
+      border-radius: 2px
+      border-color: #d8d8d8
 
-    &::-ms-expand
-      display: none
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      line-height: 53px
+      padding-left: 20px
+      padding-right: 10px
 
-    &:focus::-ms-value
-      background-color: transparent
+    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
       color: #4c4c4c
 
-  &__select-options
-    // $Common form select options CONTEXT: $Common form select MOD: state selected
-    #{$block}__select_state_selected &
-      display: none
+    & .Select-input
+      height: auto
+      line-height: 1.2
 
-    #{$block}__select_role_time &
-      padding-left: 35px
+      & input
+        line-height: 1.2
 
-    @media screen and (max-width: 640px)
-      #{$block}__select_role_time &
-        padding: 10px 20px 10px 10px
+    & .Select-option
+      padding: 10px 10px 10px 20px
 
-  &__select_state_selected select
-    display: none
+    & .Select--multi .Select-multi-value-wrapper
+      margin-top: 7px
 
-  &__select_role_time select
-    padding-left: 40px
+    & .Select--multi .Select-value
+      margin-left: 10px
+      background-color: map-get($boss-app-palette, primary)
+      border: none
+      border-radius: 5px
+      line-height: 1
+      white-space: nowrap
+      direction: rtl
 
-    @media screen and (max-width: 640px)
-      padding: 10px 20px 10px 10px
+    & .Select--multi .Select-value-icon
+      position: relative
+      z-index: 1
+      background-color: transparent
+      border: none
+      color: #FFF
+      font-size: 20px
+      padding: 3px 7px 3px 8px
+      overflow: hidden
+      direction: ltr
 
+      @media screen and (max-width: 479px)
+        padding-left: 6px
+        padding-right: 5px
 
-  // $Common form select option
-  &__select-option,
-  &__select option
-    display: block
-    width: 100%
-    max-width: 100%
-    font-weight: normal
-    outline: none
-    border: none
+      &:after
+        content: ""
+        z-index: -1
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        display: block
+        background-color: rgba(0,0,0,.2)
+        border-top-right-radius: 5px
+        border-bottom-right-radius: 5px
+        transition: all .4s
 
+      &:hover
+        &:after
+          background-color: rgba(0,0,0,.6)
 
-  // $Common form select value
-  &__select-value
-    +text-normalizer()
-    position: relative
-    display: none
-    width: 100%
-    height: auto
-    box-sizing: border-box
-    background: none
-    padding: 15px 20px 15px 15px
+    & .Select--multi .Select-value-label
+      background-color: transparent
+      white-space: nowrap
+      text-transform: uppercase
+      color: #FFF
+      border: none
+      padding: 3px 10px
+      direction: ltr
+      font-size: 12px
 
-    &_role_label
-      padding-top: 10px
-      padding-bottom: 10px
-      padding-right: 100px
+      @media screen and (max-width: 479px)
+        font-size: 11px
+        padding: 3px 6px
 
-    // $Common form select option CONTEXT: $Common form select MOD: state selected
-    #{$block}__select_state_selected &
-      display: block
+    & .Select-menu-outer
+      border-color: #d8d8d8
 
-    #{$block}__select_role_time &
-      padding-left: 40px
+    &_state_error
+      & .Select-control,
+      & .Select-menu-outer
+        border-color: map-get($boss-app-palette, alert)
 
-    @media screen and (max-width: 640px)
-      #{$block}__select_role_time &
-        padding: 10px 20px 10px 10px
+    &_role_time
+      & .Select-placeholder,
+      & .Select--single > .Select-control .Select-value
+        padding-left: 35px
 
+        @media screen and (max-width: 640px)
+          padding-left: 10px
 
-  // $Common form select cancel
-  &__select-cancel
-    display: block
-    position: absolute
-    top: 50%
-    right: 50px
-    width: 10px
-    height: 10px
-    margin-top: -5px
-    font-size: 0
-    color: transparent
-    background-image: url('../icons/icon-close-light-gray.svg');
-    background-size: contain
-    background-repeat: no-repeat
-    background-position: center center
+      & .Select-option
+        padding-left: 35px
 
-    @media screen and (max-width: 960px)
-      right: 40px
-
-    @media screen and (max-width: 640px)
-      right: 30px
+        @media screen and (max-width: 640px)
+          padding-left: 10px
 
 
   // $Common form switcher
