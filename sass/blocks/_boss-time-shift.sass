@@ -262,8 +262,7 @@ $block: ".boss-time-shift"
       border-radius: 2px
       border-color: #d8d8d8
 
-    & .Select-placeholder,
-    & .Select--single > .Select-control .Select-value
+    & .Select-placeholder
       line-height: 48px
       padding-left: 40px
       padding-right: 10px
@@ -271,9 +270,17 @@ $block: ".boss-time-shift"
       @media screen and (max-width: 400px)
           padding-left: 35px
 
-    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
-    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+    & .has-value>.Select-control>.Select-placeholder
       color: #808080
+
+    & .Select-input
+      height: auto
+      line-height: 53px
+
+      & input
+        height: auto
+        line-height: 53px
+        padding: 0
 
     & .Select-option
       padding: 10px 10px 10px 40px
@@ -290,8 +297,7 @@ $block: ".boss-time-shift"
       & .Select-menu-outer
         border-color: map-get($boss-app-palette, alert)
 
-      & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
-      & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+      & .has-value>.Select-control>.Select-placeholder
         color: map-get($boss-app-palette, alert)
 
 

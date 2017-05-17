@@ -690,30 +690,28 @@ $block: ".boss-form"
       border-radius: 2px
       border-color: #d8d8d8
 
-    & .Select-placeholder,
-    & .Select--single > .Select-control .Select-value
+    & .Select-placeholder
       line-height: 53px
       padding-left: 20px
       padding-right: 10px
+      color: #aaa
 
-    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
-    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+    & .has-value>.Select-control>.Select-placeholder
       color: #4c4c4c
 
     & .Select-input
       height: auto
-      line-height: 1.2
+      line-height: 53px
 
       & input
-        line-height: 1.2
+        height: auto
+        line-height: 53px
+        padding: 0
 
     & .Select-option
       padding: 10px 10px 10px 20px
 
-    & .Select--multi .Select-multi-value-wrapper
-      margin-top: 7px
-
-    & .Select--multi .Select-value
+    & .Select--multi .Select-item
       margin-left: 10px
       background-color: map-get($boss-app-palette, primary)
       border: none
@@ -721,8 +719,9 @@ $block: ".boss-form"
       line-height: 1
       white-space: nowrap
       direction: rtl
+      vertical-align: baseline
 
-    & .Select--multi .Select-value-icon
+    & .Select--multi .Select-item-icon
       position: relative
       z-index: 1
       background-color: transparent
@@ -755,7 +754,7 @@ $block: ".boss-form"
         &:after
           background-color: rgba(0,0,0,.6)
 
-    & .Select--multi .Select-value-label
+    & .Select--multi .Select-item-label
       background-color: transparent
       white-space: nowrap
       text-transform: uppercase
@@ -778,8 +777,7 @@ $block: ".boss-form"
         border-color: map-get($boss-app-palette, alert)
 
     &_role_time
-      & .Select-placeholder,
-      & .Select--single > .Select-control .Select-value
+      & .Select-placeholder
         padding-left: 35px
 
         @media screen and (max-width: 640px)
