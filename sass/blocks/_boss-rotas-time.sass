@@ -1,0 +1,107 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Rotas time
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-rotas-time"
+
+#{$block}
+  +box-model-normalizer()
+
+
+  // $Rotas time title
+  &__title
+    +text-normalizer()
+    vertical-align: middle
+    margin-bottom: 10px
+    font-size: 12px
+    font-weight: 600
+
+    &>span
+      display: inline-block
+      vertical-align: middle
+
+
+  // $Rotas time title label
+  &__label
+    white-space: nowrap
+
+
+  // $Rotas time title pointer
+  &__pointer
+    display: inline-block
+    width: 10px
+    height: 10px
+    margin: 0 !important
+    margin-right: 5px !important
+    border-radius: 50%
+    vertical-align: middle
+
+
+  // $Rotas time title role
+  &__role
+    display: inline-block
+    vertical-align: middle
+
+
+  // $Rotas time title total hours
+  &__total
+
+
+  // $Rotas time list
+  &__list
+    list-style: none
+    margin: 0
+    padding: 0
+
+
+  // $Rotas time item
+  &__item
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    margin: 0
+    padding: 5px 0
+
+    border-bottom: 1px solid $boss-very-light-gray
+
+
+  // $Rotas time interval
+  &__interval
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    min-width: 80px
+    padding: 0 !important
+    margin-right: 30px !important
+    text-align: left !important
+    font-size: 12px
+
+
+  // $Rotas time interval start
+  &__start
+
+
+  // $Rotas time interval end
+  &__end
+
+
+  // $Rotas time name
+  &__name
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 1
+    padding: 0 !important
+    text-align: left !important
+    font-size: 12px
+

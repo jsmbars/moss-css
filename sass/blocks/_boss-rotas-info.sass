@@ -2,7 +2,7 @@
 @import '../helpers/mixins'
 
 ////////////////////////////////////////
-// $legend
+// $Rotas info
 ////////////////////////////////////////
 
 //////////////////////////////////////// Block variables
@@ -12,7 +12,7 @@
 
 
 //////////////////////////////////////// Block styles
-$block: ".boss-legend"
+$block: ".boss-rotas-info"
 
 #{$block}
   +box-model-normalizer()
@@ -20,7 +20,7 @@ $block: ".boss-legend"
   width: 100%
 
 
-  // $legend list
+  // $Rotas info list
   &__list
     position: relative
     display: block
@@ -30,7 +30,7 @@ $block: ".boss-legend"
     padding: 0
 
 
-  // $legend item
+  // $Rotas info item
   &__item
     position: relative
     display: block
@@ -39,7 +39,7 @@ $block: ".boss-legend"
     padding-left: 20px
     line-height: 1.4
 
-    // $legend item CONTEXT: $legend MOD: layout row
+    // $Rotas info item CONTEXT: $Rotas info MOD: layout row
     #{$block}_layout_row &
       display: inline-block
       margin-right: 30px
@@ -53,7 +53,7 @@ $block: ".boss-legend"
     &:before
       content: ""
       position: absolute
-      top: 5px
+      top: 8px
       left: 0
       display: block
       width: 10px
@@ -61,69 +61,69 @@ $block: ".boss-legend"
       border-radius: 50%
       background-color: map-get($boss-app-palette, primary)
 
-    // $Legend item MOD: role manager
+    // $Rotas info item MOD: role manager
     &_role_manager
       &:before
         background-color: map-get($boss-roles-palette, manager)
 
-    // $Legend item MOD: role gm
+    // $Rotas info item MOD: role gm
     &_role_gm
       &:before
         background-color: map-get($boss-roles-palette, gm)
 
-    // $Legend item MOD: role bar-supervisor
+    // $Rotas info item MOD: role bar-supervisor
     &_role_bar-supervisor
       &:before
         background-color: map-get($boss-roles-palette, bar-supervisor)
 
-    // $Legend item MOD: role bartender
+    // $Rotas info item MOD: role bartender
     &_role_bartender
       &:before
         background-color: map-get($boss-roles-palette, bartender)
 
-    // $Legend item MOD: role floor-staff
+    // $Rotas info item MOD: role floor-staff
     &_role_floor-staff
       &:before
         background-color: map-get($boss-roles-palette, floor-staff)
 
-    // $Legend item MOD: role waitress
+    // $Rotas info item MOD: role waitress
     &_role_waitress
       &:before
         background-color: map-get($boss-roles-palette, waitress)
 
-    // $Legend item MOD: role kp
+    // $Rotas info item MOD: role kp
     &_role_kp
       &:before
         background-color: map-get($boss-roles-palette, kp)
 
-    // $Legend item MOD: role hostess
+    // $Rotas info item MOD: role hostess
     &_role_hostess
       &:before
         background-color: map-get($boss-roles-palette, hostess)
 
-    // $Legend item MOD: role chef
+    // $Rotas info item MOD: role chef
     &_role_chef
       &:before
         background-color: map-get($boss-roles-palette, chef)
 
-    // $Legend item MOD: role security
+    // $Rotas info item MOD: role security
     &_role_security
       &:before
         background-color: map-get($boss-roles-palette, security)
 
-    // $Legend item MOD: role pr
+    // $Rotas info item MOD: role pr
     &_role_pr
       &:before
         background-color: map-get($boss-roles-palette, pr)
 
-    // $Legend item MOD: role bar-back
+    // $Rotas info item MOD: role bar-back
     &_role_bar-back
       &:before
         background-color: map-get($boss-roles-palette, bar-back)
 
 
 
-  // $legend link
+  // $Rotas info link
   &__link
     +text-normalizer()
     font-size: 14px
@@ -138,7 +138,7 @@ $block: ".boss-legend"
       color: $boss-dark-gray
 
 
-  // $legend text
+  // $Rotas info text
   &__text
     +text-normalizer()
     font-size: 14px
