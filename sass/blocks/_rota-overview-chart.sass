@@ -16,8 +16,8 @@ $block: ".rota-overview-chart"
 
 #{$block}
   +text-normalizer()
-
-  min-width: 700px
+  position: relative
+  min-width: 650px
   height: 400px
 
   & svg
@@ -28,3 +28,30 @@ $block: ".rota-overview-chart"
 
   &  svg .nv-x.nv-axis .tick:nth-child(even) text
     opacity: 0 !important
+
+  & .nvtooltip
+    z-index: 10
+    display: block
+    padding: 20px 10px 15px
+    border: none
+    background-color: #FFF
+    border-radius: 10px
+    opacity: 1
+    box-shadow: 0 0 10px -1px rgba(0, 0, 0, .2)
+
+    &:before
+      content: ""
+      z-index: 11
+      position: absolute
+      top: 50%
+      right: 100%
+      display: block
+      margin-top: -16px
+      border-right: 16px solid #fff
+      border-top: 16px solid transparent
+      border-bottom: 16px solid transparent
+
+
+
+  &__hover-indicator
+    display: none
