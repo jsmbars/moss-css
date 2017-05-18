@@ -17,11 +17,30 @@ $block: ".rota-overview-chart"
 #{$block}
   +text-normalizer()
   position: relative
-  min-width: 650px
-  height: 450px
+  display: block
+  width: 100%
+
+  &__inner
+    position: relative
+    display: block
+    width: 100%
+    overflow: hidden
+    text-align: center
+
+
+  &__content
+    display: inline-block
+    text-align: left
+
+
+  & .nv-chart
+    display: block
+    min-width: 660px
+    min-height: 450px
+
 
   & svg
-    height: 450px
+    min-height: 450px
 
   & svg .nv-x.nv-axis .tick:nth-child(even) line
     opacity: .45 !important
@@ -55,7 +74,29 @@ $block: ".rota-overview-chart"
 
   &__tooltip-pointer
     z-index: 11
+    position: absolute
     display: block
-    border-right: 16px solid #fff
-    border-top: 16px solid transparent
-    border-bottom: 16px solid transparent
+
+    &_position_left
+      margin-top: -16px
+      border-right: 16px solid #fff
+      border-top: 16px solid transparent
+      border-bottom: 16px solid transparent
+
+    &_position_right
+      margin-top: -16px
+      border-left: 16px solid #fff
+      border-top: 16px solid transparent
+      border-bottom: 16px solid transparent
+
+    &_position_top
+      margin-left: -16px
+      border-bottom: 16px solid #fff
+      border-right: 16px solid transparent
+      border-left: 16px solid transparent
+
+    &_position_bottom
+      margin-left: -16px
+      border-top: 16px solid #fff
+      border-right: 16px solid transparent
+      border-left: 16px solid transparent
