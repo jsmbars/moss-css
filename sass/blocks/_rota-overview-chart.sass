@@ -1,0 +1,61 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Rota overview chart
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".rota-overview-chart"
+
+#{$block}
+  +text-normalizer()
+  position: relative
+  min-width: 650px
+  height: 450px
+
+  & svg
+    height: 450px
+
+  & svg .nv-x.nv-axis .tick:nth-child(even) line
+    opacity: .45 !important
+
+  &  svg .nv-x.nv-axis .tick:nth-child(even) text
+    opacity: 0 !important
+
+  & .nvtooltip
+    z-index: 10
+    display: block
+    padding: 20px 15px 15px
+    border: none
+    background-color: #FFF
+    border-radius: 10px
+    opacity: 1
+    box-shadow: 0 0 10px -1px rgba(0, 0, 0, .2)
+
+  & .nvd3 .nv-axis .nv-axisMaxMin text
+    +text-normalizer()
+    font-size: 12px
+
+  & .nvd3 text
+    +text-normalizer()
+    font-size: 12px
+
+  & .nvd3 .nv-axis text
+    text-transform: uppercase
+
+  &__hover-indicator
+    display: none
+
+  &__tooltip-pointer
+    z-index: 11
+    display: block
+    border-right: 16px solid #fff
+    border-top: 16px solid transparent
+    border-bottom: 16px solid transparent
