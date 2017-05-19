@@ -45,6 +45,10 @@ $block: ".rota-chart"
     stroke: #d8d8d8
 
 
+  & .tick text
+    fill: #4c4c4c
+
+
   &__previewed-staff
     & text
       fill: white
@@ -76,7 +80,7 @@ $block: ".rota-chart"
 
   &__tooltip
     position: absolute
-    z-index: 10
+    z-index: 10000
     width: 330px
     min-height: 450px
     text-align: left
@@ -108,12 +112,36 @@ $block: ".rota-chart"
 
   &__tooltip-pointer
     position: absolute
-    z-index: 11
+    z-index: 10001
     display: block
     margin-top: -20px
     border-right: 20px solid #fff
     border-top: 20px solid transparent
     border-bottom: 20px solid transparent
+
+    &_position_left
+      margin-top: -16px
+      border-right: 16px solid #fff
+      border-top: 16px solid transparent
+      border-bottom: 16px solid transparent
+
+    &_position_right
+      margin-top: -16px
+      border-left: 16px solid #fff
+      border-top: 16px solid transparent
+      border-bottom: 16px solid transparent
+
+    &_position_top
+      margin-left: -16px
+      border-bottom: 16px solid #fff
+      border-right: 16px solid transparent
+      border-left: 16px solid transparent
+
+    &_position_bottom
+      margin-left: -16px
+      border-top: 16px solid #fff
+      border-right: 16px solid transparent
+      border-left: 16px solid transparent
 
     @media screen and (max-width: 960px)
       display: none
