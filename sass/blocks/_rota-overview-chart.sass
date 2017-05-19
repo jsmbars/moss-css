@@ -49,7 +49,7 @@ $block: ".rota-overview-chart"
     opacity: 0 !important
 
   & .nvtooltip
-    z-index: 10
+    z-index: 9999
     display: block
     padding: 20px 15px 15px
     border: none
@@ -58,22 +58,8 @@ $block: ".rota-overview-chart"
     opacity: 1
     box-shadow: 0 0 10px -1px rgba(0, 0, 0, .2)
 
-  & .nvd3 .nv-axis .nv-axisMaxMin text
-    +text-normalizer()
-    font-size: 12px
-
-  & .nvd3 text
-    +text-normalizer()
-    font-size: 12px
-
-  & .nvd3 .nv-axis text
-    text-transform: uppercase
-
-  &__hover-indicator
-    display: none
-
-  &__tooltip-pointer
-    z-index: 11
+  & .nvtooltip-pointer
+    z-index: 10000
     position: absolute
     display: block
 
@@ -100,3 +86,18 @@ $block: ".rota-overview-chart"
       border-top: 16px solid #fff
       border-right: 16px solid transparent
       border-left: 16px solid transparent
+
+  & .nvd3 .nv-axis .nv-axisMaxMin text
+    +text-normalizer()
+    font-size: 12px
+    font-weight: normal
+
+  & .nvd3 text
+    +text-normalizer()
+    font-size: 12px
+
+  & .nvd3 .nv-axis text
+    text-transform: uppercase
+
+  &__hover-indicator
+    display: none
