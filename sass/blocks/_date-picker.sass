@@ -19,17 +19,27 @@ $block: ".date-picker"
 
   &.react-datepicker
     border-radius: 3px
+    border-color: $boss-very-light-gray
 
 
     & .react-datepicker__triangle
       border-bottom-color: #FFF
 
+      &:before
+        border-bottom-color: $boss-very-light-gray
+
       @at-root .react-datepicker__tether-element-attached-top &
         border-bottom-color: #fff
+
+        &:before
+          border-bottom-color: $boss-very-light-gray
 
       @at-root .react-datepicker__tether-element-attached-bottom &
         border-top-color: #fff
         outline: 1px
+
+        &:before
+          border-top-color: $boss-very-light-gray
 
 
     & .react-datepicker__header
