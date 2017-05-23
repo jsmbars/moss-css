@@ -690,29 +690,34 @@ $block: ".boss-form"
       height: 53px
       border-radius: 2px
       border-color: #d8d8d8
+      vertical-align: middle
 
-    & .Select-placeholder
+    & .Select--multi .Select-multi-value-wrapper
+      padding: 5px 0
+      vertical-align: middle
+
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
       line-height: 53px
       padding-left: 20px
       padding-right: 10px
       color: #aaa
 
-    & .has-value>.Select-control>.Select-placeholder
+    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
       color: #4c4c4c
 
     & .Select-input
-      height: auto
-      line-height: 53px
+      vertical-align: middle
 
       & input
-        height: auto
-        line-height: 53px
+        line-height: 34px
         padding: 0
 
     & .Select-option
       padding: 10px 10px 10px 20px
 
-    & .Select--multi .Select-item
+    & .Select--multi .Select-value
       margin-left: 10px
       background-color: map-get($boss-app-palette, primary)
       border: none
@@ -720,9 +725,9 @@ $block: ".boss-form"
       line-height: 1
       white-space: nowrap
       direction: rtl
-      vertical-align: baseline
+      vertical-align: middle
 
-    & .Select--multi .Select-item-icon
+    & .Select--multi .Select-value-icon
       position: relative
       z-index: 1
       background-color: transparent
@@ -755,7 +760,7 @@ $block: ".boss-form"
         &:after
           background-color: rgba(0,0,0,.6)
 
-    & .Select--multi .Select-item-label
+    & .Select--multi .Select-value-label
       background-color: transparent
       white-space: nowrap
       text-transform: uppercase
@@ -778,7 +783,8 @@ $block: ".boss-form"
         border-color: map-get($boss-app-palette, alert)
 
     &_role_time
-      & .Select-placeholder
+      & .Select-placeholder,
+      & .Select--single > .Select-control .Select-value
         padding-left: 35px
 
         @media screen and (max-width: 640px)
