@@ -11,6 +11,8 @@
 //  $Owl carousel plugin transitions lib
 //  $jQuery UI lib......................
 //  $nvd3 lib...........................
+//  $React-select.......................
+//  $React-datepicker...................
 //
 // HELPERS..............................Variables, mixins, elements
 //  $Fonts..............................Offline and online fonts
@@ -21,7 +23,7 @@
 // BLOCKS...............................Page components
 //  $Common elements....................
 
-//  $Reviewed new and existing blocks
+//  Reviewed new and existing blocks
 //  $Alert..............................
 //  $Avatar.............................
 //  $Common button......................
@@ -48,10 +50,10 @@
 //  $Modal window.......................
 //  $User badge.........................
 //  $HRC form...........................
+//  $Hours requiring confirmation form..
 //  $Notes block........................
 //  $Time shift.........................
 //  $Forecast...........................
-//  $Legend.............................
 //  $Rotas..............................
 //  $Chart..............................
 //  $Common table.......................
@@ -60,8 +62,17 @@
 //  $Horizontal table...................
 //  $Summary block......................
 //  $Staff summary......................
+//  $Rotas time.........................
+//  $Rotas info.........................
 
-//  $Refactoring candidates
+//  Restyled existing vendor modules
+//  $Date picker........................
+//  $Week picker........................
+//  $Hours chart........................
+//  $Rota chart.........................
+//  $Rota overview chart................
+
+//  Refactoring candidates
 //  $Page content.......................
 //  $Buttons group......................
 //  $Info block.........................
@@ -93,14 +104,17 @@
 // $Owl carousel plugin transitions lib
 @import ./vendor/owl/owl.transitions.scss
 
-// $React-select styles
-@import ./vendor/react-select/default.scss
-
 // $jQuery UI lib
 @import ./vendor/jquery-ui/jquery-ui.scss
 
 // $nvd3 lib
 @import ./vendor/nvd3/nv.d3.scss
+
+// $React-select
+@import ./vendor/react-select/default.scss
+
+// $React-datepicker
+@import ./vendor/react-datepicker/datepicker.scss
 
 
 ////////////////////////////////////////
@@ -129,7 +143,7 @@
 @import './blocks/boss-common-elements'
 
 
-// $Reviewed new and existing blocks
+// Reviewed new and existing blocks
 // Isolated and independent components
 
 // $Alert
@@ -251,22 +265,25 @@
 @import './blocks/boss-rotas-info'
 
 
-//Restyled existing vendor modules
+// Restyled existing vendor modules
 
-//Week picker
+// $Date picker
+@import './blocks/date-picker'
+
+// $Week picker
 @import './blocks/week-picker'
 
-//Hours chart
+// $Hours chart
 @import './blocks/hours-chart'
 
-//Rota chart
+// $Rota chart
 @import './blocks/rota-chart'
 
 // $Rota overview chart
 @import './blocks/rota-overview-chart'
 
 
-// $Refactoring candidates
+// Refactoring candidates
 // Can be reduced and included in the existing blocks
 
 // $Page content
@@ -303,7 +320,7 @@
 @import './blocks/boss-label-text'
 
 
-// $Existing not reviewed blocks
+// Existing not reviewed blocks
 @import './blocks/existing/boss-clock-button'
 @import './blocks/existing/boss-header'
 @import './blocks/existing/boss-info-table'

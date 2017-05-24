@@ -1,0 +1,167 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Date picker
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".date-picker"
+
+#{$block}
+  +box-model-normalizer()
+
+  &.react-datepicker
+    border-radius: 3px
+    border-color: $boss-very-light-gray
+
+
+    & .react-datepicker__triangle
+      border-bottom-color: #FFF
+
+      &:before
+        border-bottom-color: $boss-very-light-gray
+
+      @at-root .react-datepicker__tether-element-attached-top &
+        border-bottom-color: #fff
+
+        &:before
+          border-bottom-color: $boss-very-light-gray
+
+      @at-root .react-datepicker__tether-element-attached-bottom &
+        border-top-color: #fff
+        outline: 1px
+
+        &:before
+          border-top-color: $boss-very-light-gray
+
+
+    & .react-datepicker__header
+      background-color: #fff
+      border-bottom: none
+
+
+    & .react-datepicker__current-month
+      +text-normalizer()
+      padding: 10px
+      text-align: center
+
+
+    & .react-datepicker__navigation
+      top: 20px
+      display: block
+      width: 15px
+      height: 15px
+      border: none
+
+      &--previous
+        left: 20px
+        background-image: url(../icons/icon-arrow-left-light-gray.svg)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: contain
+
+      &--next
+        right: 20px
+        background-image: url(../icons/icon-arrow-left-light-gray.svg)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: contain
+        transform: rotate(-180deg)
+
+
+    & .react-datepicker__month
+      position: relative
+      z-index: 1
+      margin: 0
+      padding: 0 10px 10px
+
+      &:before
+        content: ''
+        z-index: -1
+        position: absolute
+        top: -50px
+        right: 0
+        left: 0
+        display: block
+        height: 100px
+        box-shadow: inset 0 60px 60px -60px rgba(0, 0, 0, .15)
+
+
+    & .react-datepicker__month-select
+      +text-normalizer()
+      margin: 5px 0 15px
+      padding: 0 25px 0 10px
+
+    & .react-datepicker__year-select
+      +text-normalizer()
+      margin: 5px 0 15px
+      padding: 0 25px 0 10px
+
+
+    & .react-datepicker__week-number
+      +text-normalizer()
+      width: 40px
+      padding: 10px 0
+      text-align: center
+
+
+    & .react-datepicker__day-names
+      padding-top: 10px
+
+
+    & .react-datepicker__day-name
+      +text-normalizer()
+      width: 40px
+      padding: 10px 0
+      font-weight: 600
+      text-align: center
+
+
+    & .react-datepicker__day
+      +text-normalizer()
+      width: 40px
+      padding: 10px 0
+      text-align: center
+
+      &:hover
+        border-radius: 0
+        background-color: map-get($boss-app-palette, primary)
+        color: #FFF
+
+      &--today
+        font-weight: 400
+        color: #FFF
+
+      &--highlighted,
+      &--selected,
+      &--in-selecting-range,
+      &--in-range,
+      &--keyboard-selected
+        border-radius: 0
+        background-color: map-get($boss-app-palette, primary)
+        color: #fff
+
+        &:hover
+          background-color: darken(map-get($boss-app-palette, primary), 5%)
+
+      &--disabled
+        cursor: default;
+        color: $boss-very-light-gray
+        background-color: transparent
+
+        &:hover
+          background-color: transparent
+          color: $boss-very-light-gray
+
+      &--outside-month
+        color: #d8d8d8
+
+        &:hover
+          color: #FFF
