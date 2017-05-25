@@ -100,6 +100,28 @@ $block: ".boss-alert"
       font-weight: bold
 
 
+  // $Alert text value
+  &__text-value
+
+
+  // $Alert text link
+  &__text-link
+    +text-normalizer()
+    display: inline-block
+    color: #FFF
+    outline: none
+    font-weight: 300
+    text-decoration: underline
+
+    &:hover
+      text-decoration: none
+      color: #FFF
+
+    &:focus
+      outline: none
+      color: #FFF
+
+
   // $Alert text line
   &__line
     display: block
