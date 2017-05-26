@@ -690,11 +690,14 @@ $block: ".boss-form"
       height: 53px
       border-radius: 2px
       border-color: #d8d8d8
-      vertical-align: middle
+
+    & .Select-multi-value-wrapper
+      line-height: 52px
 
     & .Select--multi .Select-multi-value-wrapper
       padding: 5px 0
       vertical-align: middle
+      line-height: 1
 
     & .Select-placeholder,
     & .Select--single > .Select-control .Select-value
@@ -709,13 +712,19 @@ $block: ".boss-form"
 
     & .Select-input
       vertical-align: middle
+      line-height: 1
+      height: auto
 
       & input
-        line-height: 34px
+        line-height: 1
+        height: 30px
         padding: 0
 
     & .Select-option
       padding: 10px 10px 10px 20px
+
+    & .Select--multi .Select-input
+      margin-top: 5px
 
     & .Select--multi .Select-value
       margin-left: 10px
