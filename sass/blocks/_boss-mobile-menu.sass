@@ -36,7 +36,7 @@ $block: ".boss-mobile-menu"
 
   // $Mobile shadow MOD: active
   &_state_active
-    z-index: 199
+    z-index: 9999
     opacity: 1
     visibility: visible
 
@@ -110,6 +110,7 @@ $block: ".boss-mobile-menu"
   // $Mobile menu button link
   &__button-link
     +normalize-block()
+    position: relative
     display: block
     height: 40px
     line-height: 40px
@@ -122,10 +123,6 @@ $block: ".boss-mobile-menu"
       padding-left: 30px
       width: 100%
 
-    // $Mobile menu button link CONTEXT: $Mobile menu button MOD: dropdown
-    #{$block}__button_dropdown &
-      width: calc(100% - 55px)
-
     // $Mobile menu button link CONTEXT: $Mobile menu button MOD: initials
     #{$block}__button_initials &
       background-color: map-get($boss-app-palette, secondary)
@@ -137,20 +134,22 @@ $block: ".boss-mobile-menu"
       #{$block}__button_initials &
         background-color: map-get($boss-app-palette, secondary)
 
+    // $Mobile menu button link MOD: dropdown
+    &_dropdown
+      width: 100%
+      cursor: pointer
 
-  // $Mobile menu button drop
-  &__button-drop
-    position: absolute
-    right: 0
-    top: 0
-    width: 40px
-    height: 40px
-    background: url(../icons/icon-down-arrow-medium-gray.svg) 50% 50% no-repeat
-    background-size: 9px
-    cursor: pointer
-
-    &:hover
-      background-color: lighten(map-get($boss-app-palette, inactive), 10%)
+      &:after
+        content: ""
+        position: absolute
+        right: 0
+        top: 0
+        z-index: 0
+        display: block
+        width: 40px
+        height: 40px
+        background: url(../icons/icon-down-arrow-medium-gray.svg) 50% 50% no-repeat
+        background-size: 9px
 
 
   // $Mobile menu dropdown
