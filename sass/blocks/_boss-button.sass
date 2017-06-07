@@ -52,16 +52,16 @@
 
 =button-with-icon-left($icon-url: '', $background-height: 13px)
   white-space: nowrap
-  vertical-align: middle
+  vertical-align: baseline
 
   &:before
     content: ""
     display: inline-block
-    width: 15px
-    height: 15px
+    width: $background-height
+    height: $background-height
     margin-right: 10px
     line-height: 100%
-    vertical-align: middle
+    vertical-align: baseline
     background-image: url($icon-url)
     background-repeat: no-repeat
     background-position: center center
@@ -70,16 +70,16 @@
 
 =button-with-icon-right($icon-url: '', $background-height: 13px)
   white-space: nowrap
-  vertical-align: middle
+  vertical-align: baseline
 
   &:after
     content: ""
     display: inline-block
-    width: 15px
-    height: 15px
+    width: $background-height
+    height: $background-height
     margin-left: 10px
     line-height: 100%
-    vertical-align: middle
+    vertical-align: baseline
     background-image: url($icon-url)
     background-repeat: no-repeat
     background-position: center center
