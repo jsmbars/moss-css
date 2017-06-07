@@ -1,0 +1,55 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Error view
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-error"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+  text-align: center
+
+
+  &__info
+    margin-bottom: 50px
+
+
+  &__title
+    +text-normalizer()
+    margin-bottom: 20px
+    font-size: 36px
+    line-height: 1.2
+    text-align: center
+    color: #4c4c4c
+    font-weight: 300
+
+
+  &__text
+    +text-normalizer()
+    max-width: 800px
+    margin: 0 auto 30px
+    font-size: 18px
+    text-align: center
+    color: #4c4c4c
+
+
+  &__button
+
+
+  &__image
+    display: block
+    width: 100%
+    max-width: 100%
+
+
