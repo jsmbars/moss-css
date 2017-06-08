@@ -19,6 +19,10 @@ $block: ".boss-page-main"
   display: block
   width: 100%
 
+  &_full
+    min-height: 100vh
+    background-color: #fff
+
   // $Page main container dashboard
   &__dashboard
     display: block
@@ -365,4 +369,21 @@ $block: ".boss-page-main"
       &:before
         display: inline-block
         background-image: url('../icons/icon-text-paper-primary.svg')
+
+  // $Page main logo
+  &__logo
+    +text-normalizer()
+    font-size: 20px
+    line-height: 1
+    text-transform: uppercase
+    font-weight: 600
+    text-decoration: none
+    cursor: pointer
+    transition: all .4s
+
+    &:hover
+      color: map-get($boss-app-palette, primary)
+
+    &:focus
+      outline: #FFF
 
