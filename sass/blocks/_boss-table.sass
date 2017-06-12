@@ -127,6 +127,7 @@ $block: ".boss-table"
 
     #{$block}_page_safe-checks-index &
       justify-content: center
+      padding: 15px 10px
 
     @media screen and (max-width: 960px)
       justify-content: center
@@ -135,6 +136,9 @@ $block: ".boss-table"
       #{$block}_page_change-order-history &
         padding-left: 0
         padding-right: 0
+
+      #{$block}_page_safe-checks-index &
+        padding: 10px
 
     &:first-child
       padding-left: 25px
@@ -205,6 +209,9 @@ $block: ".boss-table"
 
         #{$block}_page_holidays-report &
           padding-left: 0
+
+        #{$block}_page_safe-checks-index &
+          border-right: none
 
     // $Common table cell second column
     &:nth-child(2)
@@ -541,6 +548,12 @@ $block: ".boss-table"
         width: 50%
         padding-right: 10px
         font-size: 16px
+
+      #{$block}_page_safe-checks-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 140px
+        padding-right: 30px
 
 
   // $Common table text
