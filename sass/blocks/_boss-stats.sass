@@ -24,7 +24,7 @@ $block: ".boss-stats"
 
   // $Stats block MOD: adjust for table
   &_adjust_table
-    @media screen and (max-width: 960px)
+    @media screen and (max-width: 1120px)
       align-items: flex-start
 
 
@@ -43,6 +43,7 @@ $block: ".boss-stats"
     width: 100%
     padding: 20px
     white-space: nowrap
+    text-align: center
 
     // $Stats block meta CONTEXT: $Stats block MOD: adjust for table
     #{$block}_adjust_table &
@@ -51,12 +52,15 @@ $block: ".boss-stats"
       border-top: 1px solid #eee
       text-align: center
 
-    @media screen and (max-width: 960px)
-      white-space: normal
-
+    @media screen and (max-width: 1120px)
       #{$block}_adjust_table &
+        margin-top: 10px
+        white-space: normal
         border-top: none
         text-align: left
+
+    @media screen and (max-width: 960px)
+      white-space: normal
 
 
   // $Stats block title
@@ -96,6 +100,10 @@ $block: ".boss-stats"
   &__text-line
     display: block
 
+    @media screen and (max-width: 1120px)
+      #{$block}_adjust_table &
+        display: inline-block
+
     @media screen and (max-width: 960px)
       display: inline-block
 
@@ -129,22 +137,30 @@ $block: ".boss-stats"
       border-radius: 14px / 50%
       transform: translateY(-50%)
 
+    @media screen and (max-width: 1120px)
+      #{$block}_adjust_table &
+        width: auto
+        margin-right: 0
+        margin-bottom: 0
+        transform: none
+
     @media screen and (max-width: 960px)
       width: 100%
       margin-right: 0
       margin-bottom: 20px
 
-      #{$block}_adjust_table &
-        width: auto
-
     &:last-of-type
       margin-right: 0
+
+      @media screen and (max-width: 1120px)
+        #{$block}_adjust_table &
+          margin-bottom: 0
 
       @media screen and (max-width: 960px)
         margin-bottom: 0
 
-    // $Stats block label MOD: role accent
-    &_role_accent
+    // $Stats block label MOD: role marked
+    &_role_marked
       background-color: map-get($boss-app-palette, alert)
       border-color: map-get($boss-app-palette, alert)
       color: #fff
@@ -244,8 +260,8 @@ $block: ".boss-stats"
     font-size: 14px
     line-height: 1
 
-    // $Stats block table text MOD: marked
-    &_marked
+    // $Stats block table text MOD: role label
+    &_role_label
       font-weight: 600
       font-size: 16px
 
