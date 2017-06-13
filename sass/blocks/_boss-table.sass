@@ -28,6 +28,9 @@ $block: ".boss-table"
   &_page_safe-checks-index
     border: 1px solid #eee
 
+    @media screen and (max-width: 1120px)
+      border: none
+
 
   // $Common table row
   &__row
@@ -116,6 +119,10 @@ $block: ".boss-table"
       @media screen and (max-width: 960px)
         #{$block}_page_change-order-report &
           padding-top: 0
+
+    // $Common table cell MOD: state alert
+    &_state_alert
+      background-color: transparentize(map-get($boss-app-palette, alert), .85)
 
 
   // $Common table cell
@@ -244,13 +251,12 @@ $block: ".boss-table"
         flex-grow: 0
         flex-shrink: 0
         width: 165px
-        padding: 15px 0 0
         border-right: 1px solid #eee
+        overflow: hidden
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
-          padding: 10px
           border-right: none
 
       @media screen and (max-width: 960px)
@@ -483,6 +489,10 @@ $block: ".boss-table"
           padding: 15px
           border-right: none
 
+    // $Common table cell MOD: state alert
+    &_state_alert
+      background-color: map-get($boss-app-palette, alert)
+
 
   // $Common table info
   &__info
@@ -593,6 +603,10 @@ $block: ".boss-table"
         width: 140px
         padding-right: 30px
 
+    // $Common table label MOD: state alert
+    &_state_alert
+      color: #FFF
+
 
   // $Common table text
   &__text
@@ -627,9 +641,11 @@ $block: ".boss-table"
         padding-left: 10px
         width: 50%
 
-    &_marked
-      color: map-get($boss-app-palette, alert)
+    // $Common table text MOD: state alert
+    &_state_alert
+      color: #FFF
       font-weight: 600
+      font-size: 16px
 
     &_role_date
       white-space: nowrap
