@@ -1,0 +1,211 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Check block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-check"
+
+#{$block}
+  +box-model-normalizer()
+  position: relative
+  z-index: 10
+  display: block
+  width: 100%
+  overflow: hidden
+
+  // $Check block MOD: role board
+  &_role_board
+    margin-bottom: 20px
+    background-color: #FFF
+    border-radius: 10px
+
+  // $Check block MOD: page safe check index
+  &_page_safe-checks-index
+    display: none
+
+    @media screen and (max-width: 1120px)
+      display: block
+
+  // $Check block MOD: state alert
+  &_state_alert
+    background-color: #feeeee
+
+
+  // $Check block row
+  &__row
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    border-bottom: 1px solid #eee
+
+    // $Check block row MOD: role table
+    &_role_table
+      &:nth-child(even)
+        background-color: #FFF
+
+      &:nth-child(odd)
+        background-color: #fbfbfb
+
+    // $Check block row MOD: role info
+    &_role_info
+      display: block
+      padding: 15px
+      text-align: center
+
+
+  // $Check block cell
+  &__cell
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 50%
+    padding: 10px 15px
+
+    &:not(:last-child)
+      border-right: 1px solid #eee
+
+    // $Check block cell MOD: role table
+    &_role_table
+      min-height: 50px
+
+      &:nth-child(1)
+        padding-left: 20px
+        justify-content: flex-end
+
+      &:nth-child(2)
+        padding-left: 25px
+        justify-content: flex-start
+
+    // $Check block cell MOD: state alert
+    &_state_alert
+      background-color: #ff8587
+
+    // $Check block cell MOD: no border
+    &_no-border:not(:last-child)
+      border: none
+
+
+  // $Check block text
+  &__text
+    +text-normalizer()
+
+    // $Check block text MOD: marked
+    &_marked
+      font-size: 16px
+      font-weight: 600
+
+    // $Check block text MOD: role date
+    &_role_date
+      font-size: 16px
+      font-weight: 600
+      letter-spacing: -1px
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 5px
+        margin-top: -3px
+        background-image: url('../icons/icon-clock-dark-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    // $Check block text MOD: role info
+    &_role_info
+      text-align: center
+      color: $boss-medium-gray
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 5px
+        margin-top: -3px
+        background-image: url('../icons/icon-user-dark-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    // $Check block text MOD: indicator attachment
+    &_indicator_att
+
+      &:after
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 14px
+        margin-left: 10px
+        margin-top: -3px
+        background-image: url('../icons/icon-envelope-dark-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    // $Check block text MOD: state alert
+    &_state_alert
+      color: #FFF
+
+
+  // $Check block text line
+  &__text-line
+    display: block
+
+
+  // $Check block dropdown
+  &__dropdown
+
+    // $Check block dropdown MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Check block dropdown link
+  &__dropdown-link
+    +text-normalizer()
+    color: $boss-dark-gray
+    vertical-align: middle
+    outline: none
+    text-decoration: none
+    white-space: nowrap
+
+    &:hover
+      color: $boss-dark-gray
+
+    &:focus
+      color: $boss-dark-gray
+
+    &:after
+      content: ""
+      display: inline-block
+      width: 10px
+      height: 10px
+      margin-left: 10px
+      margin-top: -3px
+      background-image: url('../icons/icon-arrow-down-dark-gray.svg')
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      vertical-align: middle
+      transform: rotate(180deg)
+
+    // $Check block dropdown link MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)

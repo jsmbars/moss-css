@@ -246,6 +246,19 @@ $block: ".boss-page-main"
       @media screen and (max-width: 960px)
         padding-bottom: 40px
 
+  // $Page main container table area
+  &__table
+    #{$block}_page_safe-checks &
+      padding: 25px 25px 30px
+      margin-bottom: 60px
+      background-color: #FFF
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_safe-checks &
+        padding: 0
+        margin-bottom: 0
+        background-color: transparent
+
 
   // $Page main container flow layout
   &__flow

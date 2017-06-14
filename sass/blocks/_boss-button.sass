@@ -15,7 +15,6 @@
 
 
 =button-common-hover-behavior($background-color, $amount: 3%)
-  cursor: pointer
 
   &:hover,
   &:focus
@@ -28,7 +27,6 @@
 
 
 =button-bordered-hover-behavior($primary-color: '#4c4c4c', $secondary-color: '#fff', $icon-hover-url: '')
-  cursor: pointer
 
   &:hover,
   &:focus
@@ -104,6 +102,7 @@ $block: ".boss-button"
   color: #fff
   font-weight: 300
   white-space: nowrap
+  cursor: pointer
   transition: all .4s
 
   @media screen and (max-width: 400px)
@@ -298,7 +297,18 @@ $block: ".boss-button"
 
 
   // Buttons with icons
-  // $Common button MOD: role edit
+  // $Common button MOD: role coins
+  &_role_coins
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '')
+    +button-common-hover-behavior($background-color: $background-color)
+
+    &:before
+      content: "\00A3"
+      font-weight: 600
+
+
   &_role_edit
     $background-color: map-get($boss-app-palette, primary)
     +button-common($background-color: $background-color)
