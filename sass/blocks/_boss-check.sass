@@ -30,8 +30,10 @@ $block: ".boss-check"
 
   // $Check block MOD: page safe check index
   &_page_safe-checks-index
-    @media screen and (min-width: 1121px)
-      display: none
+    display: none
+
+    @media screen and (max-width: 1120px)
+      display: block
 
   // $Check block MOD: state alert
   &_state_alert
