@@ -18,6 +18,7 @@ $block: ".boss-table"
   +box-model-normalizer()
   display: block
   width: 100%
+  background-color: #fff
 
   &_page_change-order-history
     border: 1px solid #eee
@@ -30,6 +31,7 @@ $block: ".boss-table"
 
     @media screen and (max-width: 1120px)
       border: none
+      display: none
 
 
   // $Common table row
@@ -122,7 +124,7 @@ $block: ".boss-table"
 
     // $Common table cell MOD: state alert
     &_state_alert
-      background-color: transparentize(map-get($boss-app-palette, alert), .85)
+      background-color: #feeeee
 
 
   // $Common table cell
@@ -491,7 +493,7 @@ $block: ".boss-table"
 
     // $Common table cell MOD: state alert
     &_state_alert
-      background-color: map-get($boss-app-palette, alert)
+      background-color: #ff8587
 
 
   // $Common table info
