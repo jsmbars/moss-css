@@ -195,12 +195,16 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        width: 11%
+        flex-grow: 0
+        flex-shrink: 0
+        width: 125px
         padding-left: 10px
         border-right: 1px solid #eee
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
+          flex-grow: 1
+          flex-shrink: 1
           width: 100%
           padding-left: 15px
           border-right: none
