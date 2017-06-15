@@ -40,6 +40,11 @@ $block: ".boss-message"
   &_role_note
     padding: 10px 15px
 
+  // $Message MOD: role clocking app note
+  &_role_ca-note
+    padding: 20px 25px
+    text-align: center
+
 
   // $Message title
   &__title
@@ -63,6 +68,9 @@ $block: ".boss-message"
 
     #{$block}_role_note &
       font-size: 14px
+
+    #{$block}_role_ca-note &
+      text-align: center
 
     // $Message text MOD: marked text
     &_marked
