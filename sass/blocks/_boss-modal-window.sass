@@ -22,6 +22,8 @@ $block: ".boss-modal-window"
   position: absolute
   top: 200px
   left: 50%
+  z-index: 10000
+  cursor: default
   display: block
   transform: translateX(-50%)
 
@@ -64,7 +66,7 @@ $block: ".boss-modal-window"
     position: absolute
     top: 0
     right: 0
-    z-index: 10000
+    z-index: 10001
     display: block
     width: 40px
     height: 40px
@@ -85,6 +87,7 @@ $block: ".boss-modal-window"
     position: absolute
     top: 12px
     right: 12px
+    z-index: 10001
     display: block
     width: 12px
     height: 12px
@@ -119,6 +122,12 @@ $block: ".boss-modal-window"
     // $Modal window header MOD: add note
     &_add-note
       background-color: #f3a84d
+
+    // $Modal window header MOD: details
+    &_details
+      background-color: map-get($boss-app-palette, primary)
+      text-transform: none
+      font-size: 24px
 
 
   // $Modal window content
