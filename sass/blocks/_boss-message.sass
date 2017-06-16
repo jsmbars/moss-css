@@ -45,6 +45,17 @@ $block: ".boss-message"
     padding: 20px 25px
     text-align: center
 
+  // $Message MOD: role safe checks details
+  &_role_sc-details
+    display: inline-block
+    width: auto
+    margin-bottom: 15px
+    background-color: $boss-extra-light-gray
+    padding: 15px 20px 5px
+
+    &:last-of-type
+      margin-bottom: 0
+
 
   // $Message title
   &__title
@@ -59,6 +70,7 @@ $block: ".boss-message"
   // $Message text
   &__text
     +text-normalizer()
+    display: block
     margin: 0
     font-size: 18px
     color: #fff
@@ -72,6 +84,59 @@ $block: ".boss-message"
     #{$block}_role_ca-note &
       text-align: center
 
+    #{$block}_role_sc-details &
+      font-size: 14px
+      color: $boss-dark-gray
+
     // $Message text MOD: marked text
     &_marked
       font-weight: 600
+
+
+  // $Message meta information
+  &__meta
+    display: block
+    margin-top: 10px
+
+
+  // $Message meta information text
+  &__meta-text
+    +text-normalizer()
+
+    display: inline-block
+    margin-right: 25px
+    margin-bottom: 10px
+    color: $boss-dark-gray
+    font-size: 14px
+    vertical-align: middle
+
+    #{$block}_role_sc-details &
+      font-size: 12px
+
+    &:before
+      content: ""
+      display: inline-block
+      margin-right: 8px
+      vertical-align: middle
+      line-height: 100%
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+
+    &:last-of-type
+      margin-right: 0
+
+    // $Message meta information text MOD: role date
+    &_role_date
+      &:before
+        width: 16px
+        height: 16px
+        margin-top: -2px
+        background-image: url("../icons/icon-calendar-dark-gray.svg")
+
+    // $Message meta information text MOD: role user
+    &_role_user
+      &:before
+        width: 12px
+        height: 16px
+        background-image: url("../icons/icon-user-dark-gray.svg")

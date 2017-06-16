@@ -28,22 +28,14 @@ $block: ".boss-stats"
       align-items: flex-start
 
 
-  // $Stats block header
-  &__header
-    flex-grow: 1
-    width: 100%
-    padding: 20px
-    text-align: center
-    border-bottom: 1px solid #eee
-
-
   // $Stats block meta
   &__meta
     display: block
     width: 100%
-    padding: 20px
+    padding: 20px 20px 25px
     white-space: nowrap
     text-align: center
+    border-bottom: 1px solid #eee
 
     // $Stats block meta CONTEXT: $Stats block MOD: adjust for table
     #{$block}_adjust_table &
@@ -61,13 +53,123 @@ $block: ".boss-stats"
       white-space: normal
 
 
-  // $Stats block title
-  &__title
+  // $Stats block note
+  &__note
+    display: block
+    width: 100%
+
+
+  // $Stats block note control
+  &__note-control
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding: 20px 25px
+    border-bottom: 1px solid #eee
+
+    @media screen and (max-width: 960px)
+      padding-left: 40px
+      padding-right: 40px
+
+    @media screen and (max-width: 480px)
+      padding-left: 30px
+      padding-right: 30px
+
+
+  // $Stats block note meta
+  &__note-meta
     +text-normalizer()
-    font-size: 28px
-    line-height: 1
+    position: relative
+    display: inline-block
+    white-space: nowrap
+    vertical-align: middle
     font-weight: 600
-    text-align: center
+
+    &:before
+      content: ''
+      display: inline-block
+      width: 18px
+      height: 16px
+      margin-top: -2px
+      margin-right: 10px
+      vertical-align: middle
+      background: url(../icons/icon-envelope-dark-gray.svg) no-repeat center center
+      background-size: contain
+
+
+  // $Stats block note switch
+  &__note-switch
+    +text-normalizer()
+
+    position: relative
+    display: inline-block
+    cursor: pointer
+    padding-left: 20px
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      display: block
+      width: 14px
+      height: 14px
+      margin-top: -7px
+      background-image: url(../icons/icon-plus-primary.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      transform: rotate(45deg)
+      transition: all .4s
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    // $Stats block note switch MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+
+  // $Stats block note form
+  &__note-form
+    display: block
+    width: 100%
+    padding: 15px 30px 15px 55px
+    background-color: #fbfbfb
+    border-bottom: 1px solid #eee
+
+    @media screen and (max-width: 960px)
+      padding-left: 40px
+      padding-right: 40px
+
+    @media screen and (max-width: 480px)
+      padding-left: 30px
+      padding-right: 30px
+
+    // $Stats block note form MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Stats block note messages
+  &__note-messages
+    display: block
+    width: 100%
+    padding: 15px 30px 15px 55px
+
+    @media screen and (max-width: 960px)
+      padding-left: 40px
+      padding-right: 40px
+
+    @media screen and (max-width: 480px)
+      padding-left: 30px
+      padding-right: 30px
 
 
   // $Stats block text
@@ -112,14 +214,16 @@ $block: ".boss-stats"
     display: inline-block
     min-height: 40px
     margin-right: 20px
-    padding: 11px 20px
+    padding: 0 20px
     font-size: 14px
-    line-height: 1
+    line-height: 40px
     font-weight: 600
     text-align: center
     white-space: nowrap
+    vertical-align: middle
     color: $boss-dark-gray
     border: 2px solid $boss-dark-gray
+    background-color: $boss-extra-light-gray
     border-radius: 20px / 50%
 
     // $Stats block label CONTEXT: $Stats block MOD: adjust for table
@@ -180,8 +284,8 @@ $block: ".boss-stats"
 
     // $Stats block label MOD: role marked
     &_role_marked
-      background-color: map-get($boss-app-palette, alert)
-      border-color: map-get($boss-app-palette, alert)
+      background-color: #f06261
+      border-color: #a9292a
       color: #fff
 
     // $Stats block label MOD: role date
