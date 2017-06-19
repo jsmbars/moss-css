@@ -230,11 +230,26 @@ $block: ".boss-page-main"
     @media screen and (max-width: 1280px)
       padding: 30px 20px 20px
 
+      #{$block}_page_safe-checks &
+        padding: 25px 25px 30px
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_safe-checks &
+        padding: 0
+        margin-bottom: 0
+        background-color: transparent
+
     @media screen and (max-width: 960px)
       padding: 20px 15px
 
+      #{$block}_page_safe-checks &
+        padding: 0
+
     @media screen and (max-width: 479px)
       padding: 20px 10px
+
+      #{$block}_page_safe-checks &
+        padding: 0
 
     // $Page main container group MOD: space extra
     &_space_extra
@@ -246,18 +261,39 @@ $block: ".boss-page-main"
       @media screen and (max-width: 960px)
         padding-bottom: 40px
 
-  // $Page main container table area
-  &__table
-    #{$block}_page_safe-checks &
+    // $Page main container group MOD: adjust safe checks form
+    &_adjust_sc-form
+      padding: 25px 25px 35px
+      background-color: #FFF
+
+      @media screen and (max-width: 1280px)
+        padding: 25px 25px 35px
+
+      @media screen and (max-width: 960px)
+        padding: 20px 15px
+
+      @media screen and (max-width: 479px)
+        padding: 20px 15px
+
+    // $Page main container group MOD: adjust safe checks table
+    &_adjust_sc-table
       padding: 25px 25px 30px
       margin-bottom: 60px
       background-color: #FFF
 
-    @media screen and (max-width: 1120px)
-      #{$block}_page_safe-checks &
+      @media screen and (max-width: 1280px)
+        padding: 25px 25px 30px
+
+      @media screen and (max-width: 1120px)
         padding: 0
         margin-bottom: 0
         background-color: transparent
+
+      @media screen and (max-width: 960px)
+        padding: 0
+
+      @media screen and (max-width: 479px)
+        padding: 0
 
 
   // $Page main container flow layout
@@ -307,6 +343,7 @@ $block: ".boss-page-main"
     // $Page main container tab MOD: state hidden
     &_state_hidden
       display: none
+
 
   // $Page main container filter
   &__filter

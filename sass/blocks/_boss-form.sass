@@ -354,7 +354,6 @@ $block: ".boss-form"
       transform: translate(-50%, -50%)
 
 
-
   // $Common form control
   &__control
     flex-grow: 0
@@ -487,16 +486,42 @@ $block: ".boss-form"
       margin-bottom: 0
       white-space: nowrap
 
-    // $Common form label-text MOD: typerequired field
+    // $Common form label-text MOD: type required field
     &_type_required
       &:after
         content: '*'
         margin-left: 2px
 
+    // $Common form label-text MOD: type optional field
+    &_type_optional
+      &:after
+        content: '(Optional)'
+        margin-left: 5px
+        color: $boss-light-gray
+
     // $Common form label-text MOD: type hidden
     &_type_hidden
       font-size: 0
       color: transparent
+
+
+  // $Common form value
+  &__value
+    +text-normalizer()
+    display: block
+    width: 100%
+    color: $boss-medium-gray
+    font-weight: 600
+    border: 1px solid $boss-very-light-gray
+    padding: 15px 20px
+    border-radius: 2px
+    background-color: $boss-extra-light-gray
+
+    // $Common form value MOD: state alert
+    &_state_alert
+      background-color: #ff8587
+      border-color: darken(#ff8587, 10%)
+      color: #fff
 
 
   // $Common form units label
