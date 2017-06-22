@@ -786,3 +786,16 @@ $block: ".boss-table"
     flex-grow: 0
     flex-shrink: 0
     display: block
+
+
+  // $Common table link
+  &__link
+    +text-normalizer()
+    color: $boss-dark-gray
+    text-decoration: none
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: none
+      color: $boss-dark-gray
