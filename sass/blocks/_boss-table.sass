@@ -16,9 +16,12 @@ $block: ".boss-table"
 
 #{$block}
   +box-model-normalizer()
-  display: block
+  display: table
   width: 100%
   background-color: #fff
+
+  @media screen and (max-width: 960px)
+  	display: block
 
   &_page_change-order-history
     border: 1px solid #eee
@@ -39,34 +42,21 @@ $block: ".boss-table"
     +text-normalizer()
 
     position: relative
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    align-items: stretch
-    width: 100%
-    min-height: 90px
-    border-bottom: 1px solid #eee
+    display: table-row
     background-color: #FFF
-
-    #{$block}_page_holidays-report &
-      padding-top: 15px
-      padding-bottom: 25px
-      min-height: 0
-
-    #{$block}_page_change-order-history &
-      min-height: 55px
-      border-bottom: none
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
-        flex-direction: column
-        min-height: 0
+        display: block
+        width: 100%
         padding-top: 20px
         padding-bottom: 20px
+        border-bottom: 1px solid #eee
 
     @media screen and (max-width: 960px)
-      flex-direction: column
-      min-height: 0
+      display: block
+      width: 100%
+      border-bottom: 1px solid #eee
 
       #{$block}_page_fruit-order-history &
         padding-top: 20px
@@ -77,6 +67,7 @@ $block: ".boss-table"
         padding-bottom: 40px
 
       #{$block}_page_holidays-report &
+        padding-top: 15px
         padding-bottom: 15px
 
       #{$block}_page_change-order-report &
@@ -85,6 +76,7 @@ $block: ".boss-table"
 
       #{$block}_page_change-order-history &
         background-color: transparent
+        border-bottom: none
 
     &:nth-child(odd)
       #{$block}_page_change-order-report &,
@@ -94,12 +86,9 @@ $block: ".boss-table"
 
     // $Common table first row
     &:nth-child(1)
-      min-height: 60px
 
       #{$block}_page_change-order-history &
-        min-height: 40px
         background-color: $boss-dark-gray
-        color: #FFF
 
       #{$block}_page_change-order-report &
         background-color: #FFF
@@ -107,14 +96,12 @@ $block: ".boss-table"
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           display: none
-          min-height: 0
 
       @media screen and (max-width: 960px)
         display: none
-        min-height: 0
 
         #{$block}_page_holidays-report &
-          display: flex
+          display: block
 
     // $Common table second row
     &:nth-child(2)
@@ -129,46 +116,62 @@ $block: ".boss-table"
 
   // $Common table cell
   &__cell
-    flex-grow: 1
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: center
+    display: table-cell
+    height: 90px
     padding: 15px
+    text-align: left
+    vertical-align: middle
+    border-bottom: 1px solid #eee
 
     #{$block}_page_holidays-report &
-      align-items: flex-start
+      vertical-align: top
+      height: auto
+      padding-top: 30px
+      padding-bottom: 40px
 
     #{$block}_page_change-order-history &
+      height: 55px
       padding: 10px 15px
+      border-bottom: none
 
     #{$block}_page_safe-checks-index &
-      justify-content: center
       padding: 15px 10px
+      text-align: center
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
+        display: block
+        height: auto
         padding: 10px
+        text-align: center
+        border-bottom: none
 
     @media screen and (max-width: 960px)
-      justify-content: center
+      display: block
+      height: auto
       padding: 10px
+      text-align: center
+      border-bottom: none
+
+      #{$block}_page_holidays-report &
+        padding-top: 10px
+        padding-bottom: 10px
 
       #{$block}_page_change-order-history &
         padding-left: 0
         padding-right: 0
 
-    &:last-child
+    &:first-child
       padding-right: 25px
-
-      #{$block}_page_safe-checks-index &
-        padding-right: 10px
 
       @media screen and (max-width: 960px)
         padding-right: 15px
 
-        #{$block}_page_change-order-history &
-          padding-right: 0
+    &:last-child
+      padding-right: 25px
+
+      @media screen and (max-width: 960px)
+        padding-right: 15px
 
 
     // $Common table cell first column
@@ -183,8 +186,6 @@ $block: ".boss-table"
         padding-left: 55px
 
       #{$block}_page_holidays-report &
-        flex-shrink: 0
-        flex-grow: 0
         width: 160px
         padding-left: 30px
 
@@ -195,16 +196,12 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 125px
+        min-width: 125px
         padding-left: 10px
         border-right: 1px solid #eee
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
-          flex-grow: 1
-          flex-shrink: 1
           width: 100%
           padding-left: 15px
           border-right: none
@@ -241,7 +238,7 @@ $block: ".boss-table"
         width: 23%
 
       #{$block}_page_fruit-order-history &
-        width: 25%
+        width: 29%
 
       #{$block}_page_holidays-report &
         width: 19%
@@ -254,9 +251,7 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 165px
+        min-width: 165px
         border-right: 1px solid #eee
         overflow: hidden
 
@@ -283,7 +278,7 @@ $block: ".boss-table"
         width: 23%
 
       #{$block}_page_fruit-order-history &
-        width: 25%
+        width: 24%
 
       #{$block}_page_holidays-report &
         width: 19%
@@ -323,7 +318,7 @@ $block: ".boss-table"
         width: 23%
 
       #{$block}_page_fruit-order-history &
-        width: 32%
+        width: 29%
         padding-right: 55px
 
       #{$block}_page_holidays-report &
@@ -393,9 +388,7 @@ $block: ".boss-table"
     &:nth-child(6)
 
       #{$block}_page_holidays-report &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 150px
+        min-width: 150px
         padding-left: 0
 
       #{$block}_page_change-order-report &
@@ -448,9 +441,8 @@ $block: ".boss-table"
         width: 11%
 
       #{$block}_page_safe-checks-index &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 165px
+        min-width: 165px
+        padding-right: 10px
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -465,9 +457,7 @@ $block: ".boss-table"
     &:nth-child(9)
 
       #{$block}_page_change-order-report &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 140px
+        min-width: 140px
 
       @media screen and (max-width: 960px)
 
@@ -475,11 +465,14 @@ $block: ".boss-table"
           width: 100%
 
     // $Common table cell MOD: role header
-    // $Common table cell MOD: role footer
-    &_role_header,
-    &_role_footer
+    &_role_header
+      height: 60px
       font-size: 16px
       text-transform: uppercase
+
+      #{$block}_page_change-order-history &
+        height: 40px
+        color: #FFF
 
       #{$block}_page_safe-checks-index &
         font-size: 14px
@@ -494,6 +487,13 @@ $block: ".boss-table"
         #{$block}_page_safe-checks-index &
           padding: 15px
           border-right: none
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &
+          height: auto
+
+      @media screen and (max-width: 960px)
+        height: auto
 
     // $Common table cell MOD: state alert
     &_state_alert
@@ -684,6 +684,7 @@ $block: ".boss-table"
 
   // $Common table actions
   &__actions
+    text-align: left
 
     #{$block}_page_fruit-order-history &
       display: flex
@@ -783,9 +784,7 @@ $block: ".boss-table"
 
   // $Common table image
   &__image
-    flex-grow: 0
-    flex-shrink: 0
-    display: block
+    display: inline-block
 
 
   // $Common table link
