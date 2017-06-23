@@ -301,14 +301,20 @@ $block: ".boss-button"
   &_role_coins
     $background-color: map-get($boss-app-palette, primary)
     +button-common($background-color: $background-color)
-    +button-with-icon-left($icon-url: '')
     +button-common-hover-behavior($background-color: $background-color)
+    white-space: nowrap
+    vertical-align: baseline
 
     &:before
       content: "\00A3"
+      display: inline-block
+      margin-right: 10px
+      line-height: 100%
       font-weight: 600
+      vertical-align: baseline
 
 
+  // $Common button MOD: role edit
   &_role_edit
     $background-color: map-get($boss-app-palette, primary)
     +button-common($background-color: $background-color)
