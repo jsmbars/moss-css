@@ -73,6 +73,9 @@ $block: ".boss-alert"
   &_role_info
     padding: 15px 15px 15px 25px
 
+    @media screen and (max-width: 400px)
+      padding: 10px 15px 10px 20px
+
     &:before
       width: 25px
       height: 25px
@@ -81,6 +84,13 @@ $block: ".boss-alert"
       background-image: url(../icons/icon-info-white.svg)
       background-size: 12px 12px
       border-radius: 50%
+
+      @media screen and (max-width: 400px)
+        left: 15px
+        width: 20px
+        height: 20px
+        margin-top: -10px
+        background-size: 10px 10px
 
 
   // $Alert MOD: state opened
