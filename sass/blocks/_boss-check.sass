@@ -72,6 +72,9 @@ $block: ".boss-check"
     width: 50%
     padding: 10px 15px
 
+    @media screen and (max-width: 960px)
+      padding: 10px
+
     &:not(:last-child)
       border-right: 1px solid #eee
 
@@ -83,9 +86,15 @@ $block: ".boss-check"
         padding-left: 20px
         justify-content: flex-end
 
+        @media screen and (max-width: 960px)
+          padding-left: 15px
+
       &:nth-child(2)
         padding-left: 25px
         justify-content: flex-start
+
+        @media screen and (max-width: 960px)
+          padding-left: 15px
 
     // $Check block cell MOD: state alert
     &_state_alert
