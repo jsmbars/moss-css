@@ -342,6 +342,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: role view report
+  &_role_view-report
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-zoom-white.svg', $background-height: 12px)
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: update
   &_role_update
     $background-color: map-get($boss-app-palette, secondary)
