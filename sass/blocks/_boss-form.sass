@@ -574,6 +574,9 @@ $block: ".boss-form"
       box-shadow: none
       border-color: $boss-very-light-gray
 
+    &[type=text]::-ms-clear
+      display: none
+
     // $Common form input MOD: state error
     &_state_error
       outline: 1px solid map-get($boss-app-palette, alert-border)

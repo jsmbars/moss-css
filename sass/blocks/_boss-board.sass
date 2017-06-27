@@ -127,6 +127,73 @@ $block: ".boss-board"
     @media screen and (max-width: 960px)
       padding: 0 20px
 
+  // $Board field
+  &__field
+    flex-grow: 1
+    flex-shrink: 1
+    position: relative
+    display: block
+    width: 100%
+
+    & input
+      +text-normalizer()
+      display: block
+      width: 100%
+      height: auto
+      line-height: 1.2
+      white-space: nowrap
+      box-sizing: border-box
+      border: none
+      padding: 0 20px 0 0
+      font-size: 24px
+      box-shadow: none
+
+      @media screen and (max-width: 640px)
+        font-size: 20px
+
+      @media screen and (max-width: 480px)
+        font-size: 18px
+
+      @media screen and (max-width: 400px)
+        font-size: 16px
+
+      &:focus
+        outline: none
+        box-shadow: none
+        border: none
+
+      &::-webkit-input-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &:-moz-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &::-moz-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &:-ms-input-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &::-ms-input-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &::placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &:placeholder-shown
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &[type=text]::-ms-clear
+        display: none
+
+
 
   // $Board button group
   &__button-group
@@ -220,6 +287,21 @@ $block: ".boss-board"
         @media screen and (max-width: 960px)
           background-image: url(../icons/icon-arrow-down-dark-gray.svg)
           transform: translate(-50%, -50%)
+
+
+  &__switch-btn
+
+    @media screen and (max-width: 480px)
+      font-size: 0
+      line-height: 0
+      color: transparent
+
+    &:before
+      @media screen and (max-width: 480px)
+        margin-right: 0
+
+    &_state_hidden
+      display: none
 
 
   // $Board content area
@@ -373,11 +455,17 @@ $block: ".boss-board"
   // $Board results table area
   &__results
     width: 100%
-    margin-bottom: 15px
     padding: 0 20px 0 15px
 
     @media screen and (max-width: 960px)
       padding: 0
+
+
+  // $Board checklist area
+  &__checklist
+    width: 100%
+    margin-bottom: 10px
+    padding: 0 20px
 
 
   // $Board orders area

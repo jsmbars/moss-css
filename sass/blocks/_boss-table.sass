@@ -36,6 +36,9 @@ $block: ".boss-table"
       border: none
       display: none
 
+  &_page_checklist-review
+    border: 1px solid #eee
+
 
   // $Common table row
   &__row
@@ -78,9 +81,14 @@ $block: ".boss-table"
         background-color: transparent
         border-bottom: none
 
+      #{$block}_page_checklist-review &
+        padding-top: 15px
+        padding-bottom: 15px
+
     &:nth-child(odd)
       #{$block}_page_change-order-report &,
-      #{$block}_page_safe-checks-index &
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_checklist-review &
         background-color: #fbfbfb
 
 
@@ -138,6 +146,7 @@ $block: ".boss-table"
     #{$block}_page_safe-checks-index &
       padding: 15px 10px
       text-align: center
+
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
@@ -201,6 +210,10 @@ $block: ".boss-table"
         padding-left: 10px
         border-right: 1px solid #eee
 
+      #{$block}_page_checklist-review &
+        width: 24%
+        padding-left: 40px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -215,7 +228,8 @@ $block: ".boss-table"
         #{$block}_page_fruit-order-history &,
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
-        #{$block}_page_change-order-history &
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &
           width: 100%
           padding-left: 15px
 
@@ -230,6 +244,9 @@ $block: ".boss-table"
 
         #{$block}_page_change-order-history &
           padding-left: 0
+
+        #{$block}_page_checklist-review &
+          padding-left: 10px
 
 
     // $Common table cell second column
@@ -256,6 +273,9 @@ $block: ".boss-table"
         border-right: 1px solid #eee
         overflow: hidden
 
+      #{$block}_page_checklist-review &
+        width: 20%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -268,7 +288,8 @@ $block: ".boss-table"
         #{$block}_page_fruit-order-history &,
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
-        #{$block}_page_change-order-history &
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &
           width: 100%
 
 
@@ -297,6 +318,9 @@ $block: ".boss-table"
       #{$block}_page_safe-checks-index &
         width: 11%
 
+      #{$block}_page_checklist-review &
+        width: 16%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -308,7 +332,8 @@ $block: ".boss-table"
         #{$block}_page_fruit-order-history &,
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
-        #{$block}_page_change-order-history &
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &
           width: 100%
 
 
@@ -335,6 +360,10 @@ $block: ".boss-table"
       #{$block}_page_safe-checks-index &
         width: 12%
 
+      #{$block}_page_checklist-review &
+        width: 20%
+        text-align: center
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -346,11 +375,15 @@ $block: ".boss-table"
         #{$block}_page_fruit-order-history &,
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
-        #{$block}_page_change-order-history &
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &
           width: 100%
 
         #{$block}_page_fruit-order-history &
           padding-right: 0
+
+        #{$block}_page_checklist-review &
+          text-align: left
 
 
     // $Common table cell fifth column
@@ -372,6 +405,11 @@ $block: ".boss-table"
       #{$block}_page_safe-checks-index &
         width: 12%
 
+      #{$block}_page_checklist-review &
+        width: 20%
+        padding-right: 40px
+        text-align: center
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -382,8 +420,12 @@ $block: ".boss-table"
         #{$block}_page_staff-members-index &,
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
-        #{$block}_page_change-order-history &
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &
           width: 100%
+
+        #{$block}_page_checklist-review &
+          padding-right: 10px
 
     // $Common table cell sixth column
     &:nth-child(6)
@@ -516,6 +558,10 @@ $block: ".boss-table"
     #{$block}_page_safe-checks-index &
       justify-content: center
 
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &
+      justify-content: center
+
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
         align-items: flex-start
@@ -529,6 +575,10 @@ $block: ".boss-table"
 
       #{$block}_page_change-order-report &
         align-items: flex-start
+
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &
+        justify-content: flex-start
 
 
   // $Common table label

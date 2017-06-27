@@ -37,6 +37,9 @@ $block: ".boss-alert"
     background-repeat: no-repeat
     background-size: contain
 
+  &_status_success
+    background-color: map-get($boss-app-palette, secondary)
+
   // $Alert MOD: role time
   &_role_time
     &:before
@@ -61,14 +64,34 @@ $block: ".boss-alert"
     &:before
       background-color: #58cd4c
 
-  &_status_success
-    background-color: map-get($boss-app-palette, secondary)
-
-
   // $Alert MOD: role notification
   &_role_note
     &:before
       display: none
+
+  // $Alert MOD: role information
+  &_role_info
+    padding: 15px 15px 15px 25px
+
+    @media screen and (max-width: 400px)
+      padding: 10px 15px 10px 20px
+
+    &:before
+      width: 25px
+      height: 25px
+      margin-top: -13px
+      background-color: #b35456
+      background-image: url(../icons/icon-info-white.svg)
+      background-size: 12px 12px
+      border-radius: 50%
+
+      @media screen and (max-width: 400px)
+        left: 15px
+        width: 20px
+        height: 20px
+        margin-top: -10px
+        background-size: 10px 10px
+
 
   // $Alert MOD: state opened
   &_state_opened

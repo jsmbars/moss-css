@@ -56,6 +56,15 @@ $block: ".boss-message"
     &:last-of-type
       margin-bottom: 0
 
+  // $Message MOD: role checklist note
+  &_role_checklist-note
+    padding: 15px 25px
+    border: 2px solid map-get($boss-app-palette, alert)
+    background-color: transparent
+
+    @media screen and (max-width: 400px)
+      padding: 10px 15px
+
 
   // $Message title
   &__title
@@ -87,6 +96,10 @@ $block: ".boss-message"
     #{$block}_role_sc-details &
       font-size: 14px
       color: $boss-dark-gray
+
+    #{$block}_role_checklist-note &
+      color: map-get($boss-app-palette, alert)
+      font-size: 14px
 
     // $Message text MOD: marked text
     &_marked
