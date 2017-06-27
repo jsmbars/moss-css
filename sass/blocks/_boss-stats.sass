@@ -30,12 +30,12 @@ $block: ".boss-stats"
 
   // $Stats block meta
   &__meta
-    display: block
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: flex-start
     width: 100%
     padding: 20px 20px 25px
-    white-space: nowrap
-    text-align: center
-    border-bottom: 1px solid #eee
 
     // $Stats block meta CONTEXT: $Stats block MOD: adjust for table
     #{$block}_adjust_table &
@@ -45,12 +45,11 @@ $block: ".boss-stats"
 
     @media screen and (max-width: 1120px)
       #{$block}_adjust_table &
-        white-space: normal
-        border-bottom: none
+        display: block
         text-align: left
 
     @media screen and (max-width: 960px)
-      white-space: normal
+      display: block
 
 
   // $Stats block note
@@ -176,6 +175,7 @@ $block: ".boss-stats"
   &__text
     +text-normalizer()
     position: relative
+    max-width: 100%
     padding-right: 30px
     font-size: 12px
 
@@ -195,11 +195,6 @@ $block: ".boss-stats"
     &_indicator_att:after
       background-image: url("../icons/icon-envelope-dark-gray.svg")
 
-
-  // $Stats block text line
-  &__text-line
-    display: block
-
     @media screen and (max-width: 1120px)
       #{$block}_adjust_table &
         display: inline-block
@@ -210,21 +205,21 @@ $block: ".boss-stats"
   // $Stats block label
   &__label
     +text-normalizer()
+    flex-shrink: 0
     position: relative
     display: inline-block
+    width: auto
     min-height: 40px
     margin-right: 20px
-    padding: 0 20px
+    padding: 10px 20px
     font-size: 14px
-    line-height: 40px
     font-weight: 600
-    text-align: center
     white-space: nowrap
     vertical-align: middle
     color: $boss-dark-gray
     border: 2px solid $boss-dark-gray
     background-color: $boss-extra-light-gray
-    border-radius: 20px / 50%
+    border-radius: 25px
 
     // $Stats block label CONTEXT: $Stats block MOD: adjust for table
     #{$block}_adjust_table &
@@ -246,9 +241,11 @@ $block: ".boss-stats"
         transform: none
 
     @media screen and (max-width: 960px)
+      flex-shrink: 1
       width: 100%
       margin-right: 0
       margin-bottom: 20px
+      text-align: center
 
     &:before,
     &:after
@@ -285,11 +282,18 @@ $block: ".boss-stats"
 
     // $Stats block label MOD: role date
     &_role_date
-      vertical-align: middle
+      position: relative
+      padding-left: 55px
+
+      @media screen and (max-width: 960px)
+        padding-left: 20px
 
       &:before
         content: ""
-        display: inline-block
+        position: absolute
+        left: 20px
+        top: 10px
+        display: block
         width: 20px
         height: 20px
         margin-right: 10px
@@ -300,13 +304,28 @@ $block: ".boss-stats"
         background-position: center center
         background-size: contain
 
+        @media screen and (max-width: 960px)
+          position: relative
+          left: auto
+          top: auto
+          display: inline-block
+
     // $Stats block label MOD: role user
     &_role_user
-      vertical-align: middle
+      flex-shrink: 1
+      position: relative
+      padding-left: 45px
+      white-space: normal
+
+      @media screen and (max-width: 960px)
+        padding-left: 20px
 
       &:before
         content: ""
-        display: inline-block
+        position: absolute
+        left: 20px
+        top: 10px
+        display: block
         width: 16px
         height: 20px
         margin-right: 10px
@@ -316,6 +335,12 @@ $block: ".boss-stats"
         background-repeat: no-repeat
         background-position: center center
         background-size: contain
+
+        @media screen and (max-width: 960px)
+          position: relative
+          left: auto
+          top: auto
+          display: inline-block
 
     // $Stats block label MOD: state alert
     &_state_alert

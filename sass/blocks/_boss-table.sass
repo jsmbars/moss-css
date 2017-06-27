@@ -119,7 +119,10 @@ $block: ".boss-table"
 
     // $Common table cell MOD: state alert
     &_state_alert
-      background-color: #feeeee
+      &:nth-child(odd),
+      &:nth-child(even)
+        #{$block}_page_safe-checks-index &
+          background-color: #feeeee
 
 
   // $Common table cell
@@ -172,10 +175,10 @@ $block: ".boss-table"
         padding-right: 0
 
     &:first-child
-      padding-right: 25px
+      padding-left: 25px
 
       @media screen and (max-width: 960px)
-        padding-right: 15px
+        padding-left: 15px
 
     &:last-child
       padding-right: 25px
@@ -206,7 +209,7 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        min-width: 125px
+        max-width: 125px
         padding-left: 10px
         border-right: 1px solid #eee
 
@@ -269,7 +272,7 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        min-width: 165px
+        max-width: 165px
         border-right: 1px solid #eee
         overflow: hidden
 
@@ -431,7 +434,7 @@ $block: ".boss-table"
     &:nth-child(6)
 
       #{$block}_page_holidays-report &
-        min-width: 150px
+        max-width: 150px
         padding-left: 0
 
       #{$block}_page_change-order-report &
@@ -454,6 +457,9 @@ $block: ".boss-table"
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &
           width: 100%
+
+        #{$block}_page_holidays-report &
+          max-width: none
 
     // $Common table cell seventh column
     &:nth-child(7)
@@ -484,12 +490,13 @@ $block: ".boss-table"
         width: 11%
 
       #{$block}_page_safe-checks-index &
-        min-width: 165px
+        max-width: 165px
         padding-right: 10px
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
+          max-width: none
 
       @media screen and (max-width: 960px)
 
@@ -500,12 +507,13 @@ $block: ".boss-table"
     &:nth-child(9)
 
       #{$block}_page_change-order-report &
-        min-width: 140px
+        max-width: 140px
 
       @media screen and (max-width: 960px)
 
         #{$block}_page_change-order-report &
           width: 100%
+          max-width: none
 
     // $Common table cell MOD: role header
     &_role_header
@@ -672,6 +680,9 @@ $block: ".boss-table"
     #{$block}_page_holidays-report &
       color: $boss-medium-gray
 
+    #{$block}_page_safe-checks-index #{$block}__cell:nth-child(1) &
+      white-space: nowrap
+
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
         flex-grow: 1
@@ -725,6 +736,8 @@ $block: ".boss-table"
 
   // $Common table stats
   &__stats
+    display: block
+    width: 100%
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
