@@ -36,7 +36,8 @@ $block: ".boss-table"
       border: none
       display: none
 
-  &_page_checklist-review
+  &_page_checklist-review,
+  &_page_vhci
     border: 1px solid #eee
 
 
@@ -81,14 +82,16 @@ $block: ".boss-table"
         background-color: transparent
         border-bottom: none
 
-      #{$block}_page_checklist-review &
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vhci &
         padding-top: 15px
         padding-bottom: 15px
 
     &:nth-child(odd)
       #{$block}_page_change-order-report &,
       #{$block}_page_safe-checks-index &,
-      #{$block}_page_checklist-review &
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vhci &
         background-color: #fbfbfb
 
 
