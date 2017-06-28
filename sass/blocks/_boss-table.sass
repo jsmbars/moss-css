@@ -36,8 +36,13 @@ $block: ".boss-table"
       border: none
       display: none
 
-  &_page_checklist-review
+  &_page_checklist-review,
+  &_page_vhci
     border: 1px solid #eee
+
+  &_page_vhci
+    @media screen and (max-width: 960px)
+      display: none
 
 
   // $Common table row
@@ -81,14 +86,16 @@ $block: ".boss-table"
         background-color: transparent
         border-bottom: none
 
-      #{$block}_page_checklist-review &
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vhci &
         padding-top: 15px
         padding-bottom: 15px
 
     &:nth-child(odd)
       #{$block}_page_change-order-report &,
       #{$block}_page_safe-checks-index &,
-      #{$block}_page_checklist-review &
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vhci &
         background-color: #fbfbfb
 
 
@@ -209,7 +216,8 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        max-width: 125px
+        max-width: 130px
+        min-width: 125px
         padding-left: 10px
         border-right: 1px solid #eee
 
@@ -217,9 +225,15 @@ $block: ".boss-table"
         width: 24%
         padding-left: 40px
 
+      #{$block}_page_vhci &
+        width: 30%
+        padding-left: 40px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
+          min-width: 0
+          max-width: none
           padding-left: 15px
           border-right: none
 
@@ -232,7 +246,8 @@ $block: ".boss-table"
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
-        #{$block}_page_checklist-review &
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &
           width: 100%
           padding-left: 15px
 
@@ -249,6 +264,9 @@ $block: ".boss-table"
           padding-left: 0
 
         #{$block}_page_checklist-review &
+          padding-left: 10px
+
+        #{$block}_page_vhci &
           padding-left: 10px
 
 
@@ -272,16 +290,22 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        max-width: 165px
+        max-width: 170px
+        min-width: 165px
         border-right: 1px solid #eee
         overflow: hidden
 
       #{$block}_page_checklist-review &
         width: 20%
 
+      #{$block}_page_vhci &
+        width: 25%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
+          min-width: 0
+          max-width: none
           border-right: none
 
       @media screen and (max-width: 960px)
@@ -292,7 +316,8 @@ $block: ".boss-table"
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
-        #{$block}_page_checklist-review &
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &
           width: 100%
 
 
@@ -324,6 +349,10 @@ $block: ".boss-table"
       #{$block}_page_checklist-review &
         width: 16%
 
+      #{$block}_page_vhci &
+        width: 20%
+        text-align: center
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -336,8 +365,12 @@ $block: ".boss-table"
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
-        #{$block}_page_checklist-review &
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &
           width: 100%
+
+        #{$block}_page_vhci &
+          text-align: left
 
 
     // $Common table cell fourth column
@@ -367,6 +400,11 @@ $block: ".boss-table"
         width: 20%
         text-align: center
 
+      #{$block}_page_vhci &
+        width: 25%
+        padding-right: 40px
+        text-align: center
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -379,13 +417,18 @@ $block: ".boss-table"
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
-        #{$block}_page_checklist-review &
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &
           width: 100%
 
         #{$block}_page_fruit-order-history &
           padding-right: 0
 
         #{$block}_page_checklist-review &
+          text-align: left
+
+        #{$block}_page_vhci &
+          padding-right: 10px
           text-align: left
 
 
@@ -434,7 +477,8 @@ $block: ".boss-table"
     &:nth-child(6)
 
       #{$block}_page_holidays-report &
-        max-width: 150px
+        max-width: 155px
+        min-width: 150px
         padding-left: 0
 
       #{$block}_page_change-order-report &
@@ -459,6 +503,8 @@ $block: ".boss-table"
           width: 100%
 
         #{$block}_page_holidays-report &
+          width: 100%
+          min-width: 0
           max-width: none
 
     // $Common table cell seventh column
@@ -490,12 +536,14 @@ $block: ".boss-table"
         width: 11%
 
       #{$block}_page_safe-checks-index &
-        max-width: 165px
+        max-width: 170px
+        min-width: 165px
         padding-right: 10px
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
+          min-width: 0
           max-width: none
 
       @media screen and (max-width: 960px)
@@ -507,12 +555,14 @@ $block: ".boss-table"
     &:nth-child(9)
 
       #{$block}_page_change-order-report &
-        max-width: 140px
+        max-width: 145px
+        min-width: 140px
 
       @media screen and (max-width: 960px)
 
         #{$block}_page_change-order-report &
           width: 100%
+          min-width: 0
           max-width: none
 
     // $Common table cell MOD: role header
@@ -567,7 +617,9 @@ $block: ".boss-table"
       justify-content: center
 
     #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
-    #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
+    #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
+    #{$block}_page_vhci #{$block}__cell:nth-child(4) &
       justify-content: center
 
     @media screen and (max-width: 1120px)
@@ -585,7 +637,9 @@ $block: ".boss-table"
         align-items: flex-start
 
       #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
-      #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
+      #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
+      #{$block}_page_vhci #{$block}__cell:nth-child(4) &
         justify-content: flex-start
 
 

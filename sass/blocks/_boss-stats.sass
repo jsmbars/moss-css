@@ -282,18 +282,9 @@ $block: ".boss-stats"
 
     // $Stats block label MOD: role date
     &_role_date
-      position: relative
-      padding-left: 55px
-
-      @media screen and (max-width: 960px)
-        padding-left: 20px
-
       &:before
         content: ""
-        position: absolute
-        left: 20px
-        top: 10px
-        display: block
+        display: inline-block
         width: 20px
         height: 20px
         margin-right: 10px
@@ -304,28 +295,14 @@ $block: ".boss-stats"
         background-position: center center
         background-size: contain
 
-        @media screen and (max-width: 960px)
-          position: relative
-          left: auto
-          top: auto
-          display: inline-block
-
     // $Stats block label MOD: role user
     &_role_user
       flex-shrink: 1
-      position: relative
-      padding-left: 45px
       white-space: normal
-
-      @media screen and (max-width: 960px)
-        padding-left: 20px
 
       &:before
         content: ""
-        position: absolute
-        left: 20px
-        top: 10px
-        display: block
+        display: inline-block
         width: 16px
         height: 20px
         margin-right: 10px
@@ -335,12 +312,6 @@ $block: ".boss-stats"
         background-repeat: no-repeat
         background-position: center center
         background-size: contain
-
-        @media screen and (max-width: 960px)
-          position: relative
-          left: auto
-          top: auto
-          display: inline-block
 
     // $Stats block label MOD: state alert
     &_state_alert

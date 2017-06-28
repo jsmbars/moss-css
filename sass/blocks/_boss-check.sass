@@ -35,6 +35,13 @@ $block: ".boss-check"
     @media screen and (max-width: 1120px)
       display: block
 
+  // $Check block MOD: page venue health check index
+  &_page_vhci
+    display: none
+
+    @media screen and (max-width: 960px)
+      display: block
+
   // $Check block MOD: state alert
   &_state_alert
     background-color: #feeeee
@@ -44,7 +51,7 @@ $block: ".boss-check"
   &__row
     display: flex
     flex-direction: row
-    justify-content: space-between
+    justify-content: center
     align-items: stretch
     border-bottom: 1px solid #eee
 
@@ -56,12 +63,6 @@ $block: ".boss-check"
       &:nth-child(odd)
         background-color: #fbfbfb
 
-    // $Check block row MOD: role info
-    &_role_info
-      display: block
-      padding: 15px
-      text-align: center
-
 
   // $Check block cell
   &__cell
@@ -69,14 +70,17 @@ $block: ".boss-check"
     flex-direction: row
     justify-content: center
     align-items: center
-    width: 50%
-    padding: 10px 15px
+    width: 100%
+    padding: 15px
 
     @media screen and (max-width: 960px)
-      padding: 10px
+      padding: 15px 10px
 
-    &:not(:last-child)
-      border-right: 1px solid #eee
+    &_size_half
+      width: 50%
+
+      &:not(:last-child)
+        border-right: 1px solid #eee
 
     // $Check block cell MOD: role table
     &_role_table
@@ -97,8 +101,17 @@ $block: ".boss-check"
           padding-left: 15px
 
     // $Check block cell MOD: state alert
+    // $Check block cell MOD: state fail
     &_state_alert
       background-color: #ff8587
+
+    // $Check block cell MOD: status fail
+    &_status_fail
+      background-color: #ff8587
+
+    // $Check block cell MOD: status pass
+    &_status_pass
+      background-color: #67db72
 
     // $Check block cell MOD: no border
     &_no-border:not(:last-child)
@@ -133,8 +146,8 @@ $block: ".boss-check"
         background-size: contain
         vertical-align: middle
 
-    // $Check block text MOD: role info
-    &_role_info
+    // $Check block text MOD: role user
+    &_role_user
       text-align: center
       color: $boss-medium-gray
 
@@ -168,13 +181,35 @@ $block: ".boss-check"
         vertical-align: middle
 
     // $Check block text MOD: state alert
-    &_state_alert
+    &_state_alert,
+      color: #FFF
+
+    // $Check block text MOD: status fail
+    // $Check block text MOD: status pass
+    &_status_fail,
+    &_status_pass
+      font-size: 18px
+      text-transform: uppercase
       color: #FFF
 
 
   // $Check block text line
   &__text-line
     display: block
+
+
+  // $Check block link
+  &__link
+    +text-normalizer()
+    color: inherit
+    font-weight: inherit
+    text-decoration: none
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: none
+      color: inherit
 
 
   // $Check block dropdown
