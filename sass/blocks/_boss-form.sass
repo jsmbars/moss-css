@@ -45,7 +45,9 @@ $block: ".boss-form"
     // $Common form group MOD: layout half
     // $Common form group MOD: layout third
     &_layout_half,
-    &_layout_third
+    &_layout_third,
+    &_layout_max,
+    &_layout_min
       flex-grow: 0
       flex-shrink: 1
       margin-right: 30px
@@ -80,6 +82,19 @@ $block: ".boss-form"
 
       @media screen and (max-width: 960px)
         width: 100%
+
+    &_layout_max
+      flex-grow: 1
+      flex-shrink: 1
+      width: auto
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+    &_layout_min
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
 
     // $Common form group MOD: last position
     &_position_last
@@ -141,6 +156,10 @@ $block: ".boss-form"
 
       @media screen and (max-width: 960px)
         flex-direction: row
+
+    // $Common form group MOD: adjust redeem vouchers
+    &_adjust_rv
+      align-items: stretch
 
     // $Common form row MOD: desktop visible
     &_desktop
@@ -253,6 +272,13 @@ $block: ".boss-form"
     // $Common form field MOD: justify end
     &_justify_end
       text-align: right
+
+    // $Common form field MOD: justify end and center on mobiles
+    &_justify_end-center
+      text-align: right
+
+      @media screen and (max-width: 960px)
+        text-align: center
 
     // $Common form field MOD: justify start
     &_justify_start
