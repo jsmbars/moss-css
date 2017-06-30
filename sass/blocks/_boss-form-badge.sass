@@ -1,0 +1,246 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Form badge
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-form-badge"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-end
+  width: 100%
+  padding: 20px
+  background-color: #FFF
+  box-shadow: 0 0 30px 0 rgba(0,0,0,.1)
+
+  @media screen and (max-width: 480px)
+    padding: 0
+    flex-direction: column
+
+  // $Form badge MOD: adjust redeem vouchers
+  &_adjust_rv
+    margin-right: 30px
+
+    @media screen and (max-width: 960px)
+      margin-right: 0
+      margin-bottom: 30px
+
+    &:last-of-type
+      margin-right: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+
+  // $Form badge figure
+  &__figure
+    width: 33.3%
+    padding-right: 20px
+    text-align: center
+
+    @media screen and (max-width: 480px)
+      width: 100%
+      padding: 20px 15px 15px
+      border-bottom: 1px solid #eee
+
+
+  // $Form badge image
+  &__image
+    display: inline-block
+    max-width: 100%
+    max-height: 120px
+    margin-bottom: 10px
+
+
+  // $Form badge caption
+  &__caption
+    +text-normalizer()
+    color: #808080
+    font-size: 20px
+    text-align: center
+
+
+  // $Form badge fields
+  &__fields
+    width: 66.6%
+
+    @media screen and (max-width: 480px)
+      width: 100%
+      padding: 15px 15px 20px
+
+
+  // $Form badge field
+  &__field
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 25px
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 20px
+
+    &:last-of-type,
+    &_position_last
+      margin-right: 0
+      margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+
+  // $Form badge label
+  &__label
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    margin: 0
+
+
+  // $Form badge label text
+  &__label-text
+    display: block
+    margin-bottom: 12px
+    line-height: 1
+
+    // $Form badge label text MOD: type required
+    &_type_required
+      &:after
+        content: '*'
+        margin-left: 2px
+
+    // $Form badge label text MOD: type optional
+    &_type_optional
+      &:after
+        content: '(Optional)'
+        margin-left: 5px
+        color: $boss-light-gray
+
+
+  // $Form badge select
+  &__select
+    position: relative
+    display: block
+    width: 100%
+    text-align: left
+
+    & .Select-control
+      height: 53px
+      border-radius: 2px
+      border-color: #d8d8d8
+
+    & .Select-multi-value-wrapper
+      line-height: 52px
+
+    & .Select--multi .Select-multi-value-wrapper
+      padding: 5px 0
+      vertical-align: middle
+      line-height: 1
+
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      line-height: 53px
+      padding-left: 20px
+      padding-right: 10px
+      color: #aaa
+
+    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+      color: #4c4c4c
+
+    & .Select-input
+      vertical-align: middle
+      line-height: 1
+      height: auto
+
+      & input
+        line-height: 1
+        height: 30px
+        padding: 0
+
+    & .Select-option
+      padding: 10px 10px 10px 20px
+
+    & .Select--multi .Select-input
+      margin-top: 5px
+
+    & .Select--multi .Select-value
+      margin-left: 10px
+      background-color: map-get($boss-app-palette, primary)
+      border: none
+      border-radius: 5px
+      line-height: 1
+      white-space: nowrap
+      direction: rtl
+      vertical-align: middle
+
+    & .Select--multi .Select-value-icon
+      position: relative
+      z-index: 1
+      background-color: transparent
+      border: none
+      color: #FFF
+      font-size: 20px
+      padding: 3px 7px 3px 8px
+      overflow: hidden
+      direction: ltr
+
+      @media screen and (max-width: 479px)
+        padding-left: 6px
+        padding-right: 5px
+
+      &:after
+        content: ""
+        z-index: -1
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        display: block
+        background-color: rgba(0,0,0,.2)
+        border-top-right-radius: 5px
+        border-bottom-right-radius: 5px
+        transition: all .4s
+
+      &:hover
+        &:after
+          background-color: rgba(0,0,0,.6)
+
+    & .Select--multi .Select-value-label
+      background-color: transparent
+      white-space: nowrap
+      text-transform: uppercase
+      color: #FFF
+      border: none
+      padding: 3px 10px
+      direction: ltr
+      font-size: 12px
+
+      @media screen and (max-width: 479px)
+        font-size: 11px
+        padding: 3px 6px
+
+    & .Select-menu-outer
+      border-color: #d8d8d8
+      margin-top: 0
+      border-top: none
+
+    &_state_error
+      & .Select-control,
+      & .Select-menu-outer
+        border-color: map-get($boss-app-palette, alert)
+
