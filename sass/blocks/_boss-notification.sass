@@ -41,6 +41,7 @@ $block: ".boss-notification"
   &__header
     flex-grow: 0
     flex-shrink: 1
+    max-width: 100%
     position: relative
     padding: 0 40px
 
@@ -52,6 +53,7 @@ $block: ".boss-notification"
   &__content
     flex-grow: 0
     flex-shrink: 1
+    max-width: 100%
 
     // $Notification content CONTEXT: $Notification MOD: state closed
     #{$block}_state_closed &
@@ -99,7 +101,7 @@ $block: ".boss-notification"
   // $Notification switch
   &__switch
     position: absolute
-    top: 10px
+    top: 8px
     right: 0
     display: block
     width: 20px
