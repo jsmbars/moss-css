@@ -1,0 +1,148 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Notification
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-notification"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  z-index: 9999
+  position: fixed
+  bottom: 0
+  left: 0
+  right: 0
+  padding: 15px
+  text-align: center
+  background-color: map-get($boss-app-palette, alert)
+
+  @media screen and (max-width: 960px)
+    padding: 10px 25px 15px
+
+  // $Notification MOD: state closed
+  &_state_closed
+
+
+  // $Notification header
+  &__header
+    flex-grow: 0
+    flex-shrink: 1
+    max-width: 100%
+    position: relative
+    padding: 0 40px
+
+    @media screen and (max-width: 960px)
+      padding: 0
+
+
+  // $Notification content
+  &__content
+    flex-grow: 0
+    flex-shrink: 1
+    max-width: 100%
+
+    // $Notification content CONTEXT: $Notification MOD: state closed
+    #{$block}_state_closed &
+      display: none
+
+
+  // $Notification text
+  &__text
+    +text-normalizer()
+    position: relative
+    font-size: 16px
+    line-height: 24px
+    font-weight: 300
+    text-align: center
+    color: #FFF
+    vertical-align: baseline
+
+    @media screen and (max-width: 480px)
+      font-size: 14px
+
+
+  // $Notification text details
+  &__text-details
+    display: inline-block
+    vertical-align: baseline
+
+    @media screen and (max-width: 960px)
+      display: block
+
+      #{$block}_state_closed &
+        display: none
+
+
+  // $Notification text counter
+  &__text-counter
+    display: inline-block
+    font-size: 24px
+    font-weight: 600
+    vertical-align: baseline
+
+    @media screen and (max-width: 960px)
+      display: block
+
+
+  // $Notification switch
+  &__switch
+    position: absolute
+    top: 8px
+    right: 0
+    display: block
+    width: 20px
+    height: 16px
+    text-decoration: none
+    outline: none
+    font-size: 0
+    line-height: 0
+    color: transparent
+    background-image: url(../icons/icon-arrow-down-white.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+    transform: rotate(180deg)
+
+    // $Notification switch CONTEXT: $Notification MOD: State closed
+    #{$block}_state_closed &
+      transform: rotate(0)
+
+    @media screen and (max-width: 960px)
+      position: relative
+      top: auto
+      right: auto
+      margin: 5px auto
+
+      #{$block}_state_closed &
+        margin-top: 10px
+        margin-bottom: 0
+
+    &:hover,
+    &:focus
+      text-decoration: none
+      outline: none
+      color: transparent
+
+
+  // $Notification actions
+  &__actions
+    margin-top: 15px
+    text-align: center
+
+
+  // $Notification action
+  &__action
