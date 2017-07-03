@@ -104,6 +104,7 @@ $block: ".boss-checklist"
 
   // $Checklist cancel icon
   &__cancel
+    position: relative
     display: inline-block
     font-size: 0
     line-height: 0
@@ -121,9 +122,14 @@ $block: ".boss-checklist"
 
     &:before
       content: ""
+      position: absolute
+      top: 50%
+      left: 50%
       display: block
       width: 10px
       height: 10px
+      margin-top: -5px
+      margin-left: -5px
       background-image: url("../icons/icon-close-alert.svg")
       background-repeat: no-repeat
       background-size: contain
@@ -132,11 +138,15 @@ $block: ".boss-checklist"
     // $Checklist cancel icon MOD: adjsut field
     &_adjust_field
       position: absolute
-      top: 50%
-      right: 15px
-      z-index: 10
-      margin-top: -6px
+      top: 0
+      bottom: 0
+      right: 0
+      width: 40px
+      z-index: 50
       margin-left: 0
+
+      @media screen and (max-width: 400px)
+        width: 30px
 
 
   // $Checklist add btn
