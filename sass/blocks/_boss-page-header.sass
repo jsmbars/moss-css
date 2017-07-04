@@ -15,5 +15,83 @@
 $block: ".boss-page-header"
 
 #{$block}
+  +box-model-normalizer()
+
   display: block
   width: 100%
+  background-color: #FFF
+  border-bottom: 1px solid #f0f0f0
+
+
+  &__inner
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    max-width: 1200px
+    margin: 0 auto
+
+
+  &__group
+    flex-grow: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+
+  &__nav
+    flex-grow: 1
+    flex-grow: 1
+    padding: 0 30px
+
+
+  &__menu
+    flex-grow: 0
+    flex-shrink: 0
+
+
+  // $Page header menu icon
+  &__menuicon
+    display: none
+    width: 30px
+    height: 30px
+    background-image: url(../icons/icon-menu-burger-dark-gray.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    opacity: 1
+    transition: all .5s
+
+    &:hover
+      outline: none
+      opacity: 0.8
+
+    // $Page header menu icon CONTEXT: $Page header MOD: state opened
+    #{$block}_state_opened &
+      background-image: url(../icons/icon-menu-close-dark-gray.svg)
+      background-size: 20px 20px
+
+
+  &__logo
+    +text-normalizer()
+    display: block
+    font-size: 20px
+    font-weight: 600
+    text-transform: uppercase
+    text-decoration: none
+    outline: none
+    opacity: 1
+    transition: all .5s
+
+    &:hover
+      opacity: .8
+      outline: none
+      text-decoration: none
+      color: inherit
+
