@@ -52,7 +52,7 @@ $block: ".boss-page-nav"
     display: inline-block
     line-height: 1
     color: #808080
-    padding: 20px 10px
+    padding: 23px 10px
 
     &:after
       content: ""
@@ -86,12 +86,14 @@ $block: ".boss-page-nav"
         display: inline-block
         width: 15px
         height: 15px
-        background-image: url(../icons/icon-lens-medium-gray.svg)
+        background-image: url(../icons/icon-lens-dark-gray.svg)
         background-position: center center
         background-repeat: no-repeat
         background-size: contain
+        opacity: .6
+        transition: opacity .4s
 
       &:hover
         &:before
-          background-image: url(../icons/icon-lens-dark-gray.svg)
+          opacity: 1
 

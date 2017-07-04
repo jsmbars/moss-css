@@ -15,4 +15,148 @@
 $block: ".boss-quick-access"
 
 #{$block}
-  display: none
+  +box-model-normalizer()
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 10000
+  display: block
+  width: 100%
+  height: 100vh
+  background-color: #FFF
+  overflow: hidden
+
+  &_state_closed
+    display: none
+
+
+  &__header
+    display: block
+    width: 100%
+    height: 60px
+    padding: 10px 40px
+    border-bottom: 1px solid #f0f0f0
+
+
+  &__header-inner
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    height: 100%
+    max-width: 1200px
+    margin: 0 auto
+
+
+  &__filter
+    flex-grow: 1
+
+
+  &__actions
+    flex-grow: 0
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+
+  &__action
+    display: inline-block
+    width: 20px
+    height: 20px
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    opacity: .5
+    transition: all .5s
+
+    &:hover
+      outline: none
+      opacity: 1
+
+    &_role_close
+      background-image: url(../icons/icon-menu-close-dark-gray.svg)
+
+
+  &__main
+    display: block
+    width: 100%
+    height: calc(100% - 60px)
+    padding: 20px 40px
+
+
+  &__main-inner
+    position: relative
+    display: block
+    width: 100%
+    height: 100%
+    max-width: 1200px
+    margin: 0 auto
+    overflow: hidden
+
+
+  &__content
+    display: inline-block
+    width: 100%
+    padding-right: 20px
+
+
+  &__group
+    margin-bottom: 15px
+
+
+  &__group-header
+    display: block
+    width: 100%
+    padding-bottom: 5px
+    text-align: center
+    overflow: hidden
+
+
+  &__group-title
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    padding: 0 20px
+    font-weight: 600
+    line-height: 1
+
+    &:before,
+    &:after
+      content: ""
+      position: absolute
+      top: 50%
+      display: block
+      width: 1000px
+      height: 0
+      border: 1px solid #f0f0f0
+
+    &:before
+      right: 100%
+
+    &:after
+      left: 100%
+
+
+  &__aliases
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    flex-wrap: wrap
+    width: 100%
+
+
+  &__alias
+    flex-grow: 0
+    flex-shrink: 0
+    min-width: 12.5%
+    padding: 15px
+

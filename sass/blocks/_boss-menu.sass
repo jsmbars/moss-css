@@ -15,4 +15,96 @@
 $block: ".boss-menu"
 
 #{$block}
-  display: none
+  +box-model-normalizer()
+  position: relative
+  display: block
+  width: 100%
+
+
+  &__control
+    display: block
+    height: 40px
+    padding: 13px 20px
+    border: 1px solid #4c4c4c
+    border-radius: 20px / 50%
+
+
+
+  &__value
+    +text-normalizer()
+    line-height: 1
+
+
+  &__actions
+
+
+  &__action
+
+
+    &_role_arrow
+
+
+  &__icon
+    +text-normalizer()
+    position: relative
+    display: block
+    width: 40px
+    height: 40px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    border: 1px solid #4c4c4c
+    border-radius: 50%
+    transition: all .4s
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 16px
+      height: 20px
+      margin-top: -10px
+      margin-left: -8px
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+
+    &:hover,
+    &_state_active
+      background-color: #f0f0f0
+
+    &_role_profile
+      &:before
+        background-image: url(../icons/icon-user-dark-gray.svg)
+
+
+
+  &__tooltip
+    position: absolute
+    top: 100%
+    z-index: 100
+    display: none
+
+
+  &__tooltip-inner
+
+
+    &_role_scroll
+
+
+  &__tooltip-content
+
+
+  &__item
+
+
+  &__text
+    +text-normalizer()
+
+
+  &__link
+    +text-normalizer()
+
