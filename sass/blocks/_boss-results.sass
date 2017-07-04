@@ -162,13 +162,10 @@ $block: ".boss-results"
 
     // $Results cell MOD: role header
     &_role_header
+      position: relative
       padding: 15px
       border: 1px solid #eee
       text-transform: uppercase
-      background-image: url(../icons/sort.svg)
-      background-repeat: no-repeat
-      background-size: 15px
-      background-position: calc(100% - 10px) 50%
       font-weight: bold
 
       @media screen and (max-width: 1280px)
@@ -220,3 +217,45 @@ $block: ".boss-results"
         background: url(../icons/envelope.svg) center center no-repeat
         background-size: contain
         cursor: pointer
+
+
+  // $Results sort link
+  &__sort
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    z-index: 10
+    display: block
+    width: 35px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+
+    &:before
+      content: ""
+      position: absolute
+      right: 10px
+      top: 50%
+      display: block
+      width: 15px
+      height: 20px
+      margin-top: -11px
+      background-image: url(../icons/sort.svg)
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+      opacity: .2
+      transition: opacity .4s
+
+    &:hover,
+    &:focus
+      color: transparent
+      outline: none
+
+    &:hover
+      &:before
+        opacity: 1
+
+
