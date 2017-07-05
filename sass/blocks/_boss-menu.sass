@@ -22,11 +22,21 @@ $block: ".boss-menu"
 
 
   &__control
-    display: block
+    position: relative
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
     height: 40px
-    padding: 13px 20px
+    width: 200px
+    padding: 13px 55px 13px 25px
     border: 1px solid #4c4c4c
     border-radius: 20px / 50%
+    transition: all .4s
+
+    &:hover,
+    #{$block}_state_opened &
+      background-color: #f0f0f0
 
 
 
@@ -35,18 +45,41 @@ $block: ".boss-menu"
     line-height: 1
 
 
-  &__actions
+  &__arrow
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 20px
+    z-index: 10
+    display: block
+    height: 100%
+    width: 15px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    transition: all .4s
 
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 0
+      display: block
+      width: 15px
+      height: 12px
+      margin-top: -5px
+      background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
 
-  &__action
-
-
-    &_role_arrow
+      #{$block}_state_opened &
+        transform: rotate(180deg)
 
 
   &__icon
     +text-normalizer()
-    position: relative
     display: block
     width: 40px
     height: 40px
@@ -54,57 +87,150 @@ $block: ".boss-menu"
     line-height: 0
     color: transparent
     outline: none
+    background-position: center center
+    background-repeat: no-repeat
     border: 1px solid #4c4c4c
     border-radius: 50%
     transition: all .4s
 
-    &:before
-      content: ""
-      position: absolute
-      top: 50%
-      left: 50%
-      display: block
-      width: 16px
-      height: 20px
-      margin-top: -10px
-      margin-left: -8px
-      background-position: center center
-      background-repeat: no-repeat
-      background-size: contain
-
     &:hover,
-    &_state_active
+    #{$block}_state_opened &
       background-color: #f0f0f0
 
     &_role_profile
-      &:before
-        background-image: url(../icons/icon-user-dark-gray.svg)
+      background-image: url(../icons/icon-user-dark-gray.svg)
+      background-size: 16px 20px
 
 
 
   &__tooltip
     position: absolute
-    top: 100%
+    top: 50px
+    left: 0
+    right: 0
     z-index: 100
     display: none
+    width: 200px
+    padding: 10px 0
+    background-color: #FFF
+    border-radius: 10px
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.25)
+
+    #{$block}_state_opened &
+      display: block
+
+    &:before
+      content: ""
+      position: absolute
+      bottom: 100%
+      left: 50%
+      z-index: 101
+      margin-left: -10px
+      border-bottom: 10px solid #fff
+      border-right: 10px solid transparent
+      border-left: 10px solid transparent
+
+    &_side_left
+      right: auto
+      left: 0
+
+      &:before
+        left: 10px
+        margin-left: 0
+
+    &_side_right
+      left: auto
+      right: 0
+
+      &:before
+        left: auto
+        right: 10px
+        margin-left: 0
 
 
   &__tooltip-inner
-
-
-    &_role_scroll
+    position: relative
+    z-index: 10
+    display: block
+    width: 100%
+    max-height: 200px
+    overflow: hidden
 
 
   &__tooltip-content
+    display: block
+    width: 100%
 
 
   &__item
+    display: block
+    width: 100%
 
 
-  &__text
+  &__label
     +text-normalizer()
+    position: relative
+    display: block
+    padding: 15px 20px
+    line-height: 1
+
+    &:before
+      content: ""
+      position: absolute
+      left: 25px
+      top: 50%
+      display: block
+      width: 16px
+      height: 16px
+      margin-top: -8px
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+
+    &_role_user
+      padding-left: 50px
+      &:before
+        background-image: url(../icons/icon-user-dark-gray.svg)
 
 
   &__link
     +text-normalizer()
+    position: relative
+    display: block
+    padding: 15px 20px
+    line-height: 1
+    color: #808080
+    cursor: pointer
+    outline: none
+    transition: all .4s
+
+    &:before
+      content: ""
+      position: absolute
+      left: 25px
+      top: 50%
+      display: block
+      width: 16px
+      height: 16px
+      margin-top: -8px
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+      opacity: .6
+      transition: all .4s
+
+    &:hover,
+    &_state_selected
+      background-color: #f0f0f0
+      color: #4c4c4c
+
+      &:before
+        opacity: 1
+
+
+    &_role_logout
+      padding-left: 50px
+
+      &:before
+        background-image: url(../icons/icon-power-dark-gray.svg)
 
