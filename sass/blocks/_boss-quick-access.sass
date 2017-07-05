@@ -132,22 +132,22 @@ $block: ".boss-quick-access"
     padding: 20px 0
 
     @media screen and (max-width: 1280px)
-      padding: 0 40px 0
+      padding: 20px 40px
 
     @media screen and (max-width: 1120px)
-      padding: 0 35px 0
+      padding: 20px 35px
 
     @media screen and (max-width: 960px)
-      padding: 0 30px 0
+      padding: 20px0 30px
 
     @media screen and (max-width: 800px)
-      padding: 0 25px 0
+      padding: 20px 25px
 
     @media screen and (max-width: 640px)
-      padding: 0 20px 0
+      padding: 20px0 20px
 
     @media screen and (max-width: 480px)
-      padding: 0 15px 0
+      padding: 20px 15px
 
 
   &__main-inner
@@ -167,13 +167,15 @@ $block: ".boss-quick-access"
 
 
   &__group
-    margin-bottom: 15px
+    margin-bottom: 20px
+
+    @media screen and (max-width: 1280px)
+      margin-bottom: 15px
 
 
   &__group-header
     display: block
     width: 100%
-    padding-bottom: 5px
     text-align: center
     overflow: hidden
 
@@ -210,11 +212,27 @@ $block: ".boss-quick-access"
     align-items: flex-start
     flex-wrap: wrap
     width: 100%
+    padding: 10px 0 5px
 
 
   &__alias
     flex-grow: 0
     flex-shrink: 0
-    min-width: 12.5%
-    padding: 15px
+    width: 14.2%
+    padding: 10px
+
+    @media screen and (max-width: 1120px)
+      width: 16.6%
+
+    @media screen and (max-width: 960px)
+      width: 20%
+
+    @media screen and (max-width: 800px)
+      width: 25%
+
+    @media screen and (max-width: 640px)
+      width: 33.3%
+
+    @media screen and (max-width: 480px)
+      padding: 10px 5px
 

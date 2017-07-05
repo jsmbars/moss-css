@@ -29,30 +29,40 @@ $block: ".boss-page-nav"
     margin: 0
     list-style: none
 
+    @media screen and (max-width: 640px)
+      display: block
 
 
   &__item
     text-align: left
     margin: 0 10px
 
+    @media screen and (max-width: 640px)
+      margin: 0
+
     &:first-child
       margin-left: 0
 
-    &:lastt-child
-      margin-right: 0
-
-    &_position_last
+    &:last-child
       flex-grow: 1
+      margin-right: 0
       text-align: right
+
+      @media screen and (max-width: 640px)
+        text-align: left
 
 
   &__link
     +text-normalizer()
     position: relative
     display: inline-block
-    line-height: 1
+    padding: 0 10px
+    line-height: 60px
     color: #808080
-    padding: 23px 10px
+
+    @media screen and (max-width: 640px)
+      line-height: 40px
+      padding-left: 15px
 
     &:after
       content: ""
@@ -65,6 +75,13 @@ $block: ".boss-page-nav"
       background-color: map-get($boss-app-palette, primary)
       transition: all, .4s
 
+      @media screen and (max-width: 640px)
+        right: auto
+        top: 0
+        height: auto
+        width: 0
+
+
 
     &:hover,
     &_state_active
@@ -73,19 +90,27 @@ $block: ".boss-page-nav"
       &:after
         height: 4px
 
+        @media screen and (max-width: 640px)
+          height: auto
+          width: 4px
+
 
     &_type_icon
       font-size: 0
-      line-height: 0
+      line-height: 60px
       color: transparent
 
 
     &_role_search
+      @media screen and (max-width: 960px)
+        display: none
+
       &:before
         content: ""
         display: inline-block
         width: 15px
         height: 15px
+        vertical-align: middle
         background-image: url(../icons/icon-lens-dark-gray.svg)
         background-position: center center
         background-repeat: no-repeat
