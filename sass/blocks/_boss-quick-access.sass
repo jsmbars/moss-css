@@ -71,36 +71,58 @@ $block: ".boss-quick-access"
 
   &__filter
     flex-grow: 1
+    padding: 0 30px
 
 
-  &__actions
+  &__label
+    +text-normalizer()
+    position: relative
     flex-grow: 0
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: center
+    display: block
+    padding-left: 30px
+    white-space: nowrap
 
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 0
+      display: block
+      width: 20px
+      height: 20px
+      margin-top: -10px
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
 
-  &__action
-    display: inline-block
-    width: 20px
-    height: 20px
-    background-position: center center
-    background-repeat: no-repeat
-    background-size: contain
-    font-size: 0
-    line-height: 0
-    color: transparent
-    outline: none
-    opacity: .5
-    transition: all .5s
-
-    &:hover
+    &_role_action
       outline: none
-      opacity: 1
+      color: #808080
+      transition: all .4s
+
+      &:before
+        opacity: .5
+        transition: all .5s
+
+      &:hover
+        outline: none
+        color: #4c4c4c
+
+        &:before
+          opacity: 1
 
     &_role_close
-      background-image: url(../icons/icon-menu-close-dark-gray.svg)
+      &:before
+        background-image: url(../icons/icon-menu-close-dark-gray.svg)
+
+    &_role_search
+      &:before
+        background-image: url(../icons/icon-lens-dark-gray.svg)
+
+    &_type_icon
+      font-size: 0
+      line-height: 0
+      color: transparent
 
 
   &__main
