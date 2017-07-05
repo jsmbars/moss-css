@@ -21,6 +21,7 @@ $block: ".boss-menu"
   width: 100%
 
 
+  // $Menu label
   &__label
     +text-normalizer()
     position: relative
@@ -41,12 +42,14 @@ $block: ".boss-menu"
       background-size: contain
       background-position: center center
 
+    // $Menu label MOD: role user
     &_role_user
       padding-left: 50px
       &:before
         background-image: url(../icons/icon-user-dark-gray.svg)
 
 
+  // $Menu link
   &__link
     +text-normalizer()
     position: relative
@@ -81,7 +84,7 @@ $block: ".boss-menu"
       &:before
         opacity: 1
 
-
+    // $Menu link MOD: role logout
     &_role_logout
       padding-left: 50px
 

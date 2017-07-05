@@ -36,6 +36,7 @@ $block: ".boss-page-header"
     padding: 0
     border-bottom: none
 
+  // $Page header MOD: state opened
   &_state_opened
     @media screen and (max-width: 960px)
       position: fixed
@@ -45,6 +46,7 @@ $block: ".boss-page-header"
       height: 100vh
 
 
+  // $Page header inner container
   &__inner
     position: relative
     display: flex
@@ -59,12 +61,14 @@ $block: ".boss-page-header"
       flex-wrap: wrap
 
 
+  // $Page header group
   &__group
     flex-grow: 0
     display: flex
     justify-content: flex-start
     align-items: flex-start
 
+    // $Page header group MOD: role logo
     &_role_logo
       flex-grow: 0
       flex-shrink: 0
@@ -82,8 +86,8 @@ $block: ".boss-page-header"
       @media screen and (max-width: 480px)
         padding-left: 15px
 
+    // $Page header group MOD: role actions
     &_role_actions
-
       @media screen and (max-width: 960px)
         padding-right: 30px
 
@@ -97,6 +101,7 @@ $block: ".boss-page-header"
         padding-right: 15px
 
 
+  // $Page header menu
   &__menu
     flex-grow: 1
     display: flex
@@ -112,8 +117,9 @@ $block: ".boss-page-header"
       overflow: hidden
       width: 100%
       border-top: 1px solid #f0f0f0
-      box-shadow: 0 4px 4px -2px rgba(0,0,0,.5)
+      box-shadow: 0 5px 10px -5px rgba(0,0,0,.25)
 
+      // $Page header menu CONTEXT: $Page header MOD: state opened
       #{$block}_state_opened &
         height: auto
         overflow: visible
@@ -125,15 +131,15 @@ $block: ".boss-page-header"
         height: calc(100vh - 60px)
 
 
+  // $Page header navigation
   &__nav
     flex-grow: 1
     order: -99
-    padding: 0 10px 0 30px
+    padding: 0 20px 0 30px
 
     @media screen and (max-width: 960px)
       order: 99
       width: 100%
-      height: 100%
       padding: 0 30px
 
     @media screen and (max-width: 800px)
@@ -143,14 +149,16 @@ $block: ".boss-page-header"
       padding: 15px 0
       overflow: auto
 
-
+  // $Page header action
   &__action
     position: relative
     flex-grow: 0
     flex-shrink: 0
 
+    // $Page header action MOD: role profile
     &_role_profile
 
+    // $Page header action MOD: role site-select
     &_role_site-select
       padding: 10px 0
 
@@ -169,6 +177,7 @@ $block: ".boss-page-header"
         padding: 15px 15px
 
 
+  // $Page header control
   &__control
     position: relative
     display: flex
@@ -180,7 +189,7 @@ $block: ".boss-page-header"
     padding: 13px 55px 13px 25px
     border: 1px solid #4c4c4c
     border-radius: 20px / 50%
-    transition: all .4s
+    transition: background-color .4s
 
     @media screen and (max-width: 960px)
       width: 100%
@@ -190,11 +199,13 @@ $block: ".boss-page-header"
       background-color: #f0f0f0
 
 
+  // $Page header control value
   &__control-value
     +text-normalizer()
     line-height: 1
 
 
+  // $Page header control arrow
   &__control-arrow
     position: absolute
     top: 0
@@ -228,6 +239,7 @@ $block: ".boss-page-header"
         transform: rotate(180deg)
 
 
+  // $Page header icon
   &__icon
     +text-normalizer()
     display: block
@@ -242,12 +254,13 @@ $block: ".boss-page-header"
     background-repeat: no-repeat
     border: 1px solid #4c4c4c
     border-radius: 50%
-    transition: all .4s
+    transition: background-color .4s
 
     &:hover,
     &_state_active
       background-color: #f0f0f0
 
+    // $Page header MOD: role menu
     &_role_menu
       display: none
       background-image: url(../icons/icon-menu-burger-dark-gray.svg)
@@ -262,6 +275,7 @@ $block: ".boss-page-header"
         display: block
         margin-left: 20px
 
+    // $Page header MOD: role profile
     &_role_profile
       margin-left: 30px
       background-image: url(../icons/icon-user-dark-gray.svg)
@@ -270,6 +284,7 @@ $block: ".boss-page-header"
       @media screen and (max-width: 960px)
         margin-left: 20px
 
+    // $Page header MOD: role search
     &_role_search
       display: none
       background-image: url(../icons/icon-lens-dark-gray.svg)
@@ -279,6 +294,7 @@ $block: ".boss-page-header"
         display: block
 
 
+  // $Page header logo
   &__logo
     +text-normalizer()
     display: block

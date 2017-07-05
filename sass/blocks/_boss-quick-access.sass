@@ -28,10 +28,12 @@ $block: ".boss-quick-access"
   background-color: #FFF
   overflow: hidden
 
+  // $Quick access MOD: state closed
   &_state_closed
     display: none
 
 
+  // $Quick access header
   &__header
     display: block
     width: 100%
@@ -58,6 +60,7 @@ $block: ".boss-quick-access"
       padding: 0 15px 0
 
 
+  // $Quick access header inner
   &__header-inner
     display: flex
     flex-direction: row
@@ -69,11 +72,13 @@ $block: ".boss-quick-access"
     margin: 0 auto
 
 
+  // $Quick access filter
   &__filter
     flex-grow: 1
     padding: 0 30px
 
 
+  // $Quick access label
   &__label
     +text-normalizer()
     position: relative
@@ -95,6 +100,7 @@ $block: ".boss-quick-access"
       background-repeat: no-repeat
       background-size: contain
 
+    // $Quick access label MOD: role action
     &_role_action
       outline: none
       color: #808080
@@ -111,20 +117,24 @@ $block: ".boss-quick-access"
         &:before
           opacity: 1
 
+    // $Quick access MOD: role close
     &_role_close
       &:before
         background-image: url(../icons/icon-menu-close-dark-gray.svg)
 
+    // $Quick access MOD: role search
     &_role_search
       &:before
         background-image: url(../icons/icon-lens-dark-gray.svg)
 
+    // $Quick access MOD: type icon only
     &_type_icon
       font-size: 0
       line-height: 0
       color: transparent
 
 
+  // $Quick access main
   &__main
     display: block
     width: 100%
@@ -150,6 +160,7 @@ $block: ".boss-quick-access"
       padding: 20px 15px
 
 
+  // $Quick access main inner
   &__main-inner
     position: relative
     display: block
@@ -160,12 +171,14 @@ $block: ".boss-quick-access"
     overflow: hidden
 
 
+  // $Quick access content
   &__content
     display: inline-block
     width: 100%
     padding-right: 20px
 
 
+  // $Quick access group
   &__group
     margin-bottom: 20px
 
@@ -173,6 +186,7 @@ $block: ".boss-quick-access"
       margin-bottom: 15px
 
 
+  // $Quick access group header
   &__group-header
     display: block
     width: 100%
@@ -180,6 +194,7 @@ $block: ".boss-quick-access"
     overflow: hidden
 
 
+  // $Quick access group title
   &__group-title
     +text-normalizer()
     position: relative
@@ -205,6 +220,7 @@ $block: ".boss-quick-access"
       left: 100%
 
 
+  // $Quick access aliases
   &__aliases
     display: flex
     flex-direction: row
@@ -215,6 +231,7 @@ $block: ".boss-quick-access"
     padding: 10px 0 5px
 
 
+  // $Quick access alias
   &__alias
     flex-grow: 0
     flex-shrink: 0

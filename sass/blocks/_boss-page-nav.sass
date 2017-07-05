@@ -21,6 +21,7 @@ $block: ".boss-page-nav"
   width: 100%
 
 
+  // $Page navigation list
   &__list
     display: flex
     flex-direction: row
@@ -33,6 +34,7 @@ $block: ".boss-page-nav"
       display: block
 
 
+  // $Page navigation item
   &__item
     text-align: left
     margin: 0 10px
@@ -52,6 +54,7 @@ $block: ".boss-page-nav"
         text-align: left
 
 
+  // $Page navigation link
   &__link
     +text-normalizer()
     position: relative
@@ -61,6 +64,8 @@ $block: ".boss-page-nav"
     color: #808080
 
     @media screen and (max-width: 640px)
+      display: block
+      width: 100%
       line-height: 40px
       padding-left: 15px
 
@@ -81,8 +86,6 @@ $block: ".boss-page-nav"
         height: auto
         width: 0
 
-
-
     &:hover,
     &_state_active
       color: #4c4c4c
@@ -94,13 +97,13 @@ $block: ".boss-page-nav"
           height: auto
           width: 4px
 
-
+    // $Page navigation link MOD: type icon only
     &_type_icon
       font-size: 0
       line-height: 60px
       color: transparent
 
-
+    // $Page navigation link MOD: role search
     &_role_search
       @media screen and (max-width: 960px)
         display: none
