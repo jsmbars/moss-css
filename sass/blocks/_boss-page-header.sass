@@ -16,11 +16,6 @@ $block: ".boss-page-header"
 
 #{$block}
   +box-model-normalizer()
-  position: absolute
-  top: 0
-  right: 0
-  left: 0
-  z-index: 999
   display: block
   width: 100%
   background-color: #FFF
@@ -33,17 +28,16 @@ $block: ".boss-page-header"
     padding: 0 35px
 
   @media screen and (max-width: 960px)
-    padding: 0
-    border-bottom: none
+    padding: 0 30px
 
-  // $Page header MOD: state opened
-  &_state_opened
-    @media screen and (max-width: 960px)
-      position: fixed
+  @media screen and (max-width: 800px)
+    padding: 0 25px
 
-    @media screen and (max-width: 640px)
-      bottom: 0
-      height: 100vh
+  @media screen and (max-width: 640px)
+    padding: 0 20px
+
+  @media screen and (max-width: 480px)
+    padding: 0 15px
 
 
   // $Page header inner container
@@ -52,129 +46,35 @@ $block: ".boss-page-header"
     display: flex
     flex-direction: row
     justify-content: flex-start
-    align-items: flex-start
+    align-items: center
     width: 100%
     max-width: 1200px
     margin: 0 auto
+    padding: 10px 0
 
-    @media screen and (max-width: 960px)
+    @media screen and (max-width: 480px)
       flex-wrap: wrap
 
 
-  // $Page header group
-  &__group
-    flex-grow: 0
-    display: flex
-    justify-content: flex-start
-    align-items: flex-start
-
-    // $Page header group MOD: role logo
-    &_role_logo
-      flex-grow: 0
-      flex-shrink: 0
-
-      @media screen and (max-width: 960px)
-        flex-grow: 1
-        padding-left: 30px
-
-      @media screen and (max-width: 800px)
-        padding-left: 25px
-
-      @media screen and (max-width: 640px)
-        padding-left: 20px
-
-      @media screen and (max-width: 480px)
-        padding-left: 15px
-
-    // $Page header group MOD: role actions
-    &_role_actions
-      @media screen and (max-width: 960px)
-        padding-right: 30px
-
-      @media screen and (max-width: 800px)
-        padding-right: 25px
-
-      @media screen and (max-width: 640px)
-        padding-right: 20px
-
-      @media screen and (max-width: 480px)
-        padding-right: 15px
-
-
-  // $Page header menu
-  &__menu
+  // $Page header logo
+  &__logo
     flex-grow: 1
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: flex-start
+    +text-normalizer()
+    display: block
+    font-size: 20px
+    line-height: 1
+    font-weight: 600
+    text-transform: uppercase
+    text-decoration: none
+    outline: none
+    opacity: 1
+    transition: all .5s
 
-
-    @media screen and (max-width: 960px)
-      order: 99
-      flex-direction: column
-      height: 0
-      overflow: hidden
-      width: 100%
-      border-top: 1px solid #f0f0f0
-      box-shadow: 0 5px 10px -5px rgba(0,0,0,.25)
-
-      // $Page header menu CONTEXT: $Page header MOD: state opened
-      #{$block}_state_opened &
-        height: auto
-        overflow: visible
-
-    @media screen and (max-width: 640px)
-      box-shadow: none
-
-      #{$block}_state_opened &
-        height: calc(100vh - 60px)
-
-
-  // $Page header navigation
-  &__nav
-    flex-grow: 1
-    order: -99
-    padding: 0 20px 0 30px
-
-    @media screen and (max-width: 960px)
-      order: 99
-      width: 100%
-      padding: 0 30px
-
-    @media screen and (max-width: 800px)
-      padding: 0 25px
-
-    @media screen and (max-width: 640px)
-      padding: 15px 0
-      overflow: auto
-
-  // $Page header action
-  &__action
-    position: relative
-    flex-grow: 0
-    flex-shrink: 0
-
-    // $Page header action MOD: role profile
-    &_role_profile
-
-    // $Page header action MOD: role site-select
-    &_role_site-select
-      padding: 10px 0
-
-      @media screen and (max-width: 960px)
-        width: 100%
-        padding: 15px 30px
-        border-bottom: 1px solid #f0f0f0
-
-      @media screen and (max-width: 800px)
-        padding: 15px 25px
-
-      @media screen and (max-width: 640px)
-        padding: 15px 20px
-
-      @media screen and (max-width: 480px)
-        padding: 15px 15px
+    &:hover
+      opacity: .8
+      outline: none
+      text-decoration: none
+      color: inherit
 
 
   // $Page header control
@@ -185,18 +85,44 @@ $block: ".boss-page-header"
     align-items: center
     justify-content: space-between
     height: 40px
-    width: 200px
     padding: 13px 55px 13px 25px
     border: 1px solid #4c4c4c
     border-radius: 20px / 50%
     transition: background-color .4s
 
-    @media screen and (max-width: 960px)
-      width: 100%
-
     &:hover,
     &_state_active
       background-color: #f0f0f0
+
+    &_role_site-select
+      flex-grow: 0
+      flex-shrink: 0
+      width: 200px
+      margin-left: 30px
+
+      @media screen and (max-width: 640px)
+        margin-left: 20px
+
+      @media screen and (max-width: 480px)
+        flex-grow: 1
+        flex-shrink: 1
+        order: 99
+        width: 100%
+        margin-top: 20px
+        margin-left: 0
+
+      &:before
+        content: ""
+        position: absolute
+        top: -10px
+        left: -100px
+        right: -100px
+        display: none
+        height: 0
+        border-top: 1px solid #f0f0f0
+
+        @media screen and (max-width: 480px)
+          display: block
 
 
   // $Page header control value
@@ -239,13 +165,12 @@ $block: ".boss-page-header"
         transform: rotate(180deg)
 
 
-  // $Page header icon
-  &__icon
+  // $Page header action
+  &__action
     +text-normalizer()
     display: block
     width: 40px
     height: 40px
-    margin: 10px 0
     font-size: 0
     line-height: 0
     color: transparent
@@ -260,56 +185,220 @@ $block: ".boss-page-header"
     &_state_active
       background-color: #f0f0f0
 
-    // $Page header MOD: role menu
-    &_role_menu
-      display: none
-      background-image: url(../icons/icon-menu-burger-dark-gray.svg)
-      background-size: 16px 20px
+    // $Page header MOD: role search
+    &_role_search
+      flex-grow: 0
+      flex-shrink: 0
+      border-color: transparent
+      background-image: url(../icons/icon-magnifier-dark-gray.svg)
+      background-size: 30px 30px
 
-      #{$block}_state_opened &
+      @media screen and (max-width: 480px)
+        border-color: #4c4c4c
+        background-image: url(../icons/icon-lens-dark-gray.svg)
+        background-size: 16px 20px
+
+      &:hover
+        background-color: transparent
+
+        @media screen and (max-width: 480px)
+          background-color: #f0f0f0
+
+    &_role_search#{&}_state_active
+      background-color: transparent
+
+      @media screen and (max-width: 480px)
         background-color: #f0f0f0
-        background-image: url(../icons/icon-menu-close-dark-gray.svg)
-        background-size: 16px 16px
-
-      @media screen and (max-width: 960px)
-        display: block
-        margin-left: 20px
 
     // $Page header MOD: role profile
     &_role_profile
+      flex-grow: 0
+      flex-shrink: 0
       margin-left: 30px
       background-image: url(../icons/icon-user-dark-gray.svg)
       background-size: 16px 20px
 
-      @media screen and (max-width: 960px)
+      @media screen and (max-width: 640px)
         margin-left: 20px
 
-    // $Page header MOD: role search
-    &_role_search
-      display: none
-      background-image: url(../icons/icon-lens-dark-gray.svg)
-      background-size: 16px 20px
 
-      @media screen and (max-width: 960px)
-        display: block
-
-
-  // $Page header logo
-  &__logo
-    +text-normalizer()
+  // $Page header dropdowns
+  &__dropdowns
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
     display: block
-    font-size: 20px
-    line-height: 60px
-    font-weight: 600
-    text-transform: uppercase
-    text-decoration: none
-    outline: none
-    opacity: 1
-    transition: all .5s
+    width: 100%
 
-    &:hover
-      opacity: .8
+
+  // $Page header dropdown
+  &__dropdown
+    position: absolute
+    top: 0
+    z-index: 100
+    display: none
+    padding: 10px 0
+    background-color: #FFF
+    border-radius: 10px
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.25)
+
+    // $Page header dropdown MOD: state opened
+    &_state_opened
+      display: block
+
+    &:before
+      content: ""
+      position: absolute
+      bottom: 100%
+      left: 50%
+      z-index: 101
+      margin-left: -10px
+      border-bottom: 10px solid #fff
+      border-right: 10px solid transparent
+      border-left: 10px solid transparent
+
+    // $Page header dropdown MOD: role search
+    &_role_search
+      top: 60px
+      left: 0
+      right: 0
+      width: 100%
+      height: calc(100vh - 80px)
+      padding: 10px 5px 20px
+
+      &:before
+        left: auto
+        right: 320px
+        margin-right: -10px
+        margin-left: 0
+
+        @media screen and (max-width: 640px)
+          right: 300px
+
+        @media screen and (max-width: 480px)
+          right: 80px
+
+    // $Page header dropdown MOD: site select
+    &_role_site-select
+      top: 60px
+      right: 70px
+      width: 200px
+
+      @media screen and (max-width: 640px)
+        right: 60px
+
+      @media screen and (max-width: 480px)
+        top: 120px
+        width: 100%
+        right: 0
+        left: 0
+
+    // $Page header dropdown MOD: role profile
+    &_role_profile
+      top: 60px
+      right: 0
+      width: 200px
+
+      &:before
+        left: auto
+        right: 10px
+        margin-left: 0
+
+
+  // $Page header dropdown header
+  &__dropdown-header
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+
+    // $Page header dropdown header CONTEXT: $Page header dropdown MOD: role search
+    #{$block}__dropdown_role_search &
+      height: 60px
+      padding: 0 15px 20px
+
+
+  // $Page header dropdown scroll
+  &__dropdown-scroll
+    position: relative
+    z-index: 10
+    display: block
+    width: 100%
+    overflow: hidden
+
+    // $Page header dropdown scroll CONTEXT: $Page header dropdown MOD: role search
+    #{$block}__dropdown_role_search &
+      max-height: calc(100% - 60px)
+
+    // $Page header dropdown scroll CONTEXT: $Page header dropdown MOD: role site select
+    #{$block}__dropdown_role_site-select &
+      max-height: 200px
+
+  // $Page header dropdown content
+  &__dropdown-content
+    display: block
+    width: 100%
+
+    // $Page header dropdown content CONTEXT: $Page header dropdown MOD: role search
+    #{$block}__dropdown_role_search &
+      padding: 0 15px
+
+
+  // $Page header dropdown filter
+  &__dropdown-filter
+    flex-grow: 1
+    padding: 0 30px
+
+
+  // $Page header dropdown label
+  &__dropdown-label
+    +text-normalizer()
+    position: relative
+    flex-grow: 0
+    display: block
+    padding-left: 30px
+    font-size: 20px
+    white-space: nowrap
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 0
+      display: block
+      width: 20px
+      height: 20px
+      margin-top: -10px
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+
+    // $Page header dropdown label MOD: role action
+    &_role_action
       outline: none
-      text-decoration: none
-      color: inherit
+      color: #808080
+
+      &:hover
+        outline: none
+        color: #4c4c4c
+
+    // $Page header dropdown label MOD: role close
+    &_role_close
+      &:before
+        background-image: url(../icons/icon-menu-close-dark-gray.svg)
+
+    // $Page header dropdown label MOD: role search
+    &_role_search
+      &:before
+        background-image: url(../icons/icon-lens-dark-gray.svg)
+
+    // $Page header dropdown label MOD: type icon only
+    &_type_icon
+      padding-left: 20px
+      font-size: 0
+      line-height: 0
+      color: transparent
+
 

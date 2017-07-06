@@ -155,44 +155,6 @@ $block: ".boss-popover"
     &:after
       display: none
 
-  // $Popover MOD: context menu profile
-  &_context_menu-profile
-    top: 100%
-    right: 0
-    width: 200px
-    padding: 10px 0
-    border-radius: 10px
-    box-shadow: 0 0 15px 0 rgba(0,0,0,.25)
-
-    &:before
-      left: auto
-      right: 11px
-      margin-left: 0
-
-
-    &:after
-      left: auto
-      right: 10px
-      margin-left: 0
-
-  // $Popover MOD: context menu site select
-  &_context_menu-select
-    top: 100%
-    left: 0
-    right: 0
-    width: 200px
-    padding: 10px 0
-    border-radius: 10px
-    box-shadow: 0 0 15px 0 rgba(0,0,0,.25)
-
-    @media screen and (max-width: 960px)
-      position: relative
-      top: auto
-      left: auto
-      right: auto
-      width: 100%
-      margin-top: 15px
-
   // $Popover MOD: state opened
   &_state_opened
     display: block
@@ -213,22 +175,6 @@ $block: ".boss-popover"
     // $Popover inner container CONTEXT: $Popover MOD: dashboard calendar
     #{$block}_context_dashboard-calendar &
       padding: 0 0 30px
-
-
-  // $Popover scroll container
-  &__scroll
-    position: relative
-    z-index: 10
-    display: block
-    width: 100%
-    max-height: 200px
-    overflow: hidden
-
-
-  // $Popover scroll container inner
-  &__scroll-inner
-    display: block
-    width: 100%
 
 
   // $Popover close button

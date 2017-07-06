@@ -41,10 +41,9 @@ $block: ".boss-alias"
     width: 40px
     height: 40px
     margin: 0 auto 10px
-    font-size: 24px
+    font-size: 20px
     line-height: 37px
     font-weight: 300
-    text-transform: uppercase
     color: #808080
     transition: all .4s
 
@@ -105,6 +104,9 @@ $block: ".boss-alias"
 
     #{$block}__link:hover &
       color: #4c4c4c
+
+    @media screen and (max-width: 480px)
+      font-size: 12px
 
     &_role_venue
       color: map-get($boss-sections-palette, venue)
