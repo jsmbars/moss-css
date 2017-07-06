@@ -54,6 +54,7 @@ $block: ".boss-page-header"
 
     @media screen and (max-width: 480px)
       flex-wrap: wrap
+      padding-bottom: 15px
 
 
   // $Page header logo
@@ -108,13 +109,13 @@ $block: ".boss-page-header"
         flex-shrink: 1
         order: 99
         width: 100%
-        margin-top: 20px
+        margin-top: 25px
         margin-left: 0
 
       &:before
         content: ""
         position: absolute
-        top: -10px
+        top: -15px
         left: -100px
         right: -100px
         display: none
@@ -191,7 +192,7 @@ $block: ".boss-page-header"
       flex-shrink: 0
       border-color: transparent
       background-image: url(../icons/icon-magnifier-dark-gray.svg)
-      background-size: 30px 30px
+      background-size: 25px 25px
 
       @media screen and (max-width: 480px)
         border-color: #4c4c4c
@@ -236,23 +237,35 @@ $block: ".boss-page-header"
   &__dropdown
     position: absolute
     top: 0
-    z-index: 100
+    z-index: 10000
     display: none
     padding: 10px 0
     background-color: #FFF
+    border: 1px solid #eee
     border-radius: 10px
-    box-shadow: 0 0 15px 0 rgba(0,0,0,.25)
+    box-shadow: 0 5px 30px 0 rgba(0,0,0,.25)
 
     // $Page header dropdown MOD: state opened
     &_state_opened
       display: block
+
+    &:after
+      content: ""
+      position: absolute
+      bottom: 100%
+      left: 50%
+      z-index: 10001
+      margin-left: -11px
+      border-bottom: 11px solid #eee
+      border-right: 11px solid transparent
+      border-left: 11px solid transparent
 
     &:before
       content: ""
       position: absolute
       bottom: 100%
       left: 50%
-      z-index: 101
+      z-index: 10002
       margin-left: -10px
       border-bottom: 10px solid #fff
       border-right: 10px solid transparent
@@ -267,10 +280,25 @@ $block: ".boss-page-header"
       height: calc(100vh - 80px)
       padding: 10px 5px 20px
 
+      @media screen and (max-width: 480px)
+        padding: 5px 5px 15px
+
       &:before
         left: auto
         right: 320px
         margin-right: -10px
+        margin-left: 0
+
+        @media screen and (max-width: 640px)
+          right: 300px
+
+        @media screen and (max-width: 480px)
+          right: 80px
+
+      &:after
+        left: auto
+        right: 320px
+        margin-right: -11px
         margin-left: 0
 
         @media screen and (max-width: 640px)
@@ -289,7 +317,7 @@ $block: ".boss-page-header"
         right: 60px
 
       @media screen and (max-width: 480px)
-        top: 120px
+        top: 125px
         width: 100%
         right: 0
         left: 0
@@ -305,12 +333,17 @@ $block: ".boss-page-header"
         right: 10px
         margin-left: 0
 
+      &:after
+        left: auto
+        right: 10px
+        margin-left: 0
+
 
   // $Page header dropdown header
   &__dropdown-header
     display: flex
     flex-direction: row
-    justify-content: flex-start
+    justify-content: space-between
     align-items: center
     width: 100%
 
@@ -319,18 +352,21 @@ $block: ".boss-page-header"
       height: 60px
       padding: 0 15px 20px
 
+    @media screen and (max-width: 480px)
+      #{$block}__dropdown_role_search &
+        padding: 0 10px 20px
+
 
   // $Page header dropdown scroll
   &__dropdown-scroll
     position: relative
-    z-index: 10
     display: block
     width: 100%
     overflow: hidden
 
     // $Page header dropdown scroll CONTEXT: $Page header dropdown MOD: role search
     #{$block}__dropdown_role_search &
-      max-height: calc(100% - 60px)
+      height: calc(100% - 60px)
 
     // $Page header dropdown scroll CONTEXT: $Page header dropdown MOD: role site select
     #{$block}__dropdown_role_site-select &
@@ -344,6 +380,10 @@ $block: ".boss-page-header"
     // $Page header dropdown content CONTEXT: $Page header dropdown MOD: role search
     #{$block}__dropdown_role_search &
       padding: 0 15px
+
+    @media screen and (max-width: 480px)
+      #{$block}__dropdown_role_search &
+        padding: 0 10px
 
 
   // $Page header dropdown filter
@@ -360,6 +400,7 @@ $block: ".boss-page-header"
     display: block
     padding-left: 30px
     font-size: 20px
+    font-weight: 300
     white-space: nowrap
 
     &:before
@@ -392,7 +433,7 @@ $block: ".boss-page-header"
     // $Page header dropdown label MOD: role search
     &_role_search
       &:before
-        background-image: url(../icons/icon-lens-dark-gray.svg)
+        background-image: url(../icons/icon-magnifier-dark-gray.svg)
 
     // $Page header dropdown label MOD: type icon only
     &_type_icon
