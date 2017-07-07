@@ -33,11 +33,14 @@ $block: ".boss-main-menu"
   &__navicon
     display: none
     width: 30px
-    margin-right: 30px
+    margin-right: 40px
     cursor: pointer
 
     @media screen and (max-width: 1360px)
       display: block
+
+    @media screen and (max-width: 1280px)
+      margin-right: 0
 
     &:after
       content: ""
@@ -62,10 +65,18 @@ $block: ".boss-main-menu"
     +normalize-block($color: $boss-global-font-color)
 
     display: inline-block
-    padding: 0 30px
+    margin-right: 30px
+    margin-left: 30px
     font-size: 20px
     line-height: $menu-min-height
     font-weight: 600
+
+    @media screen and (max-width: 1360px)
+      margin-left: 40px
+      margin-right: 0
+
+    @media screen and (max-width: 1280px)
+      margin-left: 0
 
 
   // $Main menu buttons
