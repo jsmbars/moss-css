@@ -55,6 +55,11 @@ $block: ".boss-board"
     width: 100%
     padding: 20px
 
+    @media screen and (max-width: 640px)
+      #{$block}_state_edit-mode &,
+      #{$block}_state_edit &
+        flex-wrap: wrap
+
     &:before
       content: ''
       position: absolute
@@ -88,7 +93,6 @@ $block: ".boss-board"
     flex-grow: 1
     flex-shrink: 1
     display: block
-    width: 100%
     font-size: 24px
     font-weight: 400
     color: $boss-global-font-color
@@ -142,7 +146,6 @@ $block: ".boss-board"
     flex-shrink: 1
     position: relative
     display: block
-    width: 100%
 
     & input
       +text-normalizer()
@@ -218,14 +221,16 @@ $block: ".boss-board"
       display: none
 
       @media screen and (max-width: 640px)
-        display: flex
-        flex-direction: column
+        order: -99
+        width: 100%
+        margin-bottom: 15px
+        padding-bottom: 20px
+        border-bottom: 1px solid map-get($boss-app-palette, inactive)
+        text-align: center
 
+      #{$block}_state_edit-mode &,
       #{$block}_state_edit &
         display: block
-
-        @media screen and (max-width: 640px)
-          display: flex
 
 
   // $Board action
@@ -234,10 +239,6 @@ $block: ".boss-board"
 
     @media screen and (max-width: 960px)
       margin-left: 10px
-
-    @media screen and (max-width: 640px)
-      margin-left: 0
-      margin-bottom: 10px
 
     &_type_fluid
       @media screen and (max-width: 480px)
