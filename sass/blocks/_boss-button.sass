@@ -326,6 +326,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: role edit mode
+  &_role_edit-mode
+    $background-color: map-get($boss-app-palette, edit)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-lock-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: role view orders
   &_role_view-orders
     $background-color: map-get($boss-app-palette, primary)

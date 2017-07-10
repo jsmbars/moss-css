@@ -40,6 +40,9 @@ $block: ".boss-alert"
   &_status_success
     background-color: map-get($boss-app-palette, secondary)
 
+  &_status_warning
+    background-color: map-get($boss-app-palette, edit)
+
   // $Alert MOD: role time
   &_role_time
     &:before
@@ -54,7 +57,7 @@ $block: ".boss-alert"
       width: 30px
       height: 30px
       margin-top: -15px
-      background-color: #b35456
+      background-color: rgba(0,0,0,.35)
       background-image: url(../icons/checked-white.svg)
       background-size: 12px 12px
       border-radius: 50%
@@ -62,7 +65,13 @@ $block: ".boss-alert"
   // $Alert MOD: role page notification status success
   &_role_page-note#{&}_status_success
     &:before
-      background-color: #58cd4c
+      background-color: rgba(0,0,0,.35)
+
+  // $Alert MOD: role page notification status warning
+  &_role_page-note#{&}_status_warning
+    &:before
+      background-color: rgba(0,0,0,.35)
+      background-image: url(../icons/icon-lock-white.svg)
 
   // $Alert MOD: role notification
   &_role_note
@@ -153,21 +162,18 @@ $block: ".boss-alert"
   // $Alert close button
   &__button-close
     position: absolute
-    width: 10px
-    height: 10px
+    width: 30px
+    height: 30px
     top: 50%
     right: 20px
     display: block
-    margin-top: -5px
-    background-image: url(../icons/icon-close-white.svg)
+    margin-top: -15px
+    background-image: url(../icons/icon-close-black-small.svg)
     background-position: center center
     background-repeat: no-repeat
-    background-size: contain
+    background-size: 10px 10px
+    opacity: 0.4
 
     // $Alert close button CONTEXT: $Alert MOD: role page notification
     #{$block}_role_page-note &
       right: 15px
-      background-image: url(../icons/icon-close-alert-dark.svg)
-
-    #{$block}_role_page-note#{$block}_status_success &
-      background-image: url(../icons/icon-close-success-dark.svg)

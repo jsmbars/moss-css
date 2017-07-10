@@ -60,6 +60,11 @@ $block: ".boss-modal-window"
     width: 85%
     max-width: 740px
 
+  // $Modal window MOD: role danger
+  &_role_danger
+    width: 85%
+    max-width: 400px
+
 
   // $Modal window close
   &__close
@@ -111,6 +116,9 @@ $block: ".boss-modal-window"
     border-top-left-radius: $border-radius
     border-top-right-radius: $border-radius
 
+    #{$block}_role_danger &
+      background-color: #dd6f70
+
     // $Modal window header MOD: error
     &_error
       background-color: #dd6f70
@@ -149,6 +157,11 @@ $block: ".boss-modal-window"
       padding: 0
       border-radius: 0
 
+    #{$block}_role_danger &
+      padding-top: 230px
+      background: #fff url('../icons/icon-error-red.svg') center 35px no-repeat
+      background-size: 165px 165px
+
 
     @media screen and (max-width: 960px)
       padding-right: 15px
@@ -176,6 +189,9 @@ $block: ".boss-modal-window"
   &__message-block
     display: block
     width: 100%
+
+    #{$block}_role_danger &
+      margin-bottom: 30px
 
     // $Modal window message block CONTEXT: $Modal window MOD: role note
     #{$block}_role_note &
@@ -205,6 +221,10 @@ $block: ".boss-modal-window"
     #{$block}_role_note &
       text-align: left
       margin-bottom: 10px
+
+    #{$block}_role_danger &
+      color: #dd6f70
+      font-size: 24px
 
     &:last-of-type
       #{$block}_role_note &
