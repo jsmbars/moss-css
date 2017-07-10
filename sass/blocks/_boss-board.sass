@@ -217,14 +217,28 @@ $block: ".boss-board"
     &_role_edit
       display: none
 
+      @media screen and (max-width: 640px)
+        display: flex
+        flex-direction: column
+
       #{$block}_state_edit &
         display: block
+
+        @media screen and (max-width: 640px)
+          display: flex
 
 
   // $Board action
   &__action
-    &:not(:first-child)
-      margin-left: 20px
+    &:not(:last-child)
+      margin-right: 20px
+
+      @media screen and (max-width: 960px)
+        margin-right: 10px
+
+      @media screen and (max-width: 640px)
+        margin-right: 0
+        margin-bottom: 10px
 
     &_type_fluid
       @media screen and (max-width: 480px)
