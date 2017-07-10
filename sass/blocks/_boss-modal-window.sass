@@ -21,11 +21,11 @@ $block: ".boss-modal-window"
 
   position: absolute
   top: 200px
-  left: 50%
+  left: 50% !important
   z-index: 10000
   cursor: default
   display: block
-  transform: translateX(-50%)
+  transform: translateX(-50%) !important
 
   border-radius: $border-radius !important
   padding: 0 !important
@@ -317,3 +317,10 @@ $block: ".boss-modal-window"
 
     & svg
       display: none !important
+
+
+  // $Modal window react root element
+  // Contains modal wrapper z-index fix for the mobile devices
+  &-root
+    z-index: 9999 !important
+
