@@ -59,6 +59,7 @@ $block: ".boss-board"
       #{$block}_state_edit-mode &,
       #{$block}_state_edit &
         flex-wrap: wrap
+        overflow: hidden
 
     &:before
       content: ''
@@ -218,19 +219,33 @@ $block: ".boss-board"
       display: none
 
     &_role_edit
+      position: relative
+      white-space: nowrap
       display: none
+
+      #{$block}_state_edit-mode &,
+      #{$block}_state_edit &
+        display: block
 
       @media screen and (max-width: 640px)
         order: -99
         width: 100%
         margin-bottom: 15px
         padding-bottom: 20px
-        border-bottom: 1px solid map-get($boss-app-palette, inactive)
         text-align: center
 
-      #{$block}_state_edit-mode &,
-      #{$block}_state_edit &
-        display: block
+      &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: -50px
+        right: -50px
+        display: none
+        height: 0
+        border-bottom: 1px solid map-get($boss-app-palette, inactive)
+
+        @media screen and (max-width: 640px)
+          display: block
 
 
   // $Board action
