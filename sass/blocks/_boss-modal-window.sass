@@ -138,6 +138,18 @@ $block: ".boss-modal-window"
       text-transform: none
       font-size: 24px
 
+    // $Modal window header MOD: status success
+    &_status_success
+      background-color: map-get($boss-app-palette, secondary)
+      text-transform: none
+      font-size: 24px
+
+    // $Modal window header MOD: status fail
+    &_status_fail
+      background-color: map-get($boss-app-palette, alert)
+      text-transform: none
+      font-size: 24px
+
 
   // $Modal window content
   &__content
@@ -156,7 +168,6 @@ $block: ".boss-modal-window"
     // $Modal window message block CONTEXT: $Modal window MOD: role details
     #{$block}_role_details &
       padding: 0
-      border-radius: 0
 
     #{$block}_role_danger &
       padding-top: 230px

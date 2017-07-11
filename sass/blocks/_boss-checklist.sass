@@ -46,14 +46,6 @@ $block: ".boss-checklist"
       padding-bottom: 0
 
 
-  // $Checklist label
-  &__label
-    +text-normalizer()
-    flex-grow: 0
-    display: block
-    color: $boss-medium-gray
-
-
   // $Checklist notes
   &__notes
     display: block
@@ -63,6 +55,9 @@ $block: ".boss-checklist"
 
     @media screen and (max-width: 480px)
       padding-left: 30px
+
+    &:empty
+      margin-bottom: 0
 
 
   // $Checklist notes inner
@@ -115,6 +110,21 @@ $block: ".boss-checklist"
       outline: none
       box-shadow: none
       border: 2px solid $boss-medium-gray
+
+
+  // $Checklist notes text
+  &__notes-text
+    +text-normalizer()
+    display: block
+    width: 100%
+    min-height: 60px
+    border: 2px solid $boss-medium-gray
+    border-radius: 4px
+    padding: 10px 15px
+
+    @media screen and (max-width: 480px)
+      min-height: 80px
+      padding-top: 5px
 
 
   // $Checklist field
@@ -207,9 +217,11 @@ $block: ".boss-checklist"
   &__checkbox-label-text
     position: relative
     display: inline-block
-    cursor: pointer
     min-height: 22px
     padding-left: 40px
+
+    #{$block}__checkbox-input ~ &
+      cursor: pointer
 
     @media screen and (max-width: 400px)
       min-height: 18px
@@ -258,9 +270,12 @@ $block: ".boss-checklist"
         top: 4px
         left: 4px
 
-    &_state_disabled
+    &_type_nocheckbox
       cursor: default
       padding-left: 0
+
+      #{$block}__checkbox-input ~ &
+        cursor: default
 
       @media screen and (max-width: 400px)
         padding-left: 0
@@ -268,6 +283,15 @@ $block: ".boss-checklist"
       &:before,
       &:after
         display: none
+
+
+    &_state_checked
+      &:before
+        background-color: #fff
+        border-color: $boss-light-gray
+
+      &:after
+        visibility: visible
 
     // $Checklist checkbox label text MOD: state error
     &_state_error
