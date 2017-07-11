@@ -51,7 +51,6 @@ $block: ".boss-checklist"
     +text-normalizer()
     flex-grow: 0
     display: block
-    cursor: pointer
     color: $boss-medium-gray
 
 
@@ -201,7 +200,6 @@ $block: ".boss-checklist"
     +text-normalizer()
     flex-grow: 0
     display: block
-    cursor: pointer
     color: $boss-medium-gray
 
 
@@ -209,6 +207,7 @@ $block: ".boss-checklist"
   &__checkbox-label-text
     position: relative
     display: inline-block
+    cursor: pointer
     min-height: 22px
     padding-left: 40px
 
@@ -258,6 +257,17 @@ $block: ".boss-checklist"
       @media screen and (max-width: 400px)
         top: 4px
         left: 4px
+
+    &_state_disabled
+      cursor: default
+      padding-left: 0
+
+      @media screen and (max-width: 400px)
+        padding-left: 0
+
+      &:before,
+      &:after
+        display: none
 
     // $Checklist checkbox label text MOD: state error
     &_state_error
