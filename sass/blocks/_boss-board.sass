@@ -37,6 +37,14 @@ $block: ".boss-board"
       flex-direction: column
       align-items: center
 
+  // $Board MOD: state edit
+  &_state_edit
+
+  // $Board MOD: state hidden
+  &_state_hidden
+    display: none
+
+
   // $Board header area
   &__header
     position: relative
@@ -46,6 +54,12 @@ $block: ".boss-board"
     align-items: center
     width: 100%
     padding: 20px
+
+    @media screen and (max-width: 640px)
+      #{$block}_state_edit-mode &,
+      #{$block}_state_edit &
+        flex-wrap: wrap
+        overflow: hidden
 
     &:before
       content: ''
@@ -80,7 +94,6 @@ $block: ".boss-board"
     flex-grow: 1
     flex-shrink: 1
     display: block
-    width: 100%
     font-size: 24px
     font-weight: 400
     color: $boss-global-font-color
@@ -127,13 +140,13 @@ $block: ".boss-board"
     @media screen and (max-width: 960px)
       padding: 0 20px
 
+
   // $Board field
   &__field
     flex-grow: 1
     flex-shrink: 1
     position: relative
     display: block
-    width: 100%
 
     & input
       +text-normalizer()
@@ -147,6 +160,9 @@ $block: ".boss-board"
       padding: 0 20px 0 0
       font-size: 24px
       box-shadow: none
+
+      #{$block}_state_edit &
+        color: $boss-light-gray
 
       @media screen and (max-width: 640px)
         font-size: 20px
@@ -194,11 +210,63 @@ $block: ".boss-board"
         display: none
 
 
-
   // $Board button group
   &__button-group
     flex-grow: 0
     flex-shrink: 0
+
+    #{$block}_state_edit &
+      display: none
+
+    &_role_edit
+      position: relative
+      white-space: nowrap
+      display: none
+
+      #{$block}_state_edit-mode &,
+      #{$block}_state_edit &
+        display: block
+
+      @media screen and (max-width: 640px)
+        order: -99
+        width: 100%
+        margin-bottom: 15px
+        padding-bottom: 20px
+        text-align: center
+
+      &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: -50px
+        right: -50px
+        display: none
+        height: 0
+        border-bottom: 1px solid map-get($boss-app-palette, inactive)
+
+        @media screen and (max-width: 640px)
+          display: block
+
+
+  // $Board action
+  &__action
+    margin-left: 20px
+
+    @media screen and (max-width: 960px)
+      margin-left: 10px
+
+    &_type_fluid
+      @media screen and (max-width: 480px)
+        font-size: 0
+        line-height: 0
+        color: transparent
+
+      &:before
+        @media screen and (max-width: 480px)
+          margin-right: 0
+
+    &_state_hidden
+      display: none
 
 
   // $Board button
@@ -287,21 +355,6 @@ $block: ".boss-board"
         @media screen and (max-width: 960px)
           background-image: url(../icons/icon-arrow-down-dark-gray.svg)
           transform: translate(-50%, -50%)
-
-
-  &__switch-btn
-
-    @media screen and (max-width: 480px)
-      font-size: 0
-      line-height: 0
-      color: transparent
-
-    &:before
-      @media screen and (max-width: 480px)
-        margin-right: 0
-
-    &_state_hidden
-      display: none
 
 
   // $Board content area

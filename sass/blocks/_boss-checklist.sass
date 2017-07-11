@@ -27,7 +27,6 @@ $block: ".boss-checklist"
 
   // $Checklist controls
   &__controls
-    margin-bottom: 30px
 
 
   // $Checklist control
@@ -38,25 +37,41 @@ $block: ".boss-checklist"
     justify-content: flex-start
     align-items: center
     width: 100%
-    margin-bottom: 20px
+    padding: 10px 0
 
-    &_adjust_notes
-      display: block
+    &:first-child
+      padding-top: 0
+
+    &:last-child
+      padding-bottom: 0
+
+
+  // $Checklist label
+  &__label
+    +text-normalizer()
+    flex-grow: 0
+    display: block
+    color: $boss-medium-gray
 
 
   // $Checklist notes
   &__notes
     display: block
     width: 100%
-    max-width: 360px
-    margin-top: 5px
-    margin-bottom: 40px
+    margin-bottom: 20px
     padding-left: 40px
 
     @media screen and (max-width: 480px)
-      max-width: none
-      margin-bottom: 30px
       padding-left: 30px
+
+
+  // $Checklist notes inner
+  &__notes-inner
+    width: 100%
+    max-width: 360px
+
+    @media screen and (max-width: 480px)
+      max-width: none
 
 
   // $Checklist notes label
@@ -102,65 +117,12 @@ $block: ".boss-checklist"
       border: 2px solid $boss-medium-gray
 
 
-  // $Checklist cancel icon
-  &__cancel
-    position: relative
-    display: inline-block
-    font-size: 0
-    line-height: 0
-    padding-top: 2px
-    color: transparent
-    outline: none
-    text-decoration: none
-    margin-left: 15px
-
-    &:hover,
-    &:focus
-    color: transparent
-    outline: none
-    text-decoration: none
-
-    &:before
-      content: ""
-      position: absolute
-      top: 50%
-      left: 50%
-      display: block
-      width: 10px
-      height: 10px
-      margin-top: -5px
-      margin-left: -5px
-      background-image: url("../icons/icon-close-alert.svg")
-      background-repeat: no-repeat
-      background-size: contain
-      background-position: center center
-
-    // $Checklist cancel icon MOD: adjsut field
-    &_adjust_field
-      position: absolute
-      top: 0
-      bottom: 0
-      right: 0
-      width: 40px
-      z-index: 50
-      margin-left: 0
-
-      @media screen and (max-width: 400px)
-        width: 30px
-
-
-  // $Checklist add btn
-  &__add
-    margin-left: 20px
-
-    @media screen and (max-width: 400px)
-      margin-left: 15px
-
-
   // $Checklist field
   &__field
     flex-grow: 1
+    flex-shrink: 1
     position: relative
+    width: auto
     max-width: 260px
 
     @media screen and (max-width: 480px)
@@ -238,7 +200,6 @@ $block: ".boss-checklist"
     +text-normalizer()
     flex-grow: 0
     display: block
-    cursor: pointer
     color: $boss-medium-gray
 
 
@@ -246,6 +207,7 @@ $block: ".boss-checklist"
   &__checkbox-label-text
     position: relative
     display: inline-block
+    cursor: pointer
     min-height: 22px
     padding-left: 40px
 
@@ -266,13 +228,13 @@ $block: ".boss-checklist"
       border: 3px solid $boss-light-gray
       border-radius: 4px
 
-      @media screen and (max-width: 400px)
-        width: 20px
-        height: 20px
-
       #{$block}__checkbox-input:checked ~ &
         background-color: #fff
         border-color: $boss-light-gray
+
+      @media screen and (max-width: 400px)
+        width: 20px
+        height: 20px
 
     &:after
       content: ""
@@ -289,12 +251,23 @@ $block: ".boss-checklist"
       background-size: contain
       visibility: hidden
 
+      #{$block}__checkbox-input:checked ~ &
+        visibility: visible
+
       @media screen and (max-width: 400px)
         top: 4px
         left: 4px
 
-      #{$block}__checkbox-input:checked ~ &
-        visibility: visible
+    &_state_disabled
+      cursor: default
+      padding-left: 0
+
+      @media screen and (max-width: 400px)
+        padding-left: 0
+
+      &:before,
+      &:after
+        display: none
 
     // $Checklist checkbox label text MOD: state error
     &_state_error
@@ -305,6 +278,61 @@ $block: ".boss-checklist"
 
         #{$block}__checkbox-input:checked ~ &
           border-color: map-get($boss-app-palette, alert)
+
+
+  // $Checklist cancel icon
+  &__cancel
+    position: relative
+    display: inline-block
+    font-size: 0
+    line-height: 0
+    padding-top: 2px
+    color: transparent
+    outline: none
+    text-decoration: none
+    margin-left: 15px
+
+    &:hover,
+    &:focus
+    color: transparent
+    outline: none
+    text-decoration: none
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 10px
+      height: 10px
+      margin-top: -5px
+      margin-left: -5px
+      background-image: url("../icons/icon-close-alert.svg")
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+
+    // $Checklist cancel icon MOD: adjsut field
+    &_adjust_field
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      width: 40px
+      z-index: 50
+      margin-left: 0
+
+      @media screen and (max-width: 400px)
+        width: 30px
+
+
+  // $Checklist add btn
+  &__add
+    margin-left: 20px
+
+    @media screen and (max-width: 400px)
+      margin-left: 15px
 
 
   // $Checklist alert area
@@ -318,6 +346,7 @@ $block: ".boss-checklist"
   &__message
     display: block
     width: 100%
+    margin-top: 25px
     margin-bottom: 25px
 
 
@@ -325,6 +354,7 @@ $block: ".boss-checklist"
   &__actions
     display: block
     width: 100%
+    margin-top: 30px
 
 
   // $Checklist action
