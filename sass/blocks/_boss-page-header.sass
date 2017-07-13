@@ -281,10 +281,10 @@ $block: ".boss-page-header"
       right: 0
       width: 100%
       height: calc(100vh - 80px)
-      padding: 10px 5px 20px
+      padding: 15px 5px 20px
 
-      @media screen and (max-width: 480px)
-        padding: 5px 5px 15px
+      @media screen and (max-width: 640px)
+        padding: 15px 5px
 
       &:before
         left: auto
@@ -309,6 +309,16 @@ $block: ".boss-page-header"
 
         @media screen and (max-width: 480px)
           right: 80px
+
+    &_role_search#{&}_no-select
+
+      &:before,
+      &:after
+        right: 90px
+
+        @media screen and (max-width: 640px)
+          right: 80px
+
 
     // $Page header dropdown MOD: site select
     &_role_site-select
@@ -352,8 +362,12 @@ $block: ".boss-page-header"
 
     // $Page header dropdown header CONTEXT: $Page header dropdown MOD: role search
     #{$block}__dropdown_role_search &
-      height: 60px
+      min-height: 60px
       padding: 0 15px 20px
+
+    @media screen and (max-width: 640px)
+      #{$block}__dropdown_role_search &
+        flex-wrap: wrap
 
     @media screen and (max-width: 480px)
       #{$block}__dropdown_role_search &
@@ -375,6 +389,10 @@ $block: ".boss-page-header"
     #{$block}__dropdown_role_site-select &
       max-height: 200px
 
+    @media screen and (max-width: 640px)
+      #{$block}__dropdown_role_search &
+        height: calc(100% - 110px)
+
   // $Page header dropdown content
   &__dropdown-content
     display: block
@@ -394,13 +412,19 @@ $block: ".boss-page-header"
     flex-grow: 1
     padding: 0 30px
 
+    @media screen and (max-width: 640px)
+      order: 99
+      width: 100%
+      margin-top: 20px
+      padding: 0
+
 
   // $Page header dropdown label
   &__dropdown-label
     +text-normalizer()
     position: relative
     flex-grow: 0
-    display: block
+    display: inline-block
     padding-left: 30px
     font-size: 20px
     font-weight: 300
