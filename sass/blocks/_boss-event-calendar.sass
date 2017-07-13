@@ -19,6 +19,32 @@ $block: ".boss-event-calendar"
   display: block
   width: 100%
 
+  &__iframe
+    position: relative
+    display: block
+    width: 100%
+    overflow: hidden
+
+    &_desktop
+      padding-bottom: 75%
+
+      @media screen and (max-width: 960px)
+        display: none
+
+    &_mobile
+      display: none
+      height: 500px
+
+      @media screen and (max-width: 960px)
+        display: block
+
+    & iframe
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+
   &__inner
     position: relative
     display: block
