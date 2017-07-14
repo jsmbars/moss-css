@@ -332,14 +332,15 @@ $block: ".boss-modal-window"
 
   // Override for the react-modal styles
   @at-root
+    .boss-modal-window-overlay,
     .ReactModal__Overlay
-      position: fixed
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      z-index: 10000
+      position: fixed !important
+      top: 0 !important
+      right: 0 !important
+      bottom: 0 !important
+      left: 0 !important
+      z-index: 10000 !important
       background-color: rgba(0,0,0,.75) !important
-      overflow-x: hidden
-      overflow-y: auto
+      overflow-x: hidden !important
+      overflow-y: auto !important
 
