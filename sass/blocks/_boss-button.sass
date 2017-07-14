@@ -474,6 +474,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: role confirm
+  &_role_confirm
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/checked-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: role review
   &_role_review
     $background-color: map-get($boss-app-palette, primary)
