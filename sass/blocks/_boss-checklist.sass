@@ -23,34 +23,364 @@ $block: ".boss-checklist"
 
   // $Checklist content
   &__content
+    display: block
+    width: 100%
 
 
-  // $Checklist controls
-  &__controls
+  // $Checklist items
+  &__items
+    display: block
+    width: 100%
+
+
+  // $Checklist item
+  &__item
+    display: block
+    width: 100%
+    margin-bottom: 20px
+
+    &:last-child
+      margin-bottom: 0
 
 
   // $Checklist control
   &__control
-    position: relative
     display: flex
     flex-direction: row
     justify-content: flex-start
     align-items: center
+
+    // $Checklist control MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Checklist field
+  &__field
+    flex-grow: 0
+    flex-shrink: 1
+    position: relative
     width: 100%
-    padding: 10px 0
+    max-width: 260px
 
-    &:first-child
-      padding-top: 0
+    @media screen and (max-width: 480px)
+      max-width: none
 
-    &:last-child
-      padding-bottom: 0
+
+  // $Checklist text input
+  &__text-input
+    +text-normalizer()
+    display: block
+    width: 100%
+    height: auto
+    line-height: 1.2
+    white-space: nowrap
+    box-sizing: border-box
+    border: 2px solid $boss-light-gray
+    border-radius: 4px
+    padding: 10px 20px
+    box-shadow: none
+
+    @media screen and (max-width: 400px)
+      font-size: 12px
+      padding: 7px 10px
+
+    &:focus
+      outline: none
+      box-shadow: none
+      border: 2px solid $boss-medium-gray
+
+    &:disabled,
+    &_state_disabled
+      background-color: #fefefe
+      border-color: #f0f0f0
+      color: #808080
+      cursor: default
+
+    // $Checklist text input MOD: state error
+    &_state_error
+      border-color: map-get($boss-app-palette, alert)
+
+      &:focus
+        border-color: map-get($boss-app-palette, alert)
+
+    // $Checklist text input MOD: adjust with icon
+    &_adjust_icon
+      padding-right: 30px
+
+      @media screen and (max-width: 400px)
+        padding-right: 30px
+
+    &::-webkit-input-placeholder
+      color: $boss-input-placeholder-color !important
+      opacity:  1 !important
+
+    &:-moz-placeholder
+      color: $boss-input-placeholder-color !important
+      opacity:  1 !important
+
+    &::-moz-placeholder
+      color: $boss-input-placeholder-color !important
+      opacity:  1 !important
+
+    &:-ms-input-placeholder
+      color: $boss-input-placeholder-color !important
+      opacity:  1 !important
+
+    &::-ms-input-placeholder
+      color: $boss-input-placeholder-color !important
+      opacity:  1 !important
+
+    &::placeholder
+      color: $boss-input-placeholder-color !important
+      opacity:  1 !important
+
+    &:placeholder-shown
+      color: $boss-input-placeholder-color !important
+      opacity:  1 !important
+
+    &[type=text]::-ms-clear
+      display: none
+
+
+  // $Checklist checkbox input
+  &__checkbox-input
+    display: none
+
+
+  // $Checklist label
+  &__label
+    +text-normalizer()
+    flex-grow: 0
+    display: block
+    width: auto
+    max-width: 100%
+    color: $boss-medium-gray
+
+
+  // $Checklist label text
+  &__label-text
+    position: relative
+    display: inline-block
+
+    &_type_checkbox
+      min-height: 22px
+      padding-left: 40px
+
+      #{$block}__checkbox-input ~ &
+        cursor: pointer
+
+      @media screen and (max-width: 400px)
+        min-height: 18px
+        padding-left: 30px
+
+      &:before
+        content: ""
+        box-sizing: border-box
+        position: absolute
+        top: 0
+        left: 0
+        display: block
+        width: 24px
+        height: 24px
+        background-color: #FFF
+        border: 3px solid $boss-light-gray
+        border-radius: 4px
+
+        #{$block}__checkbox-input:checked ~ &
+          background-color: #fff
+          border-color: $boss-light-gray
+
+        @media screen and (max-width: 400px)
+          width: 20px
+          height: 20px
+
+      &:after
+        content: ""
+        box-sizing: border-box
+        position: absolute
+        top: 6px
+        left: 6px
+        display: block
+        width: 12px
+        height: 12px
+        background-image: url('../icons/icon-checked-light-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        visibility: hidden
+
+        #{$block}__checkbox-input:checked ~ &
+          visibility: visible
+
+        @media screen and (max-width: 400px)
+          top: 4px
+          left: 4px
+
+    &_state_checked
+      &:before
+        background-color: #fff
+        border-color: $boss-light-gray
+
+      &:after
+        visibility: visible
+
+    // $Checklist checkbox label text MOD: state error
+    &_state_error
+      color: map-get($boss-app-palette, alert)
+
+      &:before
+        border-color: map-get($boss-app-palette, alert)
+
+        #{$block}__checkbox-input:checked ~ &
+          border-color: map-get($boss-app-palette, alert)
+
+
+  // $Checklist icon
+  &__icon
+    position: relative
+    display: inline-block
+    margin-left: 20px
+    padding-left: 10px
+    font-size: 0
+    line-height: 0
+    padding-top: 2px
+    color: transparent
+    outline: none
+    text-decoration: none
+
+    &:hover,
+    &:focus
+    color: transparent
+    outline: none
+    text-decoration: none
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 0
+      display: block
+      width: 10px
+      height: 10px
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+      transform: translateY(-50%)
+
+    // $Checklist icon MOD: role confirm
+    &_role_confirm
+      padding-left: 16px
+      &:before
+        width: 16px
+        height: 16px
+        background-image: url("../icons/icon-checked-primary.svg")
+
+    // $Checklist icon MOD: role edit
+    &_role_edit
+      padding-left: 14px
+      &:before
+        width: 14px
+        height: 14px
+        background-image: url("../icons/icon-pencil-primary.svg")
+
+    // $Checklist icon MOD: role delete
+    &_role_delete
+      padding-left: 12px
+      &:before
+        width: 12px
+        height: 12px
+        background-image: url("../icons/icon-close-alert.svg")
+
+    // $Checklist icon MOD: role field-cancel
+    &_role_field-cancel
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      width: 40px
+      z-index: 50
+      margin-left: 0
+
+      @media screen and (max-width: 400px)
+        width: 30px
+
+      &:before
+        left: 50%
+        width: 12px
+        height: 12px
+        background-image: url("../icons/icon-close-alert.svg")
+        transform: translate(-50%, -50%)
+
+    // $Checklist icon MOD: role field-confirm
+    &_role_field-confirm
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      width: 40px
+      z-index: 50
+      margin-left: 0
+
+      @media screen and (max-width: 400px)
+        width: 30px
+
+      &:before
+        left: 50%
+        width: 16px
+        height: 16px
+        background-image: url("../icons/icon-checked-primary.svg")
+        transform: translate(-50%, -50%)
+
+
+  // $Checklist button
+  &__btn
+    margin-left: 20px
+
+    @media screen and (max-width: 400px)
+      margin-left: 15px
+
+
+  // $Checklist alert area
+  &__alert
+    display: block
+    width: 100%
+    margin-bottom: 35px
+
+    &_size_small
+      max-width: 400px
+      padding-left: 40px
+      margin: 10px 0 30px
+
+      @media screen and (max-width: 480px)
+        padding-left: 30px
+        max-width: none
+
+
+  // $Checklist message area
+  &__message
+    display: block
+    width: 100%
+    margin-top: 25px
+    margin-bottom: 25px
+
+
+  // $Checklist actions area
+  &__actions
+    display: block
+    width: 100%
+    margin-top: 30px
+
+
+  // $Checklist action
+  &__action
 
 
   // $Checklist notes
   &__notes
     display: block
     width: 100%
-    margin-bottom: 20px
+    margin: 5px 0 30px
     padding-left: 40px
 
     @media screen and (max-width: 480px)
@@ -125,263 +455,5 @@ $block: ".boss-checklist"
     @media screen and (max-width: 480px)
       min-height: 80px
       padding-top: 5px
-
-
-  // $Checklist field
-  &__field
-    flex-grow: 1
-    flex-shrink: 1
-    position: relative
-    width: auto
-    max-width: 260px
-
-    @media screen and (max-width: 480px)
-      max-width: none
-
-  // $Checklist field input
-  &__field-input
-    +text-normalizer()
-    display: block
-    width: 100%
-    height: auto
-    line-height: 1.2
-    white-space: nowrap
-    box-sizing: border-box
-    border: 2px solid $boss-light-gray
-    border-radius: 4px
-    padding: 10px 20px
-    box-shadow: none
-
-    @media screen and (max-width: 400px)
-      font-size: 12px
-      padding: 7px 10px
-
-    &:focus
-      outline: none
-      box-shadow: none
-      border: 2px solid $boss-medium-gray
-
-    // $Checklist field input MOD: adjust with cancel icon
-    &_adjust_cancel
-      padding-right: 30px
-
-      @media screen and (max-width: 400px)
-        padding-right: 30px
-
-    &::-webkit-input-placeholder
-      color: $boss-input-placeholder-color !important
-      opacity:  1 !important
-
-    &:-moz-placeholder
-      color: $boss-input-placeholder-color !important
-      opacity:  1 !important
-
-    &::-moz-placeholder
-      color: $boss-input-placeholder-color !important
-      opacity:  1 !important
-
-    &:-ms-input-placeholder
-      color: $boss-input-placeholder-color !important
-      opacity:  1 !important
-
-    &::-ms-input-placeholder
-      color: $boss-input-placeholder-color !important
-      opacity:  1 !important
-
-    &::placeholder
-      color: $boss-input-placeholder-color !important
-      opacity:  1 !important
-
-    &:placeholder-shown
-      color: $boss-input-placeholder-color !important
-      opacity:  1 !important
-
-    &[type=text]::-ms-clear
-      display: none
-
-
-  // $Checklist checkbox input
-  &__checkbox-input
-    display: none
-
-
-  // $Checklist checkbox label
-  &__checkbox-label
-    +text-normalizer()
-    flex-grow: 0
-    display: block
-    color: $boss-medium-gray
-
-
-  // $Checklist checkbox label text
-  &__checkbox-label-text
-    position: relative
-    display: inline-block
-    min-height: 22px
-    padding-left: 40px
-
-    #{$block}__checkbox-input ~ &
-      cursor: pointer
-
-    @media screen and (max-width: 400px)
-      min-height: 18px
-      padding-left: 30px
-
-    &:before
-      content: ""
-      box-sizing: border-box
-      position: absolute
-      top: 0
-      left: 0
-      display: block
-      width: 24px
-      height: 24px
-      background-color: #FFF
-      border: 3px solid $boss-light-gray
-      border-radius: 4px
-
-      #{$block}__checkbox-input:checked ~ &
-        background-color: #fff
-        border-color: $boss-light-gray
-
-      @media screen and (max-width: 400px)
-        width: 20px
-        height: 20px
-
-    &:after
-      content: ""
-      box-sizing: border-box
-      position: absolute
-      top: 6px
-      left: 6px
-      display: block
-      width: 12px
-      height: 12px
-      background-image: url('../icons/icon-checked-light-gray.svg')
-      background-repeat: no-repeat
-      background-position: center center
-      background-size: contain
-      visibility: hidden
-
-      #{$block}__checkbox-input:checked ~ &
-        visibility: visible
-
-      @media screen and (max-width: 400px)
-        top: 4px
-        left: 4px
-
-    &_type_nocheckbox
-      cursor: default
-      padding-left: 0
-
-      #{$block}__checkbox-input ~ &
-        cursor: default
-
-      @media screen and (max-width: 400px)
-        padding-left: 0
-
-      &:before,
-      &:after
-        display: none
-
-
-    &_state_checked
-      &:before
-        background-color: #fff
-        border-color: $boss-light-gray
-
-      &:after
-        visibility: visible
-
-    // $Checklist checkbox label text MOD: state error
-    &_state_error
-      color: map-get($boss-app-palette, alert)
-
-      &:before
-        border-color: map-get($boss-app-palette, alert)
-
-        #{$block}__checkbox-input:checked ~ &
-          border-color: map-get($boss-app-palette, alert)
-
-
-  // $Checklist cancel icon
-  &__cancel
-    position: relative
-    display: inline-block
-    font-size: 0
-    line-height: 0
-    padding-top: 2px
-    color: transparent
-    outline: none
-    text-decoration: none
-    margin-left: 15px
-
-    &:hover,
-    &:focus
-    color: transparent
-    outline: none
-    text-decoration: none
-
-    &:before
-      content: ""
-      position: absolute
-      top: 50%
-      left: 50%
-      display: block
-      width: 10px
-      height: 10px
-      margin-top: -5px
-      margin-left: -5px
-      background-image: url("../icons/icon-close-alert.svg")
-      background-repeat: no-repeat
-      background-size: contain
-      background-position: center center
-
-    // $Checklist cancel icon MOD: adjsut field
-    &_adjust_field
-      position: absolute
-      top: 0
-      bottom: 0
-      right: 0
-      width: 40px
-      z-index: 50
-      margin-left: 0
-
-      @media screen and (max-width: 400px)
-        width: 30px
-
-
-  // $Checklist add btn
-  &__add
-    margin-left: 20px
-
-    @media screen and (max-width: 400px)
-      margin-left: 15px
-
-
-  // $Checklist alert area
-  &__alert
-    display: block
-    width: 100%
-    margin-bottom: 35px
-
-
-  // $Checklist message area
-  &__message
-    display: block
-    width: 100%
-    margin-top: 25px
-    margin-bottom: 25px
-
-
-  // $Checklist actions area
-  &__actions
-    display: block
-    width: 100%
-    margin-top: 30px
-
-
-  // $Checklist action
-  &__action
 
 

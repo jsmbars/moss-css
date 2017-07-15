@@ -35,7 +35,9 @@ $block: ".boss-check"
     @media screen and (max-width: 1120px)
       display: block
 
+  // $Check block MOD: page checklist review
   // $Check block MOD: page venue health check index
+  &_page_checklist-review,
   &_page_vhci
     display: none
 
@@ -116,6 +118,14 @@ $block: ".boss-check"
     // $Check block cell MOD: no border
     &_no-border:not(:last-child)
       border: none
+
+
+  // $Check block title
+  &__title
+    +text-normalizer()
+    font-size: 18px
+    text-transform: uppercase
+    font-weight: 600
 
 
   // $Check block text
