@@ -16,8 +16,8 @@
 
 =button-common-hover-behavior($background-color, $amount: 3%)
 
-  &:hover,
-  &:focus
+  &:not(.boss-button_type_no-behavior):hover,
+  &:not(.boss-button_type_no-behavior):focus
     background-color: lighten($background-color, $amount)
 
 =button-bordered($primary-color: '#4c4c4c', $secondary-color: '#fff')
@@ -28,8 +28,8 @@
 
 =button-bordered-hover-behavior($primary-color: '#4c4c4c', $secondary-color: '#fff', $icon-hover-url: '')
 
-  &:hover,
-  &:focus
+  &:not(.boss-button_type_no-behavior):hover,
+  &:not(.boss-button_type_no-behavior):focus
     color: $secondary-color
     background-color: $primary-color
 
@@ -40,7 +40,7 @@
 
 =button-bordered-active-behavior($primary-color: '#4c4c4c', $secondary-color: '#fff', $icon-active-url: '')
 
-  &#{$block}_state_active
+  &#{$block}_state_active:not(.boss-button_type_no-behavior)
     color: $secondary-color
     background-color: $primary-color
 
@@ -136,6 +136,13 @@ $block: ".boss-button"
     @media screen and (max-width: 400px)
       padding: 5px 6px
       font-size: 10px
+
+  &_type_no-events
+    cursor: default !important
+    pointer-events: none
+
+  &_type_no-behavior
+    cursor: default !important
 
   // $Common button MOD: type label action
   &_type_action
