@@ -37,11 +37,13 @@ $block: ".boss-table"
       display: none
 
   &_page_checklist-review,
-  &_page_vhci
+  &_page_vhci,
+  &_page_vouchers-index
     border: 1px solid #eee
 
   &_page_checklist-review,
-  &_page_vhci
+  &_page_vhci,
+  &_page_vouchers-index
     @media screen and (max-width: 960px)
       display: none
 
@@ -88,7 +90,8 @@ $block: ".boss-table"
         border-bottom: none
 
       #{$block}_page_checklist-review &,
-      #{$block}_page_vhci &
+      #{$block}_page_vhci &,
+      #{$block}_page_vouchers-index &
         padding-top: 15px
         padding-bottom: 15px
 
@@ -96,7 +99,8 @@ $block: ".boss-table"
       #{$block}_page_change-order-report &,
       #{$block}_page_safe-checks-index &,
       #{$block}_page_checklist-review &,
-      #{$block}_page_vhci &
+      #{$block}_page_vhci &,
+      #{$block}_page_vouchers-index &
         background-color: #fbfbfb
 
 
@@ -230,6 +234,10 @@ $block: ".boss-table"
         width: 30%
         padding-left: 40px
 
+      #{$block}_page_vouchers-index &
+        width: 20%
+        padding-left: 40px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -248,7 +256,8 @@ $block: ".boss-table"
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
-        #{$block}_page_vhci &
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &
           width: 100%
           padding-left: 15px
 
@@ -302,6 +311,9 @@ $block: ".boss-table"
       #{$block}_page_vhci &
         width: 25%
 
+      #{$block}_page_vouchers-index &
+        width: 24%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -318,7 +330,8 @@ $block: ".boss-table"
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
-        #{$block}_page_vhci &
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &
           width: 100%
 
 
@@ -354,6 +367,10 @@ $block: ".boss-table"
         width: 20%
         text-align: center
 
+      #{$block}_page_vouchers-index &
+        width: 18%
+        text-align: center
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -367,10 +384,12 @@ $block: ".boss-table"
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
-        #{$block}_page_vhci &
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &
           width: 100%
 
-        #{$block}_page_vhci &
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &
           text-align: left
 
 
@@ -406,6 +425,10 @@ $block: ".boss-table"
         padding-right: 40px
         text-align: center
 
+      #{$block}_page_vouchers-index &
+        width: 18%
+        text-align: center
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -419,7 +442,8 @@ $block: ".boss-table"
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
-        #{$block}_page_vhci &
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &
           width: 100%
 
         #{$block}_page_fruit-order-history &
@@ -430,6 +454,9 @@ $block: ".boss-table"
 
         #{$block}_page_vhci &
           padding-right: 10px
+          text-align: left
+
+        #{$block}_page_vouchers-index &
           text-align: left
 
 
@@ -452,7 +479,8 @@ $block: ".boss-table"
       #{$block}_page_safe-checks-index &
         width: 12%
 
-      #{$block}_page_checklist-review &
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vouchers-index &
         width: 20%
         padding-right: 40px
         text-align: center
@@ -468,11 +496,14 @@ $block: ".boss-table"
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
-        #{$block}_page_checklist-review &
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vouchers-index &
           width: 100%
 
-        #{$block}_page_checklist-review &
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vouchers-index &
           padding-right: 10px
+          text-align: left
 
     // $Common table cell sixth column
     &:nth-child(6)
@@ -620,7 +651,10 @@ $block: ".boss-table"
     #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
     #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
     #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
-    #{$block}_page_vhci #{$block}__cell:nth-child(4) &
+    #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &
       justify-content: center
 
     @media screen and (max-width: 1120px)
@@ -640,7 +674,10 @@ $block: ".boss-table"
       #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
       #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
       #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
-      #{$block}_page_vhci #{$block}__cell:nth-child(4) &
+      #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &
         justify-content: flex-start
 
 

@@ -179,7 +179,8 @@ $block: ".boss-form"
     &_layout_half,
     &_layout_third,
     &_layout_max,
-    &_layout_min
+    &_layout_min,
+    &_layout_fluid
       flex-grow: 0
       flex-shrink: 1
       margin-right: 30px
@@ -890,7 +891,7 @@ $block: ".boss-form"
     flex-direction: row
     justify-content: flex-start
     align-items: stretch
-    width: 50%
+    flex-basis: 50%
 
 
   // $Common form switcher label text
@@ -932,9 +933,6 @@ $block: ".boss-form"
       #{$block}__switcher-radio:checked ~ &
         color: #fff
 
-      #{$block}__switcher-radio:checked ~ &_type_border
-        color: #4c4c4c
-
     // $Common form switcher label text MOD: type border
     &_type_border
       &:after
@@ -947,8 +945,12 @@ $block: ".boss-form"
         background-color: #FFF
         transition: all .4s
 
-        #{$block}__switcher-radio:checked ~ &_type_border
+        #{$block}__switcher-radio:checked ~ &
           background-color: map-get($boss-app-palette, primary)
+
+      &:hover
+        #{$block}__switcher-radio:checked ~ &
+          color: #4c4c4c
 
     // $Common form switcher label text MOD: state active
     &_state_active
