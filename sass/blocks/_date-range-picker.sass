@@ -36,17 +36,21 @@ $block: ".date-range-picker"
     @media screen and (max-width: 400px)
       white-space: nowrap
 
-  .DateRangePickerInput__arrow svg
-    @media screen and (max-width: 400px)
-      display: none
+  .DateRangePickerInput__arrow
+    svg
+      @media screen and (max-width: 400px)
+        display: none
 
-  .DateRangePickerInput__arrow:before
-    @media screen and (max-width: 400px)
-      content: "-"
-      display: inline-block
+    &:before
+      @media screen and (max-width: 400px)
+        content: "-"
+        display: inline-block
+
 
 
   .DateInput
+    background-color: transparent
+
     @media screen and (max-width: 480px)
       width: auto
       padding: 5px
@@ -57,6 +61,8 @@ $block: ".date-range-picker"
     font-size: 14px
     margin: 0
     padding: 5px 15px
+    background-color: transparent
+    border-color: transparent
 
     @media screen and (max-width: 480px)
       padding-left: 5px
@@ -77,7 +83,7 @@ $block: ".date-range-picker"
       padding-right: 5px
 
     @media screen and (max-width: 400px)
-      font-size: 13px
+      letter-spacing: -1px
 
 
   .DateInput__display-text--focused
