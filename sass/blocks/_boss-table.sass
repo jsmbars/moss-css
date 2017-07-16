@@ -38,12 +38,14 @@ $block: ".boss-table"
 
   &_page_checklist-review,
   &_page_vhci,
-  &_page_vouchers-index
+  &_page_vouchers-index,
+  &_page_voucher-usage
     border: 1px solid #eee
 
   &_page_checklist-review,
   &_page_vhci,
-  &_page_vouchers-index
+  &_page_vouchers-index,
+  &_page_voucher-usage
     @media screen and (max-width: 960px)
       display: none
 
@@ -100,7 +102,8 @@ $block: ".boss-table"
       #{$block}_page_safe-checks-index &,
       #{$block}_page_checklist-review &,
       #{$block}_page_vhci &,
-      #{$block}_page_vouchers-index &
+      #{$block}_page_vouchers-index &,
+      #{$block}_page_voucher-usage &
         background-color: #fbfbfb
 
 
@@ -238,6 +241,10 @@ $block: ".boss-table"
         width: 20%
         padding-left: 40px
 
+      #{$block}_page_voucher-usage &
+        width: 27%
+        padding-left: 40px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -257,7 +264,8 @@ $block: ".boss-table"
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
         #{$block}_page_vhci &,
-        #{$block}_page_vouchers-index &
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &
           width: 100%
           padding-left: 15px
 
@@ -314,6 +322,9 @@ $block: ".boss-table"
       #{$block}_page_vouchers-index &
         width: 24%
 
+      #{$block}_page_voucher-usage &
+        width: 27%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -331,7 +342,8 @@ $block: ".boss-table"
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
         #{$block}_page_vhci &,
-        #{$block}_page_vouchers-index &
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &
           width: 100%
 
 
@@ -371,6 +383,9 @@ $block: ".boss-table"
         width: 18%
         text-align: center
 
+      #{$block}_page_voucher-usage &
+        width: 21%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -385,7 +400,8 @@ $block: ".boss-table"
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
         #{$block}_page_vhci &,
-        #{$block}_page_vouchers-index &
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &
           width: 100%
 
         #{$block}_page_vhci &,
@@ -429,6 +445,11 @@ $block: ".boss-table"
         width: 18%
         text-align: center
 
+      #{$block}_page_voucher-usage &
+        width: 25%
+        padding-right: 40px
+        text-align: center
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -443,7 +464,8 @@ $block: ".boss-table"
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
         #{$block}_page_vhci &,
-        #{$block}_page_vouchers-index &
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &
           width: 100%
 
         #{$block}_page_fruit-order-history &
@@ -458,6 +480,10 @@ $block: ".boss-table"
 
         #{$block}_page_vouchers-index &
           text-align: left
+
+        #{$block}_page_voucher-usage &
+          text-align: left
+          padding-right: 10px
 
 
     // $Common table cell fifth column
@@ -654,7 +680,8 @@ $block: ".boss-table"
     #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
     #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
     #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
-    #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
+    #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &
       justify-content: center
 
     @media screen and (max-width: 1120px)
@@ -677,7 +704,8 @@ $block: ".boss-table"
       #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
       #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
       #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
-      #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
+      #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &
         justify-content: flex-start
 
 
