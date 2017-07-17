@@ -179,7 +179,8 @@ $block: ".boss-form"
     &_layout_half,
     &_layout_third,
     &_layout_max,
-    &_layout_min
+    &_layout_min,
+    &_layout_fluid
       flex-grow: 0
       flex-shrink: 1
       margin-right: 30px
@@ -254,6 +255,10 @@ $block: ".boss-form"
 
       @media screen and (max-width: 960px)
         padding-top: 0
+
+    // $Common form field MOD: justify center
+    &_justify_center
+      text-align: center
 
     // $Common form field MOD: justify end
     &_justify_end
@@ -544,6 +549,12 @@ $block: ".boss-form"
     justify-content: flex-start
     width: 100%
 
+    & .field_with_error
+      flex-grow: 1
+      display: block
+      width: calc(100% - 50px)
+      outline: 1px solid map-get($boss-app-palette, alert-border)
+
 
   // $Common form units label value
   &__units-value
@@ -583,6 +594,10 @@ $block: ".boss-form"
 
     #{$block}__units &
       width: calc(100% - 50px)
+
+    #{$block}__units .field_with_error &
+      width: 100%
+      height: 100%
 
     &:focus
       outline: none
@@ -890,8 +905,6 @@ $block: ".boss-form"
     flex-direction: row
     justify-content: flex-start
     align-items: stretch
-    width: 50%
-
 
   // $Common form switcher label text
   &__switcher-label-text
@@ -932,9 +945,6 @@ $block: ".boss-form"
       #{$block}__switcher-radio:checked ~ &
         color: #fff
 
-      #{$block}__switcher-radio:checked ~ &_type_border
-        color: #4c4c4c
-
     // $Common form switcher label text MOD: type border
     &_type_border
       &:after
@@ -947,8 +957,12 @@ $block: ".boss-form"
         background-color: #FFF
         transition: all .4s
 
-        #{$block}__switcher-radio:checked ~ &_type_border
+        #{$block}__switcher-radio:checked ~ &
           background-color: map-get($boss-app-palette, primary)
+
+      &:hover
+        #{$block}__switcher-radio:checked ~ &
+          color: #4c4c4c
 
     // $Common form switcher label text MOD: state active
     &_state_active

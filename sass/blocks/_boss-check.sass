@@ -38,7 +38,9 @@ $block: ".boss-check"
   // $Check block MOD: page checklist review
   // $Check block MOD: page venue health check index
   &_page_checklist-review,
-  &_page_vhci
+  &_page_vhci,
+  &_page_vouchers-index,
+  &_page_voucher-usage
     display: none
 
     @media screen and (max-width: 960px)
@@ -132,16 +134,28 @@ $block: ".boss-check"
   &__text
     +text-normalizer()
 
-    // $Check block text MOD: marked
-    &_marked
-      font-size: 16px
-      font-weight: 600
-
     // $Check block text MOD: role date
     &_role_date
       font-size: 16px
       font-weight: 600
       letter-spacing: -1px
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 5px
+        margin-top: -3px
+        background-image: url('../icons/icon-clock-dark-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    // $Check block text MOD: role time
+    &_role_time
+      font-size: 16px
 
       &:before
         content: ""
@@ -174,6 +188,40 @@ $block: ".boss-check"
         background-size: contain
         vertical-align: middle
 
+    // $Check block text MOD: role venue
+    &_role_venue
+      text-align: center
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        margin-top: -3px
+        background-image: url('../icons/icon-storefront-dark-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    // $Check block text MOD: role voucher
+    &_role_voucher
+      text-align: center
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 18px
+        margin-right: 10px
+        margin-top: -3px
+        background-image: url('../icons/icon-ticket-dark-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
     // $Check block text MOD: indicator attachment
     &_indicator_att
 
@@ -189,6 +237,17 @@ $block: ".boss-check"
         background-position: center center
         background-size: contain
         vertical-align: middle
+
+    // $Check block text MOD: marked
+    &_marked
+      font-size: 16px
+      font-weight: 600
+
+    // $Check block text MOD: role_main
+    &_role_main
+      font-size: 16px
+      font-weight: 600
+      color: #4c4c4c
 
     // $Check block text MOD: state alert
     &_state_alert,

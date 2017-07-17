@@ -1,0 +1,175 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Date range picker
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".date-range-picker"
+
+#{$block}
+  display: block
+  width: 100%
+
+  &_size_full
+    .DateRangePicker,
+    .DateRangePickerInput
+      width: 100%
+
+
+  tbody tr:nth-child(2n)
+    background-color: transparent
+
+
+  .DateRangePicker__picker--portal
+    background-color: rgba(0, 0, 0, .75)
+    z-index: 9999
+
+  .DateRangePickerInput
+    @media screen and (max-width: 400px)
+      white-space: nowrap
+
+  .DateRangePickerInput__arrow
+    svg
+      @media screen and (max-width: 400px)
+        display: none
+
+    &:before
+      @media screen and (max-width: 400px)
+        content: "-"
+        display: inline-block
+
+
+
+  .DateInput
+    background-color: transparent
+
+    @media screen and (max-width: 480px)
+      width: auto
+      padding: 5px
+
+
+  .DateInput__input
+    font-family: $boss-global-font-family
+    font-size: 14px
+    margin: 0
+    padding: 5px 15px
+    background-color: transparent
+    border-color: transparent
+
+    @media screen and (max-width: 480px)
+      padding-left: 5px
+      padding-right: 5px
+
+    @media screen and (max-width: 400px)
+      font-size: 13px
+
+
+  .DateInput__display-text
+    font-family: $boss-global-font-family
+    font-size: 14px
+    font-weight: 400
+    padding: 5px 15px
+
+    @media screen and (max-width: 480px)
+      padding-left: 5px
+      padding-right: 5px
+
+    @media screen and (max-width: 400px)
+      letter-spacing: -1px
+
+
+  .DateInput__display-text--focused
+    background: #99caed
+    border-color: #99caed
+    color: #0060a6
+
+
+  .CalendarMonth__caption
+    font-family: $boss-global-font-family
+    color: $boss-global-font-color
+
+
+  .DayPicker__week-header ul
+    white-space: nowrap
+
+
+  .DayPicker__week-header li:not(:last-child)
+    font-family: $boss-global-font-family
+    color: $boss-global-font-color
+    margin-left: -4px
+
+
+  .CalendarDay
+    font-family: $boss-global-font-family
+    font-size: 14px
+
+
+  .CalendarDay--highlighted-calendar
+    &:active
+      background: #0060a6
+
+
+  .CalendarDay--selected-span
+    background: #66ace2
+    border-color: #3394da
+
+    &.CalendarDay--hovered,
+    &:active
+      background: #3394da
+      border-color: #006fc0
+
+    &.CalendarDay--last-in-range
+      border-right: #006fc0
+
+
+  .CalendarDay--hovered-span,
+  .CalendarDay--after-hovered-start
+    background: #b2d7f1
+    border-color: #80bce8
+    color: #0060a6
+
+    &:active
+      background: #80bce8
+
+
+  .CalendarDay--selected-start,
+  .CalendarDay--selected-end,
+  .CalendarDay--selected
+    background: #006fc0
+    border-color: #006fc0
+
+    &:active
+      background: #006fc0
+
+
+  .DayPickerKeyboardShortcuts__title
+    font-family: $boss-global-font-family
+    color: $boss-global-font-color
+    line-height: 1
+    margin-bottom: 5px
+
+
+  .DayPickerKeyboardShortcuts__show--bottom-right
+    border-right-color: #006fc0
+
+
+  .DayPickerKeyboardShortcuts__show--top-right
+    border-right-color: #006fc0
+
+
+  .DayPickerKeyboardShortcuts__show--top-left
+    border-left-color: #006fc0
+
+
+  .KeyboardShortcutRow__action
+    font-family: $boss-global-font-family
+    color: $boss-global-font-color
+    font-weight: 300

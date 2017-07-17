@@ -60,11 +60,29 @@ $block: ".boss-modal-window"
     width: 85%
     max-width: 740px
 
+  // $Modal window MOD: role add new
+  &_role_add-new
+    top: 200px
+    width: 85%
+    max-width: 740px
+
+    @media screen and (max-width: 960px)
+      top: 150px
+
+    @media screen and (max-width: 480px)
+      top: 100px
+
   // $Modal window MOD: role danger
   &_role_danger
-    top: 100px
+    top: 200px
     width: 85%
     max-width: 400px
+
+    @media screen and (max-width: 960px)
+      top: 150px
+
+    @media screen and (max-width: 480px)
+      top: 100px
 
 
   // $Modal window close
@@ -134,6 +152,12 @@ $block: ".boss-modal-window"
 
     // $Modal window header MOD: details
     &_details
+      background-color: map-get($boss-app-palette, primary)
+      text-transform: none
+      font-size: 24px
+
+    // $Modal window header MOD: add new
+    &_add-new
       background-color: map-get($boss-app-palette, primary)
       text-transform: none
       font-size: 24px
