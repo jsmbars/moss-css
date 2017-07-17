@@ -549,6 +549,12 @@ $block: ".boss-form"
     justify-content: flex-start
     width: 100%
 
+    & .field_with_error
+      flex-grow: 1
+      display: block
+      width: calc(100% - 50px)
+      outline: 1px solid map-get($boss-app-palette, alert-border)
+
 
   // $Common form units label value
   &__units-value
@@ -588,6 +594,10 @@ $block: ".boss-form"
 
     #{$block}__units &
       width: calc(100% - 50px)
+
+    #{$block}__units .field_with_error &
+      width: 100%
+      height: 100%
 
     &:focus
       outline: none
