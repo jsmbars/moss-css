@@ -17,8 +17,56 @@ $block: ".boss-hrc"
 
 #{$block}
   +box-model-normalizer()
-  display: block
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-start
   width: 100%
+
+  @media screen and (max-width: 1120px)
+    flex-direction: column
+
+  // $HRC form inner MOD: context stack
+  &_context_stack
+    &:not(:last-of-type)
+      margin-bottom: 30px
+
+
+  // $HRC form side area
+  &__side
+    flex-grow: 0
+    flex-shrink: 0
+    width: 360px
+    max-width: 360px
+    margin-right: 30px
+    background-color: #FFF
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+      max-width: none
+      margin-right: 0
+      margin-bottom: 20px
+
+
+  // $HRC form user-info
+  &__user-info
+    display: block
+    width: 100%
+    padding: 60px 15px 15px
+
+
+  // $HRC form main area
+  &__main
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 70%
+    max-width: 810px
+    background-color: #FFF
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+      max-width: none
 
 
   // $HRC form header
