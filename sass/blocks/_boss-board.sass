@@ -400,12 +400,19 @@ $block: ".boss-board"
       align-items: center
 
 
-  // $Board inner container
-  &__inner
+  // $Board main content area
+  &__main
+    display: block
+    width: 100%
+
+
+  // $Board rota
+  &__rota
     display: flex
     flex-direction: row
     justify-content: space-between
     align-items: stretch
+    width: 100%
     padding: 20px 0
 
     @media screen and (max-width: 1120px)
