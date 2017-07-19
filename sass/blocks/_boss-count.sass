@@ -20,3 +20,44 @@ $block: ".boss-count"
   display: inline-block
   width: auto
   max-width: 100%
+  padding: 10px
+  border: 2px solid #c4c4c4
+  border-radius: 6px
+
+
+  &_adjust_row
+    flex-grow: 1
+
+    &:not(:last-child)
+      margin-right: 15px
+
+
+  &__group
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+
+  &__number
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
+    width: 25px
+    height: 25px
+    margin-right: 15px
+    font-size: 16px
+    line-height: 25px
+    text-align: center
+    color: #FFF
+    border-radius: 50%
+    background-color: #c1c1c1
+
+
+  &__label
+    +text-normalizer()
+    padding-top: 2px
+    font-weight: 600
+

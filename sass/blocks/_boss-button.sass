@@ -161,6 +161,13 @@ $block: ".boss-button"
     &:after
       margin-left: 0 !important
 
+  &_type_icon#{&}_type_small
+    padding: 14px 15px
+
+    @media screen and (max-width: 400px)
+      padding: 10px
+
+
   // $Common button MOD: state disabled
   &_state_disabled[disabled],
   &_state_disabled,

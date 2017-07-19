@@ -18,42 +18,82 @@ $block: ".date-range-picker"
   display: block
   width: 100%
 
-  &_size_full
-    .DateRangePicker,
-    .DateRangePickerInput
-      width: 100%
-
 
   tbody tr:nth-child(2n)
     background-color: transparent
+
+
+  .DateRangePicker,
+  .DateRangePickerInput
+    width: 100%
 
 
   .DateRangePicker__picker--portal
     background-color: rgba(0, 0, 0, .75)
     z-index: 9999
 
+
   .DateRangePickerInput
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+    @at-root #{$block}_type_interval#{&}
+      border: none
+      background-color: transparent
+
     @media screen and (max-width: 400px)
       white-space: nowrap
 
+
   .DateRangePickerInput__arrow
+    @at-root #{$block}_type_interval#{&}
+      display: none
+
     svg
-      @media screen and (max-width: 400px)
-        display: none
+      display: none
 
     &:before
-      @media screen and (max-width: 400px)
-        content: "-"
-        display: inline-block
-
+      content: "\2014"
+      display: inline-block
+      font-weight: 600
 
 
   .DateInput
     background-color: transparent
 
+    @at-root #{$block}_type_interval#{&}
+      flex-grow: 1
+      flex-shrink: 1
+      position: relative
+      margin-right: 20px
+      padding-right: 50px
+      border: 1px solid #d8d8d8
+      border-radius: 2px
+      background-color: #FFF
+
     @media screen and (max-width: 480px)
       width: auto
       padding: 5px
+
+    &:last-of-type
+      @at-root #{$block}_type_interval#{&}
+        margin-right: 0
+
+    &:after
+      @at-root #{$block}_type_interval#{&}
+        content: ""
+        position: absolute
+        top: 50%
+        right: 20px
+        display: block
+        width: 18px
+        height: 18px
+        margin-top: -9px
+        background-size: cover
+        vertical-align: middle
+        background-image: url(../icons/icon-calendar-medium-gray.svg)
 
 
   .DateInput__input
@@ -90,6 +130,10 @@ $block: ".date-range-picker"
     background: #99caed
     border-color: #99caed
     color: #0060a6
+
+    @at-root #{$block}_type_interval#{&}
+      background: transparent
+      border-color: transparent
 
 
   .CalendarMonth__caption

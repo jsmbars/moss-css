@@ -72,6 +72,18 @@ $block: ".boss-modal-window"
     @media screen and (max-width: 480px)
       top: 100px
 
+  // $Modal window MOD: role edit
+  &_role_edit
+    top: 200px
+    width: 85%
+    max-width: 900px
+
+    @media screen and (max-width: 960px)
+      top: 150px
+
+    @media screen and (max-width: 480px)
+      top: 100px
+
   // $Modal window MOD: role danger
   &_role_danger
     top: 200px
@@ -122,6 +134,14 @@ $block: ".boss-modal-window"
     background-repeat: no-repeat
     background-size: contain
 
+    // $Modal window close inner CONTEXT: $Modal window MOD: role edit
+    #{$block}_role_edit &
+      width: 16px
+      height: 16px
+      top: 30px
+      right: 30px
+      background-image: url(../icons/icon-close-dark-gray.svg)
+
 
   // $Modal window header
   &__header
@@ -135,8 +155,31 @@ $block: ".boss-modal-window"
     border-top-left-radius: $border-radius
     border-top-right-radius: $border-radius
 
+    // $Modal window header CONTEXT: $Modal window MOD: role danger
     #{$block}_role_danger &
       background-color: #dd6f70
+
+    // $Modal window header CONTEXT: $Modal window MOD: role add new
+    #{$block}_role_add-new &
+      background-color: map-get($boss-app-palette, primary)
+      text-transform: none
+      font-size: 24px
+
+    // $Modal window header CONTEXT: $Modal window MOD: role edit
+    #{$block}_role_edit &
+      padding: 20px 30px
+      background-color: $boss-extra-light-gray
+      text-transform: none
+      font-size: 24px
+      font-weight: 400
+      color: #4c4c4c
+      text-align: left
+
+    // $Modal window header CONTEXT: $Modal window MOD: role details
+    #{$block}_role_details &
+      background-color: map-get($boss-app-palette, primary)
+      text-transform: none
+      font-size: 24px
 
     // $Modal window header MOD: error
     &_error
@@ -149,18 +192,6 @@ $block: ".boss-modal-window"
     // $Modal window header MOD: add note
     &_add-note
       background-color: #f3a84d
-
-    // $Modal window header MOD: details
-    &_details
-      background-color: map-get($boss-app-palette, primary)
-      text-transform: none
-      font-size: 24px
-
-    // $Modal window header MOD: add new
-    &_add-new
-      background-color: map-get($boss-app-palette, primary)
-      text-transform: none
-      font-size: 24px
 
     // $Modal window header MOD: status success
     &_status_success
@@ -184,20 +215,20 @@ $block: ".boss-modal-window"
     border-bottom-right-radius: $border-radius !important
     border-bottom-left-radius: $border-radius !important
 
-    // $Modal window message block CONTEXT: $Modal window MOD: role preview
+    // $Modal window content CONTEXT: $Modal window MOD: role preview
     #{$block}_role_preview &
       padding: 30px
       border-radius: $border-radius !important
 
-    // $Modal window message block CONTEXT: $Modal window MOD: role details
+    // $Modal window content CONTEXT: $Modal window MOD: role details
     #{$block}_role_details &
       padding: 0
 
+    // $Modal window content CONTEXT: $Modal window MOD: role danger
     #{$block}_role_danger &
       padding-top: 230px
       background: #fff url('../icons/icon-error-red.svg') center 35px no-repeat
       background-size: 165px 165px
-
 
     @media screen and (max-width: 960px)
       padding-right: 15px
@@ -226,6 +257,7 @@ $block: ".boss-modal-window"
     display: block
     width: 100%
 
+    // $Modal window message block CONTEXT: $Modal window MOD: role danger
     #{$block}_role_danger &
       margin-bottom: 30px
 
