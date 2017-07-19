@@ -31,6 +31,7 @@ $block: ".date-range-picker"
   .DateRangePicker__picker
     z-index: 9999
 
+
   .DateRangePicker__picker--portal
     background-color: rgba(0, 0, 0, .75)
 
@@ -208,84 +209,84 @@ $block: ".date-range-picker"
         border-color: transparent
 
 
-  .CalendarMonth__caption
-    font-family: $boss-global-font-family
-    color: $boss-global-font-color
+.CalendarMonth__caption
+  font-family: $boss-global-font-family
+  color: $boss-global-font-color
 
 
-  .DayPicker__week-header ul
-    white-space: nowrap
+.DayPicker__week-header ul
+  white-space: nowrap
 
 
-  .DayPicker__week-header li:not(:last-child)
-    font-family: $boss-global-font-family
-    color: $boss-global-font-color
-    margin-left: -4px
+.DayPicker__week-header li:not(:last-child)
+  font-family: $boss-global-font-family
+  color: $boss-global-font-color
+  margin-left: -4px
 
 
-  .CalendarDay
-    font-family: $boss-global-font-family
-    font-size: 14px
+.CalendarDay
+  font-family: $boss-global-font-family
+  font-size: 14px
 
 
-  .CalendarDay--highlighted-calendar
-    &:active
-      background: #0060a6
+.CalendarDay--highlighted-calendar
+  &:active
+    background: #0060a6
 
 
-  .CalendarDay--selected-span
-    background: #66ace2
-    border-color: #3394da
+.CalendarDay--selected-span
+  background: #66ace2
+  border-color: #3394da
 
-    &.CalendarDay--hovered,
-    &:active
-      background: #3394da
-      border-color: #006fc0
-
-    &.CalendarDay--last-in-range
-      border-right: #006fc0
-
-
-  .CalendarDay--hovered-span,
-  .CalendarDay--after-hovered-start
-    background: #b2d7f1
-    border-color: #80bce8
-    color: #0060a6
-
-    &:active
-      background: #80bce8
-
-
-  .CalendarDay--selected-start,
-  .CalendarDay--selected-end,
-  .CalendarDay--selected
-    background: #006fc0
+  &.CalendarDay--hovered,
+  &:active
+    background: #3394da
     border-color: #006fc0
 
-    &:active
-      background: #006fc0
+  &.CalendarDay--last-in-range
+    border-right: #006fc0
 
 
-  .DayPickerKeyboardShortcuts__title
-    font-family: $boss-global-font-family
-    color: $boss-global-font-color
-    line-height: 1
-    margin-bottom: 5px
+.CalendarDay--hovered-span,
+.CalendarDay--after-hovered-start
+  background: #b2d7f1
+  border-color: #80bce8
+  color: #0060a6
+
+  &:active
+    background: #80bce8
 
 
-  .DayPickerKeyboardShortcuts__show--bottom-right
-    border-right-color: #006fc0
+.CalendarDay--selected-start,
+.CalendarDay--selected-end,
+.CalendarDay--selected
+  background: #006fc0
+  border-color: #006fc0
+
+  &:active
+    background: #006fc0
 
 
-  .DayPickerKeyboardShortcuts__show--top-right
-    border-right-color: #006fc0
+.DayPickerKeyboardShortcuts__title
+  font-family: $boss-global-font-family
+  color: $boss-global-font-color
+  line-height: 1
+  margin-bottom: 5px
 
 
-  .DayPickerKeyboardShortcuts__show--top-left
-    border-left-color: #006fc0
+.DayPickerKeyboardShortcuts__show--bottom-right
+  border-right-color: #006fc0
 
 
-  .KeyboardShortcutRow__action
-    font-family: $boss-global-font-family
-    color: $boss-global-font-color
-    font-weight: 300
+.DayPickerKeyboardShortcuts__show--top-right
+  border-right-color: #006fc0
+
+
+.DayPickerKeyboardShortcuts__show--top-left
+  border-left-color: #006fc0
+
+
+.KeyboardShortcutRow__action
+  font-family: $boss-global-font-family
+  color: $boss-global-font-color
+  font-weight: 300
