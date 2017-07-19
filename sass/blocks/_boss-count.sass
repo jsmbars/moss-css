@@ -25,11 +25,19 @@ $block: ".boss-count"
   border-radius: 6px
 
 
-  &_adjust_row
+  &_adjust_group
     flex-grow: 1
+    flex-shrink: 1
+
+    @media screen and (max-width: 960px)
+      width: 100%
 
     &:not(:last-child)
       margin-right: 15px
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+        margin-bottom: 15px
 
 
   &__group
