@@ -28,9 +28,11 @@ $block: ".date-range-picker"
     width: 100%
 
 
+  .DateRangePicker__picker
+    z-index: 9999
+
   .DateRangePicker__picker--portal
     background-color: rgba(0, 0, 0, .75)
-    z-index: 9999
 
 
   .DateRangePickerInput
@@ -39,17 +41,26 @@ $block: ".date-range-picker"
     justify-content: flex-start
     align-items: center
 
-    @at-root #{$block}_type_interval#{&}
-      border: none
-      background-color: transparent
+    @at-root
+      #{$block}_type_interval#{&},
+      #{$block}_type_interval-fluid#{&}
+        border: none
+        background-color: transparent
+
+    @media screen and (max-width: 960px)
+      @at-root #{$block}_type_interval-fluid#{&}
+        flex-direction: column
+        align-items: flex-start
 
     @media screen and (max-width: 400px)
       white-space: nowrap
 
 
   .DateRangePickerInput__arrow
-    @at-root #{$block}_type_interval#{&}
-      display: none
+
+    @media screen and (max-width: 960px)
+      @at-root #{$block}_type_interval-fluid#{&}
+        display: none
 
     svg
       display: none
@@ -59,30 +70,41 @@ $block: ".date-range-picker"
       display: inline-block
       font-weight: 600
 
+      @media screen and (max-width: 480px)
+        content: "\2013"
+
 
   .DateInput
     background-color: transparent
 
-    @at-root #{$block}_type_interval#{&}
-      flex-grow: 1
-      flex-shrink: 1
-      position: relative
-      margin-right: 20px
+    @at-root
+      #{$block}_type_interval#{&},
+      #{$block}_type_interval-fluid#{&}
+        flex-grow: 1
+        flex-shrink: 1
+        position: relative
+        border: 1px solid #d8d8d8
+        border-radius: 2px
+        background-color: #FFF
+
+    @at-root #{$block}_type_icon#{&}
       padding-right: 50px
-      border: 1px solid #d8d8d8
-      border-radius: 2px
-      background-color: #FFF
+
+    @media screen and (max-width: 960px)
+      @at-root #{$block}_type_interval-fluid#{&}
+        width: 100%
 
     @media screen and (max-width: 480px)
       width: auto
       padding: 5px
 
-    &:last-of-type
-      @at-root #{$block}_type_interval#{&}
-        margin-right: 0
+      @at-root
+        #{$block}_type_icon#{&}
+          padding-right: 25px
 
+    // Date input calendar icon
     &:after
-      @at-root #{$block}_type_interval#{&}
+      @at-root #{$block}_type_icon#{&}
         content: ""
         position: absolute
         top: 50%
@@ -94,6 +116,54 @@ $block: ".date-range-picker"
         background-size: cover
         vertical-align: middle
         background-image: url(../icons/icon-calendar-medium-gray.svg)
+
+      @media screen and (max-width: 480px)
+        @at-root #{$block}_type_icon#{&}
+          right: 10px
+          width: 14px
+          height: 14px
+          margin-top: -7px
+
+    // First date input
+    &:first-of-type
+      @at-root
+        #{$block}_type_interval#{&},
+        #{$block}_type_interval-fluid#{&}
+          margin-right: 10px
+
+      @media screen and (max-width: 960px)
+        @at-root #{$block}_type_interval-fluid#{&}
+          margin-right: 0
+          margin-bottom: 20px
+
+      @media screen and (max-width: 480px)
+        @at-root
+          #{$block}_type_interval#{&},
+          #{$block}_type_interval-fluid#{&}
+            margin-right: 5px
+
+        @at-root #{$block}_type_interval-fluid#{&}
+          margin-right: 0
+
+    // Second date input
+    &:last-of-type
+      @at-root
+        #{$block}_type_interval#{&},
+        #{$block}_type_interval-fluid#{&}
+          margin-left: 10px
+
+      @media screen and (max-width: 960px)
+        @at-root #{$block}_type_interval-fluid#{&}
+          margin-left: 0
+
+      @media screen and (max-width: 480px)
+        @at-root
+          #{$block}_type_interval#{&},
+          #{$block}_type_interval-fluid#{&}
+            margin-left: 5px
+
+        @at-root #{$block}_type_interval-fluid#{&}
+          margin-left: 0
 
 
   .DateInput__input
@@ -131,9 +201,11 @@ $block: ".date-range-picker"
     border-color: #99caed
     color: #0060a6
 
-    @at-root #{$block}_type_interval#{&}
-      background: transparent
-      border-color: transparent
+    @at-root
+      #{$block}_type_interval#{&},
+      #{$block}_type_interval-fluid#{&}
+        background: transparent
+        border-color: transparent
 
 
   .CalendarMonth__caption
