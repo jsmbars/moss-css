@@ -22,12 +22,19 @@ $block: ".boss-count"
   border: 2px solid #c4c4c4
   border-radius: 6px
 
-
-  &_adjust_group
+  &_adjust_row
     flex-grow: 1
     flex-shrink: 1
     width: 100%
 
+    &:not(:last-child)
+      margin-right: 15px
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+        margin-bottom: 15px
+
+  &_adjust_flow
     &:not(:last-child)
       margin-right: 15px
 
