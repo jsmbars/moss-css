@@ -108,6 +108,32 @@ $block: ".boss-check"
       &:not(:last-child)
         border-right: 1px solid #eee
 
+    &_size_third
+      width: 50%
+
+      &:not(:last-child)
+        border-right: 1px solid #eee
+
+    &_size_half#{&}_delimiter_light,
+    &_size_third#{&}_delimiter_light
+      position: relative
+
+      &:not(:last-child)
+        border-right: none
+
+        &:after
+          content: ""
+          position: absolute
+          top: 50%
+          right: 0
+          display: block
+          width: 0
+          height: 30px
+          margin-top: -15px
+          border-right: 1px solid #eee
+
+
+
     // $Check block cell MOD: role table
     &_role_table
       min-height: 50px
@@ -426,3 +452,31 @@ $block: ".boss-check"
       padding: 15px
 
 
+  &__meta
+    +text-normalizer()
+    font-size: 12px
+    text-align: center
+    color: $boss-light-gray
+
+
+  &__meta-text
+    display: block
+    font-weight: 600
+
+
+  &__meta-label
+    display: block
+
+    &_role_time
+      &:before
+        content: ""
+        display: inline-block
+        width: 12px
+        height: 12px
+        margin-right: 5px
+        margin-top: -2px
+        background-image: url('../icons/icon-clock-medium-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
