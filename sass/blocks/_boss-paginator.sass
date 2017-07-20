@@ -136,7 +136,8 @@ $block: ".boss-paginator"
     // $Paginator action MOD: role current
     &_role_delimiter,
     &_role_total,
-    &_role_current
+    &_role_current,
+    &:nth-last-child(2)
       @media screen and (max-width: 960px)
         display: block
 
@@ -225,61 +226,30 @@ $block: ".boss-paginator"
       display: inline-block
 
 
-  // $Paginator item
-  &__li
-    margin: 0
-    padding: 0
-
-    & + &
-      margin-left: 12px
-
-    &_role
-      &_previous
-
-      &_num
-
-      &_many
-
-      &_next
-
-
-  // $Paginator link
-  &__link
-    $background-offset-x: 12px
-    $padding-with-icon-x: 32px
+  // $Paginator action link
+  &__action-link
     +text-normalizer()
 
-    display: inline-block
-    padding: 0 20px
-    line-height: 45px
-    background-color: white
-    text-decoration: none
+    #{$block}__action:hover &,
+    #{$block}__action_state_active &
+      color: #FFF
 
-    // $Paginator link CONTEXT: $Paginator item STATE: hover
-    #{$block}__li:hover &
-      text-decoration: none
-      color: #4c4c4c
-
-    // $Paginator link CONTEXT: $Paginator item MOD: role previous
-    #{$block}__li_role_previous &
-      padding-left: $padding-with-icon-x
-      background: white url(../icons/icon-navigation-back-dark-gray.svg) $background-offset-x center no-repeat
-      background-size: auto 14px
-
-    // $Paginator link CONTEXT: $Paginator item MOD: role next
-    #{$block}__li_role_next &
-      padding-right: $padding-with-icon-x
-      background: white url(../icons/icon-navigation-forward-dark-gray.svg) right $background-offset-x center no-repeat
-      background-size: auto 14px
-
-    // $Paginator link CONTEXT: $Paginator item MOD: state disabled
-    #{$block}__li_state_disabled &
-      background-color: #ced9df
+    #{$block}__action_state_active:hover &
       cursor: default
-      &:hover
-        text-decoration: none
 
-    // $Paginator link CONTEXT: $Paginator item MOD: state active
-    #{$block}__li_state_active &
-      background-color: map-get($boss-app-palette, primary)
-      color: white
+    #{$block}__action_state_disabled:hover &,
+    #{$block}__action_role_delimiter:hover &
+      color: #4c4c4c
+      cursor: default
+
+    &:before
+      content: ""
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 0
+
+      #{$block}__action_role_delimiter &
+        display: none
