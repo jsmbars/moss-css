@@ -703,52 +703,29 @@ $block: ".boss-table"
 
   // $Common table info
   &__info
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: center
+    display: block
     width: 100%
 
     #{$block}_page_holidays-report &
-      display: block
       padding-top: 55px
-
-    #{$block}_page_safe-checks-index &,
-    #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
-    #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
-    #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
-    #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
-    #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
-    #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
-    #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
-    #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &,
-    #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &,
-    #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &
-      justify-content: center
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
         align-items: flex-start
 
     @media screen and (max-width: 960px)
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
       #{$block}_page_holidays-report &
-        display: flex
         justify-content: center
         align-items: flex-start
         padding-top: 0
-
-      #{$block}_page_change-order-report &,
-      #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
-      #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
-      #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
-      #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
-      #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
-      #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
-      #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
-      #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &,
-      #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &,
-      #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &
-        justify-content: flex-start
 
 
   // $Common table label
@@ -838,6 +815,7 @@ $block: ".boss-table"
   // $Common table text
   &__text
     +text-normalizer()
+    max-width: 100%
 
     #{$block}_page_holidays-report &
       color: $boss-medium-gray
@@ -845,7 +823,17 @@ $block: ".boss-table"
     #{$block}_page_safe-checks-index #{$block}__cell:nth-child(1) &
       white-space: nowrap
 
-    #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &
+    #{$block}_page_safe-checks-index &,
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
+    #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
+    #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
+    #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &,
+    #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &,
+    #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &
       text-align: center
 
     @media screen and (max-width: 1120px)
@@ -853,6 +841,7 @@ $block: ".boss-table"
         flex-grow: 1
         flex-shrink: 0
         width: 50%
+        text-align: left
 
     @media screen and (max-width: 960px)
       flex-grow: 1
@@ -865,7 +854,16 @@ $block: ".boss-table"
         padding-right: 25px
         padding-left: 25px
 
-      #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
+      #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
+      #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
+      #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &,
+      #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &,
+      #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &
         text-align: left
 
     @media screen and (max-width: 640px)
@@ -939,10 +937,14 @@ $block: ".boss-table"
       align-items: stretch
       justify-content: flex-start
 
+    #{$block}_page_safe-checks-index &,
+    #{$block}_page_vhci &,
+    #{$block}_page_checklist-review &,
+    #{$block}_page_vouchers-index &,
     #{$block}_page_smp-holidays &
       display: flex
       flex-direction: row
-      justify-content: flex-start
+      justify-content: center
       align-items: center
 
 
@@ -951,6 +953,7 @@ $block: ".boss-table"
         flex-grow: 1
         flex-shrink: 0
         width: 50%
+        justify-content: flex-start
 
     @media screen and (max-width: 960px)
       flex-grow: 1
@@ -964,6 +967,12 @@ $block: ".boss-table"
       #{$block}_page_change-order-report &
         flex-direction: row
         align-items: flex-start
+
+      #{$block}_page_vhci &,
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vouchers-index &,
+      #{$block}_page_smp-holidays &
+        justify-content: flex-start
 
     @media screen and (max-width: 640px)
       #{$block}_page_fruit-order-history &
