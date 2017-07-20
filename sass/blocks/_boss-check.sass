@@ -28,6 +28,18 @@ $block: ".boss-check"
     background-color: #FFF
     border-radius: 10px
 
+    &:last-of-type
+      margin-bottom: 0
+
+  &_role_panel
+    margin-bottom: 30px
+    background-color: #FFF
+    border-radius: 10px
+    box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+    &:last-of-type
+      margin-bottom: 0
+
   // $Check block MOD: page safe check index
   &_page_safe-checks-index
     display: none
@@ -40,7 +52,8 @@ $block: ".boss-check"
   &_page_checklist-review,
   &_page_vhci,
   &_page_vouchers-index,
-  &_page_voucher-usage
+  &_page_voucher-usage,
+  &_page_smp-holidays
     display: none
 
     @media screen and (max-width: 960px)
@@ -50,6 +63,12 @@ $block: ".boss-check"
   &_state_alert
     background-color: #feeeee
 
+  // $Check block group
+  &__group
+    padding: 20px 15px
+
+    @media screen and (max-width: 960px)
+      padding: 20px 15px
 
   // $Check block row
   &__row
@@ -66,6 +85,10 @@ $block: ".boss-check"
 
       &:nth-child(odd)
         background-color: #fbfbfb
+
+    // $Check block row MOD: marked
+    &_marked
+      background-color: #fbfbfb
 
 
   // $Check block cell
@@ -126,13 +149,16 @@ $block: ".boss-check"
   &__title
     +text-normalizer()
     font-size: 18px
-    text-transform: uppercase
     font-weight: 600
 
 
   // $Check block text
   &__text
     +text-normalizer()
+
+    &_type_accent
+      color: map-get($boss-app-palette, primary)
+      font-weight: 600
 
     // $Check block text MOD: role date
     &_role_date
@@ -153,22 +179,25 @@ $block: ".boss-check"
         background-size: contain
         vertical-align: middle
 
-    // $Check block text MOD: role time
-    &_role_time
-      font-size: 16px
+    // $Check block text MOD: role date-range
+    &_role_date-range
 
       &:before
         content: ""
         display: inline-block
         width: 16px
         height: 16px
-        margin-right: 5px
+        margin-right: 10px
         margin-top: -3px
-        background-image: url('../icons/icon-clock-dark-gray.svg')
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
         background-repeat: no-repeat
         background-position: center center
         background-size: contain
         vertical-align: middle
+
+    &_role_date-range#{&}_type_accent
+      &:before
+        background-image: url('../icons/icon-calendar-primary.svg')
 
     // $Check block text MOD: role user
     &_role_user
@@ -322,3 +351,79 @@ $block: ".boss-check"
     &_state_closed
       &:after
         transform: rotate(0)
+
+
+  // $Check block info
+  &__info
+    display: block
+    width: 100%
+    min-height: 70px
+    padding: 10px
+
+    &:not(:last-child)
+      margin-bottom: 15px
+
+    // $Check block info MOD: icon
+    &_icon
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
+      &:before
+        content: ""
+        flex-grow: 0
+        flex-shrink: 0
+        display: block
+        width: 48px
+        height: 48px
+        margin-right: 10px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+
+    // $Check block info MOD: icon user
+    &_icon_user:before
+      background-image: url('../icons/icon-user-illustration.png')
+
+    // $Check block info MOD: icon notes
+    &_icon_notes:before
+      background-image: url('../icons/icon-notes-illustration.png')
+
+    // $Check block info MOD: type box
+    &_type_box
+      border: 2px solid $boss-very-light-gray
+      border-radius: 6px
+
+      @media screen and (max-width: 480px)
+        padding-top: 5px
+
+
+  // $Check block info text
+  &__info-text
+    +text-normalizer()
+
+    &_role_main
+      font-size: 18px
+      font-weight: 600
+
+
+  // $Check block info meta
+  &__info-meta
+    +text-normalizer()
+    font-size: 12px
+    color: $boss-light-gray
+
+
+  // $Check block info action
+  &__action
+    flex-grow: 1
+    width: 50%
+    padding: 15px
+    border-radius: 0
+    text-align: center
+
+    @media screen and (max-width: 400px)
+      padding: 15px
+
+

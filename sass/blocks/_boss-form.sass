@@ -111,6 +111,16 @@ $block: ".boss-form"
     &_state_hidden
       display: none
 
+    // $Common form group MOD: desktop visible
+    &_desktop
+      @media screen and (max-width: 960px)
+        display: none
+
+    // $Common form group MOD: mobile visible
+    &_mobile
+      @media screen and (min-width: 961px)
+        display: none
+
 
   // $Common form row
   &__row
@@ -149,17 +159,13 @@ $block: ".boss-form"
 
     // $Common form row MOD: desktop visible
     &_desktop
-      display: flex
-
       @media screen and (max-width: 960px)
         display: none
 
     // $Common form row MOD: mobile visible
     &_mobile
-      display: none
-
-      @media screen and (max-width: 960px)
-        display: flex
+      @media screen and (min-width: 961px)
+        display: none
 
 
   // $Common form field
@@ -301,6 +307,16 @@ $block: ".boss-form"
         flex-grow: 1
         flex-shrink: 1
         width: 100%
+
+    // $Common form field MOD: desktop visible
+    &_desktop
+      @media screen and (max-width: 960px)
+        display: none
+
+    // $Common form field MOD: mobile visible
+    &_mobile
+      @media screen and (min-width: 961px)
+        display: none
 
 
   // $Common form field note

@@ -1,0 +1,72 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Count
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-count"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: inline-block
+  padding: 10px
+  border: 2px solid #c4c4c4
+  border-radius: 6px
+
+
+  &_adjust_group
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+
+    &:not(:last-child)
+      margin-right: 15px
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+        margin-bottom: 15px
+
+
+  &__group
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+
+  &__number
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
+    width: 25px
+    height: 25px
+    margin-right: 15px
+    font-size: 16px
+    line-height: 25px
+    text-align: center
+    color: #FFF
+    border-radius: 50%
+    background-color: #c1c1c1
+
+
+  &__label
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    max-width: 100%
+    padding-top: 2px
+    font-weight: 600
+

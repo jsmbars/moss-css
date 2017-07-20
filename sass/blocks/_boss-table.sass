@@ -45,7 +45,8 @@ $block: ".boss-table"
   &_page_checklist-review,
   &_page_vhci,
   &_page_vouchers-index,
-  &_page_voucher-usage
+  &_page_voucher-usage,
+  &_page_smp-holidays
     @media screen and (max-width: 960px)
       display: none
 
@@ -93,7 +94,8 @@ $block: ".boss-table"
 
       #{$block}_page_checklist-review &,
       #{$block}_page_vhci &,
-      #{$block}_page_vouchers-index &
+      #{$block}_page_vouchers-index &,
+      #{$block}_page_smp-holidays &
         padding-top: 15px
         padding-bottom: 15px
 
@@ -165,6 +167,10 @@ $block: ".boss-table"
       padding: 15px 10px
       text-align: center
 
+    #{$block}_page_smp-holidays &
+      height: auto
+      padding: 15px 10px
+
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
@@ -188,6 +194,9 @@ $block: ".boss-table"
       #{$block}_page_change-order-history &
         padding-left: 0
         padding-right: 0
+
+      #{$block}_page_smp-holidays &
+        padding: 10px
 
     &:first-child
       padding-left: 25px
@@ -245,6 +254,10 @@ $block: ".boss-table"
         width: 27%
         padding-left: 40px
 
+      #{$block}_page_smp-holidays &
+        width: 18%
+        padding-left: 40px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -265,27 +278,23 @@ $block: ".boss-table"
         #{$block}_page_checklist-review &,
         #{$block}_page_vhci &,
         #{$block}_page_vouchers-index &,
-        #{$block}_page_voucher-usage &
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &
           width: 100%
           padding-left: 15px
 
         #{$block}_page_staff-members-index &
           padding-bottom: 25px
 
-        #{$block}_page_fruit-order-history &
-          padding-left: 10px
-
-        #{$block}_page_holidays-report &
-          padding-left: 0
-
-        #{$block}_page_change-order-history &
-          padding-left: 0
-
-        #{$block}_page_checklist-review &
-          padding-left: 10px
-
+        #{$block}_page_fruit-order-history &,
+        #{$block}_page_checklist-review &,
         #{$block}_page_vhci &
           padding-left: 10px
+
+        #{$block}_page_holidays-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_smp-holidays &
+          padding-left: 0
 
 
     // $Common table cell second column
@@ -325,6 +334,9 @@ $block: ".boss-table"
       #{$block}_page_voucher-usage &
         width: 27%
 
+      #{$block}_page_smp-holidays &
+        width: 21%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -343,7 +355,8 @@ $block: ".boss-table"
         #{$block}_page_checklist-review &,
         #{$block}_page_vhci &,
         #{$block}_page_vouchers-index &,
-        #{$block}_page_voucher-usage &
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &
           width: 100%
 
 
@@ -386,6 +399,9 @@ $block: ".boss-table"
       #{$block}_page_voucher-usage &
         width: 21%
 
+      #{$block}_page_smp-holidays &
+        width: 20%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -401,7 +417,8 @@ $block: ".boss-table"
         #{$block}_page_checklist-review &,
         #{$block}_page_vhci &,
         #{$block}_page_vouchers-index &,
-        #{$block}_page_voucher-usage &
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &
           width: 100%
 
         #{$block}_page_vhci &,
@@ -450,6 +467,10 @@ $block: ".boss-table"
         padding-right: 40px
         text-align: center
 
+      #{$block}_page_smp-holidays &
+        width: 21%
+        text-align: center
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -465,7 +486,8 @@ $block: ".boss-table"
         #{$block}_page_checklist-review &,
         #{$block}_page_vhci &,
         #{$block}_page_vouchers-index &,
-        #{$block}_page_voucher-usage &
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &
           width: 100%
 
         #{$block}_page_fruit-order-history &
@@ -484,6 +506,9 @@ $block: ".boss-table"
         #{$block}_page_voucher-usage &
           text-align: left
           padding-right: 10px
+
+        #{$block}_page_smp-holidays &
+          text-align: left
 
 
     // $Common table cell fifth column
@@ -511,6 +536,12 @@ $block: ".boss-table"
         padding-right: 40px
         text-align: center
 
+      #{$block}_page_smp-holidays &
+        max-width: 220px
+        padding-right: 25px
+        text-align: center
+
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -523,12 +554,17 @@ $block: ".boss-table"
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
         #{$block}_page_checklist-review &,
-        #{$block}_page_vouchers-index &
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-holidays &
           width: 100%
 
         #{$block}_page_checklist-review &,
         #{$block}_page_vouchers-index &
           padding-right: 10px
+          text-align: left
+
+        #{$block}_page_smp-holidays &
+          max-width: none
           text-align: left
 
     // $Common table cell sixth column
@@ -638,6 +674,12 @@ $block: ".boss-table"
         text-transform: none
         font-weight: 600
 
+      #{$block}_page_smp-holidays &
+        font-size: 14px
+        text-transform: none
+        font-weight: 600
+
+
       &:nth-child(1)
         #{$block}_page_safe-checks-index &
           border-right: none
@@ -661,52 +703,29 @@ $block: ".boss-table"
 
   // $Common table info
   &__info
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: center
+    display: block
     width: 100%
 
     #{$block}_page_holidays-report &
-      display: block
       padding-top: 55px
-
-    #{$block}_page_safe-checks-index &
-      justify-content: center
-
-    #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
-    #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
-    #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
-    #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
-    #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
-    #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
-    #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
-    #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &
-      justify-content: center
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
         align-items: flex-start
 
     @media screen and (max-width: 960px)
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
       #{$block}_page_holidays-report &
-        display: flex
         justify-content: center
         align-items: flex-start
         padding-top: 0
-
-      #{$block}_page_change-order-report &
-        align-items: flex-start
-
-      #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
-      #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
-      #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
-      #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
-      #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
-      #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
-      #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
-      #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &
-        justify-content: flex-start
 
 
   // $Common table label
@@ -796,6 +815,7 @@ $block: ".boss-table"
   // $Common table text
   &__text
     +text-normalizer()
+    max-width: 100%
 
     #{$block}_page_holidays-report &
       color: $boss-medium-gray
@@ -803,11 +823,25 @@ $block: ".boss-table"
     #{$block}_page_safe-checks-index #{$block}__cell:nth-child(1) &
       white-space: nowrap
 
+    #{$block}_page_safe-checks-index &,
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
+    #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
+    #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
+    #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &,
+    #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &,
+    #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &
+      text-align: center
+
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
         flex-grow: 1
         flex-shrink: 0
         width: 50%
+        text-align: left
 
     @media screen and (max-width: 960px)
       flex-grow: 1
@@ -819,6 +853,18 @@ $block: ".boss-table"
         width: 220px
         padding-right: 25px
         padding-left: 25px
+
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
+      #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
+      #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
+      #{$block}_page_voucher-usage #{$block}__cell:nth-child(4) &,
+      #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &,
+      #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &
+        text-align: left
 
     @media screen and (max-width: 640px)
       #{$block}_page_fruit-order-history &
@@ -854,6 +900,15 @@ $block: ".boss-table"
         background-image: url(../icons/icon-calendar-medium-gray.svg)
 
 
+  &__text-line,
+  &__text-meta
+    display: block
+
+
+  &__text-meta
+    color: $boss-light-gray
+
+
   // $Common table stats
   &__stats
     display: block
@@ -882,11 +937,23 @@ $block: ".boss-table"
       align-items: stretch
       justify-content: flex-start
 
+    #{$block}_page_safe-checks-index &,
+    #{$block}_page_vhci &,
+    #{$block}_page_checklist-review &,
+    #{$block}_page_vouchers-index &,
+    #{$block}_page_smp-holidays &
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+
+
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
         flex-grow: 1
         flex-shrink: 0
         width: 50%
+        justify-content: flex-start
 
     @media screen and (max-width: 960px)
       flex-grow: 1
@@ -901,9 +968,19 @@ $block: ".boss-table"
         flex-direction: row
         align-items: flex-start
 
+      #{$block}_page_vhci &,
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vouchers-index &,
+      #{$block}_page_smp-holidays &
+        justify-content: flex-start
+
     @media screen and (max-width: 640px)
       #{$block}_page_fruit-order-history &
         width: 60%
+
+      #{$block}_page_smp-holidays &
+        flex-direction: column
+        align-items: flex-start
 
     @media screen and (max-width: 479px)
       #{$block}_page_change-order-report &
@@ -912,42 +989,33 @@ $block: ".boss-table"
 
   // $Common table action
   &__action
-    #{$block}_page_fruit-order-history &
+    #{$block}_page_fruit-order-history &:not(:last-of-type)
       margin-right: 15px
 
-    #{$block}_page_change-order-report &
+    #{$block}_page_smp-holidays &:not(:last-of-type)
+      margin-right: 10px
+
+    #{$block}_page_change-order-report &:not(:last-of-type)
       margin-bottom: 10px
 
     @media screen and (max-width: 960px)
-      #{$block}_page_change-order-report &
+      #{$block}_page_change-order-report &:not(:last-of-type)
         margin-bottom: 0
         margin-right: 10px
 
-    @media screen and (max-width: 479px)
-      #{$block}_page_fruit-order-history &
-        margin-right: 10px
-
-      #{$block}_page_change-order-report &
+    @media screen and (max-width: 640px)
+      #{$block}_page_smp-holidays &:not(:last-of-type)
         margin-right: 0
         margin-bottom: 10px
 
-    &:last-of-type
-      #{$block}_page_fruit-order-history &
+    @media screen and (max-width: 479px)
+      #{$block}_page_fruit-order-history &:not(:last-of-type)
+        margin-right: 10px
+
+      #{$block}_page_change-order-report &:not(:last-of-type)
         margin-right: 0
+        margin-bottom: 10px
 
-      #{$block}_page_change-order-report &
-        margin-bottom: 0
-
-      @media screen and (max-width: 960px)
-        margin-right: 0
-
-        #{$block}_page_change-order-report &
-          margin-right: 0
-
-      @media screen and (max-width: 479px)
-
-        #{$block}_page_change-order-report &
-          margin-bottom: 0
 
     // $Common table action MOD: desktop visible
     &_desktop
