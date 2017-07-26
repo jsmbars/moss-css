@@ -388,7 +388,7 @@ $block: ".boss-user-summary"
     @media screen and(max-width: 960px)
       align-items: center
 
-    @media screen and(max-width: 479px)
+    @media screen and (max-width: 480px)
       flex-direction: column
 
 
@@ -402,7 +402,7 @@ $block: ".boss-user-summary"
       width: 33%
       margin-right: 15px
 
-    @media screen and(max-width: 479px)
+    @media screen and (max-width: 480px)
       width: 100%
       margin-right: 0
       margin-bottom: 15px
@@ -410,7 +410,7 @@ $block: ".boss-user-summary"
     &:last-of-type
       margin-right: 0
 
-      @media screen and(max-width: 479px)
+      @media screen and (max-width: 480px)
         margin-bottom: 0
 
 
@@ -427,6 +427,12 @@ $block: ".boss-user-summary"
     +text-normalizer()
     margin-bottom: 5px
     color: $boss-medium-gray
+
+    @media screen and(max-width: 960px)
+      text-align: center
+
+      #{$block}_role_review &
+        text-align: left
 
 
   // $User summary review label

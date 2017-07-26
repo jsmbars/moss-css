@@ -154,6 +154,9 @@ $block: ".boss-page-main"
     &_space_regular
       padding: 25px 20px 30px
 
+      @media screen and (max-width: 400px)
+        padding: 20px 15px 30px
+
     // $Page main container inner MOD: space large
     &_space_large
       padding: 40px 45px 50px
@@ -172,6 +175,9 @@ $block: ".boss-page-main"
 
       @media screen and (max-width: 480px)
         padding: 25px 20px 35px
+
+      @media screen and (max-width: 400px)
+        padding: 20px 15px 30px
 
 
   // $Page main container tabs
@@ -218,7 +224,7 @@ $block: ".boss-page-main"
       #{$block}_page_safe-checks &
         padding: 0
 
-    @media screen and (max-width: 479px)
+    @media screen and (max-width: 480px)
       padding: 20px 10px
 
       #{$block}_page_safe-checks &
@@ -256,7 +262,7 @@ $block: ".boss-page-main"
       @media screen and (max-width: 960px)
         padding: 20px 15px
 
-      @media screen and (max-width: 479px)
+      @media screen and (max-width: 480px)
         padding: 20px 15px
 
     // $Page main container group MOD: adjust safe checks table
@@ -276,7 +282,7 @@ $block: ".boss-page-main"
       @media screen and (max-width: 960px)
         padding: 0
 
-      @media screen and (max-width: 479px)
+      @media screen and (max-width: 480px)
         padding: 0
 
     // $Page main container group MOD: adjust checklist table
@@ -300,7 +306,7 @@ $block: ".boss-page-main"
       @media screen and (max-width: 960px)
         padding: 0
 
-      @media screen and (max-width: 479px)
+      @media screen and (max-width: 480px)
         padding: 0
 
 
@@ -322,7 +328,7 @@ $block: ".boss-page-main"
     @media screen and (max-width: 960px)
       padding: 20px 15px 0 15px
 
-    @media screen and (max-width: 479px)
+    @media screen and (max-width: 480px)
       padding: 20px 10px 0 10px
 
 
@@ -342,12 +348,14 @@ $block: ".boss-page-main"
     width: 100%
     margin-bottom: 30px
 
+
   // $Page main container list
   &__list
     display: block
     width: 100%
     margin-bottom: 30px
     background-color: #FFF
+
 
   // $Page main container list item
   &__list-item

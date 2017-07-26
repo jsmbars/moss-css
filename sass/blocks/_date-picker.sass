@@ -15,9 +15,19 @@
 $block: ".date-picker"
 
 #{$block}
-  +box-model-normalizer()
 
+  // Date picker direct overrides
+  @at-root
+    .react-datepicker__portal
+      z-index: 11000
+
+    .react-datepicker__input-container
+      display: block
+      width: 100%
+
+  // React-datepicker styles
   &.react-datepicker
+    +box-model-normalizer()
     border-radius: 3px
     border-color: $boss-very-light-gray
 
