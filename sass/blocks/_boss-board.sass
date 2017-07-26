@@ -75,6 +75,9 @@ $block: ".boss-board"
         flex-wrap: wrap
         overflow: hidden
 
+    @media screen and (max-width: 400px)
+      padding: 15px
+
     &:before
       content: ''
       position: absolute
@@ -434,11 +437,19 @@ $block: ".boss-board"
       padding-right: 15px
 
 
+  // $Board form area
+  &__form
+
+
   // $Board manager area
   &__manager
     display: block
     width: 100%
     padding: 20px 20px 30px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
 
 
   // $Board manager area stats
@@ -546,6 +557,10 @@ $block: ".boss-board"
     @media screen and (max-width: 960px)
       padding: 0 20px 0
 
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
+
 
   // $Board graph
   &__graph
@@ -606,6 +621,10 @@ $block: ".boss-board"
     width: 100%
     margin-bottom: 10px
     padding: 0 20px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
 
 
   // $Board orders area
