@@ -18,6 +18,7 @@ $block: ".boss-add-avatar-block"
   @include normalize-block()
   display: flex
   flex-direction: column
+  justify-content: flex-start
   align-items: center
 
   // $Add avatar block MOD: adjust
@@ -27,13 +28,41 @@ $block: ".boss-add-avatar-block"
       margin-bottom: 30px !important
 
 
+  // $Add avatar block preview
+  &__preview
+    display: block
+    width: 240px
+    height: 240px
+    margin-bottom: 40px
+    background-image: url('../icons/load-image-placeholder.svg')
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+    border-radius: 50%
+    overflow: hidden
+    cursor: pointer
+
+    @media screen and (max-width: 480px)
+      width: 200px
+      height: 200px
+
+
+  // $Add avatar block preview image
+  &__preview-image
+    display: block
+    width: 100%
+    max-width: 100%
+
+
   // $Add avatar block placeholder
   &__new-image-placeholder
     display: block
     width: 100%
     height: 300px
     margin-bottom: 10px
-    background: url('../icons/load-image-placeholder.svg') center center no-repeat
+    background-image: url('../icons/load-image-placeholder.svg')
+    background-position: center center
+    background-repeat: no-repeat
     background-size: 240px 240px
     cursor: pointer
 

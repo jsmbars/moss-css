@@ -1,0 +1,75 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Edit image block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-edit-image-block"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  width: 100%
+
+  @media screen and (max-width: 960px)
+    flex-direction: column-reverse
+    justify-content: flex-start
+
+
+  // $Edit image block MOD: adjust for buttons group
+  &_adjust_buttons-group
+    margin-bottom: 10px !important
+
+    @media screen and (max-width: 960px)
+      text-align: center !important
+
+
+  // $Edit image block cropper area
+  &__cropper
+    width: 300px
+    height: 300px
+    margin-right: 40px
+    margin-bottom: 10px
+
+    @media screen and (max-width: 960px)
+      margin: 0 auto 10px
+
+    @media screen and (max-width: 800px)
+      width: 280px
+      height: 280px
+
+    @media screen and (max-width: 640px)
+      width: 260px
+      height: 260px
+
+    @media screen and (max-width: 480px)
+      width: 240px
+      height: 240px
+
+    @media screen and (max-width: 400px)
+      width: 220px
+      height: 220px
+
+
+  // $Edit image block preview area
+  &__preview-section
+    width: 200px
+    height: 200px
+    overflow: hidden
+    border-radius: 50%
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 40px
+
