@@ -472,6 +472,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: role unblock
+  &_role_unblock
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-power-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: role block
   &_role_block
     $background-color: map-get($boss-app-palette, alert)
