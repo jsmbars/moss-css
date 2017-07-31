@@ -190,6 +190,10 @@ $block: ".boss-horizontal-table"
     @media screen and (max-width: 400px)
       #{$block}_page_fruit-order-report &
         flex-direction: column
+        width: 100%
+
+      #{$block}__cell_role_header#{$block}__cell_role_actions &
+        align-items: flex-start
 
 
   // $Horizontal table action
@@ -241,16 +245,18 @@ $block: ".boss-horizontal-table"
         flex-direction: row
         align-items: center
         justify-content: center
-        min-height: 65px
+        height: 67px
+        max-width: 100%
+        padding: 6px
         white-space: normal
-        font-size: 16px
-        line-height: 1.5
+        font-size: 15px
+        line-height: 1.4
+        font-weight: 400
         text-align: center
 
       &:before
         @media screen and (max-width: 400px)
           display: none
-
 
 
   // Owl slider custom theming
