@@ -57,11 +57,19 @@ $block: ".boss-page-header"
       padding-bottom: 15px
 
 
+  // $Page header group
+  &__group
+    display: block
+
+    // $Page header group MOD: role logo group
+    &_role_logo
+      flex-grow: 1
+
+
   // $Page header logo
   &__logo
-    flex-grow: 1
     +text-normalizer()
-    display: block
+    display: inline-block
     font-size: 20px
     line-height: 1
     font-weight: 600
