@@ -77,17 +77,11 @@ $block: ".date-range-picker"
     background-color: transparent
     border-color: transparent
 
-    @media screen and (max-width: 400px)
-      letter-spacing: -1px
-
   & .DateInput__display-text
     padding: 0
     font-family: $boss-global-font-family
     font-size: 14px
     font-weight: 400
-
-    @media screen and (max-width: 400px)
-      letter-spacing: -1px
 
   & .DateInput__display-text--focused
     background: transparent
@@ -195,9 +189,11 @@ $block: ".date-range-picker"
   // $Date range picker MOD: type icon
   &_type_icon
 
-    & .DateInput
+    & .DateInput,
+    & .DateInput__input
       padding-right: 40px
 
+    & .DateInput
       &:after
         content: ""
         position: absolute
@@ -213,14 +209,21 @@ $block: ".date-range-picker"
 
   // $Date range picker MOD: type interval with icon
   &_type_interval#{&}_type_icon
-    & .DateInput
+    & .DateInput,
+    & .DateInput__input
       @media screen and (max-width: 400px)
         padding-left: 15px
         padding-right: 35px
 
+    & .DateInput
       &:after
         @media screen and (max-width: 400px)
           right: 15px
+
+    & .DateInput__input,
+    & .DateInput__display-text
+      @media screen and (max-width: 400px)
+        letter-spacing: -1px
 
   // $Date range picker MOD: adjust control
   &_adjust_control
@@ -235,12 +238,16 @@ $block: ".date-range-picker"
         padding-right: 5px
         padding-left: 5px
 
+    & .DateInput__input,
+    & .DateInput__display-text
+      @media screen and (max-width: 400px)
+        letter-spacing: -1px
+
   // $Date range picker MOD: adjust third
   &_adjust_third
     & .DateInput,
     & .DateInput__input
-
-      @media screen and (min-width: 961px) and (max-width: 1120px)
+      @media screen and (min-width: 961px) and (max-width: 1280px)
         padding-left: 10px
         padding-right: 10px
 
@@ -251,12 +258,14 @@ $block: ".date-range-picker"
 
   // $Date range picker MOD: adjust third with icon
   &_adjust_third#{&}_type_icon
-    & .DateInput
-      @media screen and (min-width: 961px) and (max-width: 1120px)
+    & .DateInput,
+    & .DateInput__input
+      @media screen and (min-width: 961px) and (max-width: 1280px)
         padding-right: 30px
 
+    & .DateInput
       &:after
-        @media screen and (min-width: 961px) and (max-width: 1120px)
+        @media screen and (min-width: 961px) and (max-width: 1280px)
           right: 10px
 
 
