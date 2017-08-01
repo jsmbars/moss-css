@@ -23,6 +23,7 @@ $block: ".date-range-picker"
     width: 100%
 
   & .DateRangePickerInput
+    position: relative
     display: flex
     flex-direction: row
     justify-content: flex-start
@@ -33,7 +34,7 @@ $block: ".date-range-picker"
       white-space: nowrap
 
   & .DateRangePickerInput__arrow
-    svg
+    & svg
       display: none
 
     &:before
@@ -44,13 +45,29 @@ $block: ".date-range-picker"
       @media screen and (max-width: 480px)
         content: "\2013"
 
-  & .DateInput
-    padding: 9px
-    background-color: transparent
+  & .DateRangePickerInput__clear-dates
+    margin: 0
+    margin-left: auto
 
-    @media screen and (max-width: 480px)
-      width: auto
-      padding: 9px 5px
+  & .DateRangePickerInput__close-icon
+    & svg
+      width: 12px
+      height: 12px
+
+  & .DateRangePickerInput__clear-dates--hide
+    visibility: visible
+    opacity: 0.5
+    pointer-events: none
+
+  & .DateRangePickerInput__clear-dates:focus,
+  & .DateRangePickerInput__clear-dates--hover
+    background: none
+    border-radius: 0
+
+  & .DateInput
+    width: auto
+    padding: 14px 20px
+    background-color: transparent
 
   & .DateInput__input
     font-family: $boss-global-font-family
@@ -60,29 +77,21 @@ $block: ".date-range-picker"
     background-color: transparent
     border-color: transparent
 
-    @media screen and (max-width: 480px)
-      padding-left: 5px
-      padding-right: 5px
-
     @media screen and (max-width: 400px)
-      font-size: 13px
+      letter-spacing: -1px
 
   & .DateInput__display-text
+    padding: 0
     font-family: $boss-global-font-family
     font-size: 14px
     font-weight: 400
-    padding: 5px 15px
-
-    @media screen and (max-width: 480px)
-      padding-left: 5px
-      padding-right: 5px
 
     @media screen and (max-width: 400px)
       letter-spacing: -1px
 
   & .DateInput__display-text--focused
-    background: #99caed
-    border-color: #99caed
+    background: transparent
+    border-color: transparent
     color: #0060a6
 
 
@@ -94,6 +103,36 @@ $block: ".date-range-picker"
       border: none
       background-color: transparent
 
+    & .DateRangePickerInput__clear-dates
+      margin: 0
+      padding-right: 0
+
+      @media screen and (max-width: 960px)
+        position: absolute
+        top: -30px
+        right: 0
+        padding: 0
+        white-space: nowrap
+
+      &:after
+        @media screen and (max-width: 960px)
+          content: "Clear"
+          display: inline-block
+          padding: 2px 5px
+          font-size: 14px
+          line-height: 1
+          color: #808080
+
+    & .DateRangePickerInput__close-icon
+      @media screen and (max-width: 960px)
+        display: inline-block
+
+      & svg
+        @media screen and (max-width: 960px)
+          width: 10px
+          height: 10px
+          vertical-align: baseline
+
     & .DateInput
       flex-grow: 1
       flex-shrink: 1
@@ -102,14 +141,11 @@ $block: ".date-range-picker"
       border-radius: 2px
       background-color: #FFF
 
-    & .DateInput__display-text--focused
-      background: transparent
-      border-color: transparent
-
 
   // $Date range picker MOD: type interval
   &_type_interval
     & .DateInput
+
       // First date input
       &:first-of-type
         margin-right: 10px
@@ -159,11 +195,8 @@ $block: ".date-range-picker"
   // $Date range picker MOD: type icon
   &_type_icon
 
-    .DateInput
-      padding-right: 50px
-
-      @media screen and (max-width: 480px)
-        padding-right: 25px
+    & .DateInput
+      padding-right: 40px
 
       &:after
         content: ""
@@ -171,18 +204,60 @@ $block: ".date-range-picker"
         top: 50%
         right: 20px
         display: block
-        width: 18px
-        height: 18px
+        width: 16px
+        height: 16px
         margin-top: -9px
         background-size: cover
         vertical-align: middle
         background-image: url(../icons/icon-calendar-medium-gray.svg)
 
-        @media screen and (max-width: 480px)
+  // $Date range picker MOD: type interval with icon
+  &_type_interval#{&}_type_icon
+    & .DateInput
+      @media screen and (max-width: 400px)
+        padding-left: 15px
+        padding-right: 35px
+
+      &:after
+        @media screen and (max-width: 400px)
+          right: 15px
+
+  // $Date range picker MOD: adjust control
+  &_adjust_control
+
+    & .DateInput,
+    & .DateInput__input
+      @media screen and (max-width: 480px)
+        padding-left: 10px
+        padding-right: 10px
+
+      @media screen and (max-width: 400px)
+        padding-right: 5px
+        padding-left: 5px
+
+  // $Date range picker MOD: adjust third
+  &_adjust_third
+    & .DateInput,
+    & .DateInput__input
+
+      @media screen and (min-width: 961px) and (max-width: 1120px)
+        padding-left: 10px
+        padding-right: 10px
+
+    & .DateInput__input,
+    & .DateInput__display-text
+      @media screen and (min-width: 961px) and (max-width: 1120px)
+        letter-spacing: -1px
+
+  // $Date range picker MOD: adjust third with icon
+  &_adjust_third#{&}_type_icon
+    & .DateInput
+      @media screen and (min-width: 961px) and (max-width: 1120px)
+        padding-right: 30px
+
+      &:after
+        @media screen and (min-width: 961px) and (max-width: 1120px)
           right: 10px
-          width: 14px
-          height: 14px
-          margin-top: -7px
 
 
   // Date range picker direct overrides
