@@ -236,6 +236,19 @@ $block: ".boss-checklist"
           border-color: map-get($boss-app-palette, alert)
 
 
+  // $Checklist label text error message
+  &__label-text-error
+    display: inline-block
+    white-space: nowrap
+    cursor: default
+    color: map-get($boss-app-palette, alert)
+
+    &:before
+      content: "-"
+      display: inline-block
+      margin: 0 5px
+
+
   // $Checklist icon
   &__icon
     position: relative
@@ -347,6 +360,10 @@ $block: ".boss-checklist"
     width: 100%
     margin-bottom: 35px
 
+    &_role_notes
+      margin-top: 10px
+      margin-bottom: 0
+
     &_size_small
       max-width: 400px
       padding-left: 40px
@@ -361,7 +378,6 @@ $block: ".boss-checklist"
   &__message
     display: block
     width: 100%
-    margin-top: 25px
     margin-bottom: 25px
 
 
@@ -440,6 +456,12 @@ $block: ".boss-checklist"
       outline: none
       box-shadow: none
       border: 2px solid $boss-medium-gray
+
+    &_state_error
+      border-color: map-get($boss-app-palette, alert)
+
+      &:focus
+        border-color: map-get($boss-app-palette, alert)
 
 
   // $Checklist notes text
