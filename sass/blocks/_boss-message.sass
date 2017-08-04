@@ -26,16 +26,23 @@ $block: ".boss-message"
   &_size_small
     padding: 10px 15px
 
-  &_role_panel
+  &_role_dashboard
     position: relative
     z-index: 10
     overflow: hidden
     padding: 25px 25px 25px 40px
-    border: 3px solid map-get($boss-app-palette, primary)
+    border: 2px solid map-get($boss-app-palette, inactive)
     border-radius: 10px
+
+  &_type_accent
+    border: 3px solid map-get($boss-app-palette, primary)
+
+  &_role_dashboard#{&}_role_preview
+    padding-right: 60px
+
+  &_role_dashboard#{&}_context_board
     box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
 
-  &_role_panel#{&}_context_stack
     &:not(:last-child)
       margin-bottom: 40px
 
@@ -86,12 +93,43 @@ $block: ".boss-message"
     background-color: map-get($boss-app-palette, secondary)
 
 
+  // $Message ribbon container
+  &__ribbon-container
+    position: absolute
+    top: 0
+    right: 0
+    width: 90px
+    height: 90px
+    overflow: hidden
+
+
+  // $Message ribbon
+  &__ribbon
+    +text-normalizer()
+    position: absolute
+    bottom: 100%
+    left: 0
+    display: block
+    width: 130px
+    height: 40px
+    background-color: $boss-light-gray
+    color: #fff
+    text-align: center
+    line-height: 40px
+    font-weight: 600
+    transform: rotate(45deg)
+    transform-origin: 0 100%
+
+    #{$block}_type_accent &
+      background-color: map-get($boss-app-palette, primary)
+
+
   // $Message title
   &__title
     +text-normalizer()
-    margin: 0
-    font-weight: bold
-    font-size: 18px
+    margin-bottom: 10px
+    font-weight: 600
+    font-size: 24px
 
     #{$block}_role_calendar-note &,
     #{$block}_role_note &,
@@ -99,8 +137,13 @@ $block: ".boss-message"
     #{$block}_role_sc-details &,
     #{$block}_role_checklist-note &,
     #{$block}_status_success &
+      margin-bottom: 0
+      font-size: 18px
       text-transform: uppercase
       color: #fff
+
+    &_accent
+      color: map-get($boss-app-palette, primary)
 
 
   // $Message text
@@ -140,10 +183,59 @@ $block: ".boss-message"
       font-weight: 600
 
 
+  &__content
+    margin-bottom: 15px
+
+    #{$block}_context_board &
+      margin-bottom: 25px
+
+    & ul,
+    & ol
+      list-style: none
+      margin: 0
+      padding: 0
+
+      & li
+        +text-normalizer()
+        position: relative
+        margin-bottom: 10px
+        font-size: 18px
+
+    & ul
+      & li
+        padding-left: 12px
+        &:before
+          content: "-"
+          position: absolute
+          left: 0
+          top: 0
+          display: inline-block
+
+    & ol
+      counter-reset: item
+      & li
+        padding-left: 20px
+        &:before
+          content: counter(item) ". "
+          counter-increment: item
+          position: absolute
+          left: 0
+          top: 0
+          display: inline-block
+
+
+
   // $Message meta information
   &__meta
     display: block
     margin-top: 10px
+
+
+  &__meta-group
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
 
 
   // $Message meta information text
@@ -159,6 +251,11 @@ $block: ".boss-message"
 
     #{$block}_role_sc-details &
       font-size: 12px
+
+    #{$block}_role_dashboard &
+      margin-bottom: 0
+      font-size: 12px
+      color: $boss-light-gray
 
     &:before
       content: ""

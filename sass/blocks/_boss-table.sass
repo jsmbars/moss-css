@@ -56,6 +56,26 @@ $block: ".boss-table"
       display: none
 
 
+  // $Common table group
+  &__group
+
+
+  // $Common table dropdown
+  &__dropdown
+
+    #{$block}_page_message-board &
+      padding: 15px 25px
+      background-color: #fbfbfb
+
+    // $Common table dropdown MOD: state closed
+    &_state_closed
+      display: none
+
+    &_state_alert
+      #{$block}_page_message-board &
+        background-color: #feeeee
+
+
   // $Common table row
   &__row
     +text-normalizer()
@@ -256,7 +276,9 @@ $block: ".boss-table"
       padding-left: 25px
 
       #{$block}_page_staff-members-index &
-        width: 10%
+        flex-grow: 0
+        flex-shrink: 0
+        width: 130px
 
       #{$block}_page_fruit-order-history &
         width: 18%
@@ -343,6 +365,10 @@ $block: ".boss-table"
         #{$block}_page_change-order-history &
           padding-left: 0
 
+        #{$block}_page_staff-members-index &
+          flex-grow: 1
+          flex-shrink: 1
+
 
     // $Common table cell second column
     &:nth-child(2)
@@ -422,7 +448,7 @@ $block: ".boss-table"
     &:nth-child(3)
 
       #{$block}_page_staff-members-index &
-        width: 22%
+        width: 21%
 
       #{$block}_page_fruit-order-history &
         width: 24%
@@ -493,7 +519,7 @@ $block: ".boss-table"
     &:nth-child(4)
 
       #{$block}_page_staff-members-index &
-        width: 22%
+        width: 21%
 
       #{$block}_page_fruit-order-history &
         width: 29%
@@ -1006,6 +1032,9 @@ $block: ".boss-table"
     &_role_date#{&}_type_faded
       &:before
         background-image: url(../icons/icon-calendar-medium-gray.svg)
+
+    &_role_action
+      cursor: pointer
 
 
   &__text-line,
