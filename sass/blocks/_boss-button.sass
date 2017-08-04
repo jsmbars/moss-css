@@ -583,14 +583,14 @@ $block: ".boss-button"
   // $Common button MOD: monochrome button enabled
   &_role_enabled-sb
     $primary-color: map-get($boss-app-palette, secondary)
-    $secondary-color: #fff
+    $secondary-color: transparent
     +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
     font-weight: 400
 
   // $Common button MOD: monochrome button disabled
   &_role_disabled-sb
     $primary-color: map-get($boss-app-palette, alert)
-    $secondary-color: #fff
+    $secondary-color: transparent
     +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
     font-weight: 400
 
