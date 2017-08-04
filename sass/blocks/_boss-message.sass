@@ -20,15 +20,27 @@ $block: ".boss-message"
   width: 100%
   padding: 20px 20px 15px
   border-radius: 5px
-  background-color: map-get($boss-app-palette, primary)
-
-  // $Message MOD: status success
-  &_status_success
-    background-color: map-get($boss-app-palette, secondary)
+  background-color: #FFF
 
   // $Message MOD: size small
   &_size_small
     padding: 10px 15px
+
+  &_role_panel
+    position: relative
+    z-index: 10
+    overflow: hidden
+    padding: 25px 25px 25px 40px
+    border: 3px solid map-get($boss-app-palette, primary)
+    border-radius: 10px
+    box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+  &_role_panel#{&}_context_stack
+    &:not(:last-child)
+      margin-bottom: 40px
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 30px
 
   // $Message MOD: role calendar-note
   &_role_calendar-note
@@ -39,11 +51,13 @@ $block: ".boss-message"
   // $Message MOD: role note
   &_role_note
     padding: 10px 15px
+    background-color: map-get($boss-app-palette, primary)
 
   // $Message MOD: role clocking app note
   &_role_ca-note
     padding: 20px 25px
     text-align: center
+    background-color: map-get($boss-app-palette, primary)
 
   // $Message MOD: role safe checks details
   &_role_sc-details
@@ -67,15 +81,26 @@ $block: ".boss-message"
     @media screen and (max-width: 400px)
       padding: 10px 15px
 
+  // $Message MOD: status success
+  &_status_success
+    background-color: map-get($boss-app-palette, secondary)
+
 
   // $Message title
   &__title
     +text-normalizer()
     margin: 0
-    text-transform: uppercase
     font-weight: bold
     font-size: 18px
-    color: #fff
+
+    #{$block}_role_calendar-note &,
+    #{$block}_role_note &,
+    #{$block}_role_ca-note &,
+    #{$block}_role_sc-details &,
+    #{$block}_role_checklist-note &,
+    #{$block}_status_success &
+      text-transform: uppercase
+      color: #fff
 
 
   // $Message text
@@ -84,7 +109,14 @@ $block: ".boss-message"
     display: block
     margin: 0
     font-size: 18px
-    color: #fff
+
+    #{$block}_role_calendar-note &,
+    #{$block}_role_note &,
+    #{$block}_role_ca-note &,
+    #{$block}_role_sc-details &,
+    #{$block}_role_checklist-note &,
+    #{$block}_status_success &
+      color: #fff
 
     #{$block}_role_calendar-note &
       font-size: 14px
