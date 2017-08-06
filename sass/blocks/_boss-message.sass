@@ -46,6 +46,9 @@ $block: ".boss-message"
   &_role_dashboard#{&}_role_preview
     padding-right: 40px
 
+    @media screen and (max-width: 480px)
+      padding-right: 20px
+
   &_role_dashboard#{&}_context_board
     box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
 
@@ -108,6 +111,10 @@ $block: ".boss-message"
     height: 90px
     overflow: hidden
 
+    @media screen and (max-width: 480px)
+      width: 75px
+      height: 75px
+
 
   // $Message ribbon
   &__ribbon
@@ -129,6 +136,11 @@ $block: ".boss-message"
     #{$block}_type_accent &
       background-color: map-get($boss-app-palette, primary)
 
+    @media screen and (max-width: 480px)
+      width: 110px
+      height: 30px
+      line-height: 30px
+
 
   // $Message title
   &__title
@@ -145,7 +157,7 @@ $block: ".boss-message"
       font-size: 22px
 
       #{$block}_role_preview &
-        padding-right: 30px
+        padding-right: 40px
 
     #{$block}_role_calendar-note &,
     #{$block}_role_note &,
@@ -303,7 +315,7 @@ $block: ".boss-message"
 
     &:before
       content: ""
-      display: inline-block
+      display: none
       margin-right: 8px
       vertical-align: middle
       line-height: 100%
@@ -317,6 +329,7 @@ $block: ".boss-message"
     // $Message meta information text MOD: role date
     &_role_date
       &:before
+        display: inline-block
         width: 16px
         height: 16px
         margin-top: -2px
@@ -325,6 +338,7 @@ $block: ".boss-message"
     // $Message meta information text MOD: role user
     &_role_user
       &:before
+        display: inline-block
         width: 12px
         height: 16px
         background-image: url("../icons/icon-user-dark-gray.svg")
