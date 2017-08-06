@@ -183,17 +183,26 @@ $block: ".boss-message"
       font-weight: 600
 
 
+  // $Message wysiwyg-generated content
   &__content
     margin-bottom: 15px
 
     #{$block}_context_board &
       margin-bottom: 25px
 
+    // wysiwyg-generated paragraph
+    p
+      +text-normalizer()
+      margin-bottom: 20px
+      font-size: 18px
+
+    // wysiwyg-generated lists
     & ul,
     & ol
       list-style: none
       margin: 0
       padding: 0
+      margin-bottom: 20px
 
       & li
         +text-normalizer()
@@ -223,6 +232,11 @@ $block: ".boss-message"
           top: 0
           display: inline-block
 
+    // wysiwyg-generated sublists
+    & ul ul,
+    & ol ol
+      padding-left: 30px
+      margin-bottom: 0
 
 
   // $Message meta information

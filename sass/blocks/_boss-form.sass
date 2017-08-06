@@ -20,13 +20,12 @@ $block: ".boss-form"
   display: block
   width: 100%
 
-  &_role
-    &_enter_key
-      display: flex
-      flex-direction: column
-      align-items: center
-      justify-content: center
-      width: 100%
+  &_role_enter_key
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    width: 100%
 
   // $Common form MOD: context stack
   &_context_stack
@@ -44,8 +43,10 @@ $block: ".boss-form"
       margin-bottom: 20px
     // $Common form group MOD: layout half
     // $Common form group MOD: layout third
+    // $Common form field MOD: layout quarter
     &_layout_half,
-    &_layout_third
+    &_layout_third,
+    &_layout_quarter,
       flex-grow: 0
       flex-shrink: 1
       margin-right: 30px
@@ -77,6 +78,12 @@ $block: ".boss-form"
 
     &_layout_third
       width: 33%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+    &_layout_quarter
+      width: 25%
 
       @media screen and (max-width: 960px)
         width: 100%
@@ -184,10 +191,12 @@ $block: ".boss-form"
 
     // $Common form field MOD: layout half
     // $Common form field MOD: layout third
+    // $Common form field MOD: layout quarter
     // $Common form field MOD: layout max
     // $Common form field MOD: layout min
     &_layout_half,
     &_layout_third,
+    &_layout_quarter,
     &_layout_max,
     &_layout_min,
     &_layout_fluid
@@ -219,6 +228,12 @@ $block: ".boss-form"
 
     &_layout_third
       width: 33%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+    &_layout_quarter
+      width: 25%
 
       @media screen and (max-width: 960px)
         width: 100%
@@ -311,6 +326,20 @@ $block: ".boss-form"
         flex-grow: 1
         flex-shrink: 1
         width: 100%
+
+    &_role_label-small
+      flex-grow: 0
+      flex-shrink: 0
+      width: 150px
+      margin-right: 20px
+      margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        flex-grow: 1
+        flex-shrink: 1
+        width: 100%
+        margin-right: 0
+        margin-bottom: 0
 
     // $Common form field MOD: desktop visible
     &_desktop
@@ -464,6 +493,12 @@ $block: ".boss-form"
       #{$block}__control &
         flex-grow: 0
         flex-shrink: 0
+
+    &_type_inline
+      padding-top: 20px
+
+      @media screen and (max-width: 960px)
+        padding-top: 0
 
     // $Common form label MOD: type venue icon
     // $Common form label MOD: type filter icon
