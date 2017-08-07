@@ -185,11 +185,17 @@ $block: ".boss-modal-window"
       text-transform: none
       font-size: 24px
 
+      #{$block}_role_details &
+        background-color: map-get($boss-app-palette, secondary)
+
     // $Modal window header MOD: status fail
     &_status_fail
       background-color: map-get($boss-app-palette, alert)
       text-transform: none
       font-size: 24px
+
+      #{$block}_role_details &
+        background-color: map-get($boss-app-palette, alert)
 
 
   // $Modal window content
