@@ -16,12 +16,15 @@ $block: ".boss-table"
 
 #{$block}
   +box-model-normalizer()
-  display: table
+  display: block
   width: 100%
   background-color: #fff
 
-  @media screen and (max-width: 960px)
-    display: block
+  &_type_common
+    display: table
+
+    @media screen and (max-width: 960px)
+      display: block
 
   &_page_change-order-history
     border: 1px solid #eee
@@ -36,6 +39,13 @@ $block: ".boss-table"
       border: none
       display: none
 
+  &_page_message-board
+    position: relative
+    z-index: 10
+    overflow: hidden
+    border-radius: 10px
+    box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
   &_page_checklist-review,
   &_page_vhci,
   &_page_vouchers-index,
@@ -47,9 +57,30 @@ $block: ".boss-table"
   &_page_vouchers-index,
   &_page_voucher-usage,
   &_page_smp-holidays,
-  &_page_smp-owed-hours
+  &_page_smp-owed-hours,
+  &_page_message-board
     @media screen and (max-width: 960px)
       display: none
+
+
+  // $Common table group
+  &__group
+
+
+  // $Common table dropdown
+  &__dropdown
+
+    #{$block}_page_message-board &
+      padding: 15px 25px
+      background-color: #fbfbfb
+
+    // $Common table dropdown MOD: state closed
+    &_state_closed
+      display: none
+
+    &_state_alert
+      #{$block}_page_message-board &
+        background-color: #feeeee
 
 
   // $Common table row
@@ -57,21 +88,29 @@ $block: ".boss-table"
     +text-normalizer()
 
     position: relative
-    display: table-row
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    width: 100%
     background-color: #FFF
+
+    #{$block}_type_common &
+      display: table-row
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
         display: block
-        width: 100%
         padding-top: 20px
         padding-bottom: 20px
         border-bottom: 1px solid #eee
 
     @media screen and (max-width: 960px)
       display: block
-      width: 100%
       border-bottom: 1px solid #eee
+
+      #{$block}_type_common &
+        display: block
 
       #{$block}_page_fruit-order-history &
         padding-top: 20px
@@ -97,7 +136,8 @@ $block: ".boss-table"
       #{$block}_page_vhci &,
       #{$block}_page_vouchers-index &,
       #{$block}_page_smp-holidays &,
-      #{$block}_page_smp-owed-hours &
+      #{$block}_page_smp-owed-hours &,
+      #{$block}_page_message-board &
         padding-top: 15px
         padding-bottom: 15px
 
@@ -143,68 +183,86 @@ $block: ".boss-table"
     &_state_alert
       &:nth-child(odd),
       &:nth-child(even)
-        #{$block}_page_safe-checks-index &
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_message-board &
           background-color: #feeeee
 
 
   // $Common table cell
   &__cell
     position: relative
-    display: table-cell
-    height: 90px
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    min-height: 90px
     padding: 15px
-    text-align: left
-    vertical-align: middle
     border-bottom: 1px solid #eee
 
+    #{$block}_type_common &
+      display: table-cell
+      height: 90px
+      text-align: left
+      vertical-align: middle
+
     #{$block}_page_holidays-report &
-      vertical-align: top
-      height: auto
+      align-items: flex-start
       padding-top: 30px
       padding-bottom: 40px
 
     #{$block}_page_change-order-history &
-      height: 55px
+      min-height: 55px
       padding: 10px 15px
       border-bottom: none
 
     #{$block}_page_safe-checks-index &
-      padding: 15px 10px
-      text-align: center
+      padding: 15px 5px
+      justify-content: center
 
     #{$block}_page_smp-holidays &
-      height: auto
+      min-height: 0
       padding: 15px 10px
 
-    #{$block}_page_smp-owed-hours &
+    #{$block}_page_smp-owed-hours &,
+    #{$block}_page_message-board &
       padding: 15px 10px
+
 
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
-        display: block
-        height: auto
+        flex-direction: column
+        justify-content: center
+        min-height: 0
         padding: 10px
-        text-align: center
         border-bottom: none
 
     @media screen and (max-width: 960px)
-      display: block
-      height: auto
+      flex-direction: column
+      justify-content: center
+      min-height: 0
       padding: 10px
-      text-align: center
       border-bottom: none
+
+      #{$block}_type_common &
+        display: block
+        height: auto
+        text-align: center
 
       #{$block}_page_holidays-report &
         padding-top: 10px
         padding-bottom: 10px
+        align-items: center
 
       #{$block}_page_change-order-history &
         padding-left: 0
         padding-right: 0
 
       #{$block}_page_smp-holidays &,
-      #{$block}_page_smp-owed-hours &
+      #{$block}_page_smp-owed-hours &,
+      #{$block}_page_message-board &
         padding: 10px
 
     &:first-child
@@ -225,7 +283,9 @@ $block: ".boss-table"
       padding-left: 25px
 
       #{$block}_page_staff-members-index &
-        width: 10%
+        flex-grow: 0
+        flex-shrink: 0
+        width: 130px
 
       #{$block}_page_fruit-order-history &
         width: 18%
@@ -242,8 +302,9 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        max-width: 130px
-        min-width: 125px
+        flex-grow: 0
+        flex-shrink: 0
+        width: 130px
         padding-left: 10px
         border-right: 1px solid #eee
 
@@ -267,14 +328,16 @@ $block: ".boss-table"
         width: 18%
         padding-left: 40px
 
-      #{$block}_page_smp-owed-hours &
+      #{$block}_page_smp-owed-hours &,
+      #{$block}_page_message-board &
         width: 15%
+
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
+          flex-grow: 1
+          flex-shrink: 1
           width: 100%
-          min-width: 0
-          max-width: none
           padding-left: 15px
           border-right: none
 
@@ -292,7 +355,8 @@ $block: ".boss-table"
         #{$block}_page_vouchers-index &,
         #{$block}_page_voucher-usage &,
         #{$block}_page_smp-holidays &,
-        #{$block}_page_smp-owed-hours &
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
           width: 100%
           padding-left: 15px
 
@@ -307,6 +371,10 @@ $block: ".boss-table"
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-history &
           padding-left: 0
+
+        #{$block}_page_staff-members-index &
+          flex-grow: 1
+          flex-shrink: 1
 
 
     // $Common table cell second column
@@ -329,8 +397,11 @@ $block: ".boss-table"
         width: 14%
 
       #{$block}_page_safe-checks-index &
-        max-width: 200px
-        min-width: 165px
+        flex-grow: 0
+        flex-shrink: 0
+        width: 210px
+        padding-left: 10px
+        padding-right: 10px
         border-right: 1px solid #eee
         overflow: hidden
 
@@ -352,11 +423,14 @@ $block: ".boss-table"
       #{$block}_page_smp-owed-hours &
         width: 13%
 
+      #{$block}_page_message-board &
+        width: 20%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
+          flex-grow: 1
+          flex-shrink: 1
           width: 100%
-          min-width: 0
-          max-width: none
           border-right: none
 
       @media screen and (max-width: 960px)
@@ -372,7 +446,8 @@ $block: ".boss-table"
         #{$block}_page_vouchers-index &,
         #{$block}_page_voucher-usage &,
         #{$block}_page_smp-holidays &,
-        #{$block}_page_smp-owed-hours &
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
           width: 100%
 
 
@@ -380,7 +455,7 @@ $block: ".boss-table"
     &:nth-child(3)
 
       #{$block}_page_staff-members-index &
-        width: 22%
+        width: 21%
 
       #{$block}_page_fruit-order-history &
         width: 24%
@@ -406,11 +481,11 @@ $block: ".boss-table"
 
       #{$block}_page_vhci &
         width: 20%
-        text-align: center
+        justify-content: center
 
       #{$block}_page_vouchers-index &
         width: 18%
-        text-align: center
+        justify-content: center
 
       #{$block}_page_voucher-usage &
         width: 21%
@@ -420,7 +495,10 @@ $block: ".boss-table"
 
       #{$block}_page_smp-owed-hours &
         width: 10%
-        text-align: center
+        justify-content: center
+
+      #{$block}_page_message-board &
+        width: 33%
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -439,20 +517,16 @@ $block: ".boss-table"
         #{$block}_page_vouchers-index &,
         #{$block}_page_voucher-usage &,
         #{$block}_page_smp-holidays &,
-        #{$block}_page_smp-owed-hours &
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
           width: 100%
-
-        #{$block}_page_vhci &,
-        #{$block}_page_vouchers-index &,
-        #{$block}_page_smp-owed-hours &
-          text-align: left
 
 
     // $Common table cell fourth column
     &:nth-child(4)
 
       #{$block}_page_staff-members-index &
-        width: 22%
+        width: 21%
 
       #{$block}_page_fruit-order-history &
         width: 29%
@@ -473,29 +547,35 @@ $block: ".boss-table"
 
       #{$block}_page_checklist-review &
         width: 20%
-        text-align: center
+        justify-content: center
 
       #{$block}_page_vhci &
         width: 25%
         padding-right: 40px
-        text-align: center
+        justify-content: center
 
       #{$block}_page_vouchers-index &
         width: 18%
-        text-align: center
+        justify-content: center
 
       #{$block}_page_voucher-usage &
         width: 25%
         padding-right: 40px
-        text-align: center
+        justify-content: center
 
       #{$block}_page_smp-holidays &
         width: 21%
-        text-align: center
+        justify-content: center
 
       #{$block}_page_smp-owed-hours &
         width: 10%
-        text-align: center
+        justify-content: center
+
+      #{$block}_page_message-board &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 150px
+        justify-content: center
 
 
       @media screen and (max-width: 1120px)
@@ -515,7 +595,8 @@ $block: ".boss-table"
         #{$block}_page_vouchers-index &,
         #{$block}_page_voucher-usage &,
         #{$block}_page_smp-holidays &,
-        #{$block}_page_smp-owed-hours &
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
           width: 100%
 
         #{$block}_page_vhci &,
@@ -525,13 +606,9 @@ $block: ".boss-table"
         #{$block}_page_fruit-order-history &
           padding-right: 0
 
-        #{$block}_page_checklist-review &,
-        #{$block}_page_vhci &,
-        #{$block}_page_vouchers-index &,
-        #{$block}_page_voucher-usage &,
-        #{$block}_page_smp-holidays &,
-        #{$block}_page_smp-owed-hours &
-          text-align: left
+        #{$block}_page_message-board &
+          flex-grow: 1
+          flex-shrink: 1
 
 
     // $Common table cell fifth column
@@ -557,18 +634,24 @@ $block: ".boss-table"
       #{$block}_page_vouchers-index &
         width: 20%
         padding-right: 40px
-        text-align: center
+        justify-content: center
 
       #{$block}_page_smp-holidays &
-        max-width: 220px
-        min-width: 220px
+        flex-grow: 0
+        flex-shrink: 0
+        width: 220px
         padding-right: 25px
-        text-align: center
+        justify-content: center
 
       #{$block}_page_smp-owed-hours &
         width: 15%
-        text-align: center
+        justify-content: center
 
+      #{$block}_page_message-board &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 230px
+        justify-content: center
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -584,28 +667,26 @@ $block: ".boss-table"
         #{$block}_page_checklist-review &,
         #{$block}_page_vouchers-index &,
         #{$block}_page_smp-holidays &,
-        #{$block}_page_smp-owed-hours &
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
           width: 100%
 
         #{$block}_page_checklist-review &,
         #{$block}_page_vouchers-index &
           padding-right: 10px
-          text-align: left
 
-        #{$block}_page_smp-holidays &
-          max-width: none
-          min-width: 0
-          text-align: left
-
-        #{$block}_page_smp-owed-hours &
-          text-align: left
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_message-board &
+          flex-grow: 1
+          flex-shrink: 1
 
     // $Common table cell sixth column
     &:nth-child(6)
 
       #{$block}_page_holidays-report &
-        max-width: 155px
-        min-width: 150px
+        flex-grow: 0
+        flex-shrink: 0
+        width: 155px
         padding-left: 0
 
       #{$block}_page_change-order-report &
@@ -630,13 +711,13 @@ $block: ".boss-table"
         #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
+        #{$block}_page_holidays-report &,
         #{$block}_page_smp-owed-hours &
           width: 100%
 
         #{$block}_page_holidays-report &
-          width: 100%
-          min-width: 0
-          max-width: none
+          flex-grow: 1
+          flex-shrink: 1
 
     // $Common table cell seventh column
     &:nth-child(7)
@@ -651,8 +732,9 @@ $block: ".boss-table"
         width: 12%
 
       #{$block}_page_smp-owed-hours &
-        min-width: 110px
-        max-width: 115px
+        flex-grow: 0
+        flex-shrink: 0
+        width: 115px
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -666,8 +748,8 @@ $block: ".boss-table"
           width: 100%
 
         #{$block}_page_smp-owed-hours &
-          max-width: none
-          min-width: 0
+          flex-grow: 1
+          flex-shrink: 1
 
     // $Common table cell eighth column
     &:nth-child(8)
@@ -676,15 +758,16 @@ $block: ".boss-table"
         width: 11%
 
       #{$block}_page_safe-checks-index &
-        max-width: 170px
-        min-width: 165px
+        flex-grow: 0
+        flex-shrink: 0
+        width: 170px
         padding-right: 10px
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
+          flex-grow: 1
+          flex-shrink: 1
           width: 100%
-          min-width: 0
-          max-width: none
 
       @media screen and (max-width: 960px)
 
@@ -695,24 +778,25 @@ $block: ".boss-table"
     &:nth-child(9)
 
       #{$block}_page_change-order-report &
-        max-width: 145px
-        min-width: 140px
+        flex-grow: 0
+        flex-shrink: 0
+        width: 145px
 
       @media screen and (max-width: 960px)
 
         #{$block}_page_change-order-report &
+          flex-grow: 1
+          flex-shrink: 1
           width: 100%
-          min-width: 0
-          max-width: none
 
     // $Common table cell MOD: role header
     &_role_header
-      height: 60px
+      min-height: 60px
       font-size: 16px
       text-transform: uppercase
 
       #{$block}_page_change-order-history &
-        height: 40px
+        min-height: 40px
         color: #FFF
 
       #{$block}_page_safe-checks-index &
@@ -721,11 +805,11 @@ $block: ".boss-table"
         font-weight: 600
 
       #{$block}_page_smp-holidays &,
-      #{$block}_page_smp-owed-hours &
+      #{$block}_page_smp-owed-hours &,
+      #{$block}_page_message-board &
         font-size: 14px
         text-transform: none
         font-weight: 600
-
 
       &:nth-child(1)
         #{$block}_page_safe-checks-index &
@@ -738,10 +822,10 @@ $block: ".boss-table"
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
-          height: auto
+          min-height: 0
 
       @media screen and (max-width: 960px)
-        height: auto
+        min-height: 0
 
     // $Common table cell MOD: state alert
     &_state_alert
@@ -883,7 +967,9 @@ $block: ".boss-table"
     #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &,
     #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(3) &,
     #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(4) &,
-    #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(5) &
+    #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(5) &,
+    #{$block}_page_message-board #{$block}__cell:nth-child(4) &,
+    #{$block}_page_message-board #{$block}__cell:nth-child(5) &
       text-align: center
 
     @media screen and (max-width: 1120px)
@@ -916,7 +1002,9 @@ $block: ".boss-table"
       #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &,
       #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(3) &,
       #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(4) &,
-      #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(5) &
+      #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(5) &,
+      #{$block}_page_message-board #{$block}__cell:nth-child(4) &,
+      #{$block}_page_message-board #{$block}__cell:nth-child(5) &
         text-align: left
 
     @media screen and (max-width: 640px)
@@ -951,6 +1039,9 @@ $block: ".boss-table"
     &_role_date#{&}_type_faded
       &:before
         background-image: url(../icons/icon-calendar-medium-gray.svg)
+
+    &_role_action
+      cursor: pointer
 
 
   &__text-line,
@@ -996,7 +1087,8 @@ $block: ".boss-table"
     #{$block}_page_vhci &,
     #{$block}_page_checklist-review &,
     #{$block}_page_vouchers-index &,
-    #{$block}_page_smp-holidays &
+    #{$block}_page_smp-holidays &,
+    #{$block}_page_message-board &
       display: flex
       flex-direction: row
       justify-content: center
@@ -1027,14 +1119,16 @@ $block: ".boss-table"
       #{$block}_page_vhci &,
       #{$block}_page_checklist-review &,
       #{$block}_page_vouchers-index &,
-      #{$block}_page_smp-holidays &
+      #{$block}_page_smp-holidays &,
+      #{$block}_page_message-board &
         justify-content: flex-start
 
     @media screen and (max-width: 640px)
       #{$block}_page_fruit-order-history &
         width: 60%
 
-      #{$block}_page_smp-holidays &
+      #{$block}_page_smp-holidays &,
+      #{$block}_page_message-board &
         flex-direction: column
         align-items: flex-start
 
@@ -1049,7 +1143,8 @@ $block: ".boss-table"
     #{$block}_page_fruit-order-history &:not(:last-of-type)
       margin-right: 15px
 
-    #{$block}_page_smp-holidays &:not(:last-of-type)
+    #{$block}_page_smp-holidays &:not(:last-of-type),
+    #{$block}_page_message-board &:not(:last-of-type)
       margin-right: 10px
 
     #{$block}_page_change-order-report &:not(:last-of-type),
@@ -1063,7 +1158,8 @@ $block: ".boss-table"
         margin-right: 10px
 
     @media screen and (max-width: 640px)
-      #{$block}_page_smp-holidays &:not(:last-of-type)
+      #{$block}_page_smp-holidays &:not(:last-of-type),
+      #{$block}_page_message-board &:not(:last-of-type)
         margin-right: 0
         margin-bottom: 10px
 

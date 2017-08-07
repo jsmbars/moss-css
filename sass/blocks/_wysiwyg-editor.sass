@@ -1,0 +1,123 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $WYSIWYG editor
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".wysiwyg-editor"
+
+#{$block}
+  display: block
+  width: 100%
+
+  & .rdw-editor-wrapper
+    border: 1px solid $boss-very-light-gray
+    border-radius: 2px
+
+  & .rdw-editor-toolbar
+    border: none
+    border-bottom: 1px solid $boss-very-light-gray
+    margin-bottom: 0
+    padding: 10px 15px 5px
+
+  & .rdw-editor-main
+    +text-normalizer()
+    min-height: 200px
+    max-height: 300px
+    overflow: auto
+    color: $boss-medium-gray
+    padding: 15px
+
+  & .rdw-option-wrapper
+    height: 30px
+    min-width: 30px
+
+  & .rdw-option-wrapper:hover,
+  & .rdw-option-wrapper.rdw-option-active
+    box-shadow: none
+    border-color: $boss-light-gray
+
+  & .public-DraftStyleDefault-block
+    margin-top: 0
+    margin-bottom: 15px
+
+  & .public-DraftStyleDefault-ol,
+  & .public-DraftStyleDefault-ul
+    margin-top: 0
+    margin-bottom: 15px
+
+    & .public-DraftStyleDefault-block
+      margin-bottom: 5px
+
+  & .public-DraftStyleDefault-depth0.public-DraftStyleDefault-listLTR
+    margin-left: 0
+
+  & .public-DraftStyleDefault-depth0.public-DraftStyleDefault-listRTL
+      margin-right: 0
+
+  & .public-DraftStyleDefault-depth1.public-DraftStyleDefault-listLTR
+      margin-left: 20px
+
+  & .public-DraftStyleDefault-depth1.public-DraftStyleDefault-listRTL
+      margin-right: 20px
+
+  & .public-DraftStyleDefault-depth2.public-DraftStyleDefault-listLTR
+      margin-left: 40px
+
+  & .public-DraftStyleDefault-depth2.public-DraftStyleDefault-listRTL
+      margin-right: 40px
+
+  & .public-DraftStyleDefault-depth3.public-DraftStyleDefault-listLTR
+      margin-left: 60px
+
+  & .public-DraftStyleDefault-depth3.public-DraftStyleDefault-listRTL
+      margin-right: 60px
+
+  & .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listLTR
+      margin-left: 80px
+
+  & .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listRTL
+      margin-right: 80px
+
+
+  & .public-DraftStyleDefault-unorderedListItem,
+  & .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth0,
+  & .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth1
+    position: relative
+    padding-left: 12px
+    list-style-type: none
+    &:before
+      content: "-"
+      position: absolute
+      left: 0
+      top: 0
+      display: inline-block
+
+  & .public-DraftStyleDefault-orderedListItem
+    padding-left: 20px
+
+  & .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listLTR:before
+      position: absolute
+      left: 0
+      top: 0
+      display: inline-block
+      width: auto
+      text-align: left
+
+  & .public-DraftStyleDefault-orderedListItem.public-DraftStyleDefault-listRTL:before
+      position: absolute
+      left: 0
+      top: 0
+      display: inline-block
+      width: auto
+      text-align: right
+
+

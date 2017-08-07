@@ -42,10 +42,8 @@ $block: ".boss-check"
 
   // $Check block MOD: page safe check index
   &_page_safe-checks-index
-    display: none
-
-    @media screen and (max-width: 1120px)
-      display: block
+    @media screen and (min-width: 1121px)
+      display: none
 
   // $Check block MOD: page checklist review
   // $Check block MOD: page venue health check index
@@ -54,7 +52,8 @@ $block: ".boss-check"
   &_page_vouchers-index,
   &_page_voucher-usage,
   &_page_smp-holidays,
-  &_page_smp-owed-hours
+  &_page_smp-owed-hours,
+  &_page_message-board
     @media screen and (min-width: 961px)
       display: none
 
@@ -131,8 +130,6 @@ $block: ".boss-check"
           height: 30px
           margin-top: -15px
           border-right: 1px solid #eee
-
-
 
     // $Check block cell MOD: role table
     &_role_table
@@ -338,6 +335,11 @@ $block: ".boss-check"
   // $Check block dropdown
   &__dropdown
 
+    #{$block}_page_message-board &
+      padding: 15px 10px
+      background-color: #fbfbfb
+      border-bottom: 1px solid #eee
+
     // $Check block dropdown MOD: state closed
     &_state_closed
       display: none
@@ -385,6 +387,9 @@ $block: ".boss-check"
     min-height: 70px
     padding: 10px
 
+    #{$block}_page_message-board &
+      padding: 0
+
     &:not(:last-child)
       margin-bottom: 15px
 
@@ -411,9 +416,25 @@ $block: ".boss-check"
     &_icon_user:before
       background-image: url('../icons/icon-user-illustration.png')
 
+    // $Check block info MOD: icon user alert
+    &_icon_user-alert:before
+      background-image: url('../icons/icon-user-alert-illustration.png')
+
     // $Check block info MOD: icon notes
     &_icon_notes:before
       background-image: url('../icons/icon-notes-illustration.png')
+
+    // $Check block info MOD: icon notes alert
+    &_icon_notes-alert:before
+      background-image: url('../icons/icon-notes-alert-illustration.png')
+
+    // $Check block info MOD: icon calendar
+    &_icon_calendar:before
+      background-image: url('../icons/icon-calendar-illustration.png')
+
+    // $Check block info MOD: icon calendar alert
+    &_icon_calendar-alert:before
+      background-image: url('../icons/icon-calendar-alert-illustration.png')
 
     // $Check block info MOD: type box
     &_type_box
@@ -423,6 +444,23 @@ $block: ".boss-check"
       @media screen and (max-width: 480px)
         padding-top: 5px
 
+    &_layout_column
+      flex-direction: column
+
+      &:before
+        margin-right: 0
+        margin-bottom: 5px
+
+    &_role_main
+      align-items: flex-start
+
+      &:before
+        width: 60px
+        height: 60px
+
+    &_role_action
+      cursor: pointer
+
 
   // $Check block info text
   &__info-text
@@ -431,6 +469,19 @@ $block: ".boss-check"
     &_role_main
       font-size: 18px
       font-weight: 600
+
+      #{$block}_page_message-board &
+        font-size: 16px
+
+    &_marked
+      font-weight: 600
+
+  &__info-label
+    margin-top: 5px
+    padding: 6px 12px
+
+    @media screen and (max-width: 400px)
+      padding: 6px 12px
 
 
   // $Check block info meta

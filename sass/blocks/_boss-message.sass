@@ -20,15 +20,43 @@ $block: ".boss-message"
   width: 100%
   padding: 20px 20px 15px
   border-radius: 5px
-  background-color: map-get($boss-app-palette, primary)
-
-  // $Message MOD: status success
-  &_status_success
-    background-color: map-get($boss-app-palette, secondary)
+  background-color: #FFF
 
   // $Message MOD: size small
   &_size_small
     padding: 10px 15px
+
+  &_role_dashboard
+    position: relative
+    z-index: 10
+    overflow: hidden
+    padding: 25px 25px 25px 40px
+    border: 2px solid map-get($boss-app-palette, inactive)
+    border-radius: 10px
+
+    @media screen and (max-width: 960px)
+      padding: 20px 20px 20px 30px
+
+    @media screen and (max-width: 480px)
+      padding: 15px
+
+  &_type_accent
+    border: 3px solid map-get($boss-app-palette, primary)
+
+  &_role_dashboard#{&}_role_preview
+    padding-right: 40px
+
+    @media screen and (max-width: 480px)
+      padding-right: 20px
+
+  &_role_dashboard#{&}_context_board
+    box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+    &:not(:last-child)
+      margin-bottom: 40px
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 30px
 
   // $Message MOD: role calendar-note
   &_role_calendar-note
@@ -39,11 +67,13 @@ $block: ".boss-message"
   // $Message MOD: role note
   &_role_note
     padding: 10px 15px
+    background-color: map-get($boss-app-palette, primary)
 
   // $Message MOD: role clocking app note
   &_role_ca-note
     padding: 20px 25px
     text-align: center
+    background-color: map-get($boss-app-palette, primary)
 
   // $Message MOD: role safe checks details
   &_role_sc-details
@@ -67,15 +97,81 @@ $block: ".boss-message"
     @media screen and (max-width: 400px)
       padding: 10px 15px
 
+  // $Message MOD: status success
+  &_status_success
+    background-color: map-get($boss-app-palette, secondary)
+
+
+  // $Message ribbon container
+  &__ribbon-container
+    position: absolute
+    top: 0
+    right: 0
+    width: 90px
+    height: 90px
+    overflow: hidden
+
+    @media screen and (max-width: 480px)
+      width: 75px
+      height: 75px
+
+
+  // $Message ribbon
+  &__ribbon
+    +text-normalizer()
+    position: absolute
+    bottom: 100%
+    left: 0
+    display: block
+    width: 130px
+    height: 40px
+    background-color: $boss-light-gray
+    color: #fff
+    text-align: center
+    line-height: 40px
+    font-weight: 600
+    transform: rotate(45deg)
+    transform-origin: 0 100%
+
+    #{$block}_type_accent &
+      background-color: map-get($boss-app-palette, primary)
+
+    @media screen and (max-width: 480px)
+      width: 110px
+      height: 30px
+      line-height: 30px
+
 
   // $Message title
   &__title
     +text-normalizer()
-    margin: 0
-    text-transform: uppercase
-    font-weight: bold
-    font-size: 18px
-    color: #fff
+    margin-bottom: 10px
+    font-size: 24px
+    line-height: 1
+    font-weight: 600
+
+    #{$block}_role_preview &
+      padding-right: 20px
+
+    @media screen and (max-width: 480px)
+      font-size: 22px
+
+      #{$block}_role_preview &
+        padding-right: 40px
+
+    #{$block}_role_calendar-note &,
+    #{$block}_role_note &,
+    #{$block}_role_ca-note &,
+    #{$block}_role_sc-details &,
+    #{$block}_role_checklist-note &,
+    #{$block}_status_success &
+      margin-bottom: 0
+      font-size: 18px
+      text-transform: uppercase
+      color: #fff
+
+    &_accent
+      color: map-get($boss-app-palette, primary)
 
 
   // $Message text
@@ -84,7 +180,17 @@ $block: ".boss-message"
     display: block
     margin: 0
     font-size: 18px
-    color: #fff
+
+    @media screen and (max-width: 480px)
+      font-size: 16px
+
+    #{$block}_role_calendar-note &,
+    #{$block}_role_note &,
+    #{$block}_role_ca-note &,
+    #{$block}_role_sc-details &,
+    #{$block}_role_checklist-note &,
+    #{$block}_status_success &
+      color: #fff
 
     #{$block}_role_calendar-note &
       font-size: 14px
@@ -108,10 +214,84 @@ $block: ".boss-message"
       font-weight: 600
 
 
+  // $Message wysiwyg-generated content
+  &__content
+    margin-bottom: 15px
+
+    #{$block}_context_board &
+      margin-bottom: 25px
+
+    // wysiwyg-generated paragraph
+    p
+      +text-normalizer()
+      margin-bottom: 20px
+      font-size: 18px
+
+      @media screen and (max-width: 480px)
+        font-size: 16px
+
+    // wysiwyg-generated lists
+    & ul,
+    & ol
+      list-style: none
+      margin: 0
+      padding: 0
+      margin-bottom: 20px
+
+      & li
+        +text-normalizer()
+        position: relative
+        margin-bottom: 10px
+        font-size: 18px
+
+        @media screen and (max-width: 480px)
+          font-size: 16px
+
+    & ul
+      & li
+        padding-left: 12px
+        &:before
+          content: "-"
+          position: absolute
+          left: 0
+          top: 0
+          display: inline-block
+
+    & ol
+      counter-reset: item
+      & li
+        padding-left: 20px
+        &:before
+          content: counter(item) ". "
+          counter-increment: item
+          position: absolute
+          left: 0
+          top: 0
+          display: inline-block
+
+    // wysiwyg-generated sublists
+    & ul ul,
+    & ol ol
+      padding-left: 30px
+      margin-bottom: 0
+
+
   // $Message meta information
   &__meta
     display: block
     margin-top: 10px
+
+
+  &__meta-group
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-start
 
 
   // $Message meta information text
@@ -128,9 +308,14 @@ $block: ".boss-message"
     #{$block}_role_sc-details &
       font-size: 12px
 
+    #{$block}_role_dashboard &
+      margin-bottom: 0
+      font-size: 12px
+      color: $boss-light-gray
+
     &:before
       content: ""
-      display: inline-block
+      display: none
       margin-right: 8px
       vertical-align: middle
       line-height: 100%
@@ -144,6 +329,7 @@ $block: ".boss-message"
     // $Message meta information text MOD: role date
     &_role_date
       &:before
+        display: inline-block
         width: 16px
         height: 16px
         margin-top: -2px
@@ -152,6 +338,16 @@ $block: ".boss-message"
     // $Message meta information text MOD: role user
     &_role_user
       &:before
+        display: inline-block
         width: 12px
         height: 16px
         background-image: url("../icons/icon-user-dark-gray.svg")
+
+
+  &__meta-action
+    @media screen and (max-width: 960px)
+      align-self: center
+      margin-top: 30px
+
+    @media screen and (max-width: 480px)
+      margin-top: 20px

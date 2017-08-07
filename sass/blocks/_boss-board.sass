@@ -23,7 +23,7 @@ $block: ".boss-board"
 
   // $Board MOD: context stack
   &_context_stack
-    &:not(:last-of-type)
+    &:not(:last-child)
       margin-bottom: 30px
 
   // $Board MOD: double layout
@@ -45,7 +45,7 @@ $block: ".boss-board"
     box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
 
   &_role_panel#{&}_context_stack
-    &:not(:last-of-type)
+    &:not(:last-child)
       margin-bottom: 40px
 
       @media screen and (max-width: 960px)
@@ -439,6 +439,27 @@ $block: ".boss-board"
 
   // $Board form area
   &__form
+
+
+  &__message-form
+    display: block
+    width: 100%
+    padding: 40px 50px
+
+    @media screen and (max-width: 960px)
+      padding: 35px 30px 45px
+
+    @media screen and (max-width: 480px)
+      padding: 30px 20px 40px
+
+    @media screen and (max-width: 400px)
+      padding: 25px 15px 35px
+
+
+  &__message-form-inner
+    display: block
+    width: 100%
+    max-width: 800px
 
 
   // $Board manager area
