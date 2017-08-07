@@ -800,6 +800,15 @@ $block: ".boss-form"
         @media screen and (max-width: 640px)
           display: none
 
+    &_icon_time
+      &:before
+        left: auto
+        right: 20px
+        display: block
+        width: 16px
+        height: 16px
+        background: url(../icons/icon-clock-medium-gray.svg) no-repeat 0 0
+
 
   // React-select adjusments
   &__select
@@ -925,6 +934,10 @@ $block: ".boss-form"
 
         @media screen and (max-width: 640px)
           padding-left: 10px
+
+    &_icon_time
+      & .Select-arrow
+        display: none
 
 
   // $Common form switcher
