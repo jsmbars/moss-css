@@ -1,0 +1,102 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Time picker
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".time-picker"
+
+#{$block}
+
+  @at-root
+    .time-picker-portal
+      position: fixed
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 10000
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+      background-color: rgba(0,0,0,.75)
+      overflow-x: hidden
+      overflow-y: auto
+
+      &_state_closed
+        display: none
+
+    .time-picker-input
+      display: block
+      width: 100%
+
+      &_type_icon
+        position: relative
+
+        &:before
+          content: ''
+          position: absolute
+          top: 50%
+          right: 20px
+          z-index: 10
+          display: block
+          width: 16px
+          height: 16px
+          margin-top: -8px
+          background: url(../icons/icon-clock-medium-gray.svg) no-repeat 0 0
+          background-size: contain
+
+      & input
+        +text-normalizer()
+        display: block
+        width: 100%
+        height: auto
+        box-sizing: border-box
+        border: 1px solid $boss-very-light-gray
+        padding: 15px 20px
+        border-radius: 2px
+        box-shadow: none
+
+        &:focus
+          outline: none
+          box-shadow: none
+          border-color: $boss-very-light-gray
+
+        &[type=text]::-ms-clear
+          display: none
+
+        &_state_error
+          outline: 1px solid map-get($boss-app-palette, alert-border)
+          color: map-get($boss-app-palette, alert)
+
+          &:focus
+            border-color: map-get($boss-app-palette, alert)
+
+        ::-webkit-input-placeholder
+          color: $boss-input-placeholder-color
+          opacity:  1 !important
+
+        :-moz-placeholder
+          color: $boss-input-placeholder-color
+          opacity:  1 !important
+
+        ::-moz-placeholder
+          color: $boss-input-placeholder-color
+          opacity:  1 !important
+
+        :-ms-input-placeholder
+          color: $boss-input-placeholder-color
+          opacity:  1 !important
+
+        :placeholder-shown
+          color: $boss-input-placeholder-color
+          opacity:  1 !important

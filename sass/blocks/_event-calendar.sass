@@ -20,6 +20,7 @@ $block: ".event-calendar"
   display: block
   width: 100%
 
+  // $Event calendar inner container
   &__inner
     position: relative
     display: block
@@ -27,6 +28,7 @@ $block: ".event-calendar"
     overflow: hidden
 
 
+  // $Event calendar content
   &__content
     display: block
     width: 100%
@@ -34,6 +36,7 @@ $block: ".event-calendar"
     padding: 1px
 
 
+  // $Event calendar tooltip
   &__tooltip
     position: absolute
     z-index: 100
@@ -46,11 +49,13 @@ $block: ".event-calendar"
     box-shadow: 0 0 20px 10px fade-out(#000, .9)
 
 
+  // $Event calendar tooltip pointer
   &__tooltip-pointer
     position: absolute
     z-index: 101
     display: block
 
+    // $Event calendar tooltip pointer MOD: position left
     &_position_left
       top: 50%
       right: 100%
@@ -59,6 +64,7 @@ $block: ".event-calendar"
       border-top: 12px solid transparent
       border-bottom: 12px solid transparent
 
+    // $Event calendar tooltip pointer MOD: position right
     &_position_right
       top: 50%
       left: 100%
@@ -67,6 +73,7 @@ $block: ".event-calendar"
       border-top: 12px solid transparent
       border-bottom: 12px solid transparent
 
+    // $Event calendar tooltip pointer MOD: position top
     &_position_top
       bottom: 100%
       left: 50%
@@ -75,6 +82,7 @@ $block: ".event-calendar"
       border-right: 12px solid transparent
       border-left: 12px solid transparent
 
+    // $Event calendar tooltip pointer MOD: position bottom
     &_position_bottom
       top: 100%
       left: 50%
@@ -84,10 +92,12 @@ $block: ".event-calendar"
       border-left: 12px solid transparent
 
 
+  // $Event calendar tooltip content
   &__tooltip-content
     padding: 15px 10px
 
 
+  // $Event calendar tooltip date
   &__tooltip-date
     +text-normalizer()
     margin-bottom: 10px
@@ -95,9 +105,11 @@ $block: ".event-calendar"
     text-align: center
 
 
+  // $Event calendar labels
   &__labels
 
 
+  // $Event calendar label
   &__label
     +text-normalizer()
     display: block
@@ -115,6 +127,7 @@ $block: ".event-calendar"
       opacity: .8
 
 
+  // $Event calendar action
   &__action
     +text-normalizer()
     display: block

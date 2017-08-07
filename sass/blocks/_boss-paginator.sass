@@ -36,7 +36,8 @@ $block: ".boss-paginator"
   // $Paginator MOD: size full
   &_size_full
 
-  &_role_panel
+  // $Paginator MOD: context board
+  &_context_board
     @media screen and (max-width: 400px)
       box-shadow: 0 2px 12px -2px rgba(0,0,0,.3)
 
@@ -55,7 +56,7 @@ $block: ".boss-paginator"
     background-color: #FFF
     transition: all .2s
 
-    #{$block}_role_panel &
+    #{$block}_context_board &
       box-shadow: 0 2px 12px -2px rgba(0,0,0,.3)
 
     // $Paginator action CONTEXT: $Paginator MOD: size full
@@ -80,7 +81,7 @@ $block: ".boss-paginator"
       margin-right: 0
       border-right: 1px solid $boss-very-light-gray
 
-      #{$block}_role_panel &
+      #{$block}_context_board &
         box-shadow: none
 
       #{$block}_size_full &
