@@ -31,6 +31,7 @@ $block: ".boss-check"
     &:last-of-type
       margin-bottom: 0
 
+  // $Check block MOD: role panel
   &_role_panel
     margin-bottom: 30px
     background-color: #FFF
@@ -335,6 +336,7 @@ $block: ".boss-check"
   // $Check block dropdown
   &__dropdown
 
+    // $Check block dropdown CONTEXT: $Check block MOD: page message board
     #{$block}_page_message-board &
       padding: 15px 10px
       background-color: #fbfbfb
@@ -444,6 +446,7 @@ $block: ".boss-check"
       @media screen and (max-width: 480px)
         padding-top: 5px
 
+    // $Check block info MOD: layout column
     &_layout_column
       flex-direction: column
 
@@ -451,6 +454,7 @@ $block: ".boss-check"
         margin-right: 0
         margin-bottom: 5px
 
+    // $Check block info MOD: role main
     &_role_main
       align-items: flex-start
 
@@ -458,6 +462,7 @@ $block: ".boss-check"
         width: 60px
         height: 60px
 
+    // $Check block info MOD: role clickable action
     &_role_action
       cursor: pointer
 
@@ -466,6 +471,7 @@ $block: ".boss-check"
   &__info-text
     +text-normalizer()
 
+    // $Check block info text role main
     &_role_main
       font-size: 18px
       font-weight: 600
@@ -473,9 +479,12 @@ $block: ".boss-check"
       #{$block}_page_message-board &
         font-size: 16px
 
+    // $Check block info text marked
     &_marked
       font-weight: 600
 
+
+  // $Check block info label
   &__info-label
     margin-top: 5px
     padding: 6px 12px
@@ -503,6 +512,7 @@ $block: ".boss-check"
       padding: 15px
 
 
+  // $Check block meta
   &__meta
     +text-normalizer()
     font-size: 12px
@@ -510,14 +520,17 @@ $block: ".boss-check"
     color: $boss-light-gray
 
 
+  // $Check block meta text
   &__meta-text
     display: block
     font-weight: 600
 
 
+  // $Check block meta label
   &__meta-label
     display: block
 
+    // $Check block meta label MOD: role time
     &_role_time
       &:before
         content: ""

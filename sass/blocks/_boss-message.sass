@@ -26,6 +26,7 @@ $block: ".boss-message"
   &_size_small
     padding: 10px 15px
 
+  // $Message MOD: role dashboard
   &_role_dashboard
     position: relative
     z-index: 10
@@ -40,15 +41,18 @@ $block: ".boss-message"
     @media screen and (max-width: 480px)
       padding: 15px
 
+  // $Message MOD: type accent
   &_type_accent
     border: 3px solid map-get($boss-app-palette, primary)
 
+  // $Message MOD: role dashboard type accent
   &_role_dashboard#{&}_role_preview
     padding-right: 40px
 
     @media screen and (max-width: 480px)
       padding-right: 20px
 
+  // $Message MOD: role dashboard context stack
   &_role_dashboard#{&}_context_board
     box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
 
@@ -133,6 +137,7 @@ $block: ".boss-message"
     transform: rotate(45deg)
     transform-origin: 0 100%
 
+    // $Message ribbon CONTEXT: $Message MOD: type accent
     #{$block}_type_accent &
       background-color: map-get($boss-app-palette, primary)
 
@@ -150,6 +155,7 @@ $block: ".boss-message"
     line-height: 1
     font-weight: 600
 
+    // $Message title CONTEXT: $Message MOD: role preview
     #{$block}_role_preview &
       padding-right: 20px
 
@@ -170,6 +176,7 @@ $block: ".boss-message"
       text-transform: uppercase
       color: #fff
 
+    // $Message title MOD: accent
     &_accent
       color: map-get($boss-app-palette, primary)
 
@@ -282,6 +289,7 @@ $block: ".boss-message"
     margin-top: 10px
 
 
+  // $Message meta group
   &__meta-group
     display: flex
     flex-direction: row
@@ -344,6 +352,7 @@ $block: ".boss-message"
         background-image: url("../icons/icon-user-dark-gray.svg")
 
 
+  // $Message meta action
   &__meta-action
     @media screen and (max-width: 960px)
       align-self: center
