@@ -383,6 +383,12 @@ $block: ".boss-page-main"
   &__controls
     margin-bottom: 20px
 
+    &_layout_row
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: flex-start
+
     // $Page main container controls MOD: position last
     &_position_last
       margin-bottom: 0
@@ -397,13 +403,14 @@ $block: ".boss-page-main"
     margin-right: 10px
     margin-bottom: 10px
     padding: 25px 30px
+    font-size: 16px
+    color: $boss-medium-gray
     background-color: #FFF
     text-decoration: none
     outline: none
-    color: map-get($boss-app-palette, primary)
     font-weight: 600
     white-space: nowrap
-    transition: .4s
+    transition: background-color .2s
 
     @media screen and (max-width: 960px)
       display: block
@@ -413,8 +420,8 @@ $block: ".boss-page-main"
     &:before
       content: ""
       display: none
-      width: 15px
-      height: 15px
+      width: 16px
+      height: 16px
       margin-right: 15px
       line-height: 100%
       vertical-align: middle
@@ -425,24 +432,71 @@ $block: ".boss-page-main"
     &:hover,
     &:focus
       outline: none
-      text-decoration: underline
+      color: #FFF
+      background-color: map-get($boss-app-palette, primary)
+
+    // $Page main container control MOD: role view history
+    &_role_view-history
       color: map-get($boss-app-palette, primary)
 
-    // $Page main container control MOD: view history
-    &_role_view-history
       &:before
         display: inline-block
         background-image: url('../icons/icon-text-paper-primary.svg')
 
+      &:hover:before
+        background-image: url('../icons/icon-text-paper-white.svg')
+
+    &_role_view-history#{&}_state_active:before
+      background-image: url('../icons/icon-text-paper-white.svg')
+
+    // $Page main container control MOD: role venue
+    &_role_venue
+      &:before
+        display: inline-block
+        background-image: url('../icons/icon-storefront-medium-gray.svg')
+
+    &_role_venue:hover:before,
+    &_role_venue#{&}_state_active:before
+      background-image: url('../icons/icon-storefront-white.svg')
+
+    // $Page main container control MOD: role staff-type
+    &_role_staff-type
+      &:before
+        display: inline-block
+        background-image: url('../icons/icon-user-medium-gray.svg')
+
+    &_role_staff-type:hover:before,
+    &_role_staff-type#{&}_state_active:before
+      background-image: url('../icons/icon-user-white.svg')
+
     &_state_active
-      background-color: map-get($boss-app-palette, primary)
       color: #FFF
+      background-color: map-get($boss-app-palette, primary)
 
       &:hover,
       &:focus
         color: #FFF
-        text-decoration: none
         cursor: default
+
+    &_adjust_row-third
+      flex-grow: 1
+      flex-shrink: 1
+      width: 33.3%
+      white-space: normal
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+      &:last-of-type
+        margin-right: 0
+
+        @media screen and (max-width: 960px)
+          margin-bottom: 0
+
+  &__control-text
+    display: inline-block
+    width: 100%
+    max-width: 100%
 
 
   // $Page main logo
