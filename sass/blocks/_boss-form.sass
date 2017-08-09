@@ -178,6 +178,16 @@ $block: ".boss-form"
       @media screen and (min-width: 961px)
         display: none
 
+    // $Common form row MOD: xs screens hidden
+    &_hidden-xs
+      @media screen and(max-width: 480px)
+        display: none
+
+    // $Common form row MOD: xs screens
+    &_visible-xs
+      @media screen and(min-width: 481px)
+        display: none
+
 
   // $Common form field
   &__field
