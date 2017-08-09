@@ -73,7 +73,7 @@ $block: ".boss-vetting"
     @media screen and (max-width: 960px)
       width: 50%
 
-    @media screen and (max-width: 480px)
+    @media screen and (max-width: 640px)
       width: 100%
       padding-right: 0
 
@@ -86,11 +86,11 @@ $block: ".boss-vetting"
         padding-right: 0
 
     &:nth-child(2n)
-      @media screen and (min-width: 481px) and (max-width: 960px)
+      @media screen and (min-width: 641px) and (max-width: 960px)
         padding-right: 0
 
     &:last-child
-      @media screen and (max-width: 480px)
+      @media screen and (max-width: 640px)
         padding-bottom: 0
 
 
@@ -151,3 +151,10 @@ $block: ".boss-vetting"
 
     &:nth-of-type(2n)
       padding-right: 0
+
+
+  // $Vetting block text placeholder
+  &__text-placeholder
+    +text-normalizer()
+    font-size: 18px
+    line-height: 1
