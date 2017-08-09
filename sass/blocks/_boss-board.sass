@@ -128,25 +128,67 @@ $block: ".boss-board"
       font-size: 16px
 
     // $Board title MOD: role date
-    &_role_date
-      font-size: 16px
-
-      @media screen and (max-width: 640px)
-        text-align: center
-        margin-bottom: 15px
+    // $Board title MOD: role venue
+    // $Board title MOD: role staff-type
+    &_role_date,
+    &_role_venue,
+    &_role_staff-type
 
       &:before
         content: ""
         display: inline-block
         width: 20px
         height: 20px
-        margin-right: 25px
-        background-size: cover
+        margin-right: 15px
+        background-size: contain
+        background-repeat: no-repeat
         vertical-align: middle
-        background-image: url(../icons/icon-calendar-dark-gray.svg)
 
         @media screen and (max-width: 640px)
           margin-right: 20px
+
+    &_role_date
+
+      @media screen and (max-width: 640px)
+        #{$block}__header_role_date &
+          text-align: center
+          margin-bottom: 15px
+
+      &:before
+        background-image: url(../icons/icon-calendar-dark-gray.svg)
+
+    &_role_venue
+      &:before
+        background-image: url(../icons/icon-storefront-dark-gray.svg)
+
+    &_role_staff-type
+      &:before
+        background-image: url(../icons/icon-user-dark-gray.svg)
+
+
+  // $Board title text
+  &__title-text
+    display: inline-block
+    vertical-align: middle
+
+
+  // $Board title number
+  &__title-number
+    display: inline-block
+    margin-left: 5px
+    color: #808080
+    vertical-align: middle
+    white-space: nowrap
+
+    &:before
+      content: "("
+      display: inline-block
+      font-weight: normal
+
+    &:after
+      content: ")"
+      display: inline-block
+      font-weight: normal
 
 
   // $Board subtitle
@@ -686,6 +728,12 @@ $block: ".boss-board"
 
     @media screen and (max-width: 960px)
       padding: 0 20px
+
+
+  &__vetting
+    display: block
+    width: 100%
+    padding: 0 20px
 
 
   // $Board wnotice area

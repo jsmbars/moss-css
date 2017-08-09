@@ -309,8 +309,8 @@ $block: ".boss-page-main"
       @media screen and (max-width: 480px)
         padding: 0
 
-    // $Page main container group MOD: adjust staff vetting index
-    &_adjust_staff-vetting-index
+    // $Page main container group MOD: adjust staff vetting
+    &_adjust_staff-vetting
       padding: 30px
       background-color: #FFF
 
@@ -381,9 +381,11 @@ $block: ".boss-page-main"
 
   // $Page main container controls
   &__controls
+    margin-bottom: 20px
 
     // $Page main container controls MOD: position last
     &_position_last
+      margin-bottom: 0
       margin-top: 20px
 
 
@@ -392,6 +394,8 @@ $block: ".boss-page-main"
     +text-normalizer()
 
     display: inline-block
+    margin-right: 10px
+    margin-bottom: 10px
     padding: 25px 30px
     background-color: #FFF
     text-decoration: none
@@ -429,6 +433,17 @@ $block: ".boss-page-main"
       &:before
         display: inline-block
         background-image: url('../icons/icon-text-paper-primary.svg')
+
+    &_state_active
+      background-color: map-get($boss-app-palette, primary)
+      color: #FFF
+
+      &:hover,
+      &:focus
+        color: #FFF
+        text-decoration: none
+        cursor: default
+
 
   // $Page main logo
   &__logo

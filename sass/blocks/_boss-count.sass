@@ -29,6 +29,9 @@ $block: ".boss-count"
     &:hover
       opacity: 0.75
 
+    &:focus
+      outline: none
+
   &_adjust_row
     flex-grow: 1
     flex-shrink: 1
@@ -133,6 +136,10 @@ $block: ".boss-count"
     @media screen and(max-width: 480px)
       #{$block}_type_badge &
         font-size: 40px
+
+    &_position_last
+      margin-right: 0
+      margin-left: 15px
 
 
   &__label
