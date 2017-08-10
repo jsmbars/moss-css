@@ -230,7 +230,6 @@ $block: ".boss-table"
       padding: 15px 10px
 
 
-
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
         flex-direction: column
@@ -734,7 +733,7 @@ $block: ".boss-table"
       #{$block}_page_smp-owed-hours &
         flex-grow: 0
         flex-shrink: 0
-        width: 115px
+        width: 135px
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -803,6 +802,7 @@ $block: ".boss-table"
         font-size: 14px
         text-transform: none
         font-weight: 600
+        text-align: center
 
       #{$block}_page_smp-holidays &,
       #{$block}_page_smp-owed-hours &,
@@ -819,6 +819,30 @@ $block: ".boss-table"
         #{$block}_page_safe-checks-index &
           padding: 15px
           border-right: none
+
+      &:nth-child(3)
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-owed-hours &
+          text-align: center
+
+      &:nth-child(4)
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
+          text-align: center
+
+      &:nth-child(5)
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
+          text-align: center
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
