@@ -20,11 +20,13 @@ $block: ".boss-vetting"
   width: 100%
 
 
+  // $Vetting block stats area
   &__stats
     display: block
     width: 100%
 
 
+  // $Vetting block stats area group
   &__stats-group
     display: flex
     flex-direction: row
@@ -41,26 +43,50 @@ $block: ".boss-vetting"
         margin-bottom: 30px
 
 
+  // $Vetting block filter area
   &__filter
     display: block
     width: 100%
 
 
-  // $Vetting block message
+  // $Vetting block message area
   &__message
     display: block
     width: 100%
 
 
+  // $Vetting block flow area
   &__flow
+    display: block
+    width: 100%
+    padding-top: 30px
+
+    @media screen and (max-width: 640px)
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+
+
+  // $Vetting block flow area list
+  &__flow-list
     display: flex
     flex-direction: row
     justify-content: flex-start
     align-items: flex-start
     flex-wrap: wrap
     width: 100%
-    padding-top: 30px
 
+    @media screen and (max-width: 640px)
+      flex-grow: 0
+      flex-shrink: 1
+      flex-direction: column
+      flex-wrap: nowrap
+      width: auto
+      max-width: 100%
+
+
+  // $Vetting block flow area item
   &__flow-item
     flex-grow: 0
     flex-shrink: 1

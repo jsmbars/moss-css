@@ -383,6 +383,7 @@ $block: ".boss-page-main"
   &__controls
     margin-bottom: 20px
 
+    // $Page main container controls MOD: layout row
     &_layout_row
       display: flex
       flex-direction: row
@@ -469,6 +470,7 @@ $block: ".boss-page-main"
     &_role_staff-type#{&}_state_active:before
       background-image: url('../icons/icon-user-white.svg')
 
+    // $Page main container control MOD: state active
     &_state_active
       color: #FFF
       background-color: map-get($boss-app-palette, primary)
@@ -478,6 +480,7 @@ $block: ".boss-page-main"
         color: #FFF
         cursor: default
 
+    // $Page main container control MOD: adjust row third
     &_adjust_row-third
       flex-grow: 1
       flex-shrink: 1
@@ -493,6 +496,8 @@ $block: ".boss-page-main"
         @media screen and (max-width: 960px)
           margin-bottom: 0
 
+
+  // $Page main container control text
   &__control-text
     display: inline-block
     width: 100%
