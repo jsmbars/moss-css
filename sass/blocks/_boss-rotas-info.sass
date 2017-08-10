@@ -36,8 +36,8 @@ $block: ".boss-rotas-info"
     display: block
     margin-bottom: 5px
     padding: 0
-    padding-left: 20px
     line-height: 1.4
+    white-space: nowrap
 
     // $Rotas info item CONTEXT: $Rotas info MOD: layout row
     #{$block}_layout_row &
@@ -50,77 +50,15 @@ $block: ".boss-rotas-info"
       @media screen and (max-width: 960px)
         margin-right: 20px
 
-    &:before
-      content: ""
-      position: absolute
-      top: 8px
-      left: 0
-      display: block
-      width: 10px
-      height: 10px
-      border-radius: 50%
-      background-color: map-get($boss-app-palette, primary)
 
-    // $Rotas info item MOD: role manager
-    &_role_manager
-      &:before
-        background-color: map-get($boss-roles-palette, manager)
-
-    // $Rotas info item MOD: role gm
-    &_role_gm
-      &:before
-        background-color: map-get($boss-roles-palette, gm)
-
-    // $Rotas info item MOD: role bar-supervisor
-    &_role_bar-supervisor
-      &:before
-        background-color: map-get($boss-roles-palette, bar-supervisor)
-
-    // $Rotas info item MOD: role bartender
-    &_role_bartender
-      &:before
-        background-color: map-get($boss-roles-palette, bartender)
-
-    // $Rotas info item MOD: role floor-staff
-    &_role_floor-staff
-      &:before
-        background-color: map-get($boss-roles-palette, floor-staff)
-
-    // $Rotas info item MOD: role waitress
-    &_role_waitress
-      &:before
-        background-color: map-get($boss-roles-palette, waitress)
-
-    // $Rotas info item MOD: role kp
-    &_role_kp
-      &:before
-        background-color: map-get($boss-roles-palette, kp)
-
-    // $Rotas info item MOD: role hostess
-    &_role_hostess
-      &:before
-        background-color: map-get($boss-roles-palette, hostess)
-
-    // $Rotas info item MOD: role chef
-    &_role_chef
-      &:before
-        background-color: map-get($boss-roles-palette, chef)
-
-    // $Rotas info item MOD: role security
-    &_role_security
-      &:before
-        background-color: map-get($boss-roles-palette, security)
-
-    // $Rotas info item MOD: role pr
-    &_role_pr
-      &:before
-        background-color: map-get($boss-roles-palette, pr)
-
-    // $Rotas info item MOD: role bar-back
-    &_role_bar-back
-      &:before
-        background-color: map-get($boss-roles-palette, bar-back)
-
+  // $Rotas info pointer
+  &__pointer
+    display: inline-block !important
+    width: 10px
+    height: 10px
+    margin-right: 5px !important
+    border-radius: 50%
+    vertical-align: middle
 
 
   // $Rotas info link
@@ -141,8 +79,11 @@ $block: ".boss-rotas-info"
   // $Rotas info text
   &__text
     +text-normalizer()
+    display: inline-block !important
     font-size: 14px
     cursor: pointer
+    white-space: normal
+    vertical-align: middle
 
     // nvd3 overrides
     text-align: left !important
