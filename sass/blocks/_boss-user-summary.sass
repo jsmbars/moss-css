@@ -28,6 +28,18 @@ $block: ".boss-user-summary"
     flex-direction: column
     align-items: center
 
+  // $User summary MOD: role link
+  &_role_link
+    color: initial
+
+    &:hover
+      color: initial
+      opacity: 0.5
+
+    &:focus
+      color: initial
+      outline: none
+
   // $User summary MOD: role review
   &_role_review
     padding: 20px
@@ -44,7 +56,9 @@ $block: ".boss-user-summary"
       align-items: center
 
   // $User summary MOD: role rotas daily
-  &_role_rotas-daily
+  // $User summary MOD: role review short
+  &_role_rotas-daily,
+  &_role_review-short
     @media screen and(max-width: 960px)
       flex-direction: row
       align-items: flex-start
@@ -80,7 +94,9 @@ $block: ".boss-user-summary"
       margin-bottom: 0
 
     // $User summary avatar CONTEXT: $User summary MOD: role rotas daily
-    #{$block}_role_rotas-daily &
+    // $User summary avatar CONTEXT: $User summary MOD: role review short
+    #{$block}_role_rotas-daily &,
+    #{$block}_role_review-short &
       width: 70px
       height: 70px
       margin-bottom: 0
@@ -109,6 +125,10 @@ $block: ".boss-user-summary"
     height: 100%
     border-radius: 50%
     overflow: hidden
+    background-image: url('../icons/avatar-placeholder.svg')
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: contain
 
 
   // $User summary avatar icon
@@ -137,7 +157,9 @@ $block: ".boss-user-summary"
       height: 14px
       margin-top: -7px
       margin-left: -7px
-      background: url(../icons/icon-pencil-white.svg) no-repeat center center
+      background-image: url(../icons/icon-pencil-white.svg)
+      background-repeat: no-repeat
+      background-position: center center
       background-size: contain
 
     &:hover
@@ -147,14 +169,12 @@ $block: ".boss-user-summary"
     // $User summary avatar icon MOD: role edit
     &_role_edit
       &:before
-        background: url(../icons/icon-pencil-white.svg) no-repeat center center
-        background-size: contain
+        background: url(../icons/icon-pencil-white.svg)
 
     // $User summary avatar icon MOD: role info
     &_role_info
       &:before
-        background: url(../icons/icon-lens-white.svg) no-repeat center center
-        background-size: contain
+        background: url(../icons/icon-lens-white.svg)
 
 
   // $User summary controls
@@ -180,7 +200,9 @@ $block: ".boss-user-summary"
       padding-left: 25px
 
     // $User summary content CONTEXT: $User summary MOD: role rotas daily
-    #{$block}_role_rotas-daily &
+    // $User summary content CONTEXT: $User summary MOD: role review short
+    #{$block}_role_rotas-daily &,
+    #{$block}_role_review-short &
       padding-left: 20px
 
     // $User summary content CONTEXT: $User summary MOD: role rotas daily tooltip
@@ -202,13 +224,18 @@ $block: ".boss-user-summary"
         padding-left: 0
 
     @media screen and(max-width: 640px)
-      #{$block}_role_rotas-daily &
+      #{$block}_role_rotas-daily &,
+      #{$block}_role_review-short &
         padding-left: 15px
 
     @media screen and(max-width: 400px)
 
       #{$block}_role_review &
         padding-left: 0
+
+    // $User summary content MOD: adjust middle alignment in a row
+    &_adjust_middle
+      align-self: center
 
 
   // $User summary header area
@@ -221,7 +248,9 @@ $block: ".boss-user-summary"
       white-space: nowrap
 
     // $User summary header area CONTEXT: $User summary MOD: role rotas daily
-    #{$block}_role_rotas-daily &
+    // $User summary header area CONTEXT: $User summary MOD: role review short
+    #{$block}_role_rotas-daily &,
+    #{$block}_role_review-short &
       margin-top: 5px
       margin-bottom: 0
       text-align: left
@@ -242,7 +271,8 @@ $block: ".boss-user-summary"
       #{$block}_role_report &
         white-space: normal
 
-      #{$block}_role_rotas-daily &
+      #{$block}_role_rotas-daily &,
+      #{$block}_role_review-short &
         margin-top: 0
         text-align: left
 
@@ -274,11 +304,16 @@ $block: ".boss-user-summary"
       white-space: nowrap
 
     // $User summary name CONTEXT: $User summary MOD: role rotas daily
-    #{$block}_role_rotas-daily &
+    // $User summary name CONTEXT: $User summary MOD: role review short
+    #{$block}_role_rotas-daily &,
+    #{$block}_role_review-short &
       display: block
       margin-bottom: 5px
+      margin-right: 0
       font-size: 16px
       font-weight: 400
+
+    #{$block}_role_rotas-daily &
       color: #808080
 
     // $User summary name CONTEXT: $User summary MOD: role rotas daily tooltip
@@ -304,7 +339,8 @@ $block: ".boss-user-summary"
         margin-bottom: 10px
         text-align: left
 
-      #{$block}_role_rotas-daily &
+      #{$block}_role_rotas-daily &,
+      #{$block}_role_review-short &
         text-align: left
 
       #{$block}_role_rotas-daily-tooltip &
@@ -321,6 +357,9 @@ $block: ".boss-user-summary"
     display: inline-block
     vertical-align: middle
     cursor: default
+
+    #{$block}_role_review-short &
+      margin-bottom: 3px
 
 
   // $User summary contacts
@@ -431,7 +470,8 @@ $block: ".boss-user-summary"
     @media screen and(max-width: 960px)
       text-align: center
 
-      #{$block}_role_review &
+      #{$block}_role_review &,
+      #{$block}_role_review-short &
         text-align: left
 
 

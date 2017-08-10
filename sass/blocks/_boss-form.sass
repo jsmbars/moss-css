@@ -178,6 +178,16 @@ $block: ".boss-form"
       @media screen and (min-width: 961px)
         display: none
 
+    // $Common form row MOD: xs screens hidden
+    &_hidden-xs
+      @media screen and(max-width: 480px)
+        display: none
+
+    // $Common form row MOD: xs screens
+    &_visible-xs
+      @media screen and(min-width: 481px)
+        display: none
+
 
   // $Common form field
   &__field
@@ -538,6 +548,10 @@ $block: ".boss-form"
     &_type_icon-single
       &:before
         margin-right: 0
+
+    // $Common form label MOD: justify center
+    &_justify_center
+      text-align: center
 
     &_desktop
       @media screen and(max-width: 960px)

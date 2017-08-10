@@ -146,6 +146,8 @@ $block: ".boss-page-dashboard"
 
   // $Page dashboard title text
   &__title-text
+    display: inline-block
+    vertical-align: middle
 
     // $Page dashboard title text MOD: marked
     &_marked
@@ -154,18 +156,17 @@ $block: ".boss-page-dashboard"
 
   // $Page dashboard title info
   &__title-info
-    $min-side-size: 50px
-
     display: inline-block
-    min-width: $min-side-size
+    min-width: 50px
+    height: 50px
     margin-left: 18px
     border-radius: 50%
-    line-height: $min-side-size
+    line-height: 50px
     background-color: map-get($boss-app-palette, primary)
     text-align: center
     color: white
-    font-size: 13px
-    font-weight: 300
+    font-size: 14px
+    vertical-align: middle
 
 
   // $Page dashboard controls group
