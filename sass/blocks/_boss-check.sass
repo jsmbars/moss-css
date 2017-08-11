@@ -62,13 +62,6 @@ $block: ".boss-check"
   &_state_alert
     background-color: #feeeee
 
-  // $Check block group
-  &__group
-    padding: 20px 15px
-
-    @media screen and (max-width: 960px)
-      padding: 20px 15px
-
   // $Check block row
   &__row
     display: flex
@@ -93,7 +86,7 @@ $block: ".boss-check"
   // $Check block cell
   &__cell
     display: flex
-    flex-direction: row
+    flex-direction: column
     justify-content: center
     align-items: center
     width: 100%
@@ -168,11 +161,48 @@ $block: ".boss-check"
       border: none
 
 
+  // $Check block box
+  &__box
+    display: block
+    width: 100%
+    min-height: 70px
+    padding: 10px
+    border: 2px solid $boss-very-light-gray
+    border-radius: 6px
+
+    &:not(:last-child)
+      margin-bottom: 15px
+
+
   // $Check block title
   &__title
     +text-normalizer()
     font-size: 18px
     font-weight: 600
+    text-align: center
+
+    &_role_date,
+    &_role_payment
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 18px
+        margin-right: 10px
+        margin-top: -3px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_payment
+      &:before
+        background-image: url('../icons/icon-wallet-dark-gray.svg')
 
 
   // $Check block text
@@ -184,95 +214,80 @@ $block: ".boss-check"
       font-weight: 600
 
     // $Check block text MOD: role date
+    // $Check block text MOD: role time
+    // $Check block text MOD: role date-calendar
+    // $Check block text MOD: role user
+    // $Check block text MOD: role venue
+    // $Check block text MOD: role voucher
+    // $Check block text MOD: role note
+    &_role_date,
+    &_role_time,
+    &_role_date-calendar,
+    &_role_user,
+    &_role_venue,
+    &_role_voucher,
+    &_role_note
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 5px
+        margin-top: -3px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
     &_role_date
       font-size: 16px
       font-weight: 600
       letter-spacing: -1px
 
       &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
-        margin-right: 5px
-        margin-top: -3px
         background-image: url('../icons/icon-clock-dark-gray.svg')
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-        vertical-align: middle
 
-    // $Check block text MOD: role date-range
-    &_role_date-range
+    &_role_time
+      text-align: center
 
       &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
+        background-image: url('../icons/icon-clock-dark-gray.svg')
+
+    &_role_date-calendar
+      text-align: center
+
+      &:before
         margin-right: 10px
-        margin-top: -3px
         background-image: url('../icons/icon-calendar-dark-gray.svg')
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-        vertical-align: middle
 
-    &_role_date-range#{&}_type_accent
-      &:before
-        background-image: url('../icons/icon-calendar-primary.svg')
-
-    // $Check block text MOD: role user
     &_role_user
       text-align: center
-      color: $boss-medium-gray
 
       &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
-        margin-right: 5px
-        margin-top: -3px
         background-image: url('../icons/icon-user-dark-gray.svg')
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-        vertical-align: middle
 
-    // $Check block text MOD: role venue
     &_role_venue
       text-align: center
 
       &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
         margin-right: 10px
-        margin-top: -3px
         background-image: url('../icons/icon-storefront-dark-gray.svg')
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-        vertical-align: middle
 
-    // $Check block text MOD: role voucher
     &_role_voucher
       text-align: center
 
       &:before
-        content: ""
-        display: inline-block
         width: 18px
         height: 18px
         margin-right: 10px
-        margin-top: -3px
         background-image: url('../icons/icon-ticket-dark-gray.svg')
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-        vertical-align: middle
+
+    &_role_note
+
+      &:before
+        margin-right: 10px
+        background-image: url('../icons/icon-envelope-dark-gray.svg')
 
     // $Check block text MOD: indicator attachment
     &_indicator_att
@@ -295,11 +310,16 @@ $block: ".boss-check"
       font-size: 16px
       font-weight: 600
 
-    // $Check block text MOD: role_main
+    // $Check block text MOD: role main
     &_role_main
       font-size: 16px
       font-weight: 600
       color: #4c4c4c
+
+    // $Check block text MOD: role secondary
+    &_role_secondary
+      font-size: 12px
+      color: #808080
 
     // $Check block text MOD: state alert
     &_state_alert,
@@ -317,6 +337,11 @@ $block: ".boss-check"
   // $Check block text line
   &__text-line
     display: block
+
+
+  // $Check block text label
+  &__text-label
+    color: #808080
 
 
   // $Check block link
