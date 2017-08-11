@@ -529,27 +529,46 @@ $block: ".boss-board"
       flex-direction: row
       justify-content: flex-start
       align-items: flex-start
-      margin-bottom: 15px
+      padding-bottom: 15px
 
       @media screen and (max-width: 960px)
         flex-direction: column
         justify-content: flex-start
         align-items: flex-start
 
+    &_role_group-header
+      padding: 20px 20px 15px
+      border-bottom: 1px solid #eee
 
-  // $Board manager area data
-  &__manager-data
+      @media screen and (max-width: 960px)
+        padding: 0 0 15px
+        border-bottom: none
+
+
+
+  // $Board manager area group
+  &__manager-group
     position: relative
     display: block
     width: 100%
     z-index: 5
-    border: 1px solid #e6e6e6
+    border: 2px solid #e6e6e6
     border-radius: 10px
     overflow: hidden
 
     @media screen and (max-width: 960px)
-      border: none
-      overflow: visible
+      padding: 10px
+
+    &_role_data
+      border-width: 1px
+      @media screen and (max-width: 960px)
+        padding: 0
+        border: none
+        overflow: visible
+
+    &_context_stack
+      &:not(:last-child)
+        margin-bottom: 30px
 
 
   // $Board manager area filter
