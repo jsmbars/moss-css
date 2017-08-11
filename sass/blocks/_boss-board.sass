@@ -537,11 +537,15 @@ $block: ".boss-board"
         align-items: flex-start
 
     &_role_group-header
-      padding: 20px 20px 15px
+      padding-top: 20px
+      padding-left: 20px
+      padding-right: 20px
       border-bottom: 1px solid #eee
 
       @media screen and (max-width: 960px)
-        padding: 0 0 15px
+        padding-top: 0
+        padding-left: 0
+        padding-right: 0
         border-bottom: none
 
 
@@ -557,6 +561,9 @@ $block: ".boss-board"
     overflow: hidden
 
     @media screen and (max-width: 960px)
+      padding: 15px
+
+    @media screen and (max-width: 480px)
       padding: 10px
 
     &_role_data
@@ -565,6 +572,9 @@ $block: ".boss-board"
         padding: 0
         border: none
         overflow: visible
+
+      @media screen and (max-width: 480px)
+        padding: 0
 
     &_context_stack
       &:not(:last-child)
