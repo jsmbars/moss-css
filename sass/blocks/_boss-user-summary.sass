@@ -474,19 +474,19 @@ $block: ".boss-user-summary"
     &:not(:last-of-type)
       margin-bottom: 10px
 
-    &_type_box
+    &_type_box,
+    &_type_box-alert
       flex-grow: 0
       flex-shrink: 1
       width: auto
-      border: 2px solid $boss-light-gray
-      border-radius: 5px
-      padding: 10px
 
       @media screen and(max-width: 960px)
         align-self: center
 
-    &_type_box#{&}_role_alert
-      border-color: map-get($boss-app-palette, alert)
+    &_type_box-alert
+      border: 2px solid map-get($boss-app-palette, alert)
+      border-radius: 5px
+      padding: 10px
 
 
   // $User summary review item
@@ -509,6 +509,7 @@ $block: ".boss-user-summary"
     &_role_user,
     &_role_reason,
     &_role_venue
+      text-align: left
 
       &:before
         content: ""
@@ -524,7 +525,6 @@ $block: ".boss-user-summary"
 
     &_role_date
       &:before
-        margin-right: 10px
         background-image: url('../icons/icon-calendar-dark-gray.svg')
 
     &_role_user
@@ -533,13 +533,10 @@ $block: ".boss-user-summary"
 
     &_role_reason
       &:before
-        margin-right: 10px
         background-image: url('../icons/icon-block-dark-gray.svg')
 
     &_role_venue
-
       &:before
-        margin-right: 10px
         background-image: url('../icons/icon-storefront-dark-gray.svg')
 
 
