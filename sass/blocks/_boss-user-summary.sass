@@ -74,6 +74,7 @@ $block: ".boss-user-summary"
 
   // $User summary side area
   &__side
+    flex-grow: 0
     flex-shrink: 0
     display: block
 
@@ -185,7 +186,10 @@ $block: ".boss-user-summary"
 
   // $User summary content area
   &__content
-    display: block
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
     width: 100%
     padding-left: 35px
 
@@ -241,6 +245,8 @@ $block: ".boss-user-summary"
   // $User summary header area
   &__header
     display: block
+    width: 100%
+    max-width: 100%
     margin-bottom: 15px
 
     // $User summary header area CONTEXT: $User summary MOD: role report
@@ -365,6 +371,8 @@ $block: ".boss-user-summary"
   // $User summary contacts
   &__contacts
     display: block
+    width: 100%
+    max-width: 100%
     margin-bottom: 15px
 
     @media screen and(max-width: 960px)
@@ -423,6 +431,7 @@ $block: ".boss-user-summary"
     justify-content: flex-start
     align-items: flex-start
     width: 100%
+    max-width: 100%
 
     @media screen and(max-width: 960px)
       align-items: center
@@ -456,9 +465,28 @@ $block: ".boss-user-summary"
   // $User summary review list
   &__review-list
     display: block
+    width: 100%
+    max-width: 100%
     list-style: none
     margin: 0
     padding: 0
+
+    &:not(:last-of-type)
+      margin-bottom: 10px
+
+    &_type_box
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
+      border: 2px solid $boss-light-gray
+      border-radius: 5px
+      padding: 10px
+
+      @media screen and(max-width: 960px)
+        align-self: center
+
+    &_type_box#{&}_role_alert
+      border-color: map-get($boss-app-palette, alert)
 
 
   // $User summary review item
@@ -474,13 +502,58 @@ $block: ".boss-user-summary"
       #{$block}_role_review-short &
         text-align: left
 
+    // $User summary review item MOD: role date
+    // $User summary review item MOD: role user
+    // $User summary review item MOD: role reason
+    &_role_date,
+    &_role_user,
+    &_role_reason,
+    &_role_venue
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 14px
+        height: 14px
+        margin-right: 5px
+        margin-top: -3px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        margin-right: 10px
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_user
+      &:before
+        background-image: url('../icons/icon-user-dark-gray.svg')
+
+    &_role_reason
+      &:before
+        margin-right: 10px
+        background-image: url('../icons/icon-block-dark-gray.svg')
+
+    &_role_venue
+
+      &:before
+        margin-right: 10px
+        background-image: url('../icons/icon-storefront-dark-gray.svg')
+
 
   // $User summary review label
   &__review-label
 
 
-  // $User summary review lvalue
-  &__review-value
+  // $User summary review value
+  &__review-val
+
+    // $User summary review value MOD: marked
+    &_marked
+      color: #4c4c4c
+      font-weight: 600
 
 
   // $User summary controls
