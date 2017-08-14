@@ -70,8 +70,11 @@ $block: ".boss-page-dashboard"
       margin-bottom: 20px
 
     // $Page dashboard group CONTEXT: $Page dashboard group MOD: vouchers index page
-    #{$block}_page_vouchers-index &:nth-of-type(2)
+    // $Page dashboard group CONTEXT: $Page dashboard group MOD: profile reduced page
+    #{$block}_page_vouchers-index &:nth-of-type(2),
+    #{$block}_page_profile-reduced &
       justify-content: flex-end
+
 
     @media screen and(max-width: 960px)
       flex-direction: column
