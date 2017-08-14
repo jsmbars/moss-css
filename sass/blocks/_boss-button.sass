@@ -353,6 +353,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: role view submissions
+  &_role_view-submissions
+    $background-color: map-get($boss-app-palette, secondary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: role view orders
   &_role_view-orders
     $background-color: map-get($boss-app-palette, primary)
