@@ -156,12 +156,15 @@ $block: ".boss-form"
     &_align_center
       align-items: center
 
-    // $Common form row MOD: layout no-wrap
-    &_layout_nowrap
+    // $Common form row MOD: layout wrap-xs
+    &_layout_wrap-xs
       flex-direction: row
 
       @media screen and (max-width: 960px)
         flex-direction: row
+
+      @media screen and (max-width: 479px)
+        flex-direction: column
 
     // $Common form group MOD: adjust redeem vouchers
     &_adjust_rv
@@ -222,13 +225,18 @@ $block: ".boss-form"
         margin-right: 0
         margin-bottom: 20px
 
-        #{$block}__row_layout_nowrap &
+        #{$block}__row_layout_wrap-xs &
           margin-bottom: 0
           margin-right: 20px
 
       @media screen and (max-width: 640px)
-        #{$block}__row_layout_nowrap &
+        #{$block}__row_layout_wrap-xs &
           margin-right: 15px
+
+      @media screen and (max-width: 479px)
+        #{$block}__row_layout_wrap-xs &
+          margin-right: 0
+          margin-bottom: 20px
 
     &_layout_half
       width: 50%
@@ -283,6 +291,17 @@ $block: ".boss-form"
 
       @media screen and (max-width: 960px)
         margin-bottom: 0
+
+        #{$block}__row_layout_wrap-xs &
+          margin-right: 0
+
+      @media screen and (max-width: 640px)
+        #{$block}__row_layout_wrap-xs &
+          margin-right: 0
+
+      @media screen and (max-width: 479px)
+        #{$block}__row_layout_wrap-xs &
+          margin-bottom: 0
 
     // $Common form field MOD: no label
     &_no-label
