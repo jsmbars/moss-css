@@ -57,10 +57,6 @@ $block: ".date-picker"
         &[type=text]::-ms-clear
           display: none
 
-        &_state_error
-          outline: 1px solid map-get($boss-app-palette, alert-border)
-          color: map-get($boss-app-palette, alert)
-
           &:focus
             border-color: map-get($boss-app-palette, alert)
 
@@ -83,6 +79,9 @@ $block: ".date-picker"
         :placeholder-shown
           color: $boss-input-placeholder-color
           opacity:  1 !important
+
+      &_state_error input
+        outline: 1px solid map-get($boss-app-palette, alert-border)
 
 
   // Date picker direct overrides

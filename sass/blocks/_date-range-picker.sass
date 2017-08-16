@@ -269,6 +269,11 @@ $block: ".date-range-picker"
           right: 10px
 
 
+  &_state_error
+    & .DateInput
+      outline: 1px solid map-get($boss-app-palette, alert-border)
+
+
   // Date range picker direct overrides
   @at-root
     .DateRangePicker__picker
