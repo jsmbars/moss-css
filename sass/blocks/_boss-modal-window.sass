@@ -128,6 +128,7 @@ $block: ".boss-modal-window"
 
   // $Modal window header
   &__header
+    position: relative
     background-color: #77dd6f
     color: white
     padding: 15px 10px
@@ -222,9 +223,15 @@ $block: ".boss-modal-window"
       background: #fff url('../icons/icon-error-red.svg') center 35px no-repeat
       background-size: 165px 165px
 
+    #{$block}_role_edit &
+      padding: 0
+
     @media screen and (max-width: 960px)
       padding-right: 15px
       padding-left: 15px
+
+      #{$block}_role_edit &
+        padding: 0
 
     // $Modal window content MOD: role error
     &_role_error
@@ -242,6 +249,14 @@ $block: ".boss-modal-window"
     display: flex
     flex-direction: column
     align-items: center
+
+    #{$block}_role_edit &
+      padding: 20px 30px 30px 30px
+
+    @media screen and (max-width: 960px)
+      #{$block}_role_edit &
+        padding-right: 15px
+        padding-left: 15px
 
 
   // $Modal window message block
