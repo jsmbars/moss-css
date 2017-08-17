@@ -26,12 +26,11 @@ $block: ".boss-alert"
   &:before
     content: ""
     position: absolute
-    top: 50%
+    top: 14px
     left: 20px
     display: block
     width: 14px
     height: 14px
-    margin-top: -7px
     background-image: url(../icons/danger-white.svg)
     background-position: center center
     background-repeat: no-repeat
@@ -42,6 +41,9 @@ $block: ".boss-alert"
 
   &_status_warning
     background-color: map-get($boss-app-palette, edit)
+
+  &_role_area
+    border-radius: 0
 
   // $Alert MOD: role time
   &_role_time
@@ -54,9 +56,9 @@ $block: ".boss-alert"
     border-radius: 0
 
     &:before
+      top: 10px
       width: 30px
       height: 30px
-      margin-top: -15px
       background-color: rgba(0,0,0,.35)
       background-image: url(../icons/checked-white.svg)
       background-size: 12px 12px
@@ -86,9 +88,9 @@ $block: ".boss-alert"
       padding: 10px 15px 10px 20px
 
     &:before
+      top: 10px
       width: 25px
       height: 25px
-      margin-top: -13px
       background-color: #b35456
       background-image: url(../icons/icon-info-white.svg)
       background-size: 12px 12px
@@ -169,6 +171,14 @@ $block: ".boss-alert"
   // $Alert text line
   &__line
     display: block
+
+    &_role_item
+      font-weight: 600
+
+      &:before
+        content: "-"
+        display: inline-block
+        margin-right: 5px
 
 
   // $Alert close button
