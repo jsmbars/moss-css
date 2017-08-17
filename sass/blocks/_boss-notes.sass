@@ -33,32 +33,32 @@ $block: ".boss-notes"
     display: block
     width: 100%
     margin-bottom: 10px
-    height: 200px
+    max-height: 200px
     overflow: hidden
 
     // $Notes block content CONTEXT: $Notes blockMOD: hrc page
     #{$block}_page_hrc &
-      height: 140px
+      max-height: 140px
 
     @media screen and (max-width: 1280px)
       #{$block}_page_hrc &
-        height: 70px
+        max-height: 70px
 
     @media screen and (max-width: 1120px)
       #{$block}_page_hrc &
-        height: 140px
+        max-height: 140px
 
     @media screen and (max-width: 960px)
       #{$block}_page_hrc &
-        height: 80px
+        max-height: 80px
 
     @media screen and (max-width: 800px)
       #{$block}_page_hrc &
-        height: 90px
+        max-height: 90px
 
     @media screen and (max-width: 640px)
       #{$block}_page_hrc &
-        height: 100px
+        max-height: 100px
 
 
   // $Notes block content inner container
