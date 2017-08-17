@@ -432,7 +432,10 @@ $block: ".boss-form"
   &__interval-item
     flex-grow: 1
     flex-shrink: 1
-    width: 100%
+    width: calc(50% - 20px)
+
+    @media screen and (max-width: 400px)
+      width: calc(50% - 12px)
 
 
   // $Common form interval delimiter
@@ -974,6 +977,12 @@ $block: ".boss-form"
           padding-left: 10px
 
       & .Select-option
+        padding-left: 35px
+
+        @media screen and (max-width: 640px)
+          padding-left: 10px
+
+      & .Select-input
         padding-left: 35px
 
         @media screen and (max-width: 640px)
