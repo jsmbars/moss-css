@@ -212,7 +212,8 @@ $block: ".boss-form"
     &_layout_quarter,
     &_layout_max,
     &_layout_min,
-    &_layout_fluid
+    &_layout_fluid,
+    &_layout_hrc-date
       flex-grow: 0
       flex-shrink: 1
       margin-right: 30px
@@ -278,6 +279,16 @@ $block: ".boss-form"
         flex-grow: 1
         flex-shrink: 1
         width: 100%
+
+    &_layout_hrc-date
+      width: 360px
+      flex-grow: 0
+      flex-shrink: 0
+
+      @media screen and (max-width: 1120px)
+        width: 100%
+        flex-grow: 1
+        flex-shrink: 1
 
     // $Common form field MOD: position last
     &:last-of-type,
