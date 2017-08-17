@@ -180,15 +180,21 @@ $block: ".boss-time-shift"
 
     @media screen and (max-width: 1280px)
       flex-grow: 1
-      width: auto
+      flex-shrink: 1
+      width: calc(50% - 20px)
 
     @media screen and (max-width: 1120px)
       flex-grow: 0
+      flex-shrink: 0
       width: 120px
 
     @media screen and (max-width: 960px)
       flex-grow: 1
-      width: auto
+      flex-shrink: 1
+      width: calc(50% - 20px)
+
+    @media screen and (max-width: 400px)
+      width: calc(50% - 12px)
 
 
   // $Time shift delimeiter
@@ -269,13 +275,13 @@ $block: ".boss-time-shift"
 
 
     & .Select-control
-      height: 48px
+      height: 45px
       border-radius: 2px
       border-color: #d8d8d8
 
     & .Select-placeholder,
     & .Select--single > .Select-control .Select-value
-      line-height: 48px
+      line-height: 45px
       padding-left: 40px
       padding-right: 10px
 
@@ -288,11 +294,13 @@ $block: ".boss-time-shift"
 
     & .Select-input
       height: auto
-      line-height: 53px
+      line-height: 45px
+      padding-left: 40px
+      padding-right: 10px
 
       & input
         height: auto
-        line-height: 53px
+        line-height: 45px
         padding: 0
 
     & .Select-option
