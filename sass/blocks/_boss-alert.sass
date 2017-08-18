@@ -42,13 +42,11 @@ $block: ".boss-alert"
   &_status_warning
     background-color: map-get($boss-app-palette, edit)
 
-  &_role_area
-    border-radius: 0
+  &_status_alert
+    background-color: map-get($boss-app-palette, alert)
 
-  // $Alert MOD: role time
-  &_role_time
-    &:before
-      background-image: url(../icons/icon-clock-white.svg)
+  &_status_danger
+    background-color: map-get($boss-app-palette, danger)
 
   // $Alert MOD: role page notification
   &_role_page-note
@@ -64,21 +62,48 @@ $block: ".boss-alert"
       background-size: 12px 12px
       border-radius: 50%
 
-  // $Alert MOD: role page notification status success
-  &_role_page-note#{&}_status_success
-    &:before
-      background-color: rgba(0,0,0,.35)
-
-  // $Alert MOD: role page notification status warning
-  &_role_page-note#{&}_status_warning
-    &:before
-      background-color: rgba(0,0,0,.35)
-      background-image: url(../icons/icon-lock-white.svg)
-
   // $Alert MOD: role notification
-  &_role_note
+  &_role_note,
+  &_no-icon,
+  &_role_page-note#{&}_role_note,
+  &_role_page-note#{&}_no-icon
     &:before
       display: none
+
+  // $Alert MOD: role time
+  &_role_time,
+  &_role_page-note#{&}_role_time
+    &:before
+      background-image: url(../icons/icon-clock-white.svg)
+
+  // $Alert MOD: role alert
+  &_role_alert,
+  &_role_page-note#{&}_alert
+    &:before
+      background-image: url(../icons/danger-white.svg)
+
+  // $Alert MOD: role lock
+  // $Alert MOD: role page notification status warning
+  &_role_lock,
+  &_role_page-note#{&}_lock,
+  &_role_page-note#{&}_status_warning
+    &:before
+      background-image: url(../icons/icon-lock-white.svg)
+
+  // $Alert MOD: role confirm
+  // $Alert MOD: role review
+  &_role_confirm,
+  &_role_review,
+  &_role_page-note#{&}_role_confirm,
+  &_role_page-note#{&}_role_review
+    &:before
+      background-image: url(../icons/checked-white.svg)
+
+  // $Alert MOD: role danger
+  &_role_danger,
+  &_role_page-note#{&}_danger
+    &:before
+      background-image: url(../icons/danger-white.svg)
 
   // $Alert MOD: role information
   &_role_info
@@ -102,6 +127,9 @@ $block: ".boss-alert"
         height: 20px
         margin-top: -10px
         background-size: 10px 10px
+
+  &_role_area
+    border-radius: 0
 
   // $Alert MOD: context above
   &_context_above

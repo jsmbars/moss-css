@@ -64,6 +64,9 @@ $block: ".boss-forecast"
     align-items: center
     padding: 5px
 
+    @media screen and (max-width: 370px)
+      padding: 5px 3px
+
     &:nth-child(1)
       flex-grow: 1
       flex-shrink: 1
@@ -80,11 +83,21 @@ $block: ".boss-forecast"
       @media screen and (max-width: 400px)
         padding-left: 10px
 
+      @media screen and (max-width: 370px)
+        padding-left: 5px
+        word-break: break-all
+
+        #{$block}__row_role_header &
+          word-break: normal
+
     &:nth-child(2)
       flex-grow: 1
       flex-shrink: 1
       width: 100%
       justify-content: flex-end
+
+      @media screen and (max-width: 400px)
+        width: auto
 
     &:nth-child(3)
       flex-grow: 0
@@ -100,7 +113,16 @@ $block: ".boss-forecast"
         width: 110px
 
       @media screen and (max-width: 400px)
+        flex-grow: 1
+        flex-shrink: 1
+        width: auto
         padding-right: 10px
+
+      @media screen and (max-width: 370px)
+        flex-grow: 1
+        flex-shrink: 1
+        width: auto
+        padding-right: 5px
 
 
   // $Forecast amount form
