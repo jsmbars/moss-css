@@ -558,6 +558,15 @@ $block: ".boss-button"
 
 
   // Bordered buttons
+
+  // $Common button MOD: role edit-light
+  &_role_edit-light
+    $primary-color: map-get($boss-app-palette, secondary)
+    $secondary-color: #fff
+    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-with-icon-left($icon-url: '../icons/icon-pencil-secondary.svg', $background-size: 12px)
+    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-pencil-white.svg')
+
   // $Common button MOD: role details
   &_role_details
     $primary-color: map-get($boss-app-palette, secondary)
@@ -566,7 +575,6 @@ $block: ".boss-button"
     +button-with-icon-left($icon-url: '../icons/icon-plus-secondary.svg', $background-size: 12px)
     +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-plus-white.svg')
     +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-plus-white.svg')
-
 
   // $Common button MOD: monochrome button profile
   &_role_profile

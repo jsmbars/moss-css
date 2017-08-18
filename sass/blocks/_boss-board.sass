@@ -97,8 +97,8 @@ $block: ".boss-board"
       &:before
         display: none
 
-    // $Board header MOD: role date
-    &_role_date
+    // $Board header MOD: adjust rotas weekly
+    &_adjust_rotas-weekly
       @media screen and (max-width: 640px)
         flex-direction: column
 
@@ -113,6 +113,11 @@ $block: ".boss-board"
     font-size: 24px
     font-weight: 400
     color: $boss-global-font-color
+
+    @media screen and (max-width: 640px)
+      #{$block}__header_adjust_rotas-weekly &
+        text-align: center
+        margin-bottom: 15px
 
     @media screen and (max-width: 400px)
       font-size: 20px
@@ -141,16 +146,7 @@ $block: ".boss-board"
         background-repeat: no-repeat
         vertical-align: middle
 
-        @media screen and (max-width: 640px)
-          margin-right: 20px
-
     &_role_date
-
-      @media screen and (max-width: 640px)
-        #{$block}__header_role_date &
-          text-align: center
-          margin-bottom: 15px
-
       &:before
         background-image: url(../icons/icon-calendar-dark-gray.svg)
 
@@ -167,6 +163,30 @@ $block: ".boss-board"
   &__title-text
     display: inline-block
     vertical-align: middle
+
+    // $Board title MOD: role date
+    &_role_date
+      &:before
+        content: ""
+        display: inline-block
+        width: 20px
+        height: 20px
+        margin-right: 15px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url(../icons/icon-calendar-dark-gray.svg)
+
+
+  // $Board title action
+  &__title-action
+    display: inline-block
+    margin-left: 10px
+    margin-top: 5px
+    margin-bottom: 5px
 
 
   // $Board title number
