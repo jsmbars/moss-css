@@ -237,7 +237,8 @@ $block: ".boss-page-dashboard"
     @media screen and(max-width: 640px)
       #{$block}_page_staff-members-index &,
       #{$block}_page_fruit-order-form &,
-      #{$block}_page_checklist &
+      #{$block}_page_checklist &,
+      #{$block}_page_rotas-weekly &
         flex-direction: column
         justify-content: center
         align-items: stretch
@@ -262,7 +263,7 @@ $block: ".boss-page-dashboard"
       #{$block}_page_change-order-form &
         width: 100%
 
-    &:not(:last-of-type)
+    &:not(:last-child)
       // $Page dashboard button CONTEXT: $Page dashboard group MOD: profile page
       // $Page dashboard button group CONTEXT: $Page dashboard group MOD: change order form page
       #{$block}_page_profile &,
@@ -272,7 +273,8 @@ $block: ".boss-page-dashboard"
       // $Page dashboard button CONTEXT: $Page dashboard group MOD: staff members index page
       #{$block}_page_staff-members-index &,
       #{$block}_page_fruit-order-form &,
-      #{$block}_page_checklist &
+      #{$block}_page_checklist &,
+      #{$block}_page_rotas-weekly &
         margin-right: 15px
 
       @media screen and(max-width: 960px)
@@ -284,7 +286,8 @@ $block: ".boss-page-dashboard"
       @media screen and(max-width: 640px)
         #{$block}_page_staff-members-index &,
         #{$block}_page_fruit-order-form &,
-        #{$block}_page_checklist &
+        #{$block}_page_checklist &,
+        #{$block}_page_rotas-weekly &
           margin-right: 0
           margin-bottom: 15px
 

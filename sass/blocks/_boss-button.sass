@@ -337,6 +337,14 @@ $block: ".boss-button"
       vertical-align: baseline
 
 
+  // $Common button MOD: role publish
+  &_role_publish
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: role edit
   &_role_edit
     $background-color: map-get($boss-app-palette, primary)
