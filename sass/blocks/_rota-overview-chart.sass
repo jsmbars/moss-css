@@ -20,6 +20,47 @@ $block: ".rota-overview-chart"
   display: block
   width: 100%
 
+  @at-root
+    .nvtooltip.rota-overview-chart-tooltip
+      z-index: 10000
+      display: block
+      padding: 20px 15px 15px
+      border: none
+      background-color: #FFF
+      border-radius: 10px
+      opacity: 1
+      box-shadow: 0 0 10px -1px rgba(0, 0, 0, .2)
+
+      & .nvtooltip-pointer
+        z-index: 10001
+        position: absolute
+        display: block
+
+        &_position_left
+          margin-top: -16px
+          border-right: 16px solid #fff
+          border-top: 16px solid transparent
+          border-bottom: 16px solid transparent
+
+        &_position_right
+          margin-top: -16px
+          border-left: 16px solid #fff
+          border-top: 16px solid transparent
+          border-bottom: 16px solid transparent
+
+        &_position_top
+          margin-left: -16px
+          border-bottom: 16px solid #fff
+          border-right: 16px solid transparent
+          border-left: 16px solid transparent
+
+        &_position_bottom
+          margin-left: -16px
+          border-top: 16px solid #fff
+          border-right: 16px solid transparent
+          border-left: 16px solid transparent
+
+
   &__inner
     position: relative
     display: block
@@ -47,45 +88,6 @@ $block: ".rota-overview-chart"
 
   &  svg .nv-x.nv-axis .tick:nth-child(even) text
     opacity: 0 !important
-
-  & .nvtooltip
-    z-index: 10000
-    display: block
-    padding: 20px 15px 15px
-    border: none
-    background-color: #FFF
-    border-radius: 10px
-    opacity: 1
-    box-shadow: 0 0 10px -1px rgba(0, 0, 0, .2)
-
-  & .nvtooltip-pointer
-    z-index: 10001
-    position: absolute
-    display: block
-
-    &_position_left
-      margin-top: -16px
-      border-right: 16px solid #fff
-      border-top: 16px solid transparent
-      border-bottom: 16px solid transparent
-
-    &_position_right
-      margin-top: -16px
-      border-left: 16px solid #fff
-      border-top: 16px solid transparent
-      border-bottom: 16px solid transparent
-
-    &_position_top
-      margin-left: -16px
-      border-bottom: 16px solid #fff
-      border-right: 16px solid transparent
-      border-left: 16px solid transparent
-
-    &_position_bottom
-      margin-left: -16px
-      border-top: 16px solid #fff
-      border-right: 16px solid transparent
-      border-left: 16px solid transparent
 
   & .nvd3 .nv-axis .nv-axisMaxMin text
     +text-normalizer()
