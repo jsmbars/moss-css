@@ -1,0 +1,206 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Report
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-report"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+
+  // $Report group
+  &__group
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 35px
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 30px
+
+    // $Report group MOD: last position
+    &_position_last
+      margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+    // $Report group MOD: role board
+    &_role_board
+      padding: 25px 30px
+      background-color: #FFF
+      box-shadow: 0 0 30px 0 rgba(0,0,0,.1)
+
+      @media screen and (max-width: 1280px)
+        padding: 20px 25px
+
+      @media screen and (max-width: 960px)
+        padding: 20px
+
+      @media screen and (max-width: 800px)
+        padding: 20px 15px
+
+      @media screen and (max-width: 640px)
+        padding: 15px 10px
+
+
+  // $Report summary
+  &__summary
+    display: block
+    width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+
+  // $Report summery item
+  &__summary-item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    margin-bottom: 20px
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+
+    &:last-child
+      margin-bottom: 0
+
+
+  // $Report summary label
+  &__summary-label
+    flex-grow: 0
+    flex-shrink: 0
+    width: 150px
+    padding-right: 20px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
+      margin-bottom: 3px
+      padding-right: 0
+
+    // $Report summery label MOD: size medium
+    &_size_medium
+      width: 250px
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+
+  // $Report summary value
+  &__summary-value
+    flex-grow: 1
+    flex-shrink: 1
+
+    @media screen and (max-width: 960px)
+      width: 100%
+
+
+  // $Report summary text
+  &__summary-text
+    +text-normalizer()
+    max-width: 100%
+
+    // $Report summary text MOD: marked
+    &_marked
+      font-weight: 600
+
+    // $Report summary text MOD: role date
+    // $Report summary text MOD: role time
+    // $Report summary text MOD: role user
+    // $Report summary text MOD: role venue
+    // $Report summary text MOD: role voucher
+    // $Report summary text MOD: role title
+    // $Report summary text MOD: role location
+    &_role_date,
+    &_role_time,
+    &_role_user,
+    &_role_venue,
+    &_role_title,
+    &_role_location
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 7px
+        margin-top: -3px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_time
+      &:before
+        background-image: url('../icons/icon-clock-dark-gray.svg')
+
+    &_role_user
+      &:before
+        background-image: url('../icons/icon-user-dark-gray.svg')
+
+    &_role_venue
+      &:before
+        background-image: url('../icons/icon-storefront-dark-gray.svg')
+
+    &_role_title
+      &:before
+        background-image: url('../icons/icon-pencil-dark-gray.svg')
+
+    &_role_location
+      &:before
+        background-image: url('../icons/icon-location-pin-dark-gray.svg')
+
+
+  // $Report record
+  &__record
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 35px
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 30px
+
+    // $Report field MOD: position last
+    &:last-of-type,
+    &_position_last
+      margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+
+  // $Report subtitle
+  &__subtitle
+    +text-normalizer()
+    margin-bottom: 5px
+    font-size: 18px
+    font-weight: 600
+
+
+  // $Report text
+  &__text
+    +text-normalizer()
+    display: block
+    width: 100%

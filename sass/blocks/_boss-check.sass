@@ -222,20 +222,22 @@ $block: ".boss-check"
     // $Check block text MOD: role venue
     // $Check block text MOD: role voucher
     // $Check block text MOD: role note
+    // $Check block text MOD: role location
     &_role_date,
     &_role_time,
     &_role_date-calendar,
     &_role_user,
     &_role_venue,
     &_role_voucher,
-    &_role_note
+    &_role_note,
+    &_role_location
 
       &:before
         content: ""
         display: inline-block
         width: 16px
         height: 16px
-        margin-right: 5px
+        margin-right: 7px
         margin-top: -3px
         background-repeat: no-repeat
         background-position: center center
@@ -260,7 +262,6 @@ $block: ".boss-check"
       text-align: center
 
       &:before
-        margin-right: 10px
         background-image: url('../icons/icon-calendar-dark-gray.svg')
 
     &_role_user
@@ -273,7 +274,6 @@ $block: ".boss-check"
       text-align: center
 
       &:before
-        margin-right: 10px
         background-image: url('../icons/icon-storefront-dark-gray.svg')
 
     &_role_voucher
@@ -282,13 +282,19 @@ $block: ".boss-check"
       &:before
         width: 18px
         height: 18px
-        margin-right: 10px
         background-image: url('../icons/icon-ticket-dark-gray.svg')
+
+    &_role_location
+      text-align: center
+
+      &:before
+        width: 16px
+        height: 16px
+        background-image: url('../icons/icon-location-pin-dark-gray.svg')
 
     &_role_note
 
       &:before
-        margin-right: 10px
         background-image: url('../icons/icon-envelope-dark-gray.svg')
 
     // $Check block text MOD: indicator attachment

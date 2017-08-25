@@ -252,7 +252,11 @@ $block: ".boss-page-main"
         padding: 0 0 20px
 
     // $Page main container group MOD: adjust safe checks form
-    &_adjust_sc-form
+    // $Page main container group MOD: adjust incident reports form
+    // $Page main container group MOD: adjust incident reports full
+    &_adjust_sc-form,
+    &_adjust_ir-form,
+    &_adjust_ir-full
       padding: 25px 25px 35px
       background-color: #FFF
 
@@ -342,6 +346,18 @@ $block: ".boss-page-main"
     @media screen and (max-width: 480px)
       padding: 20px 10px 0 10px
 
+    &_adjust_check
+      padding: 30px 30px 0
+
+      @media screen and (max-width: 1280px)
+        padding: 30px 30px 0
+
+      @media screen and (max-width: 960px)
+        padding: 20px 20px 0
+
+      @media screen and (max-width: 480px)
+        padding: 20px 10px 0
+
 
   // $Page main container isle area
   &__isle
@@ -351,6 +367,25 @@ $block: ".boss-page-main"
 
     @media screen and (max-width: 960px)
       width: 100%
+
+    &_adjust_check-half
+      margin-bottom: 0
+      padding-bottom: 40px
+
+      @media screen and (max-width: 960px)
+        padding-bottom: 30px
+
+      &:nth-of-type(odd)
+        padding-right: 20px
+
+        @media screen and (max-width: 960px)
+          padding-right: 0
+
+      &:nth-of-type(even)
+        padding-left: 20px
+
+        @media screen and (max-width: 960px)
+          padding-left: 0
 
 
   // $Page main container filter
