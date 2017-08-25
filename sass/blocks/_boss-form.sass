@@ -106,9 +106,17 @@ $block: ".boss-form"
       background-color: #FFF
       box-shadow: 0 0 30px 0 rgba(0,0,0,.1)
 
+      @media screen and (max-width: 1280px)
+        padding: 20px 25px
+
       @media screen and (max-width: 960px)
-        padding: 0
-        box-shadow: none
+        padding: 20px
+
+      @media screen and (max-width: 800px)
+        padding: 20px 15px
+
+      @media screen and (max-width: 640px)
+        padding: 15px 10px
 
     // $Common form group MOD: state visible
     &_state_visible
@@ -155,6 +163,9 @@ $block: ".boss-form"
     // $Common form row MOD: align center
     &_align_center
       align-items: center
+
+      @media screen and (max-width: 960px)
+        align-items: flex-start
 
     // $Common form row MOD: layout wrap-xs
     &_layout_wrap-xs
@@ -527,12 +538,6 @@ $block: ".boss-form"
         flex-grow: 0
         flex-shrink: 0
 
-    &_type_inline
-      padding-top: 20px
-
-      @media screen and (max-width: 960px)
-        padding-top: 0
-
     // $Common form label MOD: type venue icon
     // $Common form label MOD: type filter icon
     // $Common form label MOD: type date icon
@@ -612,6 +617,14 @@ $block: ".boss-form"
     &_type_hidden
       font-size: 0
       color: transparent
+
+    &_type_inline-fluid
+      margin-top: 20px
+      margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-top: 0
+        margin-bottom: 12px
 
 
   // $Common form value
@@ -714,7 +727,7 @@ $block: ".boss-form"
     resize: vertical
     display: block
     width: 100%
-    min-height: 70px
+    min-height: 75px
     box-sizing: border-box
     border: 1px solid $boss-very-light-gray
     padding: 15px 20px
@@ -724,6 +737,9 @@ $block: ".boss-form"
       outline: none
       box-shadow: none
       border-color: $boss-very-light-gray
+
+    &_size_large
+      min-height: 150px
 
     &_type_transparent
       background-color: transparent
