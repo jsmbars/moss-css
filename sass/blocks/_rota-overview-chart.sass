@@ -74,6 +74,26 @@ $block: ".rota-overview-chart"
     text-align: left
 
 
+  &__controls
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    padding-left: 10px
+    margin: 10px 0 20px
+
+
+  &__controls-label
+    +text-normalizer()
+    margin-right: 10px
+    white-space: nowrap
+
+
+  &__controls-button
+    &:not(:last-child)
+      margin-right: 10px
+
+
   & .nv-chart
     display: block
     min-width: 660px
@@ -101,6 +121,14 @@ $block: ".rota-overview-chart"
 
   & .nvd3 .nv-axis text
     text-transform: uppercase
+
+  & text.nvd3.nv-noData
+    +text-normalizer()
+    font-size: 18px
+    font-weight: 600
+    fill: #808080
+    white-space: nowrap
+
 
   &__hover-indicator
     display: none
