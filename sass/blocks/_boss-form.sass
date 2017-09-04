@@ -511,6 +511,47 @@ $block: ".boss-form"
         margin-bottom: 0
 
 
+  // $Common form units label
+  &__units
+    display: flex
+    flex-direction: row
+    align-items: stretch
+    justify-content: flex-start
+    width: 100%
+
+    & .field_with_error
+      flex-grow: 1
+      display: block
+      width: calc(100% - 50px)
+      outline: 1px solid map-get($boss-app-palette, alert-border)
+
+    &_size_extra .field_with_error
+      width: calc(100% - 75px)
+
+
+  // $Common form units label value
+  &__units-value
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 50px
+    padding: 13px 5px
+    text-align: center
+    font-size: 16px
+    background-color: $boss-extra-light-gray
+    border: 1px solid $boss-very-light-gray
+    border-right: none
+    font-weight: bold
+    white-space: nowrap
+
+    #{$block}__units_size_extra &
+      width: 75px
+
+    &_position_last
+      border-left: none
+      border-right: 1px solid $boss-very-light-gray
+
+
   // $Common form label
   &__label
     +text-normalizer()
@@ -652,52 +693,19 @@ $block: ".boss-form"
     border-radius: 2px
     background-color: $boss-extra-light-gray
 
+    #{$block}__units &
+      position: relative
+      z-index: 1
+      width: calc(100% - 50px)
+
+    #{$block}__units_size_extra &
+      width: calc(100% - 75px)
+
     // $Common form value MOD: state alert
     &_state_alert
       background-color: #ff8587
       border-color: darken(#ff8587, 10%)
       color: #fff
-
-
-  // $Common form units label
-  &__units
-    display: flex
-    flex-direction: row
-    align-items: stretch
-    justify-content: flex-start
-    width: 100%
-
-    & .field_with_error
-      flex-grow: 1
-      display: block
-      width: calc(100% - 50px)
-      outline: 1px solid map-get($boss-app-palette, alert-border)
-
-    &_size_extra .field_with_error
-      width: calc(100% - 75px)
-
-
-  // $Common form units label value
-  &__units-value
-    flex-grow: 0
-    flex-shrink: 0
-    display: block
-    width: 50px
-    padding: 13px 5px
-    text-align: center
-    font-size: 16px
-    background-color: $boss-extra-light-gray
-    border: 1px solid $boss-very-light-gray
-    border-right: none
-    font-weight: bold
-    white-space: nowrap
-
-    #{$block}__units_size_extra &
-      width: 75px
-
-    &_position_last
-      border-left: none
-      border-right: 1px solid $boss-very-light-gray
 
 
   // $Common form input
