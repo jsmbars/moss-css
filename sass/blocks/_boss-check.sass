@@ -184,7 +184,8 @@ $block: ".boss-check"
     text-align: inherit
 
     &_role_date,
-    &_role_payment
+    &_role_payment,
+    &_role_machine
 
       &:before
         content: ""
@@ -205,6 +206,10 @@ $block: ".boss-check"
     &_role_payment
       &:before
         background-image: url('../icons/icon-wallet-dark-gray.svg')
+
+    &_role_machine
+      &:before
+        background-image: url('../icons/icon-display-dark-gray.svg')
 
 
     // $Check block title status

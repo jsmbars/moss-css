@@ -101,7 +101,8 @@ $block: ".boss-form"
         margin-bottom: 0
 
     // $Common form group MOD: role board
-    &_role_board
+    &_role_board,
+    &_role_board-outline
       padding: 25px 30px
       background-color: #FFF
       box-shadow: 0 0 30px 0 rgba(0,0,0,.1)
@@ -117,6 +118,9 @@ $block: ".boss-form"
 
       @media screen and (max-width: 640px)
         padding: 15px 10px
+
+    &_role_board-outline
+      border: 2px solid $boss-very-light-gray
 
     // $Common form group MOD: state visible
     &_state_visible
@@ -135,6 +139,11 @@ $block: ".boss-form"
     &_mobile
       @media screen and (min-width: 961px)
         display: none
+
+  &__group-title
+    +text-normalizer()
+    font-size: 20px
+    margin-bottom: 30px
 
 
   // $Common form row
@@ -664,6 +673,9 @@ $block: ".boss-form"
       width: calc(100% - 50px)
       outline: 1px solid map-get($boss-app-palette, alert-border)
 
+    &_size_extra .field_with_error
+      width: calc(100% - 75px)
+
 
   // $Common form units label value
   &__units-value
@@ -678,6 +690,14 @@ $block: ".boss-form"
     border: 1px solid $boss-very-light-gray
     border-right: none
     font-weight: bold
+    white-space: nowrap
+
+    #{$block}__units_size_extra &
+      width: 75px
+
+    &_position_last
+      border-left: none
+      border-right: 1px solid $boss-very-light-gray
 
 
   // $Common form input
@@ -702,7 +722,12 @@ $block: ".boss-form"
       border: none
 
     #{$block}__units &
+      position: relative
+      z-index: 1
       width: calc(100% - 50px)
+
+    #{$block}__units_size_extra &
+      width: calc(100% - 75px)
 
     #{$block}__units .field_with_error &
       width: 100%
