@@ -409,10 +409,25 @@ $block: ".boss-form"
   // $Common form field note
   &__field-note
     +text-normalizer()
+    display: block
     margin-top: 10px
     margin-bottom: 0
     color: #808080
     line-height: 1
+
+    // $Common form field note MOD: position above
+    &_position_above
+      margin-top: 0
+      margin-bottom: 12px
+
+    // $Common form field note MOD: size extra
+    &_size_extra
+      font-size: 18px
+
+
+  // $Common form field note value
+  &__field-note-value
+    color: #4c4c4c
 
 
   // $Common form interval
