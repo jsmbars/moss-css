@@ -1024,6 +1024,25 @@ $block: ".boss-form"
   &__select
     text-align: left
 
+    & .Select-color-indicator
+      display: inline-block
+      margin-right: 5px
+      width: 10px
+      height: 10px
+      background-color: #d8d8d8
+      border-radius: 50%
+
+      &_priority_high
+        background-color: map-get($boss-app-palette, alert)
+
+      &_priority_medium
+        background-color: map-get($boss-app-palette, warning)
+
+      &_priority_low
+        background-color: map-get($boss-app-palette, ok)
+
+
+
     & .Select-control
       height: 53px
       border-radius: 2px

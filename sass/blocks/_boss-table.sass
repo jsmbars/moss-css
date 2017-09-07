@@ -49,7 +49,8 @@ $block: ".boss-table"
   &_page_checklist-review,
   &_page_vhci,
   &_page_vouchers-index,
-  &_page_voucher-usage
+  &_page_voucher-usage,
+  &_page_maintenance-index
     border: 1px solid #eee
 
   &_page_checklist-review,
@@ -65,6 +66,12 @@ $block: ".boss-table"
 
   // $Common table group
   &__group
+    display: block
+    width: 100%
+
+    &:nth-child(odd)
+      #{$block}_page_maintenance-index &
+        background-color: #fbfbfb
 
 
   // $Common table dropdown
@@ -83,6 +90,113 @@ $block: ".boss-table"
         background-color: #feeeee
 
 
+  // $Common table details
+  &__details
+    padding: 10px 0
+    border-bottom: 1px solid #eee
+
+    // $Common table details MOD: state closed
+    &_state_closed
+      @media screen and (max-width: 960px)
+        display: none
+
+    // $Common form row MOD: visible on mobiles
+    &_state_visible-mobile
+      @media screen and(min-width: 961px)
+        display: none !important
+
+
+  // $Common table details inner container
+  &__details-inner
+    width: 100%
+    max-width: 300px
+
+    #{$block}_page_maintenance-index &
+      max-width: 350px
+
+
+  // $Common table details item
+  &__details-item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    padding: 10px 0
+
+    &:not(:last-child)
+      border-bottom: 1px solid #eee
+
+
+  // $Common table details label
+  &__details-label
+    +text-normalizer()
+    flex-grow: 1
+    width: 50%
+    padding-left: 15px
+    padding-right: 10px
+    text-transform: uppercase
+
+    #{$block}_page_maintenance-index &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 150px
+      padding-left: 20px
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_maintenance-index &
+        width: 100px
+        padding-left: 10px
+
+
+  // $Common table details value
+  &__details-value
+    +text-normalizer()
+    flex-grow: 1
+    width: 50%
+    padding-left: 15px
+    padding-right: 10px
+
+    #{$block}_page_maintenance-index &
+      width: calc(100% - 150px)
+      padding-left: 10px
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_maintenance-index &
+        width: calc(100% - 100px)
+
+    &_role_action
+      cursor: pointer
+
+
+  &__details-switch
+    display: block
+    width: 20px
+    height: 20px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    background-color: $boss-light-gray
+    background-image: url(../icons/icon-arrow-down-white.svg)
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 9px 9px
+    border-radius: 50%
+    transform: rotate(180deg)
+    transition: all .4s
+    cursor: pointer
+
+    &_state_closed
+      transform: rotate(0)
+
+    &:hover
+      opacity: .8
+
+    &:focus
+      outline: #FFF
+
+
   // $Common table row
   &__row
     +text-normalizer()
@@ -97,6 +211,9 @@ $block: ".boss-table"
 
     #{$block}_type_common &
       display: table-row
+
+    #{$block}_page_maintenance-index &
+      background-color: transparent
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
@@ -141,6 +258,9 @@ $block: ".boss-table"
         padding-top: 15px
         padding-bottom: 15px
 
+      #{$block}_page_maintenance-index &
+        display: flex
+
     &:nth-child(odd)
       #{$block}_page_change-order-report &,
       #{$block}_page_safe-checks-index &,
@@ -152,7 +272,8 @@ $block: ".boss-table"
 
 
     // $Common table first row
-    &:nth-child(1)
+    &:nth-child(1),
+    &_role_header
 
       #{$block}_page_change-order-history &
         background-color: $boss-dark-gray
@@ -168,10 +289,22 @@ $block: ".boss-table"
           display: none
 
       @media screen and (max-width: 960px)
-        display: none
+        #{$block}_page_staff-members-index &,
+        #{$block}_page_fruit-order-history &,
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &
+          display: none
 
-        #{$block}_page_holidays-report &
-          display: block
+    &_role_header
+      @media screen and (max-width: 960px)
+        #{$block}_page_message-board &
+          display: none
 
     // $Common table second row
     &:nth-child(2)
@@ -226,9 +359,9 @@ $block: ".boss-table"
       padding: 15px 10px
 
     #{$block}_page_smp-owed-hours &,
-    #{$block}_page_message-board &
+    #{$block}_page_message-board &,
+    #{$block}_page_maintenance-index &
       padding: 15px 10px
-
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &
@@ -261,8 +394,15 @@ $block: ".boss-table"
 
       #{$block}_page_smp-holidays &,
       #{$block}_page_smp-owed-hours &,
-      #{$block}_page_message-board &
+      #{$block}_page_message-board &,
+      #{$block}_page_maintenance-index &
         padding: 10px
+
+      #{$block}_page_maintenance-index &
+        justify-content: flex-start
+        align-items: flex-start
+        padding-top: 20px
+        padding-bottom: 20px
 
     &:first-child
       padding-left: 25px
@@ -331,6 +471,9 @@ $block: ".boss-table"
       #{$block}_page_message-board &
         width: 15%
 
+      #{$block}_page_maintenance-index &
+        width: 20%
+        border-right: 1px solid #eee
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -374,6 +517,17 @@ $block: ".boss-table"
         #{$block}_page_staff-members-index &
           flex-grow: 1
           flex-shrink: 1
+
+        #{$block}_page_maintenance-index &
+          flex-grow: 0
+          flex-shrink: 0
+          width: 150px
+          padding-left: 20px
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index &
+          width: 100px
+          padding-left: 10px
 
 
     // $Common table cell second column
@@ -425,6 +579,10 @@ $block: ".boss-table"
       #{$block}_page_message-board &
         width: 20%
 
+      #{$block}_page_maintenance-index &
+        width: 24%
+        border-right: 1px solid #eee
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -448,6 +606,10 @@ $block: ".boss-table"
         #{$block}_page_smp-owed-hours &,
         #{$block}_page_message-board &
           width: 100%
+
+        #{$block}_page_maintenance-index &
+          width: 70%
+          border-right: none
 
 
     // $Common table cell third column
@@ -499,6 +661,10 @@ $block: ".boss-table"
       #{$block}_page_message-board &
         width: 33%
 
+      #{$block}_page_maintenance-index &
+        width: 18%
+        border-right: 1px solid #eee
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -519,6 +685,9 @@ $block: ".boss-table"
         #{$block}_page_smp-owed-hours &,
         #{$block}_page_message-board &
           width: 100%
+
+        #{$block}_page_maintenance-index &
+          display: none
 
 
     // $Common table cell fourth column
@@ -576,6 +745,9 @@ $block: ".boss-table"
         width: 150px
         justify-content: center
 
+      #{$block}_page_maintenance-index &
+        width: 18%
+        border-right: 1px solid #eee
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -608,6 +780,9 @@ $block: ".boss-table"
         #{$block}_page_message-board &
           flex-grow: 1
           flex-shrink: 1
+
+        #{$block}_page_maintenance-index &
+          display: none
 
 
     // $Common table cell fifth column
@@ -652,6 +827,11 @@ $block: ".boss-table"
         width: 230px
         justify-content: center
 
+      #{$block}_page_maintenance-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 200px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -679,6 +859,9 @@ $block: ".boss-table"
           flex-grow: 1
           flex-shrink: 1
 
+        #{$block}_page_maintenance-index &
+          display: none
+
     // $Common table cell sixth column
     &:nth-child(6)
 
@@ -703,6 +886,12 @@ $block: ".boss-table"
       #{$block}_page_smp-owed-hours &
         width: 25%
 
+      #{$block}_page_maintenance-index &
+        display: none
+        flex-grow: 0
+        flex-shrink: 0
+        width: 50px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -722,6 +911,14 @@ $block: ".boss-table"
         #{$block}_page_holidays-report &
           flex-grow: 1
           flex-shrink: 1
+
+        #{$block}_page_maintenance-index &
+          display: block
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index &
+          width: 40px
+          padding-right: 10px
 
     // $Common table cell seventh column
     &:nth-child(7)
@@ -976,6 +1173,7 @@ $block: ".boss-table"
   &__text
     +text-normalizer()
     max-width: 100%
+    vertical-align: middle
 
     #{$block}_page_holidays-report &
       color: $boss-medium-gray
@@ -1071,7 +1269,6 @@ $block: ".boss-table"
 
     &_role_action
       cursor: pointer
-
 
   &__text-line,
   &__text-meta
@@ -1227,7 +1424,10 @@ $block: ".boss-table"
   // $Common table link
   &__link
     +text-normalizer()
+    display: inline-block
+    max-width: 100%
     color: $boss-dark-gray
+    vertical-align: middle
     text-decoration: none
 
     &:hover,
@@ -1235,3 +1435,83 @@ $block: ".boss-table"
       outline: none
       text-decoration: none
       color: $boss-dark-gray
+
+
+  //  $Common table sort link
+  &__sort
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    z-index: 10
+    display: block
+    width: 35px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+
+    &:before
+      content: ""
+      position: absolute
+      right: 10px
+      top: 50%
+      display: block
+      width: 15px
+      height: 20px
+      margin-top: -11px
+      background-image: url(../icons/sort.svg)
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+      opacity: .2
+      transition: opacity .4s
+
+    &:hover,
+    &:focus
+      color: transparent
+      outline: none
+
+    &:hover
+      &:before
+        opacity: 1
+
+
+  //  $Common table status indicator
+  &__status
+    +text-normalizer()
+    display: inline-block
+    max-width: 100%
+    white-space: nowrap
+
+    &_role_action
+      cursor: pointer
+
+  &__status-text
+    max-width: 100%
+    vertical-align: middle
+
+
+  &__status-indicator
+    display: inline-block
+    margin-right: 15px
+    width: 20px
+    height: 20px
+    background-color: #d8d8d8
+    border-radius: 50%
+    vertical-align: middle
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_maintenance-index &
+        width: 15px
+        height: 15px
+        margin-right: 5px
+
+    &_priority_high
+      background-color: map-get($boss-app-palette, alert)
+
+    &_priority_medium
+      background-color: map-get($boss-app-palette, warning)
+
+    &_priority_low
+      background-color: map-get($boss-app-palette, ok)
