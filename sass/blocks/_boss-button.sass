@@ -485,6 +485,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: role disable
+  &_role_disable
+    $background-color: map-get($boss-app-palette, alert)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-trash-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: role cancel reverse
   &_role_cancel_reverse
     $background-color: map-get($boss-app-palette, alert)
@@ -534,14 +542,8 @@ $block: ".boss-button"
 
 
   // $Common button MOD: role reload
-  &_role_reload
-    $background-color: map-get($boss-app-palette, primary)
-    +button-common($background-color: $background-color)
-    +button-with-icon-left($icon-url: '../icons/icon-reload-white.svg', $background-size: 13px)
-    +button-common-hover-behavior($background-color: $background-color)
-
-
   // $Common button MOD: role reload-page
+  &_role_reload,
   &_role_reload-page
     $background-color: map-get($boss-app-palette, primary)
     +button-common($background-color: $background-color)
@@ -550,7 +552,9 @@ $block: ".boss-button"
 
 
   // $Common button MOD: role success
-  &_role_success
+  // $Common button MOD: role restore
+  &_role_success,
+  &_role_restore
     $background-color: map-get($boss-app-palette, secondary)
     +button-common($background-color: $background-color)
     +button-with-icon-left($icon-url: '../icons/checked-white.svg')

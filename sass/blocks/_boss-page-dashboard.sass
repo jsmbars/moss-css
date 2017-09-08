@@ -357,54 +357,16 @@ $block: ".boss-page-dashboard"
       font-size: 18px
 
     // $Page dashboard meta item MOD: role user
-    &_role_user
-      &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
-        margin-right: 7px
-        background-size: cover
-        vertical-align: middle
-        background-image: url(../icons/user-verified.svg)
-
-    // $Page dashboard meta item MOD: role voucher
-    &_role_voucher
-      &:before
-        content: ""
-        display: inline-block
-        width: 18px
-        height: 18px
-        margin-right: 7px
-        background-size: cover
-        vertical-align: middle
-        background-image: url(../icons/icon-ticket-dark-gray.svg)
-
+    // $Page dashboard meta item MOD: role machine
     // $Page dashboard meta item MOD: role venue
-    &_role_venue
-      &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
-        margin-right: 7px
-        background-size: cover
-        vertical-align: middle
-        background-image: url(../icons/icon-storefront-dark-gray.svg)
-
+    // $Page dashboard meta item MOD: role voucher
     // $Page dashboard meta item MOD: role user
-    &_role_user
-      &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
-        margin-right: 7px
-        background-size: cover
-        vertical-align: middle
-        background-image: url(../icons/user-verified.svg)
-
     // $Page dashboard meta item MOD: role date
+    &_role_user,
+    &_role_machine,
+    &_role_voucher,
+    &_role_venue,
+    &_role_user,
     &_role_date
       &:before
         content: ""
@@ -412,8 +374,30 @@ $block: ".boss-page-dashboard"
         width: 16px
         height: 16px
         margin-right: 7px
-        background-size: cover
+        background-size: contain
         vertical-align: middle
+        background-image: url(../icons/user-verified.svg)
+
+    &_role_machine
+      &:before
+        background-image: url('../icons/icon-display-dark-gray.svg')
+
+    &_role_voucher
+      &:before
+        width: 18px
+        height: 18px
+        background-image: url(../icons/icon-ticket-dark-gray.svg)
+
+    &_role_venue
+      &:before
+        background-image: url(../icons/icon-storefront-dark-gray.svg)
+
+    &_role_user
+      &:before
+        background-image: url(../icons/user-verified.svg)
+
+    &_role_date
+      &:before
         background-image: url(../icons/icon-calendar-dark-gray.svg)
 
     &_role_date#{&}_type_faded
