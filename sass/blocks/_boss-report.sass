@@ -194,9 +194,11 @@ $block: ".boss-report"
   // $Report subtitle
   &__subtitle
     +text-normalizer()
-    margin-bottom: 5px
-    font-size: 18px
+    padding-bottom: 5px
+    margin-bottom: 10px
+    font-size: 20px
     font-weight: 600
+    border-bottom: 1px solid #eee
 
 
   // $Report text
@@ -204,3 +206,53 @@ $block: ".boss-report"
     +text-normalizer()
     display: block
     width: 100%
+
+
+  // $Report wysiwyg-generated content
+  &__content
+
+    // wysiwyg-generated paragraph
+    p
+      +text-normalizer()
+      margin-bottom: 15px
+
+    // wysiwyg-generated lists
+    & ul,
+    & ol
+      list-style: none
+      margin: 0
+      padding: 0
+      margin-bottom: 15px
+
+      & li
+        +text-normalizer()
+        position: relative
+        margin-bottom: 10px
+
+    & ul
+      & li
+        padding-left: 12px
+        &:before
+          content: "-"
+          position: absolute
+          left: 0
+          top: 0
+          display: inline-block
+
+    & ol
+      counter-reset: item
+      & li
+        padding-left: 15px
+        &:before
+          content: counter(item) ". "
+          counter-increment: item
+          position: absolute
+          left: 0
+          top: 0
+          display: inline-block
+
+    // wysiwyg-generated sublists
+    & ul ul,
+    & ol ol
+      padding-left: 30px
+      margin-bottom: 0
