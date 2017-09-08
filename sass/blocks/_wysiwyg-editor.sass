@@ -18,32 +18,27 @@ $block: ".wysiwyg-editor"
   display: block
   width: 100%
 
-  & .rdw-editor-wrapper
-    border: 1px solid $boss-very-light-gray
-    border-radius: 2px
+  &_state_error
+    outline: 1px solid map-get($boss-app-palette, alert-border)
 
-  & .rdw-editor-toolbar
-    border: none
-    border-bottom: 1px solid $boss-very-light-gray
-    margin-bottom: 0
+
+  &__toolbar
+    margin: 0
     padding: 10px 15px 5px
 
-  & .rdw-editor-main
-    +text-normalizer()
+  &__editor
     min-height: 200px
     max-height: 300px
     overflow: auto
-    color: $boss-medium-gray
     padding: 15px
 
-  & .rdw-option-wrapper
-    height: 30px
-    min-width: 30px
+  &__button
+    border-radius: 0 !important
+    border-color: $boss-very-light-gray !important
 
-  & .rdw-option-wrapper:hover,
-  & .rdw-option-wrapper.rdw-option-active
-    box-shadow: none
-    border-color: $boss-light-gray
+    &:not(:disabled):hover,
+    &_state_active:not(:disabled)
+      background: $boss-extra-light-gray !important
 
   & .public-DraftStyleDefault-block
     +text-normalizer()
