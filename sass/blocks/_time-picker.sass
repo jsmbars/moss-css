@@ -16,31 +16,18 @@ $block: ".time-picker"
 
 #{$block}
 
-  &_context_modal
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-
 
   @at-root
-    .time-picker-portal
-      position: fixed
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      z-index: 10000
-      display: flex
-      flex-direction: row
-      justify-content: center
-      align-items: center
-      background-color: rgba(0,0,0,.75)
-      overflow-x: hidden
-      overflow-y: auto
+    // Mobile devices fix
+    .rc-time-picker-panel .rc-time-picker-panel-select
+      @media (pointer:coarse)
+        max-height: 144px
+        overflow-y: auto
 
-      &_state_closed
-        display: none
+    .rc-time-picker-panel .rc-time-picker-panel-select ul
+      @media (pointer:coarse)
+        max-height: initial
+
 
     .time-picker-input
       display: block
@@ -103,3 +90,5 @@ $block: ".time-picker"
 
       &_state_error input
         outline: 1px solid map-get($boss-app-palette, alert-border)
+
+
