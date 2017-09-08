@@ -40,6 +40,11 @@ $block: ".wysiwyg-editor"
     &_state_active:not(:disabled)
       background: $boss-extra-light-gray !important
 
+  & .DraftEditor-root,
+  & .DraftEditor-editorContainer,
+  & .public-DraftEditor-content
+    min-height: 200px
+
   & .public-DraftStyleDefault-block
     +text-normalizer()
     margin-top: 0
@@ -82,7 +87,6 @@ $block: ".wysiwyg-editor"
 
   & .public-DraftStyleDefault-depth4.public-DraftStyleDefault-listRTL
     margin-right: 80px
-
 
   & .public-DraftStyleDefault-unorderedListItem,
   & .public-DraftStyleDefault-unorderedListItem.public-DraftStyleDefault-depth0,
