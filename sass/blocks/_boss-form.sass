@@ -395,6 +395,20 @@ $block: ".boss-form"
         margin-right: 0
         margin-bottom: 0
 
+    &_role_label-extra-small
+      flex-grow: 0
+      flex-shrink: 0
+      width: 100px
+      margin-right: 20px
+      margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        flex-grow: 1
+        flex-shrink: 1
+        width: 100%
+        margin-right: 0
+        margin-bottom: 0
+
     // $Common form field MOD: desktop visible
     &_desktop
       @media screen and (max-width: 960px)
@@ -1040,8 +1054,6 @@ $block: ".boss-form"
 
       &_priority_low
         background-color: map-get($boss-app-palette, ok)
-
-
 
     & .Select-control
       height: 53px

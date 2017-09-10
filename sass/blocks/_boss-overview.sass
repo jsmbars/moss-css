@@ -1,0 +1,356 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Overview
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-overview"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+  // $Overview header
+  &__header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: flex-start
+    width: 100%
+
+    #{$block}_page_change-order-history &
+      margin-bottom: 20px
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+
+      #{$block}_page_change-order-history &
+        padding-bottom: 25px
+        border-bottom: 1px solid #eee
+
+    &_layout_reverse
+      flex-direction: row-reverse
+
+      @media screen and (max-width: 960px)
+        flex-direction: column
+
+
+  // $Overview group
+  &__group
+    display: block
+    width: 100%
+    margin-bottom: 25px
+
+    &_position_last
+      margin-bottom: 0
+
+    &_adjust_gallery
+      margin-bottom: 5px
+
+
+  // $Overview label
+  &__label
+    +text-normalizer()
+    margin-bottom: 5px
+    white-space: nowrap
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_change-order-history &
+        margin-bottom: 10px
+
+
+  // $Overview label text
+  &__label-text
+    display: inline-block
+    text-transform: uppercase
+    color: $boss-light-gray
+
+    // $Overview label text MOD: role key
+    &_role_key
+      &:after
+        content: ":"
+        display: inline-block
+        margin-left: 15px
+
+    // $Overview value
+    &_role_value
+      margin-left: 15px
+      text-transform: none
+
+
+  // $Overview indicator
+  &__indicator
+    +text-normalizer()
+    position: relative
+    padding-left: 20px
+
+    &:before
+      content: ""
+      z-index: 10
+      position: absolute
+      top: 6px
+      left: 0
+      display: block
+      width: 10px
+      height: 10px
+      border-radius: 50%
+      background-color: $boss-very-light-gray
+
+    // $Overview indicator MOD: high priority
+    &_priority_high
+      &:before
+        background-color: map-get($boss-app-palette, alert)
+
+    // $Overview indicator MOD: medium priority
+    &_priority_medium
+      &:before
+        background-color: map-get($boss-app-palette, warning)
+
+    // $Overview indicator MOD: low priority
+    &_priority_low
+      &:before
+        background-color: map-get($boss-app-palette, ok)
+
+
+  // $Overview text
+  &__text
+    +text-normalizer()
+
+
+  // $Overview text line
+  &__text-line
+    display: block
+
+
+  // $Overview status
+  &__status
+    padding-top: 5px
+
+
+  // $Overview gallery
+  &__gallery
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    flex-wrap: wrap
+    width: 100%
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 5px
+
+    @media screen and (max-width: 479px)
+      margin-bottom: 10px
+
+
+  // $Upload control gallery item area
+  &__gallery-item
+    position: relative
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 150px
+    height: 150px
+    margin-right: 25px
+    margin-bottom: 25px
+    background-color: $boss-extra-light-gray
+    transition: opacity .4s
+
+    @media screen and (max-width: 960px)
+      width: 135px
+      height: 135px
+      margin-right: 20px
+      margin-bottom: 20px
+
+    @media screen and (max-width: 479px)
+      width: 120px
+      height: 120px
+      margin-right: 15px
+      margin-bottom: 15px
+
+    @media screen and (max-width: 400px)
+      width: 105px
+      height: 105px
+
+    &:hover
+      opacity: 0.75
+
+    &:nth-child(2n)
+      @media screen and (max-width: 479px)
+        margin-right: 0
+
+      @media screen and (max-width: 400px)
+        margin-right: 0
+
+
+  // $Upload control gallery link
+  &__gallery-link
+    +text-normalizer()
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    overflow: hidden
+
+
+  // $Upload control gallery image
+  &__gallery-image
+    display: block
+    width: 100%
+
+
+  // $Overview meta information
+  &__meta
+    +text-normalizer()
+
+    // $Overview meta information MOD: role date
+    &_role_date
+      position: relative
+      padding-left: 25px
+
+      &:before
+        content: ""
+        position: absolute
+        top: 50%
+        left: 0
+        display: block
+        width: 15px
+        height: 14px
+        margin-top: -7px
+        background-image: url(../icons/icon-clock-primary.svg)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: contain
+
+    &_adjust_nested
+      margin-left: 5px
+
+
+  // $Overview meta information label
+  &__meta-label
+    font-weight: 600
+
+
+  // $Overview meta information date
+  &__meta-date
+
+
+  // $Overview meta information user
+  &__meta-user
+    font-weight: 600
+
+
+  // $Overview activity list
+  &__activity
+    position: relative
+    display: block
+    max-width: 100%
+    margin: 0
+    padding: 0
+    list-style: none
+    padding-left: 25px
+
+    &_adjust_nested
+      padding-left: 30px
+
+    &_adjust_row
+      padding-top: 8px
+
+
+  // $Overview activity list item
+  &__activity-item
+    position: relative
+
+    &:before
+      content: ""
+      z-index: 10
+      position: absolute
+      top: 5px
+      left: -23px
+      display: block
+      width: 10px
+      height: 10px
+      border-radius: 50%
+      background-color: $boss-very-light-gray
+
+    &:not(:last-of-type)
+      margin-bottom: 20px
+
+      &:after
+        content: ""
+        z-index: 1
+        position: absolute
+        left: -19px
+        top: 10px
+        bottom: -30px
+        width: 2px
+        background-color: $boss-very-light-gray
+
+
+    // $Overview activity item MOD: role accepted
+    &_role_accepted
+      &:before
+        background-color: map-get($boss-app-palette, secondary)
+
+    // $Overview activity item MOD: role marked
+    &_role_marked
+      &:before
+        background-color: map-get($boss-app-palette, primary)
+
+    // $Overview activity item MOD: role created
+    &_role_created
+      &:before
+        background-color: map-get($boss-app-palette, warning)
+
+    // $Overview activity item MOD: role rejected
+    &_role_rejected
+      &:before
+        background-color: map-get($boss-app-palette, alert)
+
+
+  // $Overview list
+  &__list
+    display: block
+    width: 100%
+    margin: 0
+    padding: 0
+    list-style: none
+
+
+  // $Overview list item
+  &__list-item
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    padding: 10px 15px
+    border-bottom: 1px solid $boss-very-light-gray
+
+    &:nth-of-type(even)
+      background-color: $boss-extra-light-gray
+
+
+  // $Overview list name
+  &__list-name
+    +text-normalizer()
+    font-weight: 600
+
+
+  // $Overview number
+  &__list-number
+    +text-normalizer()
+    font-weight: 600
