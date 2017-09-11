@@ -45,15 +45,112 @@ $block: ".boss-overview"
         flex-direction: column
 
 
+  // $Overview dropdown
+  &__dropdown
+
+    // $Overview dropdown MOD: context stack
+    &_context_stack
+      margin-bottom: 25px
+
+
+  // $Overview dropdown header
+  &__dropdown-header
+    @media screen and (min-width: 961px)
+      #{$block}__dropdown_active-mobile &
+        display: none
+
+
+  // $Overview dropdown switch
+  &__dropdown-switch
+    display: block
+    width: 100%
+    padding: 15px 20px
+    border-radius: $boss-global-border-radius
+    line-height: 1
+    color: #fff
+    white-space: nowrap
+    cursor: pointer
+    transition: all .4s
+
+    @media screen and (max-width: 400px)
+      padding: 10px 15px
+
+    &:after
+      content: ""
+      display: inline-block
+      width: 12px
+      height: 12px
+      margin-top: -2px
+      margin-left: 10px
+      vertical-align: middle
+      background: url(../icons/icon-arrow-down-white.svg) no-repeat center center
+      background-size: contain
+      transform: rotate(180deg)
+
+    // $Overview dropdown switch MOD: role activity switch
+    &_role_activity
+      background-color: map-get($boss-app-palette, primary)
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 16px
+        margin-top: -2px
+        margin-right: 10px
+        vertical-align: middle
+        background: url(../icons/icon-bell-white.svg) no-repeat center center
+        background-size: contain
+
+    // $Overview dropdown switch MOD: role notes switch
+    &_role_notes
+      background-color: map-get($boss-app-palette, action)
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 16px
+        margin-top: -2px
+        margin-right: 10px
+        vertical-align: middle
+        background: url(../icons/icon-envelope-white.svg) no-repeat center center
+        background-size: contain
+
+    // $Overview dropdown switch MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+
+  // $Overview dropdown content
+  &__dropdown-content
+    padding-top: 15px
+
+    @media screen and (min-width: 961px)
+      #{$block}__dropdown_active-mobile &
+        padding-top: 0
+
+    // $Overview dropdown content MOD: state closed
+    &_state_closed
+      display: none
+
+      @media screen and (min-width: 961px)
+        #{$block}__dropdown_active-mobile &
+          display: block !important
+
+
   // $Overview group
   &__group
     display: block
     width: 100%
     margin-bottom: 25px
 
+    // $Overview group MOD: position last
     &_position_last
       margin-bottom: 0
 
+    // $Overview group MOD: adjust gallery
     &_adjust_gallery
       margin-bottom: 5px
 
@@ -67,6 +164,10 @@ $block: ".boss-overview"
     @media screen and (max-width: 960px)
       #{$block}_page_change-order-history &
         margin-bottom: 10px
+
+    &_state_hidden-mobile
+      @media screen and (max-width: 960px)
+        display: none
 
 
   // $Overview label text
@@ -153,7 +254,7 @@ $block: ".boss-overview"
       margin-bottom: 10px
 
 
-  // $Upload control gallery item area
+  // $Overview gallery item area
   &__gallery-item
     position: relative
     flex-grow: 0
@@ -196,7 +297,7 @@ $block: ".boss-overview"
         margin-right: 0
 
 
-  // $Upload control gallery link
+  // $Overview gallery link
   &__gallery-link
     +text-normalizer()
     position: absolute
@@ -207,10 +308,107 @@ $block: ".boss-overview"
     overflow: hidden
 
 
-  // $Upload control gallery image
+  // $Overview gallery image
   &__gallery-image
     display: block
     width: 100%
+
+
+  &__notes
+    display: block
+    width: 100%
+
+
+  // $Overview notes control
+  &__notes-control
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding-bottom: 10px
+    border-bottom: 1px solid #eee
+
+
+  // $Overview notes label
+  &__notes-label
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    white-space: nowrap
+    vertical-align: middle
+    font-weight: 600
+    color: $boss-light-gray
+
+    &:before
+      content: ''
+      display: inline-block
+      width: 18px
+      height: 16px
+      margin-top: -2px
+      margin-right: 10px
+      vertical-align: middle
+      background: url(../icons/icon-envelope-light-gray.svg) no-repeat center center
+      background-size: contain
+
+
+  // $Overview notes switch
+  &__notes-switch
+    +text-normalizer()
+
+    position: relative
+    display: inline-block
+    cursor: pointer
+    padding-left: 20px
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      display: block
+      width: 14px
+      height: 14px
+      margin-top: -7px
+      background-image: url(../icons/icon-plus-primary.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      transform: rotate(45deg)
+      transition: all .4s
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    // $Overview notes switch MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+
+  // $Overview notes form
+  &__notes-form
+    display: block
+    width: 100%
+    padding: 15px
+    border-bottom: 1px solid #eee
+
+    // $Overview notes form MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Overview notes messages
+  &__notes-messages
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-start
+    width: 100%
+    padding: 15px 0
 
 
   // $Overview meta information
@@ -299,7 +497,6 @@ $block: ".boss-overview"
         bottom: -30px
         width: 2px
         background-color: $boss-very-light-gray
-
 
     // $Overview activity item MOD: role accepted
     &_role_accepted
