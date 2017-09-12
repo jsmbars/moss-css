@@ -232,6 +232,11 @@ $block: ".boss-button"
     +button-common($background-color: $background-color)
     +button-common-hover-behavior($background-color: $background-color)
 
+  &_role_action
+    $background-color: map-get($boss-app-palette, action)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
 
   // $Common button MOD: role published
   &_role_published

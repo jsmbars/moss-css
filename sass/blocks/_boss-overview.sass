@@ -174,6 +174,7 @@ $block: ".boss-overview"
   &__label-text
     display: inline-block
     text-transform: uppercase
+    vertical-align: middle
     color: $boss-light-gray
 
     // $Overview label text MOD: role key
@@ -233,9 +234,87 @@ $block: ".boss-overview"
     display: block
 
 
+  // $Overview link
+  &__link
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    font-size: 16px
+    cursor: pointer
+    vertical-align: middle
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    &:hover
+      text-decoration: none
+
+    &_role_edit,
+    &_role_save
+      padding-left: 20px
+
+      &:after
+        content: ''
+        position: absolute
+        left: 0
+        top: 50%
+        display: block
+        width: 14px
+        height: 14px
+        margin-top: -7px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        transition: all .4s
+
+    &_role_edit
+      &:after
+        background-image: url(../icons/icon-pencil-primary.svg)
+
+    &_role_save
+      &:after
+        background-image: url(../icons/icon-checked-primary.svg)
+
+    &_position_after
+      margin-left: 20px
+
+    &_type_fluid
+      @media screen and (max-width: 960px)
+        font-size: 0
+        line-height: 0
+        color: transparent
+        text-decoration: none
+
+      &:after
+        @media screen and (max-width: 960px)
+          position: relative
+          top: auto
+          left: auto
+          width: 18px
+          height: 18px
+          margin-top: 0
+
+      &:hover
+        @media screen and (max-width: 960px)
+          text-decoration: none
+
+    &_type_fluid#{&}_role_edit
+      @media screen and (max-width: 960px)
+        padding-left: 0
+
+
   // $Overview status
   &__status
     padding-top: 5px
+
+    &_role_control
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
 
 
   // $Overview gallery
@@ -511,7 +590,7 @@ $block: ".boss-overview"
     // $Overview activity item MOD: role created
     &_role_created
       &:before
-        background-color: map-get($boss-app-palette, warning)
+        background-color: map-get($boss-app-palette, action)
 
     // $Overview activity item MOD: role rejected
     &_role_rejected
