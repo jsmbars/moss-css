@@ -1053,13 +1053,23 @@ $block: ".boss-form"
         background-color: map-get($boss-app-palette, warning)
 
       &_priority_low
-        background-color: map-get($boss-app-palette, ok)
+        background-color: map-get($boss-app-palette, secondary)
 
       &_status_done
         background-color: map-get($boss-app-palette, primary)
 
       &_status_undone
         background-color: map-get($boss-app-palette, action)
+
+      &_status_accepted
+        background-color: map-get($boss-app-palette, secondary)
+
+      &_status_rejected
+        background-color: map-get($boss-app-palette, alert)
+
+      &_status_waiting
+        background-color: map-get($boss-app-palette, warning)
+
 
     & .Select-control
       height: 53px

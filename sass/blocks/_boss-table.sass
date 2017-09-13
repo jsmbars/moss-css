@@ -50,7 +50,8 @@ $block: ".boss-table"
   &_page_vhci,
   &_page_vouchers-index,
   &_page_voucher-usage,
-  &_page_maintenance-index
+  &_page_maintenance-index,
+  &_page_maintenance-managers-index
     border: 1px solid #eee
 
   &_page_checklist-review,
@@ -70,7 +71,8 @@ $block: ".boss-table"
     width: 100%
 
     &:nth-child(odd)
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
         background-color: #fbfbfb
 
 
@@ -111,7 +113,8 @@ $block: ".boss-table"
     width: 100%
     max-width: 300px
 
-    #{$block}_page_maintenance-index &
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &
       max-width: 350px
 
 
@@ -137,14 +140,16 @@ $block: ".boss-table"
     padding-right: 10px
     text-transform: uppercase
 
-    #{$block}_page_maintenance-index &
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &
       flex-grow: 0
       flex-shrink: 0
       width: 150px
       padding-left: 20px
 
     @media screen and (max-width: 479px)
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
         width: 100px
         padding-left: 10px
 
@@ -157,16 +162,21 @@ $block: ".boss-table"
     padding-left: 15px
     padding-right: 10px
 
-    #{$block}_page_maintenance-index &
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &
       width: calc(100% - 150px)
       padding-left: 10px
 
     @media screen and (max-width: 479px)
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
         width: calc(100% - 100px)
 
     &_role_action
       cursor: pointer
+
+    &_nowrap
+      white-space: nowrap
 
 
   &__details-switch
@@ -212,7 +222,8 @@ $block: ".boss-table"
     #{$block}_type_common &
       display: table-row
 
-    #{$block}_page_maintenance-index &
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &
       background-color: transparent
 
     @media screen and (max-width: 1120px)
@@ -258,7 +269,8 @@ $block: ".boss-table"
         padding-top: 15px
         padding-bottom: 15px
 
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
         display: flex
 
     &:nth-child(odd)
@@ -360,7 +372,8 @@ $block: ".boss-table"
 
     #{$block}_page_smp-owed-hours &,
     #{$block}_page_message-board &,
-    #{$block}_page_maintenance-index &
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &
       padding: 15px 10px
 
     @media screen and (max-width: 1120px)
@@ -398,7 +411,8 @@ $block: ".boss-table"
       #{$block}_page_maintenance-index &
         padding: 10px
 
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
         justify-content: flex-start
         align-items: flex-start
         padding-top: 20px
@@ -475,6 +489,10 @@ $block: ".boss-table"
         width: 20%
         border-right: 1px solid #eee
 
+      #{$block}_page_maintenance-managers-index &
+        width: 18%
+        border-right: 1px solid #eee
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -518,14 +536,16 @@ $block: ".boss-table"
           flex-grow: 1
           flex-shrink: 1
 
-        #{$block}_page_maintenance-index &
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
           flex-grow: 0
           flex-shrink: 0
           width: 150px
           padding-left: 20px
 
       @media screen and (max-width: 479px)
-        #{$block}_page_maintenance-index &
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
           width: 100px
           padding-left: 10px
 
@@ -583,6 +603,10 @@ $block: ".boss-table"
         width: 24%
         border-right: 1px solid #eee
 
+      #{$block}_page_maintenance-managers-index &
+        width: 20%
+        border-right: 1px solid #eee
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -609,6 +633,10 @@ $block: ".boss-table"
 
         #{$block}_page_maintenance-index &
           width: 70%
+          border-right: none
+
+        #{$block}_page_maintenance-managers-index &
+          width: 60%
           border-right: none
 
 
@@ -665,6 +693,10 @@ $block: ".boss-table"
         width: 18%
         border-right: 1px solid #eee
 
+      #{$block}_page_maintenance-managers-index &
+        width: 16%
+        border-right: 1px solid #eee
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -686,7 +718,8 @@ $block: ".boss-table"
         #{$block}_page_message-board &
           width: 100%
 
-        #{$block}_page_maintenance-index &
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
           display: none
 
 
@@ -749,6 +782,10 @@ $block: ".boss-table"
         width: 18%
         border-right: 1px solid #eee
 
+      #{$block}_page_maintenance-managers-index &
+        width: 17%
+        border-right: 1px solid #eee
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -781,7 +818,8 @@ $block: ".boss-table"
           flex-grow: 1
           flex-shrink: 1
 
-        #{$block}_page_maintenance-index &
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
           display: none
 
 
@@ -827,10 +865,14 @@ $block: ".boss-table"
         width: 230px
         justify-content: center
 
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
         flex-grow: 0
         flex-shrink: 0
         width: 200px
+
+      #{$block}_page_maintenance-managers-index &
+        border-right: 1px solid #eee
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -859,7 +901,8 @@ $block: ".boss-table"
           flex-grow: 1
           flex-shrink: 1
 
-        #{$block}_page_maintenance-index &
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
           display: none
 
     // $Common table cell sixth column
@@ -892,13 +935,18 @@ $block: ".boss-table"
         flex-shrink: 0
         width: 50px
 
+      #{$block}_page_maintenance-managers-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 140px
+        padding-right: 25px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
 
       @media screen and (max-width: 960px)
         width: 100%
-
 
         #{$block}_page_staff-members-index &,
         #{$block}_page_holidays-report &,
@@ -914,6 +962,9 @@ $block: ".boss-table"
 
         #{$block}_page_maintenance-index &
           display: block
+
+        #{$block}_page_maintenance-managers-index &
+          display: none
 
       @media screen and (max-width: 479px)
         #{$block}_page_maintenance-index &
@@ -937,6 +988,12 @@ $block: ".boss-table"
         flex-shrink: 0
         width: 135px
 
+      #{$block}_page_maintenance-managers-index &
+        display: none
+        flex-grow: 0
+        flex-shrink: 0
+        width: 50px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           width: 100%
@@ -951,6 +1008,9 @@ $block: ".boss-table"
         #{$block}_page_smp-owed-hours &
           flex-grow: 1
           flex-shrink: 1
+
+        #{$block}_page_maintenance-managers-index &
+          display: block
 
     // $Common table cell eighth column
     &:nth-child(8)
@@ -1303,7 +1363,8 @@ $block: ".boss-table"
       align-items: center
 
     #{$block}_page_change-order-report &,
-    #{$block}_page_smp-owed-hours &
+    #{$block}_page_smp-owed-hours &,
+    #{$block}_page_maintenance-managers-index #{$block}__cell:nth-child(6) &
       display: flex
       flex-direction: column
       align-items: stretch
@@ -1374,7 +1435,8 @@ $block: ".boss-table"
       margin-right: 10px
 
     #{$block}_page_change-order-report &:not(:last-of-type),
-    #{$block}_page_smp-owed-hours &:not(:last-of-type)
+    #{$block}_page_smp-owed-hours &:not(:last-of-type),
+    #{$block}_page_maintenance-managers-index #{$block}__cell:nth-child(6) &:not(:last-of-type)
       margin-bottom: 10px
 
     @media screen and (max-width: 960px)
@@ -1502,7 +1564,8 @@ $block: ".boss-table"
     vertical-align: middle
 
     @media screen and (max-width: 479px)
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
         width: 15px
         height: 15px
         margin-right: 5px
@@ -1514,4 +1577,4 @@ $block: ".boss-table"
       background-color: map-get($boss-app-palette, warning)
 
     &_priority_low
-      background-color: map-get($boss-app-palette, ok)
+      background-color: map-get($boss-app-palette, secondary)
