@@ -38,6 +38,53 @@ $block: ".boss-upload"
       margin-bottom: 15px
 
 
+  // $Upload control full width preview
+  &__full
+    position: relative
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    margin-bottom: 25px
+    padding: 30px 30px 20px
+    background-color: $boss-extra-light-gray
+
+    @media screen and (max-width: 479px)
+      padding: 35px 12px 20px
+
+
+  // $Upload control full image
+  &__full-image
+    display: block
+    width: 100%
+
+
+  // $Upload control close
+  &__full-close
+    position: absolute
+    top: 12px
+    right: 12px
+    z-index: 10002
+    display: block
+    width: 12px
+    height: 12px
+    cursor: pointer
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    background-image: url(../icons/icon-close-light-gray.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+
+
+  // $Upload control actions area
+  &__full-actions
+    padding-top: 20px
+    text-align: center
+
+
   // $Upload control preview area
   &__preview
     position: relative
