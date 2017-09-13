@@ -22,12 +22,9 @@ $block: ".boss-upload"
 
   // $Upload control flow area
   &__flow
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: center
-    flex-wrap: wrap
+    display: block
     width: 100%
+    max-width: 100%
     @media screen and (max-width: 960px)
       margin-bottom: 5px
 
@@ -41,8 +38,6 @@ $block: ".boss-upload"
   // $Upload control full width preview
   &__full
     position: relative
-    flex-grow: 1
-    flex-shrink: 1
     display: block
     width: 100%
     margin-bottom: 25px
@@ -88,14 +83,10 @@ $block: ".boss-upload"
   // $Upload control preview area
   &__preview
     position: relative
-    flex-grow: 0
-    flex-shrink: 0
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
+    display: inline-block
     width: 150px
     height: 150px
+    vertical-align: top
     background-color: $boss-extra-light-gray
     transition: opacity .4s
 
@@ -150,7 +141,7 @@ $block: ".boss-upload"
       background-image: url(../icons/spinner.gif)
       background-position: center center
       background-repeat: no-repeat
-      background-size: auto 50%
+      background-size: auto 30%
 
 
   // $Upload control preview link
@@ -173,14 +164,10 @@ $block: ".boss-upload"
   // $Upload control field
   &__field
     position: relative
-    flex-grow: 0
-    flex-shrink: 0
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
+    display: inline-block
     width: 150px
     height: 150px
+    vertical-align: top
     background-color: map-get($boss-app-palette, primary)
     overflow: hidden
     transition: opacity .4s
@@ -228,12 +215,10 @@ $block: ".boss-upload"
   // $Upload control field input
   &__field-input
     position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
     z-index: 10
     display: block
+    width: 100%
+    height: 100%
     margin: 0
     padding: 0
     cursor: pointer
@@ -244,11 +229,14 @@ $block: ".boss-upload"
   &__field-label
     +text-normalizer()
     position: relative
+    z-index: 1
     display: block
+    top: 50%
     max-width: 100%
     color: #FFF
     text-align: center
     white-space: nowrap
+    transform: translateY(-50%)
 
     &:before
       content: ""

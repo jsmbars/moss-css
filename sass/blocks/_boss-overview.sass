@@ -331,27 +331,19 @@ $block: ".boss-overview"
 
   // $Overview gallery flow area
   &__gallery-flow
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: center
-    flex-wrap: wrap
+    display: block
     width: 100%
 
 
   // $Overview gallery item area
   &__gallery-item
     position: relative
-    flex-grow: 0
-    flex-shrink: 0
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
+    display: inline-block
     width: 150px
     height: 150px
     margin-right: 25px
     margin-bottom: 25px
+    vertical-align: top
     background-color: $boss-extra-light-gray
     transition: opacity .4s
 
@@ -385,8 +377,6 @@ $block: ".boss-overview"
   // $Overview gallery full width preview
   &__gallery-full
     position: relative
-    flex-grow: 1
-    flex-shrink: 1
     display: block
     width: 100%
     margin-bottom: 25px
