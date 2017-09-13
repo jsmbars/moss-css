@@ -516,6 +516,16 @@ $block: ".boss-page-main"
     &_role_staff-type#{&}_state_active:before
       background-image: url('../icons/icon-user-white.svg')
 
+    // $Page main container control MOD: role trends
+    &_role_trends
+      &:before
+        display: inline-block
+        background-image: url('../icons/icon-chart-medium-gray.svg')
+
+    &_role_trends:hover:before,
+    &_role_trends#{&}_state_active:before
+      background-image: url('../icons/icon-chart-white.svg')
+
     // $Page main container control MOD: state active
     &_state_active
       color: #FFF
