@@ -58,6 +58,22 @@ $block: ".boss-report"
       @media screen and (max-width: 640px)
         padding: 15px 10px
 
+    // $Report group MOD: role middle
+    &_role_middle
+      padding: 0 30px
+
+      @media screen and (max-width: 1280px)
+        padding: 0 25px
+
+      @media screen and (max-width: 960px)
+        padding: 0 20px
+
+      @media screen and (max-width: 800px)
+        padding: 0 15px
+
+      @media screen and (max-width: 640px)
+        padding: 0 10px
+
     &_adjust_stats-row
       padding-bottom: 15px
 
@@ -122,6 +138,9 @@ $block: ".boss-report"
 
       &:first-child
         border-top: 1px solid #eee
+
+      &:nth-child(odd)
+        background-color: #FBFBFB
 
     &_layout_table-s
       @media screen and (max-width: 640px)
