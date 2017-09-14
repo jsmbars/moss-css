@@ -180,6 +180,10 @@ $block: ".boss-check"
     &:not(:last-child)
       margin-bottom: 15px
 
+    // $Check block box MOD: role clickable action
+    &_role_action
+      cursor: pointer
+
 
   // $Check block title
   &__title
@@ -191,7 +195,8 @@ $block: ".boss-check"
 
     &_role_date,
     &_role_payment,
-    &_role_machine
+    &_role_arcade,
+    &_role_message
 
       &:before
         content: ""
@@ -213,9 +218,17 @@ $block: ".boss-check"
       &:before
         background-image: url('../icons/icon-wallet-dark-gray.svg')
 
-    &_role_machine
+    &_role_arcade
       &:before
-        background-image: url('../icons/icon-display-dark-gray.svg')
+        background-image: url('../icons/icon-arcade-dark-gray.svg')
+
+    &_role_message
+      &:before
+        background-image: url('../icons/icon-text-paper-dark-gray.svg')
+
+    // $Check block title MOD: role clickable action
+    &_role_action
+      cursor: pointer
 
 
     // $Check block title status
@@ -365,6 +378,10 @@ $block: ".boss-check"
       text-transform: uppercase
       color: #FFF
 
+    // $Check block text MOD: role clickable action
+    &_role_action
+      cursor: pointer
+
 
   // $Check block text line
   &__text-line
@@ -388,6 +405,15 @@ $block: ".boss-check"
       outline: none
       text-decoration: none
       color: inherit
+
+
+  // $Check block label
+  &__label
+    margin-top: 5px
+    padding: 6px 12px
+
+    @media screen and (max-width: 400px)
+      padding: 6px 12px
 
 
   // $Check block dropdown
@@ -446,82 +472,13 @@ $block: ".boss-check"
     min-height: 70px
     padding: 10px
 
-    #{$block}_page_message-board &
-      padding: 0
-
-    &:not(:last-child)
-      margin-bottom: 15px
-
-    // $Check block info MOD: icon
-    &_icon
-      display: flex
-      flex-direction: row
-      justify-content: flex-start
-      align-items: center
-
-      &:before
-        content: ""
-        flex-grow: 0
-        flex-shrink: 0
-        display: block
-        width: 48px
-        height: 48px
-        margin-right: 10px
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-
-    // $Check block info MOD: icon user
-    &_icon_user:before
-      background-image: url('../icons/icon-user-illustration.png')
-
-    // $Check block info MOD: icon user alert
-    &_icon_user-alert:before
-      background-image: url('../icons/icon-user-alert-illustration.png')
-
-    // $Check block info MOD: icon notes
-    &_icon_notes:before
-      background-image: url('../icons/icon-notes-illustration.png')
-
-    // $Check block info MOD: icon notes alert
-    &_icon_notes-alert:before
-      background-image: url('../icons/icon-notes-alert-illustration.png')
-
-    // $Check block info MOD: icon calendar
-    &_icon_calendar:before
-      background-image: url('../icons/icon-calendar-illustration.png')
-
-    // $Check block info MOD: icon calendar alert
-    &_icon_calendar-alert:before
-      background-image: url('../icons/icon-calendar-alert-illustration.png')
-
-    // $Check block info MOD: type box
-    &_type_box
-      border: 2px solid $boss-very-light-gray
-      border-radius: 6px
-
-      @media screen and (max-width: 480px)
-        padding-top: 5px
-
-    // $Check block info MOD: layout column
-    &_layout_column
-      flex-direction: column
-
-      &:before
-        margin-right: 0
-        margin-bottom: 5px
-
-    // $Check block info MOD: role main
-    &_role_main
-      align-items: flex-start
-
-      &:before
-        width: 60px
-        height: 60px
-
     // $Check block info MOD: role clickable action
     &_role_action
       cursor: pointer
+
+
+  &__info-content
+    text-align: left
 
 
   // $Check block info text
@@ -539,22 +496,6 @@ $block: ".boss-check"
     // $Check block info text marked
     &_marked
       font-weight: 600
-
-
-  // $Check block info label
-  &__info-label
-    margin-top: 5px
-    padding: 6px 12px
-
-    @media screen and (max-width: 400px)
-      padding: 6px 12px
-
-
-  // $Check block info meta
-  &__info-meta
-    +text-normalizer()
-    font-size: 12px
-    color: $boss-light-gray
 
 
   // $Check block info table

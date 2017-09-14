@@ -26,10 +26,12 @@ $block: ".boss-report"
     position: relative
     display: block
     width: 100%
-    margin-bottom: 35px
 
-    @media screen and (max-width: 960px)
-      margin-bottom: 30px
+    &:not(:last-child)
+      margin-bottom: 35px
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 30px
 
     // $Report group MOD: last position
     &_position_last
@@ -55,6 +57,185 @@ $block: ".boss-report"
 
       @media screen and (max-width: 640px)
         padding: 15px 10px
+
+    // $Report group MOD: role middle
+    &_role_middle
+      padding: 0 30px
+
+      @media screen and (max-width: 1280px)
+        padding: 0 25px
+
+      @media screen and (max-width: 960px)
+        padding: 0 20px
+
+      @media screen and (max-width: 800px)
+        padding: 0 15px
+
+      @media screen and (max-width: 640px)
+        padding: 0 10px
+
+    &_adjust_stats-row
+      padding-bottom: 15px
+
+      @media screen and (max-width: 1280px)
+        padding-bottom: 15px
+
+      @media screen and (max-width: 960px)
+        padding-bottom: 15px
+
+      @media screen and (max-width: 800px)
+        padding-bottom: 15px
+
+      @media screen and (max-width: 640px)
+        padding-bottom: 15px
+
+
+  // $Report meta
+  &__meta
+    display: block
+    width: 100%
+    margin-bottom: 10px
+    text-align: center
+
+
+  // $Report stats
+  &__stats
+    display: block
+    width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+
+
+  // $Report stats item
+  &__stats-item
+    display: block
+    width: 100%
+    margin-bottom: 10px
+
+    &:last-child
+      margin-bottom: 0
+
+    &_layout_fluid-table-s
+      display: inline-block
+      width: auto
+      margin-right: 20px
+
+      @media screen and (max-width: 640px)
+        display: block
+        width: 100%
+        margin-right: 0
+
+    &_layout_table
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: stretch
+      margin-bottom: 0
+      border-bottom: 1px solid #eee
+      border-left: 1px solid #eee
+      border-right: 1px solid #eee
+
+      &:first-child
+        border-top: 1px solid #eee
+
+      &:nth-child(odd)
+        background-color: #FBFBFB
+
+    &_layout_table-s
+      @media screen and (max-width: 640px)
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: stretch
+        margin-bottom: 0
+        border-bottom: 1px solid #eee
+        border-left: 1px solid #eee
+        border-right: 1px solid #eee
+
+        &:first-child
+          border-top: 1px solid #eee
+
+
+  // $Report stats label
+  &__stats-label
+    display: inline-block
+    padding-right: 5px
+
+    #{$block}__stats-item_layout_table &
+      flex-grow: 1
+      flex-shrink: 1
+      width: 50%
+      padding: 10px
+      border-right: 1px solid #eee
+
+    @media screen and (max-width: 640px)
+      #{$block}__stats-item_layout_table-s &
+        flex-grow: 1
+        flex-shrink: 1
+        width: 50%
+        padding: 10px
+        border-right: 1px solid #eee
+
+
+  // $Report stats tooltip
+  &__stats-tooltip
+    position: relative
+    display: inline
+    vertical-align: middle
+
+    &_role_delimiter:after
+      content: ":"
+
+
+  // $Report stats value
+  &__stats-value
+    display: inline-block
+
+    #{$block}__stats-item_layout_table &
+      flex-grow: 1
+      flex-shrink: 1
+      width: 50%
+      padding: 10px
+
+    @media screen and (max-width: 640px)
+      #{$block}__stats-item_layout_table &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 100px
+
+      #{$block}__stats-item_layout_table-s &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 100px
+        padding: 10px
+
+
+  // $Report stats text
+  &__stats-text
+    +text-normalizer()
+    max-width: 100%
+
+    // $Report stats text MOD: marked
+    &_marked
+      font-weight: 600
+
+    &_size_m
+      font-size: 16px
+
+    &_size_l
+      font-size: 18px
+
+    &_size_xl
+      font-size: 20px
+
+  // $Report stats text alert
+  &__stats-text-alert
+    color: map-get($boss-app-palette, alert)
+
+  // $Report stats text nowrap
+  &__stats-text-nowrap
+    white-space: nowrap
 
 
   // $Report summary
@@ -172,6 +353,60 @@ $block: ".boss-report"
         background-image: url('../icons/icon-location-pin-dark-gray.svg')
 
 
+  // $Report note
+  &__note
+    display: block
+    width: 100%
+
+    // $Report note mOD: space above
+    &_space_above
+      margin-top: 15px
+
+    // $Report note MOD: role control fluid on small screens
+    &_role_control-fluid-s
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: flex-start
+
+      @media screen and (max-width: 640px)
+        display: block
+
+
+  // $Report note label
+  &__note-label
+    +text-normalizer()
+    display: block
+    width: 100%
+    font-size: 16px
+    margin-bottom: 10px
+
+    #{$block}__note_role_control-fluid-s &
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
+      margin-bottom: 0
+      margin-right: 10px
+
+    @media screen and (max-width: 640px)
+      #{$block}__note_role_control-fluid-s &
+        margin-right: 0
+        margin-bottom: 10px
+
+
+  // $Report note-box
+  &__note-box
+    display: block
+    width: 100%
+    padding: 10px 15px
+    border: 2px solid #d8d8d8
+    border-radius: 6px
+
+    #{$block}__note_role_control-fluid-s &
+      flex-grow: 1
+      flex-shrink: 1
+
+
   // $Report record
   &__record
     position: relative
@@ -195,10 +430,33 @@ $block: ".boss-report"
   &__subtitle
     +text-normalizer()
     padding-bottom: 5px
-    margin-bottom: 10px
+    margin-bottom: 15px
     font-size: 20px
     font-weight: 600
     border-bottom: 1px solid #eee
+
+    &_role_readings,
+    &_role_calculate
+      border-bottom: none
+      padding-bottom: 0
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 18px
+        margin-right: 10px
+        margin-top: -2px
+        background-size: cover
+        vertical-align: middle
+
+    &_role_readings
+      &:before
+        background-image: url(../icons/icon-text-paper-dark-gray.svg)
+
+    &_role_calculate
+      &:before
+        background-image: url(../icons/icon-calculator-dark-gray.svg)
 
 
   // $Report text
@@ -206,6 +464,9 @@ $block: ".boss-report"
     +text-normalizer()
     display: block
     width: 100%
+
+    &_size_m
+      font-size: 16px
 
 
   // $Report wysiwyg-generated content
