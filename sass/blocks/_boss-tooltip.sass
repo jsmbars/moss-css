@@ -17,8 +17,9 @@ $block: ".boss-tooltip"
 #{$block}
   +box-model-normalizer()
   position: relative
-  z-index: 5
   display: inline-block
+  line-height: 14px
+  vertical-align: top
 
   &_position_right-bottom
 
@@ -26,6 +27,8 @@ $block: ".boss-tooltip"
   // $Tooltip icon
   &__icon
     +text-normalizer()
+    position: relative
+    z-index: 1
     display: block
     width: 14px
     height: 14px

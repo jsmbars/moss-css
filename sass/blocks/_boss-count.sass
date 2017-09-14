@@ -188,26 +188,41 @@ $block: ".boss-count"
         line-height: 1.3
 
     // $Count label MOD: role date
+    // $Count label MOD: role time
+    // $Count label MOD: role arcade
+    // $Count label MOD: role user
+    &_role_date,
+    &_role_time,
+    &_role_arcade,
+    &_role_user
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        background-size: cover
+        vertical-align: middle
+
     &_role_date
       &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
-        margin-right: 10px
-        background-size: cover
-        vertical-align: middle
         background-image: url(../icons/icon-calendar-dark-gray.svg)
 
-    // $Count label MOD: role time
     &_role_time
       &:before
-        content: ""
-        display: inline-block
-        width: 16px
-        height: 16px
-        margin-right: 10px
-        background-size: cover
-        vertical-align: middle
         background-image: url(../icons/icon-clock-dark-gray.svg)
+
+    &_role_arcade
+      &:before
+        background-image: url(../icons/icon-arcade-dark-gray.svg)
+
+    &_role_user
+      &:before
+        background-image: url(../icons/icon-user-dark-gray.svg)
+
+    &_size_medium
+      font-size: 16px
+
+    &_size_large
+      font-size: 18px
 

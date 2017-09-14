@@ -257,7 +257,8 @@ $block: ".boss-page-main"
     &_adjust_sc-form,
     &_adjust_ir-form,
     &_adjust_ir-full,
-    &_adjust_m-form
+    &_adjust_m-form,
+    &_adjust_machine-refloats
       padding: 25px 25px 35px
       background-color: #FFF
 
@@ -325,6 +326,10 @@ $block: ".boss-page-main"
 
       @media screen and (max-width: 480px)
         padding: 20px 10px
+
+    &_context_stack
+      &:not(:last-of-type)
+        margin-bottom: 30px
 
 
   // $Page main container flow layout
