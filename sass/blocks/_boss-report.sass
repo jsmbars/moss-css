@@ -349,6 +349,60 @@ $block: ".boss-report"
         background-image: url('../icons/icon-location-pin-dark-gray.svg')
 
 
+  // $Report note
+  &__note
+    display: block
+    width: 100%
+
+    // $Report note mOD: space above
+    &_space_above
+      margin-top: 15px
+
+    // $Report note MOD: role control fluid on small screens
+    &_role_control-fluid-s
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: flex-start
+
+      @media screen and (max-width: 640px)
+        display: block
+
+
+  // $Report note label
+  &__note-label
+    +text-normalizer()
+    display: block
+    width: 100%
+    font-size: 16px
+    margin-bottom: 10px
+
+    #{$block}__note_role_control-fluid-s &
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
+      margin-bottom: 0
+      margin-right: 10px
+
+    @media screen and (max-width: 640px)
+      #{$block}__note_role_control-fluid-s &
+        margin-right: 0
+        margin-bottom: 10px
+
+
+  // $Report note-box
+  &__note-box
+    display: block
+    width: 100%
+    padding: 10px 15px
+    border: 2px solid #d8d8d8
+    border-radius: 6px
+
+    #{$block}__note_role_control-fluid-s &
+      flex-grow: 1
+      flex-shrink: 1
+
+
   // $Report record
   &__record
     position: relative
@@ -406,6 +460,9 @@ $block: ".boss-report"
     +text-normalizer()
     display: block
     width: 100%
+
+    &_size_m
+      font-size: 16px
 
 
   // $Report wysiwyg-generated content
