@@ -200,10 +200,12 @@ $block: ".boss-button"
   // $Common button MOD: role file
   // $Common button MOD: role back
   // $Common button MOD: role enabled
+  // $Common button MOD: role ok
   &_role_secondary,
   &_role_file,
   &_role_back,
-  &_role_enabled
+  &_role_enabled,
+  &_role_ok
     $background-color: map-get($boss-app-palette, secondary)
     +button-common($background-color: $background-color)
     +button-common-hover-behavior($background-color: $background-color)
@@ -217,10 +219,21 @@ $block: ".boss-button"
     +button-common($background-color: $background-color)
     +button-common-hover-behavior($background-color: $background-color)
 
+  // $Common button MOD: role warning
+  &_role_warning
+    $background-color: map-get($boss-app-palette, warning)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
 
   // $Common button MOD: role inactive
   &_role_inactive
     $background-color: map-get($boss-app-palette, inactive)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  &_role_action
+    $background-color: map-get($boss-app-palette, action)
     +button-common($background-color: $background-color)
     +button-common-hover-behavior($background-color: $background-color)
 

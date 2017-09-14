@@ -1,0 +1,256 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Upload control
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-upload"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+
+  // $Upload control flow area
+  &__flow
+    display: block
+    width: 100%
+    max-width: 100%
+    @media screen and (max-width: 960px)
+      margin-bottom: 5px
+
+    @media screen and (max-width: 479px)
+      margin-bottom: 10px
+
+    @media screen and (max-width: 400px)
+      margin-bottom: 15px
+
+
+  // $Upload control full width preview
+  &__full
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 25px
+    padding: 30px 30px 20px
+    background-color: $boss-extra-light-gray
+
+    @media screen and (max-width: 479px)
+      padding: 35px 12px 20px
+
+
+  // $Upload control full image
+  &__full-image
+    display: block
+    width: 100%
+
+
+  // $Upload control close
+  &__full-close
+    position: absolute
+    top: 12px
+    right: 12px
+    z-index: 10002
+    display: block
+    width: 12px
+    height: 12px
+    cursor: pointer
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    background-image: url(../icons/icon-close-light-gray.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+
+
+  // $Upload control actions area
+  &__full-actions
+    padding-top: 20px
+    text-align: center
+
+
+  // $Upload control preview area
+  &__preview
+    position: relative
+    display: inline-block
+    width: 150px
+    height: 150px
+    vertical-align: top
+    background-color: $boss-extra-light-gray
+    transition: opacity .4s
+
+    @media screen and (max-width: 960px)
+      width: 135px
+      height: 135px
+
+    @media screen and (max-width: 479px)
+      width: 120px
+      height: 120px
+
+    @media screen and (max-width: 400px)
+      width: 105px
+      height: 105px
+
+    &:hover
+      opacity: 0.75
+
+    // $Upload control preview area MOD: adjust flow
+    &_adjust_flow
+      margin-right: 30px
+      margin-bottom: 30px
+
+      @media screen and (max-width: 960px)
+        margin-right: 25px
+        margin-bottom: 25px
+
+      @media screen and (max-width: 479px)
+        margin-right: 20px
+        margin-bottom: 20px
+
+      @media screen and (max-width: 400px)
+        margin-right: 15px
+        margin-bottom: 15px
+
+      &:nth-child(2n)
+        @media screen and (max-width: 479px)
+          margin-right: 0
+
+        @media screen and (max-width: 400px)
+          margin-right: 0
+
+    // $Upload control preview area MOD: state broken
+    &_state_broken
+      background-image: url(../icons/icon-broken-file-very-light-gray.svg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: auto 50%
+
+    // $Upload control preview area MOD: state loading
+    &_state_loading
+      background-image: url(../icons/spinner.gif)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: auto 30%
+
+
+  // $Upload control preview link
+  &__preview-link
+    +text-normalizer()
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    overflow: hidden
+
+
+  // $Upload control preview image
+  &__preview-image
+    display: block
+    width: 100%
+
+
+  // $Upload control field
+  &__field
+    position: relative
+    display: inline-block
+    width: 150px
+    height: 150px
+    vertical-align: top
+    background-color: map-get($boss-app-palette, primary)
+    overflow: hidden
+    transition: opacity .4s
+
+    @media screen and (max-width: 960px)
+      width: 135px
+      height: 135px
+
+    @media screen and (max-width: 479px)
+      width: 120px
+      height: 120px
+
+    @media screen and (max-width: 400px)
+      width: 105px
+      height: 105px
+
+    &:hover
+      opacity: 0.75
+
+    // $Upload control field MOD: adjust flow
+    &_adjust_flow
+      margin-right: 30px
+      margin-bottom: 30px
+
+      @media screen and (max-width: 960px)
+        margin-right: 25px
+        margin-bottom: 25px
+
+      @media screen and (max-width: 479px)
+        margin-right: 20px
+        margin-bottom: 20px
+
+      @media screen and (max-width: 400px)
+        margin-right: 15px
+        margin-bottom: 15px
+
+      &:nth-child(2n)
+        @media screen and (max-width: 479px)
+          margin-right: 0
+
+        @media screen and (max-width: 400px)
+          margin-right: 0
+
+
+  // $Upload control field input
+  &__field-input
+    position: absolute
+    z-index: 10
+    display: block
+    width: 100%
+    height: 100%
+    margin: 0
+    padding: 0
+    cursor: pointer
+    opacity: 0
+
+
+  // $Upload control field label
+  &__field-label
+    +text-normalizer()
+    position: relative
+    z-index: 1
+    display: block
+    top: 50%
+    max-width: 100%
+    color: #FFF
+    text-align: center
+    white-space: nowrap
+    transform: translateY(-50%)
+
+    &:before
+      content: ""
+      display: block
+      width: 40px
+      height: 40px
+      margin: 0 auto 20px
+      background-image: url(../icons/icon-plus-white.svg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+
+      @media screen and (max-width: 400px)
+        width: 30px
+        height: 30px
+        margin-bottom: 10px
+
