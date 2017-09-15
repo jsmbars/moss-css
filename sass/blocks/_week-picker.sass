@@ -201,10 +201,22 @@ $block: ".week-picker"
               color: #fff
 
         &.ui-datepicker-current-day
-          & a.ui-state-dafault,
+          & a.ui-state-default,
           & a.ui-state-hover,
-          & a.ui-state-hover,
+          & a.ui-state-active
             background-color: #84bef0
             color: #fff
+
+          &:first-child a.ui-state-default,
+          &:first-child a.ui-state-active,
+          &:first-child a.ui-state-hover
+            border-top-left-radius: 30px
+            border-bottom-left-radius: 30px
+
+          &:last-child a.ui-state-default,
+          &:last-child a.ui-state-active,
+          &:last-child a.ui-state-hover
+            border-top-right-radius: 30px
+            border-bottom-right-radius: 30px
 
 
