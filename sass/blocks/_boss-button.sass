@@ -115,6 +115,11 @@ $block: ".boss-button"
       width: 100%
       text-align: center
 
+  // $Common button MOD: MOD: adjust full width
+  &_adjust_full
+    width: 100%
+    text-align: center
+
   // $Common button MOD: type small
   &_type_small
     padding: 10px 15px
@@ -234,6 +239,11 @@ $block: ".boss-button"
 
   &_role_action
     $background-color: map-get($boss-app-palette, action)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  &_role_pending
+    $background-color: map-get($boss-app-palette, pending)
     +button-common($background-color: $background-color)
     +button-common-hover-behavior($background-color: $background-color)
 
