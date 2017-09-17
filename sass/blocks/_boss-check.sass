@@ -58,6 +58,11 @@ $block: ".boss-check"
     @media screen and (min-width: 961px)
       display: none
 
+  &_page_maintenance-index
+    z-index: auto
+    overflow: visible
+
+
   // $Check block MOD: state alert
   &_state_alert
     background-color: #feeeee
@@ -152,6 +157,13 @@ $block: ".boss-check"
       flex-shrink: 0
       width: 300px
 
+      #{$block}_page_maintenance-index &
+        border-top-left-radius: 10px
+
+    &_role_status-label#{&}_adjust_single-row
+      #{$block}_page_maintenance-index &
+        border-bottom-left-radius: 10px
+
     &_role_status-title
       flex-grow: 1
       flex-shrink: 1
@@ -161,6 +173,9 @@ $block: ".boss-check"
       flex-grow: 0
       flex-shrink: 0
       width: auto
+
+      #{$block}_page_maintenance-index &
+        border-top-right-radius: 10px
 
     // $Check block cell MOD: role table
     &_role_table
@@ -524,6 +539,12 @@ $block: ".boss-check"
 
   // $Check block dropdown
   &__dropdown
+
+    #{$block}_page_maintenance-index &
+      background-color: #fbfbfb
+      border-bottom-left-radius: 10px
+      border-bottom-right-radius: 10px
+      overflow: hidden
 
     // $Check block dropdown CONTEXT: $Check block MOD: page message board
     #{$block}_page_message-board &
