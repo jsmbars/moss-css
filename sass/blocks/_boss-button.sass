@@ -660,6 +660,14 @@ $block: ".boss-button"
     +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color)
     font-weight: 400
 
+  // $Common button MOD: monochrome button highlight
+  &_role_highlight
+    $primary-color: map-get($boss-app-palette, primary)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color)
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color)
+    font-weight: 400
+
 
   &__action
     position: absolute
