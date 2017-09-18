@@ -619,20 +619,25 @@ $block: ".boss-overview"
       &:before
         background-color: map-get($boss-app-palette, secondary)
 
-    // $Overview activity item MOD: role marked
-    &_role_marked
+    // $Overview activity item MOD: role completed
+    &_role_completed
       &:before
-        background-color: map-get($boss-app-palette, primary)
+        background-color: map-get($boss-app-palette, secondary)
 
     // $Overview activity item MOD: role created
     &_role_created
       &:before
-        background-color: map-get($boss-app-palette, action)
+        background-color: map-get($boss-app-palette, pending)
 
     // $Overview activity item MOD: role rejected
     &_role_rejected
       &:before
         background-color: map-get($boss-app-palette, alert)
+
+    // $Overview activity item MOD: role waiting
+    &_role_waiting
+      &:before
+        background-color: map-get($boss-app-palette, warning)
 
 
   // $Overview list

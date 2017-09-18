@@ -58,6 +58,11 @@ $block: ".boss-check"
     @media screen and (min-width: 961px)
       display: none
 
+  &_page_maintenance-index
+    z-index: auto
+    overflow: visible
+
+
   // $Check block MOD: state alert
   &_state_alert
     background-color: #feeeee
@@ -75,7 +80,6 @@ $block: ".boss-check"
     &_role_buttons
       padding: 15px 10px
 
-
     // $Check block row MOD: role table
     &_role_table
       &:nth-child(even)
@@ -83,6 +87,12 @@ $block: ".boss-check"
 
       &:nth-child(odd)
         background-color: #fbfbfb
+
+    &_role_status
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index &
+          flex-wrap: wrap
+
 
     // $Check block row MOD: marked
     &_marked
@@ -114,8 +124,15 @@ $block: ".boss-check"
       &:not(:last-child)
         border-right: 1px solid #eee
 
+    &_size_fourth
+      width: 25%
+
+      &:not(:last-child)
+        border-right: 1px solid #eee
+
     &_size_half#{&}_delimiter_light,
     &_size_third#{&}_delimiter_light
+    &_size_fourth#{&}_delimiter_light
       position: relative
 
       &:not(:last-child)
@@ -130,7 +147,62 @@ $block: ".boss-check"
           width: 0
           height: 30px
           margin-top: -15px
-          border-right: 1px solid #eee
+          border-right: 1px solid #ddd
+
+    &_role_status-label,
+    &_role_status-title
+      align-items: flex-start
+      padding-left: 30px
+      padding-right: 30px
+      min-height: 80px
+      text-align: left
+
+      @media screen and (max-width: 960px)
+        min-height: 60px
+        padding-left: 20px
+        padding-right: 20px
+
+    &_role_status-label
+      flex-grow: 0
+      flex-shrink: 0
+      width: 300px
+
+      #{$block}_page_maintenance-index &
+        border-top-left-radius: 10px
+
+      @media screen and (max-width: 960px)
+        width: 200px
+
+      @media screen and (max-width: 479px)
+        align-items: center
+        width: 100%
+        #{$block}_page_maintenance-index &
+          border-top-right-radius: 10px
+
+    &_role_status-label#{&}_adjust_single-row
+      #{$block}_page_maintenance-index &
+        border-bottom-left-radius: 10px
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index &
+          border-bottom-left-radius: 0
+
+    &_role_status-title
+      flex-grow: 1
+      flex-shrink: 1
+      width: 50%
+
+      #{$block}_page_maintenance-index &
+        position: relative
+        padding-right: 95px
+        border-top-right-radius: 10px
+
+      @media screen and (max-width: 960px)
+        #{$block}_page_maintenance-index &
+          padding-right: 65px
+
+      @media screen and (max-width: 479px)
+        width: 100%
 
     // $Check block cell MOD: role table
     &_role_table
@@ -156,12 +228,21 @@ $block: ".boss-check"
       background-color: #ff8587
 
     // $Check block cell MOD: status fail
-    &_status_fail
+    &_status_fail,
+    &_status_rejected
       background-color: #ff8587
 
     // $Check block cell MOD: status pass
-    &_status_pass
+    &_status_pass,
+    &_status_completed,
+    &_status_accepted
       background-color: #67db72
+
+    &_status_waiting
+      background-color: map-get($boss-app-palette, warning)
+
+    &_status_pending
+      background-color: map-get($boss-app-palette, pending)
 
     // $Check block cell MOD: no border
     &_no-border:not(:last-child)
@@ -185,15 +266,17 @@ $block: ".boss-check"
       cursor: pointer
 
 
-  // $Check block title
-  &__title
-    +text-normalizer()
-    max-width: 100%
-    font-size: 18px
-    font-weight: 600
-    text-align: inherit
+  &__title,
+  &__text
 
     &_role_date,
+    &_role_date-calendar,
+    &_role_time,
+    &_role_user,
+    &_role_venue,
+    &_role_voucher,
+    &_role_note,
+    &_role_location,
     &_role_payment,
     &_role_arcade,
     &_role_message
@@ -201,10 +284,6 @@ $block: ".boss-check"
       &:before
         content: ""
         display: inline-block
-        width: 18px
-        height: 18px
-        margin-right: 10px
-        margin-top: -3px
         background-repeat: no-repeat
         background-position: center center
         background-size: contain
@@ -213,6 +292,34 @@ $block: ".boss-check"
     &_role_date
       &:before
         background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_time
+      &:before
+        background-image: url('../icons/icon-clock-dark-gray.svg')
+
+    &_role_date-calendar
+      &:before
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_user
+      &:before
+        background-image: url('../icons/icon-user-dark-gray.svg')
+
+    &_role_venue
+      &:before
+        background-image: url('../icons/icon-storefront-dark-gray.svg')
+
+    &_role_voucher
+      &:before
+        background-image: url('../icons/icon-ticket-dark-gray.svg')
+
+    &_role_location
+      &:before
+        background-image: url('../icons/icon-location-pin-dark-gray.svg')
+
+    &_role_note
+      &:before
+        background-image: url('../icons/icon-envelope-dark-gray.svg')
 
     &_role_payment
       &:before
@@ -226,10 +333,50 @@ $block: ".boss-check"
       &:before
         background-image: url('../icons/icon-text-paper-dark-gray.svg')
 
+    &_indicator_att
+      &:after
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 14px
+        margin-left: 10px
+        margin-top: -3px
+        background-image: url('../icons/icon-envelope-dark-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+
+  // $Check block title
+  &__title
+    +text-normalizer()
+    max-width: 100%
+    font-size: 18px
+    font-weight: 600
+    text-align: inherit
+
+    &_role_date,
+    &_role_date-calendar,
+    &_role_time,
+    &_role_user,
+    &_role_venue,
+    &_role_voucher,
+    &_role_note,
+    &_role_location,
+    &_role_payment,
+    &_role_arcade,
+    &_role_message
+
+      &:before
+        width: 18px
+        height: 18px
+        margin-right: 10px
+        margin-top: -3px
+
     // $Check block title MOD: role clickable action
     &_role_action
       cursor: pointer
-
 
     // $Check block title status
   &__title-status
@@ -243,41 +390,25 @@ $block: ".boss-check"
     max-width: 100%
     text-align: inherit
 
-    &_type_accent
-      color: map-get($boss-app-palette, primary)
-      font-weight: 600
-
-    // $Check block text MOD: role date
-    // $Check block text MOD: role time
-    // $Check block text MOD: role date-calendar
-    // $Check block text MOD: role user
-    // $Check block text MOD: role venue
-    // $Check block text MOD: role voucher
-    // $Check block text MOD: role note
-    // $Check block text MOD: role location
     &_role_date,
-    &_role_time,
     &_role_date-calendar,
+    &_role_time,
     &_role_user,
     &_role_venue,
     &_role_voucher,
     &_role_note,
-    &_role_location
+    &_role_location,
+    &_role_payment,
+    &_role_arcade,
+    &_role_message
 
       &:before
-        content: ""
-        display: inline-block
         width: 16px
         height: 16px
         margin-right: 7px
         margin-top: -3px
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-        vertical-align: middle
 
     &_role_date
-
       #{$block}_page_safe-checks-index &,
       #{$block}_page_checklist-review &,
       #{$block}_page_vouchers-index &
@@ -287,62 +418,21 @@ $block: ".boss-check"
         text-align: left
 
       &:before
-        background-image: url('../icons/icon-clock-dark-gray.svg')
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &
+          background-image: url('../icons/icon-clock-dark-gray.svg')
 
-    &_role_time
-
-      &:before
-        background-image: url('../icons/icon-clock-dark-gray.svg')
-
-    &_role_date-calendar
-
-      &:before
-        background-image: url('../icons/icon-calendar-dark-gray.svg')
-
-    &_role_user
-
-      &:before
-        background-image: url('../icons/icon-user-dark-gray.svg')
-
-    &_role_venue
-
-      &:before
-        background-image: url('../icons/icon-storefront-dark-gray.svg')
 
     &_role_voucher
-
       &:before
         width: 18px
         height: 18px
-        background-image: url('../icons/icon-ticket-dark-gray.svg')
 
     &_role_location
-
       &:before
         width: 16px
         height: 16px
-        background-image: url('../icons/icon-location-pin-dark-gray.svg')
-
-    &_role_note
-
-      &:before
-        background-image: url('../icons/icon-envelope-dark-gray.svg')
-
-    // $Check block text MOD: indicator attachment
-    &_indicator_att
-
-      &:after
-        content: ""
-        display: inline-block
-        width: 18px
-        height: 14px
-        margin-left: 10px
-        margin-top: -3px
-        background-image: url('../icons/icon-envelope-dark-gray.svg')
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-        vertical-align: middle
 
     // $Check block text MOD: marked
     &_marked
@@ -367,8 +457,19 @@ $block: ".boss-check"
       color: #808080
 
     // $Check block text MOD: state alert
-    &_state_alert,
+    &_state_alert
       color: #FFF
+
+    &_role_status-label
+      font-size: 18px
+      text-transform: uppercase
+      color: #FFF
+
+      @media screen and (max-width: 960px)
+        font-size: 16px
+
+      @media screen and (max-width: 479px)
+        text-align: center
 
     // $Check block text MOD: status fail
     // $Check block text MOD: status pass
@@ -416,8 +517,79 @@ $block: ".boss-check"
       padding: 6px 12px
 
 
+  &__indicator
+    display: inline-block
+    width: 15px
+    height: 15px
+    border-radius: 50%
+    background-color: map-get($boss-app-palette, primary)
+
+    #{$block}_page_maintenance-index &
+      position: absolute
+      top: 50%
+      right: 30px
+      width: 35px
+      height: 35px
+      margin-top: -18px
+      transform-origin: 50% 50%
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_maintenance-index &
+        right: 20px
+        width: 25px
+        height: 25px
+        margin-top: -13px
+
+    &_role_dropdown-switch
+      background-image: url('../icons/icon-arrow-down-white.svg')
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 40%
+      font-size: 0
+      line-height: 0
+      color: transparent
+      cursor: pointer
+      transform: rotate(180deg) translateZ(0)
+      transition: opacity .2s
+
+      &:hover
+        opacity: 0.8
+        transform: rotate(180deg) translateZ(0)
+
+    &_role_dropdown-switch#{&}_state_dropdown-closed
+      transform: rotate(0) translateZ(0)
+
+      &:hover
+        transform: rotate(0) translateZ(0)
+
+    &_priority_high
+      background-color: map-get($boss-app-palette, alert)
+
+    &_priority_medium
+      background-color: map-get($boss-app-palette, warning)
+
+    &_priority_low
+      background-color: map-get($boss-app-palette, secondary)
+
+
+  &__indicator-label
+    +text-normalizer()
+    display: inline-block
+
+    &_state_hidden
+      font-size: 0
+      line-height: 0
+      color: transparent
+
+
   // $Check block dropdown
   &__dropdown
+
+    #{$block}_page_maintenance-index &
+      background-color: #fbfbfb
+      border-bottom-left-radius: 10px
+      border-bottom-right-radius: 10px
+      overflow: hidden
 
     // $Check block dropdown CONTEXT: $Check block MOD: page message board
     #{$block}_page_message-board &

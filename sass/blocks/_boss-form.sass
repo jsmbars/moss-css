@@ -927,6 +927,8 @@ $block: ".boss-form"
         @media screen and (max-width: 640px)
           display: none
 
+    &_role_indicator
+
     &_icon_time
       &:before
         left: auto
@@ -958,11 +960,11 @@ $block: ".boss-form"
       &_priority_low
         background-color: map-get($boss-app-palette, secondary)
 
-      &_status_done
-        background-color: map-get($boss-app-palette, primary)
+      &_status_completed
+        background-color: map-get($boss-app-palette, secondary)
 
-      &_status_undone
-        background-color: map-get($boss-app-palette, action)
+      &_status_pending
+        background-color: map-get($boss-app-palette, pending)
 
       &_status_accepted
         background-color: map-get($boss-app-palette, secondary)
@@ -1100,6 +1102,18 @@ $block: ".boss-form"
 
         @media screen and (max-width: 640px)
           padding-left: 10px
+
+    &_role_indicator
+
+      & .Select--multi .Select-value
+        background-color: transparent
+
+      & .Select--multi .Select-value-label
+        padding: 10px
+        color: #4c4c4c
+
+      & .Select--multi .Select-value-icon
+        display: none
 
     &_icon_time
       & .Select-arrow

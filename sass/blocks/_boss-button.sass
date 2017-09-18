@@ -21,29 +21,29 @@
     color: #FFF
     background-color: lighten($background-color, $amount)
 
-=button-bordered($primary-color: '#4c4c4c', $secondary-color: '#fff')
-  border: 2px solid $primary-color
-  background-color: $secondary-color
-  color: $primary-color
+=button-bordered($color: '#4c4c4c', $border-color: '#4c4c4c', $background-color: '#fff')
+  border: 2px solid $border-color
+  background-color: $background-color
+  color: $color
 
 
-=button-bordered-hover-behavior($primary-color: '#4c4c4c', $secondary-color: '#fff', $icon-hover-url: '')
+=button-bordered-hover-behavior($color: '#4c4c4c', $border-color: '#4c4c4c', $background-color: '#fff', $icon-hover-url: '')
 
   &:not(.boss-button_type_no-behavior):hover,
   &:not(.boss-button_type_no-behavior):focus
-    color: $secondary-color
-    background-color: $primary-color
+    color: $color
+    background-color: $background-color
 
     &:after,
     &:before
       background-image: url($icon-hover-url)
 
 
-=button-bordered-active-behavior($primary-color: '#4c4c4c', $secondary-color: '#fff', $icon-active-url: '')
+=button-bordered-active-behavior($color: '#4c4c4c', $border-color: '#4c4c4c', $background-color: '#fff', $icon-active-url: '')
 
   &#{$block}_state_active:not(.boss-button_type_no-behavior)
-    color: $secondary-color
-    background-color: $primary-color
+    color: $color
+    background-color: $background-color
 
     &:after,
     &:before
@@ -114,6 +114,11 @@ $block: ".boss-button"
     @media screen and (max-width: 960px)
       width: 100%
       text-align: center
+
+  // $Common button MOD: MOD: adjust full width
+  &_adjust_full
+    width: 100%
+    text-align: center
 
   // $Common button MOD: type small
   &_type_small
@@ -234,6 +239,11 @@ $block: ".boss-button"
 
   &_role_action
     $background-color: map-get($boss-app-palette, action)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  &_role_pending
+    $background-color: map-get($boss-app-palette, pending)
     +button-common($background-color: $background-color)
     +button-common-hover-behavior($background-color: $background-color)
 
@@ -587,62 +597,67 @@ $block: ".boss-button"
   // $Common button MOD: role edit-light
   &_role_edit-light
     $primary-color: map-get($boss-app-palette, secondary)
-    $secondary-color: #fff
-    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
     +button-with-icon-left($icon-url: '../icons/icon-pencil-secondary.svg', $background-size: 12px)
-    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-pencil-white.svg')
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-pencil-white.svg')
+
+  &_role_edit-light-alt
+    $primary-color: map-get($boss-app-palette, primary)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-with-icon-left($icon-url: '../icons/icon-pencil-primary.svg', $background-size: 12px)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-pencil-white.svg')
+
+  &_role_cancel-light
+    $primary-color: map-get($boss-app-palette, alert)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-with-icon-left($icon-url: '../icons/icon-close-alert.svg', $background-size: 12px)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-close-white.svg')
 
   // $Common button MOD: role details
   &_role_details
     $primary-color: map-get($boss-app-palette, secondary)
-    $secondary-color: #fff
-    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
     +button-with-icon-left($icon-url: '../icons/icon-plus-secondary.svg', $background-size: 12px)
-    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-plus-white.svg')
-    +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-plus-white.svg')
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-plus-white.svg')
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-plus-white.svg')
 
   // $Common button MOD: monochrome button profile
   &_role_profile
     $primary-color: #4c4c4c
-    $secondary-color: #fff
-    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
     +button-with-icon-left($icon-url: '../icons/icon-users-dark-gray.svg')
-    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-users-white.svg')
-    +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-users-white.svg')
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-users-white.svg')
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-users-white.svg')
 
 
   // $Common button MOD: monochrome button holidays
   &_role_holidays
     $primary-color: #4c4c4c
-    $secondary-color: #fff
-    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
     +button-with-icon-left($icon-url: '../icons/icon-holidays-dark-gray.svg')
-    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-holidays-white.svg')
-    +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-holidays-white.svg')
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-holidays-white.svg')
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-holidays-white.svg')
 
   // $Common button MOD: monochrome button timelog
   &_role_timelog
     $primary-color: #4c4c4c
-    $secondary-color: #fff
-    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
     +button-with-icon-left($icon-url: '../icons/icon-clock-dark-gray.svg')
-    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-hover-url: '../icons/icon-clock-white.svg')
-    +button-bordered-active-behavior($primary-color: $primary-color, $secondary-color: $secondary-color, $icon-active-url: '../icons/icon-clock-white.svg')
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-clock-white.svg')
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-clock-white.svg')
 
   // $Common button MOD: monochrome button enabled
   &_role_enabled-sb
     $primary-color: map-get($boss-app-palette, secondary)
-    $secondary-color: transparent
-    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
-    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color)
     font-weight: 400
 
   // $Common button MOD: monochrome button disabled
   &_role_disabled-sb
     $primary-color: map-get($boss-app-palette, alert)
-    $secondary-color: transparent
-    +button-bordered($primary-color: $primary-color, $secondary-color: $secondary-color)
-    +button-bordered-hover-behavior($primary-color: $primary-color, $secondary-color: $secondary-color)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color)
     font-weight: 400
 
 
