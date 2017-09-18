@@ -88,6 +88,12 @@ $block: ".boss-check"
       &:nth-child(odd)
         background-color: #fbfbfb
 
+    &_role_status
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index &
+          flex-wrap: wrap
+
+
     // $Check block row MOD: marked
     &_marked
       background-color: #fbfbfb
@@ -144,13 +150,17 @@ $block: ".boss-check"
           border-right: 1px solid #ddd
 
     &_role_status-label,
-    &_role_status-title,
-    &_role_status-action
+    &_role_status-title
       align-items: flex-start
       padding-left: 30px
       padding-right: 30px
       min-height: 80px
       text-align: left
+
+      @media screen and (max-width: 960px)
+        min-height: 60px
+        padding-left: 20px
+        padding-right: 20px
 
     &_role_status-label
       flex-grow: 0
@@ -160,22 +170,39 @@ $block: ".boss-check"
       #{$block}_page_maintenance-index &
         border-top-left-radius: 10px
 
+      @media screen and (max-width: 960px)
+        width: 200px
+
+      @media screen and (max-width: 479px)
+        align-items: center
+        width: 100%
+        #{$block}_page_maintenance-index &
+          border-top-right-radius: 10px
+
     &_role_status-label#{&}_adjust_single-row
       #{$block}_page_maintenance-index &
         border-bottom-left-radius: 10px
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index &
+          border-bottom-left-radius: 0
 
     &_role_status-title
       flex-grow: 1
       flex-shrink: 1
       width: 50%
 
-    &_role_status-action
-      flex-grow: 0
-      flex-shrink: 0
-      width: auto
-
       #{$block}_page_maintenance-index &
+        position: relative
+        padding-right: 95px
         border-top-right-radius: 10px
+
+      @media screen and (max-width: 960px)
+        #{$block}_page_maintenance-index &
+          padding-right: 65px
+
+      @media screen and (max-width: 479px)
+        width: 100%
 
     // $Check block cell MOD: role table
     &_role_table
@@ -430,13 +457,19 @@ $block: ".boss-check"
       color: #808080
 
     // $Check block text MOD: state alert
-    &_state_alert,
+    &_state_alert
       color: #FFF
 
     &_role_status-label
       font-size: 18px
       text-transform: uppercase
       color: #FFF
+
+      @media screen and (max-width: 960px)
+        font-size: 16px
+
+      @media screen and (max-width: 479px)
+        text-align: center
 
     // $Check block text MOD: status fail
     // $Check block text MOD: status pass
@@ -491,13 +524,20 @@ $block: ".boss-check"
     border-radius: 50%
     background-color: map-get($boss-app-palette, primary)
 
-    &_size_m
-      width: 25px
-      height: 25px
-
-    &_size_l
+    #{$block}_page_maintenance-index &
+      position: absolute
+      top: 50%
+      right: 30px
       width: 35px
       height: 35px
+      margin-top: -18px
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_maintenance-index &
+        right: 20px
+        width: 25px
+        height: 25px
+        margin-top: -13px
 
     &_role_dropdown-switch
       background-image: url('../icons/icon-arrow-down-white.svg')
