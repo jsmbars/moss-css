@@ -107,6 +107,16 @@ $block: ".boss-report"
     padding: 0
 
 
+  // $Report stats note
+  &__stats-note
+    display: block
+    width: 100%
+    margin-top: 10px
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
   // $Report stats item
   &__stats-item
     display: block
@@ -132,12 +142,10 @@ $block: ".boss-report"
       justify-content: flex-start
       align-items: stretch
       margin-bottom: 0
-      border-bottom: 1px solid #eee
-      border-left: 1px solid #eee
-      border-right: 1px solid #eee
+      border: 1px solid #eee
 
-      &:first-child
-        border-top: 1px solid #eee
+      & + &
+        border-top: none
 
       &:nth-child(odd)
         background-color: #FBFBFB
@@ -149,12 +157,11 @@ $block: ".boss-report"
         justify-content: flex-start
         align-items: stretch
         margin-bottom: 0
-        border-bottom: 1px solid #eee
-        border-left: 1px solid #eee
-        border-right: 1px solid #eee
+        border: 1px solid #eee
 
-        &:first-child
-          border-top: 1px solid #eee
+      & + &
+        @media screen and (max-width: 640px)
+          border-top: none
 
 
   // $Report stats label
@@ -357,10 +364,6 @@ $block: ".boss-report"
   &__note
     display: block
     width: 100%
-
-    // $Report note mOD: space above
-    &_space_above
-      margin-top: 15px
 
     // $Report note MOD: role control fluid on small screens
     &_role_control-fluid-s
