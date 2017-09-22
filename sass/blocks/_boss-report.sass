@@ -194,6 +194,13 @@ $block: ".boss-report"
     &_role_delimiter:after
       content: ":"
 
+      #{$block}__stats-item_layout_table &
+        display: none
+
+      @media screen and (max-width: 640px)
+        #{$block}__stats-item_layout_table-s &
+          display: none
+
 
   // $Report stats value
   &__stats-value
