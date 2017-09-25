@@ -106,6 +106,18 @@ $block: ".boss-page-header"
     &_state_active
       background-color: #f0f0f0
 
+    &_state_active
+      &:after
+        content: ""
+        position: absolute
+        bottom: -12px
+        right: 20px
+        z-index: 10001
+        margin-right: -5px
+        border-bottom: 11px solid #fff
+        border-right: 11px solid transparent
+        border-left: 11px solid transparent
+
     &_type_single
       width: auto
       padding: 13px 25px
@@ -118,7 +130,8 @@ $block: ".boss-page-header"
     &_role_site-select
       flex-grow: 0
       flex-shrink: 0
-      width: 200px
+      width: auto
+      max-width: 200px
       margin-left: 30px
       cursor: pointer
 
@@ -130,6 +143,7 @@ $block: ".boss-page-header"
         flex-shrink: 1
         order: 99
         width: 100%
+        max-width: 100%
         margin-top: 25px
         margin-left: 0
 
@@ -147,11 +161,7 @@ $block: ".boss-page-header"
           display: block
 
     &_role_site-select#{&}_type_single
-      width: auto
       cursor: default
-
-      @media screen and (max-width: 480px)
-        width: 100%
 
 
   // $Page header control value
@@ -208,6 +218,7 @@ $block: ".boss-page-header"
   // $Page header action
   &__action
     +text-normalizer()
+    position: relative
     display: block
     width: 40px
     height: 40px
@@ -224,6 +235,18 @@ $block: ".boss-page-header"
     &:hover,
     &_state_active
       background-color: #f0f0f0
+
+    &_state_active
+      &:after
+        content: ""
+        position: absolute
+        bottom: -12px
+        left: 50%
+        z-index: 10001
+        margin-left: -11px
+        border-bottom: 11px solid #fff
+        border-right: 11px solid transparent
+        border-left: 11px solid transparent
 
     // $Page header MOD: role search
     &_role_search
@@ -288,28 +311,6 @@ $block: ".boss-page-header"
     &_state_opened
       display: block
 
-    &:after
-      content: ""
-      position: absolute
-      bottom: 100%
-      left: 50%
-      z-index: 10001
-      margin-left: -11px
-      border-bottom: 11px solid #eee
-      border-right: 11px solid transparent
-      border-left: 11px solid transparent
-
-    &:before
-      content: ""
-      position: absolute
-      bottom: 100%
-      left: 50%
-      z-index: 10002
-      margin-left: -10px
-      border-bottom: 10px solid #fff
-      border-right: 10px solid transparent
-      border-left: 10px solid transparent
-
     // $Page header dropdown MOD: role search
     &_role_search
       top: 60px
@@ -321,39 +322,6 @@ $block: ".boss-page-header"
 
       @media screen and (max-width: 640px)
         padding: 15px 5px
-
-      &:before
-        left: auto
-        right: 320px
-        margin-right: -10px
-        margin-left: 0
-
-        @media screen and (max-width: 640px)
-          right: 300px
-
-        @media screen and (max-width: 480px)
-          right: 80px
-
-      &:after
-        left: auto
-        right: 320px
-        margin-right: -11px
-        margin-left: 0
-
-        @media screen and (max-width: 640px)
-          right: 300px
-
-        @media screen and (max-width: 480px)
-          right: 80px
-
-    &_role_search#{&}_no-select
-
-      &:before,
-      &:after
-        right: 90px
-
-        @media screen and (max-width: 640px)
-          right: 80px
 
 
     // $Page header dropdown MOD: site select
@@ -376,16 +344,6 @@ $block: ".boss-page-header"
       top: 60px
       right: 0
       width: 200px
-
-      &:before
-        left: auto
-        right: 10px
-        margin-left: 0
-
-      &:after
-        left: auto
-        right: 10px
-        margin-left: 0
 
 
   // $Page header dropdown header
