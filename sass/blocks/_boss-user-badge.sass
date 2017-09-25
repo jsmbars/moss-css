@@ -46,19 +46,23 @@ $block: ".boss-user-badge"
     display: block
     width: 40px
     height: 40px
-    background-color: map-get($boss-app-palette, primary)
+    background-color: $boss-light-gray
     border: 5px solid #fff
     border-radius: 50%
     font-size: 0
     color: transparent
 
-    // $User badge avatar icon MOD: status online
-    &_status_online
-      background-color: map-get($boss-app-palette, secondary)
+    // $User badge avatar icon MOD: status clocked in
+    &_status_clocked-in
+      background-color: map-get($boss-sign-palette, clocked-in)
 
-    // $User badge avatar icon MOD: status offline
-    &_status_offline
-      background-color: map-get($boss-app-palette, alert)
+    // $User badge avatar icon MOD: status clocked out
+    &_status_clocked-out
+      background-color: map-get($boss-sign-palette, clocked-out)
+
+    // $User badge avatar icon MOD: status on break
+    &_status_on-break
+      background-color: map-get($boss-sign-palette, break)
 
 
   // $User badge information
