@@ -106,11 +106,21 @@ $block: ".boss-page-header"
     &_state_active
       background-color: #f0f0f0
 
+    &_type_single
+      width: auto
+      padding: 13px 25px
+      cursor: default
+
+    &_type_single:hover,
+    &_type_single#{&}_state_active
+      background-color: transparent
+
     &_role_site-select
       flex-grow: 0
       flex-shrink: 0
       width: 200px
       margin-left: 30px
+      cursor: pointer
 
       @media screen and (max-width: 640px)
         margin-left: 20px
@@ -127,8 +137,8 @@ $block: ".boss-page-header"
         content: ""
         position: absolute
         top: -15px
-        left: -100px
-        right: -100px
+        left: -15px
+        right: -15px
         display: none
         height: 0
         border-top: 1px solid #f0f0f0
@@ -136,11 +146,26 @@ $block: ".boss-page-header"
         @media screen and (max-width: 480px)
           display: block
 
+    &_role_site-select#{&}_type_single
+      width: auto
+      cursor: default
+
+      @media screen and (max-width: 480px)
+        width: 100%
+
 
   // $Page header control value
   &__control-value
     +text-normalizer()
-    line-height: 1
+    line-height: 15px
+    width: 100%
+    padding-left: 1px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+    #{$block}__control_type_single &
+      text-align: center
 
 
   // $Page header control arrow
@@ -158,6 +183,9 @@ $block: ".boss-page-header"
     color: transparent
     outline: none
     transition: all .4s
+
+    #{$block}__control_type_single &
+      display: none
 
     &:before
       content: ""
@@ -396,6 +424,10 @@ $block: ".boss-page-header"
     // $Page header dropdown scroll CONTEXT: $Page header dropdown MOD: role site select
     #{$block}__dropdown_role_site-select &
       height: 200px
+
+    #{$block}__dropdown_role_site-select#{$block}__dropdown_type_fluid &
+      height: auto
+      max-height: 200px
 
     @media screen and (max-width: 640px)
       #{$block}__dropdown_role_search &
