@@ -193,6 +193,21 @@ $block: ".boss-button"
 
   // Buttons without icons
 
+  &_status_clocked-in
+    $background-color: map-get($boss-sign-palette, clocked-in)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  &_status_clocked-out
+    $background-color: map-get($boss-sign-palette, clocked-out)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
+  &_status_on-break
+    $background-color: map-get($boss-sign-palette, break)
+    +button-common($background-color: $background-color)
+    +button-common-hover-behavior($background-color: $background-color)
+
   // $Common button MOD: role primary
   // $Common button MOD: role submit
   &_role_primary,
