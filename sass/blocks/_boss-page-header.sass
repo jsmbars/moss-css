@@ -56,6 +56,19 @@ $block: ".boss-page-header"
       flex-wrap: wrap
       padding-bottom: 15px
 
+    &:before
+      content: ""
+      position: absolute
+      top: 60px
+      left: 0
+      right: 0
+      display: none
+      height: 0
+      border-top: 1px solid #f0f0f0
+
+      @media screen and (max-width: 480px)
+        display: block
+
 
   // $Page header group
   &__group
@@ -114,9 +127,20 @@ $block: ".boss-page-header"
         right: 20px
         z-index: 10001
         margin-right: -5px
-        border-bottom: 11px solid #fff
+        border-bottom: 11px solid #eee
         border-right: 11px solid transparent
         border-left: 11px solid transparent
+
+      &:before
+        content: ""
+        position: absolute
+        bottom: -13px
+        right: 20px
+        z-index: 10002
+        margin-right: -5px
+        border-bottom: 10px solid #fff
+        border-right: 10px solid transparent
+        border-left: 10px solid transparent
 
     &_type_single
       width: auto
@@ -131,7 +155,7 @@ $block: ".boss-page-header"
       flex-grow: 0
       flex-shrink: 0
       width: auto
-      max-width: 200px
+      max-width: 220px
       margin-left: 30px
       cursor: pointer
 
@@ -146,19 +170,6 @@ $block: ".boss-page-header"
         max-width: 100%
         margin-top: 25px
         margin-left: 0
-
-      &:before
-        content: ""
-        position: absolute
-        top: -15px
-        left: -15px
-        right: -15px
-        display: none
-        height: 0
-        border-top: 1px solid #f0f0f0
-
-        @media screen and (max-width: 480px)
-          display: block
 
     &_role_site-select#{&}_type_single
       cursor: default
@@ -244,9 +255,20 @@ $block: ".boss-page-header"
         left: 50%
         z-index: 10001
         margin-left: -11px
-        border-bottom: 11px solid #fff
+        border-bottom: 11px solid #eee
         border-right: 11px solid transparent
         border-left: 11px solid transparent
+
+      &:before
+        content: ""
+        position: absolute
+        bottom: -13px
+        left: 50%
+        z-index: 10002
+        margin-left: -10px
+        border-bottom: 10px solid #fff
+        border-right: 10px solid transparent
+        border-left: 10px solid transparent
 
     // $Page header MOD: role search
     &_role_search
@@ -328,7 +350,7 @@ $block: ".boss-page-header"
     &_role_site-select
       top: 60px
       right: 70px
-      width: 200px
+      width: 220px
 
       @media screen and (max-width: 640px)
         right: 60px
@@ -343,7 +365,7 @@ $block: ".boss-page-header"
     &_role_profile
       top: 60px
       right: 0
-      width: 200px
+      width: 220px
 
 
   // $Page header dropdown header
