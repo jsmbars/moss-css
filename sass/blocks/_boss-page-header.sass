@@ -151,6 +151,11 @@ $block: ".boss-page-header"
     &_type_single#{&}_state_active
       background-color: transparent
 
+    &_type_single#{&}_state_active
+      &:after,
+      &:before
+        display: none
+
     &_role_site-select
       flex-grow: 0
       flex-shrink: 0
@@ -269,6 +274,15 @@ $block: ".boss-page-header"
         border-bottom: 10px solid #fff
         border-right: 10px solid transparent
         border-left: 10px solid transparent
+
+    &_type_single:hover,
+    &_type_single#{&}_state_active
+      background-color: transparent
+
+    &_type_single#{&}_state_active
+      &:after,
+      &:before
+        display: none
 
     // $Page header MOD: role search
     &_role_search
