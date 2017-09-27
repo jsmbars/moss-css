@@ -333,7 +333,10 @@ $block: ".boss-check"
       &:before
         background-image: url('../icons/icon-text-paper-dark-gray.svg')
 
-    &_indicator_att
+    &_indicator_att,
+    &_indicator_notes,
+    &_indicator_images,
+    &_indicator_notes-images
       &:after
         content: ""
         display: inline-block
@@ -341,11 +344,25 @@ $block: ".boss-check"
         height: 14px
         margin-left: 10px
         margin-top: -3px
-        background-image: url('../icons/icon-envelope-dark-gray.svg')
         background-repeat: no-repeat
         background-position: center center
         background-size: contain
         vertical-align: middle
+
+    &_indicator_att,
+    &_indicator_notes
+      &:after
+        background-image: url('../icons/icon-envelope-dark-gray.svg')
+
+    &_indicator_images
+      &:after
+        background-image: url('../icons/icon-camera-dark-gray.svg')
+
+    &_indicator_notes-images
+      &:after
+        width: 40px
+        background-image: url('../icons/icon-envelope-dark-gray.svg'), url('../icons/icon-camera-dark-gray.svg')
+        background-position: 0 center, 25px center
 
 
   // $Check block title
