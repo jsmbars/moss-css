@@ -38,6 +38,10 @@ $block: ".date-picker"
           background: url(../icons/icon-calendar-medium-gray.svg) no-repeat 0 0
           background-size: contain
 
+      &_state_error input,
+      &_state_error .date-picker-input-field
+        outline: 1px solid map-get($boss-app-palette, alert-border)
+
       & input
         +text-normalizer()
         display: block
@@ -80,7 +84,20 @@ $block: ".date-picker"
           color: $boss-input-placeholder-color
           opacity:  1 !important
 
-      &_state_error input
+
+    .date-picker-input-field
+      +text-normalizer()
+      display: block
+      width: 100%
+      height: auto
+      min-height: 50px
+      box-sizing: border-box
+      border: 1px solid $boss-very-light-gray
+      padding: 15px 20px
+      border-radius: 2px
+      cursor: text
+
+      &_state_error
         outline: 1px solid map-get($boss-app-palette, alert-border)
 
 
