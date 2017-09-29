@@ -49,6 +49,24 @@ $block: ".time-picker"
           background: url(../icons/icon-clock-medium-gray.svg) no-repeat 0 0
           background-size: contain
 
+      &_state_error input,
+      &_state_error .time-picker-input-field
+        outline: 1px solid map-get($boss-app-palette, alert-border)
+
+
+      & .time-picker-input-field
+        +text-normalizer()
+        display: block
+        width: 100%
+        height: auto
+        min-height: 50px
+        box-sizing: border-box
+        border: 1px solid $boss-very-light-gray
+        padding: 15px 20px
+        border-radius: 2px
+        cursor: text
+
+
       & input
         +text-normalizer()
         display: block
@@ -87,8 +105,3 @@ $block: ".time-picker"
         :placeholder-shown
           color: $boss-input-placeholder-color
           opacity:  1 !important
-
-      &_state_error input
-        outline: 1px solid map-get($boss-app-palette, alert-border)
-
-
