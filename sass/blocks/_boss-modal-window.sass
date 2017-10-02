@@ -42,11 +42,13 @@ $block: ".boss-modal-window"
 
   // $Modal window MOD: adjust submit button
   &_adjust_submit-button
-    width: 340px !important
+    width: 339px !important
+    text-align: center
+    font-size: 20px
 
   // $Modal window MOD: adjust input pin
   &_adjust_input-pin
-    width: 340px !important
+    width: 339px !important
     margin-bottom: 0.7em !important
 
   // $Modal window MOD: adjust textarea
@@ -417,36 +419,75 @@ $block: ".boss-modal-window"
 
   // $Modal window numpad
   &__numpad
-    display: table
-    width: 340px
-    border-collapse: collapse
-    margin-bottom: 1.2rem
+    display: block
+    width: 339px
+    margin-bottom: 20px
+    border: 2px solid $boss-light-gray
+
+
+  // $Modal window numpad label
+  &__numpad-label
+    +text-normalizer()
+    display: block
+    width: 100%
+    height: 40px
+    overflow: hidden
+    text-align: center
+    color: $boss-light-gray
+    font-size: 40px
+    line-height: 40px
+    letter-spacing: 5px
 
 
   // $Modal window numpad row
   &__numpad-row
-    display: table-row
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: flex-start
+
+    &:not(:last-child)
+      border-bottom: 2px solid $boss-light-gray
 
 
   // $Modal window numpad button
   &__numpad-button
-    display: table-cell
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 113px
     height: 80px
+    padding: 0
     color: $boss-light-gray
     text-align: center
-    border: 2px solid $boss-light-gray
-    vertical-align: middle
-    font-size: 3.2rem
-    padding: 0
-    line-height: 1em
+    font-size: 40px
+    line-height: 1
     font-weight: 300
     user-select: none
     cursor: pointer
+    background-color: transparent
+    border-radius: 0
     transition: background-color 0.2s
     animation-timing-function: ease-out
 
+    &:nth-child(2),
+    &:only-child
+      border-right: 2px solid $boss-light-gray
+      border-left: 2px solid $boss-light-gray
+
     &:active
       background-color: $boss-light-gray
+
+
+  // $Modal window numpad submit
+  &__numpad-submit
+    width: 339px !important
+    text-align: center
+    font-size: 20px
 
 
   & .closeButton--jss-0-1
