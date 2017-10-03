@@ -1039,6 +1039,30 @@ $block: ".boss-form"
       direction: rtl
       vertical-align: middle
 
+      &_priority_high
+        background-color: map-get($boss-app-palette, alert)
+
+      &_priority_medium
+        background-color: map-get($boss-app-palette, warning)
+
+      &_priority_low
+        background-color: map-get($boss-app-palette, secondary)
+
+      &_status_completed
+        background-color: map-get($boss-app-palette, secondary)
+
+      &_status_pending
+        background-color: map-get($boss-app-palette, pending)
+
+      &_status_accepted
+        background-color: map-get($boss-app-palette, secondary)
+
+      &_status_rejected
+        background-color: map-get($boss-app-palette, alert)
+
+      &_status_waiting
+        background-color: map-get($boss-app-palette, warning)
+
     & .Select--multi .Select-value-icon
       position: relative
       z-index: 1
