@@ -60,6 +60,7 @@ $block: ".time-picker"
         width: 100%
         height: auto
         box-sizing: border-box
+        background-color: #FFF
         border: 1px solid $boss-very-light-gray
         padding: 15px 20px
         border-radius: 2px
@@ -72,6 +73,10 @@ $block: ".time-picker"
 
         &[type=text]::-ms-clear
           display: none
+
+        &[readonly]
+          background-color: #FFF
+          cursor: text
 
         ::-webkit-input-placeholder
           color: $boss-input-placeholder-color
@@ -101,6 +106,7 @@ $block: ".time-picker"
       height: auto
       min-height: 50px
       box-sizing: border-box
+      background-color: #FFF
       border: 1px solid $boss-very-light-gray
       padding: 15px 20px
       border-radius: 2px

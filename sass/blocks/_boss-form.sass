@@ -752,6 +752,7 @@ $block: ".boss-form"
     width: 100%
     height: auto
     box-sizing: border-box
+    background-color: #FFF
     border: 1px solid $boss-very-light-gray
     padding: 15px 20px
     border-radius: 2px
@@ -793,6 +794,10 @@ $block: ".boss-form"
     &[type=text]::-ms-clear
       display: none
 
+    &[readonly]
+      background-color: #FFF
+      cursor: text
+
     // $Common form input MOD: state error
     &_state_error
       outline: 1px solid map-get($boss-app-palette, alert-border)
@@ -810,6 +815,7 @@ $block: ".boss-form"
     width: 100%
     min-height: 75px
     box-sizing: border-box
+    background-color: #FFF
     border: 1px solid $boss-very-light-gray
     padding: 15px 20px
     box-shadow: none
