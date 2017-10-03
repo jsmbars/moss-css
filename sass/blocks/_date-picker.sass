@@ -48,6 +48,7 @@ $block: ".date-picker"
         width: 100%
         height: auto
         box-sizing: border-box
+        background-color: #FFF
         border: 1px solid $boss-very-light-gray
         padding: 15px 20px
         border-radius: 2px
@@ -61,8 +62,9 @@ $block: ".date-picker"
         &[type=text]::-ms-clear
           display: none
 
-          &:focus
-            border-color: map-get($boss-app-palette, alert)
+        &[readonly]
+          background-color: #FFF
+          cursor: text
 
         ::-webkit-input-placeholder
           color: $boss-input-placeholder-color
@@ -92,6 +94,7 @@ $block: ".date-picker"
       height: auto
       min-height: 50px
       box-sizing: border-box
+      background-color: #FFF
       border: 1px solid $boss-very-light-gray
       padding: 15px 20px
       border-radius: 2px
