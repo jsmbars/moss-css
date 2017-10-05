@@ -436,14 +436,83 @@ $block: ".boss-report"
         margin-bottom: 0
 
 
+  // $Report dropdown
+  &__dropdown
+
+
+  // $Report header
+  &__dropdown-header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+
+
+  // $Report dropdown switch
+  &__dropdown-switch
+    position: relative
+    display: inline-block
+    margin-left: 15px
+    border-radius: 50%
+    width: 28px
+    height: 28px
+    vertical-align: middle
+    font-size: 0
+    line-height: 0
+    color: transparent
+    cursor: pointer
+    outline: none
+    transition: .4s
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 20px
+      height: 15px
+      background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+      transform: translate(-50%, -50%) rotate(180deg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+      transform-origin: center center
+      transition: all .4s
+
+    // $Report dropdown switch MOD: state closed
+    &_state_closed
+      &:before
+        background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+        transform: translate(-50%, -50%) rotate(0)
+
+
+  // $Report dropdown content
+  &__dropdown-content
+    display: block
+    width: 100%
+    padding-top: 15px
+
+    // $Report dropdown area MOD: state closed
+    &_state_closed
+      display: none
+
+
   // $Report subtitle
   &__subtitle
     +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 1
+    max-width: 100%
     padding-bottom: 5px
     margin-bottom: 15px
     font-size: 20px
     font-weight: 600
     border-bottom: 1px solid #eee
+
+    &_role_dropdown-header
+      margin-bottom: 0
 
     &_role_readings,
     &_role_calculate
