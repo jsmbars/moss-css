@@ -562,29 +562,22 @@ $block: ".boss-time-shift"
   // $Time shift status
   &__status
     +text-normalizer()
-
     display: none
     width: auto
-    margin-bottom: 10px
-    padding: 0 20px
-    text-align: center
-    font-size: 16px
-    font-weight: 600
-    white-space: nowrap
-    color: map-get($boss-app-palette, secondary)
+    max-width: 180px
 
     @media screen and (max-width: 960px)
       flex-grow: 1
-      padding: 9px 15px
       width: 100%
+      max-width: none
       margin-right: 20px
-      border: 2px solid map-get($boss-app-palette, secondary)
-      border-radius: $boss-global-border-radius
 
     @media screen and (max-width: 480px)
-      margin-right: 10px
-      padding-left: 10px
-      padding-right: 10px
+      margin-right: 15px
+
+    @media screen and (max-width: 400px)
+      margin-right: 0
+      text-align: center
 
     // $Time shift status MOD: state visible
     &_state_visible
@@ -593,6 +586,23 @@ $block: ".boss-time-shift"
     // $Time shift status MOD: state hidden
     &_state_hidden
       display: none
+
+
+  // $Time shift status count
+  &__status-count
+    display: block
+    font-size: 16px
+    font-weight: 600
+    white-space: nowrap
+    color: map-get($boss-app-palette, secondary)
+
+
+  // $Time shift status meta
+  &__status-meta
+    display: block
+    margin-bottom: 10px
+    color: #808080
+
 
 
   // $Time shift break
