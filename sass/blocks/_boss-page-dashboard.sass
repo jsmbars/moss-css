@@ -477,7 +477,8 @@ $block: ".boss-page-dashboard"
     width: 100%
     padding-bottom: 25px
 
-    #{$block}_page_hours-overview &
+    #{$block}_page_hours-overview &,
+    #{$block}_page_ssr-details &
       width: auto
       max-width: 100%
 
@@ -485,6 +486,7 @@ $block: ".boss-page-dashboard"
       margin-bottom: 25px
       border-bottom: 1px solid $boss-very-light-gray
 
-      #{$block}_page_hours-overview &
+      #{$block}_page_hours-overview &,
+      #{$block}_page_ssr-details &
         border-bottom: none
         margin-bottom: 0

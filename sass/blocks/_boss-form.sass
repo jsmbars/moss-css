@@ -471,6 +471,14 @@ $block: ".boss-form"
       @media screen and (max-width: 640px)
         display: block
 
+    &_no-icon
+      @media screen and (max-width: 640px)
+        padding-left: 0
+
+      &:before
+        @media screen and (max-width: 640px)
+          display: none
+
 
   // $Common form interval item
   &__interval-item
@@ -751,6 +759,7 @@ $block: ".boss-form"
     display: block
     width: 100%
     height: auto
+    line-height: 1
     box-sizing: border-box
     background-color: #FFF
     border: 1px solid $boss-very-light-gray
@@ -990,12 +999,12 @@ $block: ".boss-form"
 
 
     & .Select-control
-      height: 53px
+      height: 50px
       border-radius: 2px
       border-color: #d8d8d8
 
     & .Select-multi-value-wrapper
-      line-height: 52px
+      line-height: 48px
 
     & .Select--multi .Select-multi-value-wrapper
       padding: 5px 0
@@ -1004,7 +1013,7 @@ $block: ".boss-form"
 
     & .Select-placeholder,
     & .Select--single > .Select-control .Select-value
-      line-height: 53px
+      line-height: 48px
       padding-left: 20px
       padding-right: 10px
       color: #aaa
