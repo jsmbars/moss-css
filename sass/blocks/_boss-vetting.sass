@@ -20,104 +20,10 @@ $block: ".boss-vetting"
   width: 100%
 
 
-  // $Vetting block stats area
-  &__stats
-    display: block
-    width: 100%
-
-
-  // $Vetting block stats area group
-  &__stats-group
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: flex-start
-
-    @media screen and (max-width: 960px)
-      flex-direction: column
-
-    &:not(:last-child)
-      margin-bottom: 40px
-
-      @media screen and (max-width: 960px)
-        margin-bottom: 30px
-
-
-  // $Vetting block filter area
-  &__filter
-    display: block
-    width: 100%
-
-
   // $Vetting block message area
   &__message
     display: block
     width: 100%
-
-
-  // $Vetting block flow area
-  &__flow
-    display: block
-    width: 100%
-    padding-top: 30px
-
-    @media screen and (max-width: 640px)
-      display: flex
-      flex-direction: column
-      justify-content: flex-start
-      align-items: center
-
-
-  // $Vetting block flow area list
-  &__flow-list
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: flex-start
-    flex-wrap: wrap
-    width: 100%
-
-    @media screen and (max-width: 640px)
-      flex-grow: 0
-      flex-shrink: 1
-      flex-direction: column
-      flex-wrap: nowrap
-      width: auto
-      max-width: 100%
-
-
-  // $Vetting block flow area item
-  &__flow-item
-    flex-grow: 0
-    flex-shrink: 1
-    width: 25%
-    padding: 0 30px 30px 0
-
-    @media screen and (max-width: 1280px)
-      width: 33.3%
-
-    @media screen and (max-width: 960px)
-      width: 50%
-
-    @media screen and (max-width: 640px)
-      width: 100%
-      padding-right: 0
-
-    &:nth-child(4n)
-      @media screen and (min-width: 1281px)
-        padding-right: 0
-
-    &:nth-child(3n)
-      @media screen and (min-width: 961px) and (max-width: 1280px)
-        padding-right: 0
-
-    &:nth-child(2n)
-      @media screen and (min-width: 641px) and (max-width: 960px)
-        padding-right: 0
-
-    &:last-child
-      @media screen and (max-width: 640px)
-        padding-bottom: 0
 
 
   // $Vetting block review area
