@@ -57,7 +57,7 @@ $block: ".boss-staff-summary"
     padding: 15px 10px 20px 0
 
     @media screen and (max-width: 960px)
-      border-top: 1px solid #d8e5eb
+      border-top: 1px solid #d8d8d8
 
     // $Staff summary cell MOD: role header
     &_role_header
@@ -92,6 +92,11 @@ $block: ".boss-staff-summary"
         flex-shrink: 0
         width: 130px
 
+    &_role_summary-third
+      flex-grow: 1
+      flex-shrink: 1
+      width: 33.3%
+
     // $Staff summary cell MOD: role name
     &_role_name
       flex-grow: 0
@@ -117,57 +122,6 @@ $block: ".boss-staff-summary"
         order: 2
         display: none
         border-top: none
-
-
-    // $Staff summary cell MOD: role shifts
-    &_role_shifts
-      flex-grow: 1
-      width: 30%
-      padding-right: 30px
-
-      @media screen and (max-width: 1280px)
-        padding-right: 20px
-
-      @media screen and (max-width: 1120px)
-        width: 50%
-
-      @media screen and (max-width: 960px)
-        width: 100%
-        padding-right: 15%
-        padding-left: 15%
-
-    // $Staff summary cell MOD: role holidays
-    &_role_holidays
-      flex-grow: 1
-      width: 30%
-      padding-right: 30px
-
-      @media screen and (max-width: 1280px)
-        padding-right: 20px
-
-      @media screen and (max-width: 1120px)
-        width: 50%
-
-      @media screen and (max-width: 960px)
-        width: 100%
-        padding-right: 15%
-        padding-left: 15%
-
-    // $Staff summary cell MOD: role preferences
-    &_role_preferences
-      flex-grow: 1
-      width: 40%
-      padding-right: 30px
-
-      @media screen and (max-width: 1280px)
-        padding-right: 20px
-
-      @media screen and (max-width: 1120px)
-        width: 100%
-
-      @media screen and (max-width: 960px)
-        padding-right: 15%
-        padding-left: 15%
 
     // $Staff summary cell MOD: role action
     &_role_action
@@ -201,15 +155,134 @@ $block: ".boss-staff-summary"
       border-top: none
 
 
+  &__info-item
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    padding: 15px 0 20px
+
+    @media screen and (max-width: 960px)
+      border-top: 1px solid #d8d8d8
+
+      #{$block}_page_ssr &
+        border-top: none
+
+    // $Staff summary cell MOD: role shifts
+    &_role_shifts
+      flex-grow: 1
+      width: 33.3%
+      padding-right: 15px
+
+      #{$block}_page_rotas-daily &
+        width: 30%
+        padding-right: 30px
+
+      @media screen and (max-width: 1280px)
+        #{$block}_page_rotas-daily &
+          padding-right: 20px
+
+      @media screen and (max-width: 1120px)
+        width: 50%
+
+        #{$block}_page_rotas-daily &
+          width: 50%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+        padding-right: 20px
+        padding-left: 20px
+
+        #{$block}_page_rotas-daily &
+          width: 100%
+          padding-right: 15%
+          padding-left: 15%
+
+    // $Staff summary cell MOD: role holidays
+    &_role_holidays
+      flex-grow: 1
+      width: 33.3%
+      padding-right: 15px
+      padding-left: 15px
+
+      #{$block}_page_rotas-daily &
+        width: 30%
+        padding-left: 0
+        padding-right: 30px
+
+      @media screen and (max-width: 1280px)
+        #{$block}_page_rotas-daily &
+          padding-right: 20px
+
+      @media screen and (max-width: 1120px)
+        width: 50%
+        padding-right: 0
+
+        #{$block}_page_rotas-daily &
+          width: 50%
+
+      @media screen and (max-width: 960px)
+        width: 100%
+        padding-right: 20px
+        padding-left: 20px
+
+        #{$block}_page_rotas-daily &
+          width: 100%
+          padding-right: 15%
+          padding-left: 15%
+
+    // $Staff summary cell MOD: role preferences
+    &_role_preferences
+      flex-grow: 1
+      width: 33.3%
+      padding-left: 15px
+
+      #{$block}_page_rotas-daily &
+        width: 40%
+        padding-left: 0
+        padding-right: 30px
+
+      @media screen and (max-width: 1280px)
+        #{$block}_page_rotas-daily &
+          padding-right: 20px
+
+      @media screen and (max-width: 1120px)
+        width: 100%
+        padding-right: 0
+        padding-left: 0
+
+        #{$block}_page_rotas-daily &
+          width: 100%
+
+      @media screen and (max-width: 960px)
+        padding-right: 20px
+        padding-left: 20px
+
+        #{$block}_page_rotas-daily &
+          width: 100%
+          padding-right: 15%
+          padding-left: 15%
+
+
   // $Staff summary label
   &__label
     +text-normalizer()
-    display: none
     text-transform: uppercase
     color: #808080
 
-    @media screen and (max-width: 1120px)
-      display: block
+    #{$block}_page_ssr &
+      width: 100%
+      margin-bottom: 10px
+      padding-bottom: 10px
+      border-bottom: 1px solid #d8d8d8
+
+
+    @media screen and (min-width: 1121px)
+      display: none
+
+      #{$block}_page_ssr &
+        display: block
 
 
   // $Staff summary toggle

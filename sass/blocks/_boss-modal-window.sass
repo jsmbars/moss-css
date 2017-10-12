@@ -34,7 +34,7 @@ $block: ".boss-modal-window"
   @media screen and (max-width: 960px)
     margin-top: 150px
 
-  @media screen and (max-width: 480px)
+  @media screen and (max-width: 479px)
     margin-top: 100px
 
   border-radius: $border-radius !important
@@ -96,6 +96,20 @@ $block: ".boss-modal-window"
   // $Modal window MOD: role warning
   &_role_warning
     max-width: 400px
+
+  // $Modal window MOD: role login
+  // $Modal window MOD: role reset password
+  &_role_login,
+  &_role_reset
+    width: 95%
+    max-width: 450px
+    margin: 0 auto
+
+    @media screen and (max-width: 960px)
+      margin-top: 0
+
+    @media screen and (max-width: 479px)
+      margin-top: 0
 
 
   // $Modal window close
@@ -205,6 +219,24 @@ $block: ".boss-modal-window"
       text-transform: none
       font-size: 24px
 
+    #{$block}_role_login &,
+    #{$block}_role_reset &
+      background-color: #f9f9f9
+      background-position: center 15px
+      background-repeat: no-repeat
+      background-size: 170px 170px
+      padding: 200px 25px 25px
+
+      @media screen and (max-width: 479px)
+        background-size: 150px
+        padding: 180px 15px 25px
+
+    #{$block}_role_reset &
+      background-image: url('../images/illustration-lock-refresh-primary.svg')
+
+    #{$block}_role_login &
+      background-image: url('../images/illustration-lock-primary.svg')
+
     // $Modal window header MOD: error
     &_error
       background-color: #dd6f70
@@ -236,6 +268,27 @@ $block: ".boss-modal-window"
         background-color: map-get($boss-app-palette, alert)
 
 
+  &__title
+    +text-normalizer()
+    font-size: 24px
+    line-height: 1
+
+    #{$block}_role_login &,
+    #{$block}_role_reset &
+      text-align: center
+
+    #{$block}_role_login &
+      margin-bottom: 10px
+
+
+  &__subtitle
+    +text-normalizer()
+    font-size: 18px
+
+    #{$block}_role_login &
+      text-align: center
+
+
   // $Modal window content
   &__content
     display: block
@@ -263,7 +316,9 @@ $block: ".boss-modal-window"
     #{$block}_role_edit &,
     #{$block}_role_add &,
     #{$block}_role_task-create &,
-    #{$block}_role_task-overview &
+    #{$block}_role_task-overview &,
+    #{$block}_role_login &,
+    #{$block}_role_reset &
       padding: 0
 
     @media screen and (max-width: 960px)
@@ -273,7 +328,9 @@ $block: ".boss-modal-window"
       #{$block}_role_edit &,
       #{$block}_role_add &,
       #{$block}_role_task-create &,
-      #{$block}_role_task-overview &
+      #{$block}_role_task-overview &,
+      #{$block}_role_login &,
+      #{$block}_role_reset &
         padding: 0
 
     // $Modal window content MOD: role error
@@ -300,6 +357,10 @@ $block: ".boss-modal-window"
     #{$block}_role_task-create &
       padding: 20px 35px 45px
 
+    #{$block}_role_login &,
+    #{$block}_role_reset &
+      padding: 25px
+
     @media screen and (max-width: 960px)
       #{$block}_role_edit &,
       #{$block}_role_add &
@@ -310,7 +371,9 @@ $block: ".boss-modal-window"
         padding: 20px 30px 30px
 
     @media screen and (max-width: 479px)
-      #{$block}_role_task-create &
+      #{$block}_role_task-create &,
+      #{$block}_role_login &,
+      #{$block}_role_reset &
         padding-left: 15px
         padding-right: 15px
 
