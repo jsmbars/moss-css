@@ -1412,6 +1412,16 @@ $block: ".boss-form"
       padding-left: 15px
 
 
+  &__link
+    +text-normalizer()
+    display: inline-block
+    font-size: 14px
+    transition: all .4s
+
+    &:hover
+      color: $boss-medium-gray
+
+
   // $Common form error message
   &__error
     display: block

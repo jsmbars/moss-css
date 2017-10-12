@@ -69,6 +69,9 @@ $block: ".boss-page-header"
       @media screen and (max-width: 480px)
         display: block
 
+        #{$block}_adjust_security &
+          display: none
+
 
   // $Page header group
   &__group
