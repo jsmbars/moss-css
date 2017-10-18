@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+    <circle cx="20" cy="20" r="20" fill="#84bef0"></circle>
+    <g transform="rotate(45 20 20)">
+        <rect x="8" y="18.25" width="24" height="3" fill="#fff"></rect>
+        <rect y="8" x="18.25" height="24" width="3" fill="#fff"></rect>
+    </g>
+</svg>
