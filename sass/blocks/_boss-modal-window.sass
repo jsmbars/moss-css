@@ -111,6 +111,9 @@ $block: ".boss-modal-window"
     @media screen and (max-width: 479px)
       margin-top: 0
 
+  &_role_rota
+    max-width: 320px
+
 
   // $Modal window close
   &__close
@@ -131,6 +134,10 @@ $block: ".boss-modal-window"
 
     &_accent
       background-image: url("../icons/icon-modal-close-red.svg")
+
+    &_primary
+      background-image: url("../icons/icon-modal-close-primary.svg")
+
 
 
   // $Modal window close inner
@@ -318,8 +325,13 @@ $block: ".boss-modal-window"
     #{$block}_role_task-create &,
     #{$block}_role_task-overview &,
     #{$block}_role_login &,
-    #{$block}_role_reset &
+    #{$block}_role_reset &,
+    #{$block}_role_rota &
       padding: 0
+
+    #{$block}_role_rota &
+      border-top-right-radius: $border-radius !important
+      border-top-left-radius: $border-radius !important
 
     @media screen and (max-width: 960px)
       padding-right: 15px
@@ -330,7 +342,8 @@ $block: ".boss-modal-window"
       #{$block}_role_task-create &,
       #{$block}_role_task-overview &,
       #{$block}_role_login &,
-      #{$block}_role_reset &
+      #{$block}_role_reset &,
+      #{$block}_role_rota &
         padding: 0
 
     // $Modal window content MOD: role error
@@ -342,6 +355,30 @@ $block: ".boss-modal-window"
     // $Modal window content MOD: role add note
     &_rol_add-note
       padding-top: 1.7em
+
+
+  // $Modal window group
+  &__group
+    padding: 25px
+    border-bottom: 1px solid $boss-very-light-gray
+
+    &:last-child
+      border-bottom: none
+
+    @media screen and (max-width: 960px)
+      padding: 20px
+
+
+  // $Modal window group label
+  &__group-label
+    +text-normalizer()
+    display: block
+    text-transform: uppercase
+    text-align: left
+
+    &>span
+      display: inline-block
+      border-bottom: 1px solid $boss-very-light-gray
 
 
   // $Modal window form
