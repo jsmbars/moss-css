@@ -59,10 +59,25 @@ $block: ".boss-form-badge"
 
   // $Form badge image
   &__image
-    display: inline-block
-    max-width: 100%
-    max-height: 120px
-    margin-bottom: 10px
+    display: block
+    width: 100px
+    height: 100px
+    margin: 0 auto 10px
+    border-radius: 50%
+    overflow: hidden
+    background-repeat: no-repeat
+    background-position: center top
+    background-size: 90px
+
+    &_role_user
+      background-image: url('../icons/icon-user-light-gray.svg')
+
+    &_role_voucher
+      background-image: url('../icons/icon-ticket-light-gray.svg')
+
+    & img
+      display: block
+      width: 100%
 
 
   // $Form badge caption
