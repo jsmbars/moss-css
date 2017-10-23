@@ -20,6 +20,18 @@ $block: ".boss-staff-summary"
   width: 100%
 
 
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    padding-top: 20px
+
+    @media screen and (max-width: 960px)
+      padding: 20px
+      border-top: 1px solid #eee
+
+
   // $Staff summary row
   &__row
     +text-normalizer()
@@ -43,9 +55,6 @@ $block: ".boss-staff-summary"
       @media screen and (max-width: 960px)
         display: none
 
-    &:last-of-type
-      border-bottom: none
-
 
   // $Staff summary cell
   &__cell
@@ -57,7 +66,7 @@ $block: ".boss-staff-summary"
     padding: 15px 10px 20px 0
 
     @media screen and (max-width: 960px)
-      border-top: 1px solid #d8d8d8
+      border-top: 1px solid #eee
 
     // $Staff summary cell MOD: role header
     &_role_header
@@ -164,7 +173,7 @@ $block: ".boss-staff-summary"
     padding: 15px 0 20px
 
     @media screen and (max-width: 960px)
-      border-top: 1px solid #d8d8d8
+      border-top: 1px solid #eee
 
       #{$block}_page_ssr &
         border-top: none
@@ -275,7 +284,7 @@ $block: ".boss-staff-summary"
       width: 100%
       margin-bottom: 10px
       padding-bottom: 10px
-      border-bottom: 1px solid #d8d8d8
+      border-bottom: 1px solid #eee
 
 
     @media screen and (min-width: 1121px)
