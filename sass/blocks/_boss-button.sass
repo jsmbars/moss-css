@@ -33,6 +33,7 @@
   &:not(.boss-button_type_no-behavior):focus
     color: $color
     background-color: $background-color
+    border-color: $border-color
 
     &:after,
     &:before
@@ -44,6 +45,7 @@
   &#{$block}_state_active:not(.boss-button_type_no-behavior)
     color: $color
     background-color: $background-color
+    border-color: $border-color
     cursor: default
 
     &:after,
@@ -352,6 +354,10 @@ $block: ".boss-button"
     $background-color: map-get($boss-roles-palette, bar-back)
     +button-common($background-color: $background-color)
     +button-common-hover-behavior($background-color: $background-color)
+
+  &_role_load-more
+    +button-bordered($color: #4c4c4c, $border-color: #eee, $background-color: #eee)
+    +button-bordered-hover-behavior($color: #4c4c4c, $border-color: #f8f8f8, $background-color: #f8f8f8)
 
 
   // Buttons with icons
