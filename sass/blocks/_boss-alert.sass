@@ -62,6 +62,27 @@ $block: ".boss-alert"
       background-size: 12px 12px
       border-radius: 50%
 
+  &_role_page-note#{&}_status_success
+    &:before
+      background-image: url(../icons/checked-white.svg)
+
+  &_role_page-note#{&}_status_warning
+    &:before
+      background-image: url(../icons/icon-lock-white.svg)
+
+  &_role_page-note#{&}_status_alert,
+  &_role_page-note#{&}_status_danger
+    &:before
+      background-image: url(../icons/danger-white.svg)
+
+  // $Alert MOD: role position fixed
+  &_position_fixed
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 1000
+
   // $Alert MOD: role notification
   &_role_note,
   &_no-icon,
@@ -71,37 +92,29 @@ $block: ".boss-alert"
       display: none
 
   // $Alert MOD: role time
-  &_role_time,
-  &_role_page-note#{&}_role_time
+  &_role_time
     &:before
       background-image: url(../icons/icon-clock-white.svg)
 
   // $Alert MOD: role alert
-  &_role_alert,
-  &_role_page-note#{&}_alert
+  &_role_alert
     &:before
       background-image: url(../icons/danger-white.svg)
 
   // $Alert MOD: role lock
-  // $Alert MOD: role page notification status warning
-  &_role_lock,
-  &_role_page-note#{&}_lock,
-  &_role_page-note#{&}_status_warning
+  &_role_lock
     &:before
       background-image: url(../icons/icon-lock-white.svg)
 
   // $Alert MOD: role confirm
   // $Alert MOD: role review
   &_role_confirm,
-  &_role_review,
-  &_role_page-note#{&}_role_confirm,
-  &_role_page-note#{&}_role_review
+  &_role_review
     &:before
       background-image: url(../icons/checked-white.svg)
 
   // $Alert MOD: role danger
-  &_role_danger,
-  &_role_page-note#{&}_danger
+  &_role_danger
     &:before
       background-image: url(../icons/danger-white.svg)
 
