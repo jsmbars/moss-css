@@ -228,6 +228,12 @@ $block: ".boss-overview"
   &__text
     +text-normalizer()
 
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
 
   // $Overview text line
   &__text-line
@@ -613,6 +619,11 @@ $block: ".boss-overview"
         bottom: -30px
         width: 2px
         background-color: $boss-very-light-gray
+
+    // $Overview activity item MOD: role updated
+    &_role_updated
+      &:before
+        background-color: map-get($boss-app-palette, primary)
 
     // $Overview activity item MOD: role accepted
     &_role_accepted

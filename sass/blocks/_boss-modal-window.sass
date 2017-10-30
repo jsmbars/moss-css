@@ -73,8 +73,9 @@ $block: ".boss-modal-window"
   // $Modal window MOD: role task overview
   &_role_task-create,
   &_role_task-overview
-    margin-top: 100px
+    width: 90%
     max-width: 770px
+    margin-top: 100px
 
     @media screen and (max-width: 960px)
       margin-top: 100px
@@ -87,6 +88,7 @@ $block: ".boss-modal-window"
   // $Modal window MOD: role add
   &_role_edit,
   &_role_add
+    width: 90%
     max-width: 900px
 
   // $Modal window MOD: role danger
@@ -113,6 +115,10 @@ $block: ".boss-modal-window"
 
   &_role_rota
     max-width: 320px
+
+  &_role_bounced-email
+    width: 90%
+    max-width: 450px
 
 
   // $Modal window close
@@ -163,12 +169,25 @@ $block: ".boss-modal-window"
     #{$block}_role_edit &,
     #{$block}_role_add &,
     #{$block}_role_task-create &,
-    #{$block}_role_task-overview &
+    #{$block}_role_task-overview &,
+    #{$block}_role_bounced-email &
       width: 16px
       height: 16px
       top: 30px
       right: 30px
       background-image: url(../icons/icon-close-medium-gray.svg)
+
+    @media screen and (max-width: 960px)
+      #{$block}_role_edit &,
+      #{$block}_role_add &
+        right: 15px
+
+    @media screen and (max-width: 479px)
+      #{$block}_role_task-create &,
+      #{$block}_role_task-overview &,
+      #{$block}_role_bounced-email &
+        right: 15px
+
 
 
   // $Modal window header
@@ -205,7 +224,8 @@ $block: ".boss-modal-window"
     #{$block}_role_edit &,
     #{$block}_role_add &,
     #{$block}_role_task-create &,
-    #{$block}_role_task-overview &
+    #{$block}_role_task-overview &,
+    #{$block}_role_bounced-email &
       padding: 20px 50px 20px 30px
       background-color: $boss-extra-light-gray
       text-transform: none
@@ -217,7 +237,8 @@ $block: ".boss-modal-window"
       @media screen and (max-width: 400px)
         font-size: 22px
 
-    #{$block}_role_task-overview &
+    #{$block}_role_task-overview &,
+    #{$block}_role_bounced-email &
       background-color: #fff
 
     // $Modal window header CONTEXT: $Modal window MOD: role details
@@ -234,15 +255,43 @@ $block: ".boss-modal-window"
       background-size: 170px 170px
       padding: 200px 25px 25px
 
-      @media screen and (max-width: 479px)
-        background-size: 150px
-        padding: 180px 15px 25px
-
     #{$block}_role_reset &
       background-image: url('../images/illustration-lock-refresh-primary.svg')
 
     #{$block}_role_login &
       background-image: url('../images/illustration-lock-primary.svg')
+
+
+    @media screen and (max-width: 960px)
+      #{$block}_role_edit &,
+      #{$block}_role_add &
+        padding-left: 15px
+        padding-right: 35px
+
+      #{$block}_role_task-create &,
+      #{$block}_role_task-overview &,
+      #{$block}_role_bounced-email &
+        padding-left: 30px
+
+    @media screen and (max-width: 479px)
+      #{$block}_role_login &,
+      #{$block}_role_reset &
+        background-size: 150px
+        padding: 180px 15px 25px
+
+      #{$block}_role_task-create &,
+      #{$block}_role_task-overview &,
+      #{$block}_role_bounced-email &
+        padding-left: 15px
+        padding-right: 35px
+
+    @media screen and (max-width: 400px)
+      #{$block}_role_edit &,
+      #{$block}_role_add &,
+      #{$block}_role_task-create &,
+      #{$block}_role_task-overview &,
+      #{$block}_role_bounced-email &
+        font-size: 22px
 
     // $Modal window header MOD: error
     &_error
@@ -326,7 +375,8 @@ $block: ".boss-modal-window"
     #{$block}_role_task-overview &,
     #{$block}_role_login &,
     #{$block}_role_reset &,
-    #{$block}_role_rota &
+    #{$block}_role_rota &,
+    #{$block}_role_bounced-email &
       padding: 0
 
     #{$block}_role_rota &
@@ -343,7 +393,8 @@ $block: ".boss-modal-window"
       #{$block}_role_task-overview &,
       #{$block}_role_login &,
       #{$block}_role_reset &,
-      #{$block}_role_rota &
+      #{$block}_role_rota &,
+      #{$block}_role_bounced-email &
         padding: 0
 
     // $Modal window content MOD: role error
@@ -392,7 +443,7 @@ $block: ".boss-modal-window"
       padding: 20px 30px 30px 30px
 
     #{$block}_role_task-create &
-      padding: 20px 35px 45px
+      padding: 20px 30px 45px
 
     #{$block}_role_login &,
     #{$block}_role_reset &
@@ -416,15 +467,18 @@ $block: ".boss-modal-window"
 
 
   &__overview
-    #{$block}_role_task-overview &
-      padding: 0 35px 45px
+    #{$block}_role_task-overview &,
+    #{$block}_role_bounced-email &
+      padding: 0 30px 45px
 
     @media screen and (max-width: 960px)
-      #{$block}_role_task-overview &
+      #{$block}_role_task-overview &,
+      #{$block}_role_bounced-email &
         padding: 0 30px 30px
 
     @media screen and (max-width: 479px)
-      #{$block}_role_task-overview &
+      #{$block}_role_task-overview &,
+      #{$block}_role_bounced-email &
         padding-left: 15px
         padding-right: 15px
 
