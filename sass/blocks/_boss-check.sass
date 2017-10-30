@@ -42,7 +42,8 @@ $block: ".boss-check"
       margin-bottom: 0
 
   // $Check block MOD: page safe check index
-  &_page_safe-checks-index
+  &_page_safe-checks-index,
+  &_page_invites-index
     @media screen and (min-width: 1121px)
       display: none
 
@@ -333,6 +334,17 @@ $block: ".boss-check"
       &:before
         background-image: url('../icons/icon-text-paper-dark-gray.svg')
 
+    &_role_alert-action
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:before
+        background-image: url(../icons/icon-danger-alert.svg)
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
+
     &_indicator_att,
     &_indicator_notes,
     &_indicator_images,
@@ -363,6 +375,12 @@ $block: ".boss-check"
         width: 40px
         background-image: url('../icons/icon-envelope-dark-gray.svg'), url('../icons/icon-camera-dark-gray.svg')
         background-position: 0 center, 25px center
+
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
 
 
   // $Check block title

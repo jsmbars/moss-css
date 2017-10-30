@@ -450,15 +450,18 @@ $block: ".boss-user-summary"
     &:not(:last-child)
       margin-right: 25px
 
-    &:before
-      content: ""
-      display: inline-block
-      width: 16px
-      height: 16px
-      margin-right: 15px
-      background-size: contain
-      background-repeat: no-repeat
-      vertical-align: middle
+    &_role_email,
+    &_role_phone,
+    &_role_alert-action
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
 
 
     // $User summary link MOD: role email
@@ -466,8 +469,13 @@ $block: ".boss-user-summary"
       &:before
         background-image: url(../icons/icon-envelope-dark-gray.svg)
 
-    // $User summary link MOD: role bounced email
-    &_role_bounced-email
+    // $User summary link MOD: role phone
+    &_role_phone
+      &:before
+        background-image: url(../icons/icon-phone-dark-gray.svg)
+
+    // $User summary link MOD: role alert action
+    &_role_alert-action
       color: map-get($boss-app-palette, alert)
       text-decoration: underline
 
@@ -477,11 +485,6 @@ $block: ".boss-user-summary"
       &:hover
         color: map-get($boss-app-palette, alert)
         text-decoration: none
-
-    // $User summary link MOD: role phone
-    &_role_phone
-      &:before
-        background-image: url(../icons/icon-phone-dark-gray.svg)
 
 
   // $User summary meta information
