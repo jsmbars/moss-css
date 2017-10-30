@@ -210,7 +210,8 @@ $block: ".boss-page-dashboard"
     // $Page dashboard buttons group CONTEXT: $Page dashboard group MOD: profile page
     // $Page dashboard buttons group CONTEXT: $Page dashboard group MOD: change order form page
     #{$block}_page_profile &,
-    #{$block}_page_change-order-form &
+    #{$block}_page_change-order-form &,
+    #{$block}_page_user-profile &
       flex-direction: column
       align-items: stretch
 
@@ -225,7 +226,8 @@ $block: ".boss-page-dashboard"
 
       #{$block}_page_profile &,
       #{$block}_page_profile-disabled &,
-      #{$block}_page_change-order-form &
+      #{$block}_page_change-order-form &,
+      #{$block}_page_user-profile &
         flex-direction: row
         justify-content: center
         align-items: center
@@ -251,7 +253,8 @@ $block: ".boss-page-dashboard"
     @media screen and (max-width: 480px)
       #{$block}_page_profile &,
       #{$block}_page_profile-disabled &,
-      #{$block}_page_change-order-form &
+      #{$block}_page_change-order-form &,
+      #{$block}_page_user-profile &
         flex-direction: column
 
 
@@ -259,20 +262,23 @@ $block: ".boss-page-dashboard"
   &__button
     @media screen and(max-width: 960px)
       #{$block}_page_profile &,
-      #{$block}_page_change-order-form &
+      #{$block}_page_change-order-form &,
+      #{$block}_page_user-profile &
         width: 50%
 
     @media screen and (max-width: 480px)
       #{$block}_page_profile &,
       #{$block}_page_profile-disabled &,
-      #{$block}_page_change-order-form &
+      #{$block}_page_change-order-form &,
+      #{$block}_page_user-profile &
         width: 100%
 
     &:not(:last-child)
       // $Page dashboard button CONTEXT: $Page dashboard group MOD: profile page
       // $Page dashboard button group CONTEXT: $Page dashboard group MOD: change order form page
       #{$block}_page_profile &,
-      #{$block}_page_change-order-form &
+      #{$block}_page_change-order-form &,
+      #{$block}_page_user-profile &
         margin-bottom: 12px
 
       // $Page dashboard button CONTEXT: $Page dashboard group MOD: staff members index page
@@ -285,7 +291,8 @@ $block: ".boss-page-dashboard"
 
       @media screen and(max-width: 960px)
         #{$block}_page_profile &,
-        #{$block}_page_change-order-form &
+        #{$block}_page_change-order-form &,
+        #{$block}_page_user-profile &
           margin-bottom: 0
           margin-right: 15px
 
@@ -301,7 +308,8 @@ $block: ".boss-page-dashboard"
       @media screen and (max-width: 480px)
         #{$block}_page_profile &,
         #{$block}_page_profile-disabled &,
-        #{$block}_page_change-order-form &
+        #{$block}_page_change-order-form &,
+        #{$block}_page_user-profile &
           margin-right: 0
           margin-bottom: 15px
 
