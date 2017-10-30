@@ -280,7 +280,8 @@ $block: ".boss-check"
     &_role_location,
     &_role_payment,
     &_role_arcade,
-    &_role_message
+    &_role_message,
+    &_role_alert-action
 
       &:before
         content: ""
@@ -335,15 +336,8 @@ $block: ".boss-check"
         background-image: url('../icons/icon-text-paper-dark-gray.svg')
 
     &_role_alert-action
-      color: map-get($boss-app-palette, alert)
-      text-decoration: underline
-
       &:before
-        background-image: url(../icons/icon-danger-alert.svg)
-
-      &:hover
-        color: map-get($boss-app-palette, alert)
-        text-decoration: none
+        background-image: url('../icons/icon-danger-alert.svg')
 
     &_indicator_att,
     &_indicator_notes,
@@ -401,8 +395,8 @@ $block: ".boss-check"
     &_role_location,
     &_role_payment,
     &_role_arcade,
-    &_role_message
-
+    &_role_message,
+    &_role_alert-action
       &:before
         width: 18px
         height: 18px
@@ -412,6 +406,15 @@ $block: ".boss-check"
     // $Check block title MOD: role clickable action
     &_role_action
       cursor: pointer
+
+    &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
 
     // $Check block title status
   &__title-status
@@ -435,7 +438,8 @@ $block: ".boss-check"
     &_role_location,
     &_role_payment,
     &_role_arcade,
-    &_role_message
+    &_role_message,
+    &_role_alert-action
 
       &:before
         width: 16px
@@ -517,6 +521,15 @@ $block: ".boss-check"
     // $Check block text MOD: role clickable action
     &_role_action
       cursor: pointer
+
+    &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
 
 
   // $Check block text line
