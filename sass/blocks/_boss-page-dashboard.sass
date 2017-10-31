@@ -62,7 +62,8 @@ $block: ".boss-page-dashboard"
     width: 100%
 
     // $Page dashboard group CONTEXT: $Page dashboard group MOD: staff member profile disabled page
-    #{$block}_page_profile-disabled &
+    #{$block}_page_profile-disabled &,
+    #{$block}_page_user-profile-disabled &
       align-items: flex-start
 
     // $Page dashboard group CONTEXT: $Page dashboard group MOD: add staff member page
@@ -227,7 +228,8 @@ $block: ".boss-page-dashboard"
       #{$block}_page_profile &,
       #{$block}_page_profile-disabled &,
       #{$block}_page_change-order-form &,
-      #{$block}_page_user-profile &
+      #{$block}_page_user-profile &,
+      #{$block}_page_user-profile-disabled &
         flex-direction: row
         justify-content: center
         align-items: center
@@ -254,7 +256,8 @@ $block: ".boss-page-dashboard"
       #{$block}_page_profile &,
       #{$block}_page_profile-disabled &,
       #{$block}_page_change-order-form &,
-      #{$block}_page_user-profile &
+      #{$block}_page_user-profile &,
+      #{$block}_page_user-profile-disabled &
         flex-direction: column
 
 
@@ -270,7 +273,8 @@ $block: ".boss-page-dashboard"
       #{$block}_page_profile &,
       #{$block}_page_profile-disabled &,
       #{$block}_page_change-order-form &,
-      #{$block}_page_user-profile &
+      #{$block}_page_user-profile &,
+      #{$block}_page_user-profile-disabled &
         width: 100%
 
     &:not(:last-child)
@@ -309,7 +313,8 @@ $block: ".boss-page-dashboard"
         #{$block}_page_profile &,
         #{$block}_page_profile-disabled &,
         #{$block}_page_change-order-form &,
-        #{$block}_page_user-profile &
+        #{$block}_page_user-profile &,
+        #{$block}_page_user-profile-disabled &
           margin-right: 0
           margin-bottom: 15px
 
