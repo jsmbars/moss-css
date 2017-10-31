@@ -52,7 +52,8 @@ $block: ".boss-table"
   &_page_voucher-usage,
   &_page_maintenance-index,
   &_page_maintenance-managers-index,
-  &_page_invites-index
+  &_page_invites-index,
+  &_page_users-index
     border: 1px solid #eee
 
   &_page_checklist-review,
@@ -61,7 +62,8 @@ $block: ".boss-table"
   &_page_voucher-usage,
   &_page_smp-holidays,
   &_page_smp-owed-hours,
-  &_page_message-board
+  &_page_message-board,
+  &_page_users-index
     @media screen and (max-width: 960px)
       display: none
 
@@ -303,7 +305,8 @@ $block: ".boss-table"
       #{$block}_page_vhci &,
       #{$block}_page_vouchers-index &,
       #{$block}_page_voucher-usage &,
-      #{$block}_page_invites-index &
+      #{$block}_page_invites-index &,
+      #{$block}_page_users-index &
         background-color: #fbfbfb
 
     // $Common table first row
@@ -334,7 +337,8 @@ $block: ".boss-table"
         #{$block}_page_vouchers-index &,
         #{$block}_page_voucher-usage &,
         #{$block}_page_smp-holidays &,
-        #{$block}_page_smp-owed-hours &
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_users-index &
           display: none
 
     &_role_header
@@ -532,6 +536,10 @@ $block: ".boss-table"
       #{$block}_page_invites-index &
         width: 20%
 
+      #{$block}_page_users-index &
+        width: 30%
+        padding-left: 40px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -559,7 +567,8 @@ $block: ".boss-table"
         #{$block}_page_voucher-usage &,
         #{$block}_page_smp-holidays &,
         #{$block}_page_smp-owed-hours &,
-        #{$block}_page_message-board &
+        #{$block}_page_message-board &,
+        #{$block}_page_users-index &
           width: 100%
           padding-left: 15px
 
@@ -692,6 +701,9 @@ $block: ".boss-table"
       #{$block}_page_invites-index &
         width: 10%
 
+      #{$block}_page_users-index &
+        width: 20%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -716,7 +728,8 @@ $block: ".boss-table"
         #{$block}_page_voucher-usage &,
         #{$block}_page_smp-holidays &,
         #{$block}_page_smp-owed-hours &,
-        #{$block}_page_message-board &
+        #{$block}_page_message-board &,
+        #{$block}_page_users-index &
           width: 100%
 
         #{$block}_page_maintenance-index &
@@ -826,6 +839,9 @@ $block: ".boss-table"
       #{$block}_page_invites-index &
         width: 14%
 
+      #{$block}_page_users-index &
+        width: 30%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &
@@ -845,7 +861,8 @@ $block: ".boss-table"
         #{$block}_page_voucher-usage &,
         #{$block}_page_smp-holidays &,
         #{$block}_page_smp-owed-hours &,
-        #{$block}_page_message-board &
+        #{$block}_page_message-board &,
+        #{$block}_page_users-index &
           width: 100%
 
         #{$block}_page_maintenance-index &,
@@ -957,6 +974,10 @@ $block: ".boss-table"
       #{$block}_page_invites-index &
         width: 10%
 
+      #{$block}_page_users-index &
+        width: 20%
+        padding-right: 40px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &
@@ -978,10 +999,12 @@ $block: ".boss-table"
         #{$block}_page_vouchers-index &,
         #{$block}_page_smp-holidays &,
         #{$block}_page_smp-owed-hours &,
-        #{$block}_page_message-board &
+        #{$block}_page_message-board &,
+        #{$block}_page_users-index &
           width: 100%
 
-        #{$block}_page_vhci &
+        #{$block}_page_vhci &,
+        #{$block}_page_users-index &
           padding-right: 10px
 
         #{$block}_page_fruit-order-history &

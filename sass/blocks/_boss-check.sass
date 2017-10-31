@@ -55,7 +55,8 @@ $block: ".boss-check"
   &_page_voucher-usage,
   &_page_smp-holidays,
   &_page_smp-owed-hours,
-  &_page_message-board
+  &_page_message-board,
+  &_page_users-index
     @media screen and (min-width: 961px)
       display: none
 
@@ -732,6 +733,16 @@ $block: ".boss-check"
     justify-content: center
     align-items: stretch
 
+    @media screen and (max-width: 640px)
+      #{$block}_page_users-index &
+        flex-direction: column
+        align-items: center
+
+    &:not(:last-child)
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          border-bottom: 1px solid #eee
+
 
   // $Check block info cell
   &__info-cell
@@ -744,13 +755,28 @@ $block: ".boss-check"
     width: 50%
     padding: 10px 15px
 
+    @media screen and (max-width: 640px)
+      #{$block}_page_users-index &
+        width: 100%
+
     &:first-child
       align-items: flex-end
       text-align: right
 
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          align-items: center
+          text-align: center
+          padding-bottom: 0
+
     &:last-child
       align-items: flex-start
       text-align: left
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          align-items: center
+          text-align: center
 
 
   // $Check block action
