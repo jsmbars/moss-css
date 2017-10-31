@@ -77,6 +77,16 @@ $block: ".boss-details"
     font-weight: bold
 
 
+  &__title-label
+    display: inline-block
+    margin-right: 10px
+
+
+  &__title-action
+    display: inline-block
+    margin-top: -5px
+
+
   // $Details list
   &__list
     list-style: none
@@ -161,6 +171,29 @@ $block: ".boss-details"
     @media screen and (max-width: 480px)
       padding-right: 0
 
+    &_role_alert-action
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
+
+    &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:before
+        background-image: url(../icons/icon-danger-alert.svg)
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
+
     &_adjust_wrap
       overflow-wrap: break-word
       word-wrap: break-word
@@ -170,7 +203,7 @@ $block: ".boss-details"
   // $Details value new line
   &__value-line
     display: block
-    margin-bottom: 20px
+    margin-bottom: 10px
 
     &:last-of-type
       margin-bottom: 0

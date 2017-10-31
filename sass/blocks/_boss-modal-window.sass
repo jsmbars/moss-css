@@ -56,54 +56,44 @@ $block: ".boss-modal-window"
     margin-bottom: 1.7em !important
 
   // $Modal window MOD: role note
-  &_role_note
-    max-width: 750px
-
   // $Modal window MOD: role preview
   // $Modal window MOD: role details
+  // $Modal window MOD: role add new
+  &_role_note,
   &_role_preview,
   &_role_details,
-    margin-top: 100px
-    max-width: 750px
-
-    @media screen and (max-width: 960px)
-      margin-top: 100px
+  &_role_add-new
+    max-width: 800px
 
   // $Modal window MOD: role task create
   // $Modal window MOD: role task overview
+  // $Modal window MOD: role edit
+  // $Modal window MOD: role add
+  &_role_task-create,
+  &_role_task-overview,
+  &_role_edit,
+  &_role_add
+    width: 90%
+    max-width: 800px
+
+  &_role_preview,
+  &_role_details,
   &_role_task-create,
   &_role_task-overview
-    width: 90%
-    max-width: 770px
     margin-top: 100px
 
     @media screen and (max-width: 960px)
       margin-top: 100px
 
-  // $Modal window MOD: role add new
-  &_role_add-new
-    max-width: 740px
-
-  // $Modal window MOD: role edit
-  // $Modal window MOD: role add
-  &_role_edit,
-  &_role_add
+  &_role_bounced-email
     width: 90%
-    max-width: 900px
-
-  // $Modal window MOD: role danger
-  &_role_danger
-    max-width: 400px
-
-  // $Modal window MOD: role warning
-  &_role_warning
-    max-width: 400px
+    max-width: 450px
 
   // $Modal window MOD: role login
   // $Modal window MOD: role reset password
   &_role_login,
   &_role_reset
-    width: 95%
+    width: 90%
     max-width: 450px
     margin: 0 auto
 
@@ -113,12 +103,16 @@ $block: ".boss-modal-window"
     @media screen and (max-width: 479px)
       margin-top: 0
 
+  // $Modal window MOD: role danger
+  &_role_danger
+    max-width: 400px
+
+  // $Modal window MOD: role warning
+  &_role_warning
+    max-width: 400px
+
   &_role_rota
     max-width: 320px
-
-  &_role_bounced-email
-    width: 90%
-    max-width: 450px
 
 
   // $Modal window close

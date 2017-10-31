@@ -55,7 +55,8 @@ $block: ".boss-user-summary"
       flex-direction: column
       align-items: center
 
-  &_role_ssr-details
+  &_role_ssr-details,
+  &_role_user-profile
     align-items: center
 
   // $User summary MOD: role rotas daily
@@ -68,7 +69,8 @@ $block: ".boss-user-summary"
       align-items: flex-start
 
   &_role_hours-overview,
-  &_role_ssr-details
+  &_role_ssr-details,
+  &_role_user-profile
     @media screen and(max-width: 479px)
       flex-direction: column
       align-items: center
@@ -115,7 +117,8 @@ $block: ".boss-user-summary"
 
     // $User summary avatar CONTEXT: $User summary MOD: role hours overview
     #{$block}_role_hours-overview &,
-    #{$block}_role_ssr-details &
+    #{$block}_role_ssr-details &,
+    #{$block}_role_user-profile &
       width: 80px
       height: 80px
       margin-bottom: 0
@@ -129,7 +132,8 @@ $block: ".boss-user-summary"
     @media screen and(max-width: 960px)
 
       #{$block}_role_report &,
-      #{$block}_role_ssr-details &
+      #{$block}_role_ssr-details &,
+      #{$block}_role_user-profile &
         margin-bottom: 10px
 
     @media screen and(max-width: 640px)
@@ -228,7 +232,8 @@ $block: ".boss-user-summary"
     #{$block}_role_rotas-daily &,
     #{$block}_role_review-short &,
     #{$block}_role_hours-overview &,
-    #{$block}_role_ssr-details &
+    #{$block}_role_ssr-details &,
+    #{$block}_role_user-profile &
       padding-left: 20px
 
     // $User summary content CONTEXT: $User summary MOD: role rotas daily tooltip
@@ -247,19 +252,18 @@ $block: ".boss-user-summary"
         padding-left: 0
 
       #{$block}_role_daily-tooltip &,
-      #{$block}_role_ssr-details &
+      #{$block}_role_ssr-details &,
+      #{$block}_role_user-profile &
         padding-left: 0
 
     @media screen and(max-width: 640px)
       #{$block}_role_rotas-daily &,
       #{$block}_role_review-short &,
-      #{$block}_role_hours-overview &,
-      #{$block}_role_ssr-details &
+      #{$block}_role_hours-overview &
         padding-left: 15px
 
     @media screen and(max-width: 479px)
-      #{$block}_role_hours-overview &,
-      #{$block}_role_ssr-details &
+      #{$block}_role_hours-overview &
         padding-left: 0
 
     @media screen and(max-width: 400px)
@@ -269,6 +273,13 @@ $block: ".boss-user-summary"
     // $User summary content MOD: adjust middle alignment in a row
     &_adjust_middle
       align-self: center
+
+    // $User summary content MOD: adjust single
+    &_adjust_single
+      padding-left: 0
+
+      #{$block}_role_user-profile &
+        padding-left: 0
 
 
   // $User summary header area
@@ -294,7 +305,8 @@ $block: ".boss-user-summary"
 
     // $User summary avatar CONTEXT: $User summary MOD: role hours overview
     #{$block}_role_hours-overview &,
-    #{$block}_role_ssr-details &
+    #{$block}_role_ssr-details &,
+    #{$block}_role_user-profile &
       margin-bottom: 0
       text-align: left
 
@@ -318,7 +330,8 @@ $block: ".boss-user-summary"
 
     @media screen and(max-width: 479px)
       #{$block}_role_hours-overview &,
-      #{$block}_role_ssr-details &
+      #{$block}_role_ssr-details &,
+      #{$block}_role_user-profile &
         text-align: center
 
     @media screen and(max-width: 400px)
@@ -357,11 +370,16 @@ $block: ".boss-user-summary"
 
     // $User summary avatar CONTEXT: $User summary MOD: role hours overview
     #{$block}_role_hours-overview &,
-    #{$block}_role_ssr-details &
+    #{$block}_role_ssr-details &,
       display: block
       margin-bottom: 10px
       margin-right: 0
       font-size: 20px
+      font-weight: 400
+
+    #{$block}_role_user-profile &
+      display: block
+      margin-right: 0
       font-weight: 400
 
     #{$block}_role_rotas-daily &
@@ -450,15 +468,18 @@ $block: ".boss-user-summary"
     &:not(:last-child)
       margin-right: 25px
 
-    &:before
-      content: ""
-      display: inline-block
-      width: 16px
-      height: 16px
-      margin-right: 15px
-      background-size: contain
-      background-repeat: no-repeat
-      vertical-align: middle
+    &_role_email,
+    &_role_phone,
+    &_role_alert-action
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
 
 
     // $User summary link MOD: role email
@@ -466,8 +487,13 @@ $block: ".boss-user-summary"
       &:before
         background-image: url(../icons/icon-envelope-dark-gray.svg)
 
-    // $User summary link MOD: role bounced email
-    &_role_bounced-email
+    // $User summary link MOD: role phone
+    &_role_phone
+      &:before
+        background-image: url(../icons/icon-phone-dark-gray.svg)
+
+    // $User summary link MOD: role alert action
+    &_role_alert-action
       color: map-get($boss-app-palette, alert)
       text-decoration: underline
 
@@ -477,11 +503,6 @@ $block: ".boss-user-summary"
       &:hover
         color: map-get($boss-app-palette, alert)
         text-decoration: none
-
-    // $User summary link MOD: role phone
-    &_role_phone
-      &:before
-        background-image: url(../icons/icon-phone-dark-gray.svg)
 
 
   // $User summary meta information

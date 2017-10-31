@@ -42,7 +42,8 @@ $block: ".boss-check"
       margin-bottom: 0
 
   // $Check block MOD: page safe check index
-  &_page_safe-checks-index
+  &_page_safe-checks-index,
+  &_page_invites-index
     @media screen and (min-width: 1121px)
       display: none
 
@@ -54,7 +55,8 @@ $block: ".boss-check"
   &_page_voucher-usage,
   &_page_smp-holidays,
   &_page_smp-owed-hours,
-  &_page_message-board
+  &_page_message-board,
+  &_page_users-index
     @media screen and (min-width: 961px)
       display: none
 
@@ -279,7 +281,8 @@ $block: ".boss-check"
     &_role_location,
     &_role_payment,
     &_role_arcade,
-    &_role_message
+    &_role_message,
+    &_role_alert-action
 
       &:before
         content: ""
@@ -333,6 +336,10 @@ $block: ".boss-check"
       &:before
         background-image: url('../icons/icon-text-paper-dark-gray.svg')
 
+    &_role_alert-action
+      &:before
+        background-image: url('../icons/icon-danger-alert.svg')
+
     &_indicator_att,
     &_indicator_notes,
     &_indicator_images,
@@ -364,6 +371,12 @@ $block: ".boss-check"
         background-image: url('../icons/icon-envelope-dark-gray.svg'), url('../icons/icon-camera-dark-gray.svg')
         background-position: 0 center, 25px center
 
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
 
   // $Check block title
   &__title
@@ -383,8 +396,8 @@ $block: ".boss-check"
     &_role_location,
     &_role_payment,
     &_role_arcade,
-    &_role_message
-
+    &_role_message,
+    &_role_alert-action
       &:before
         width: 18px
         height: 18px
@@ -394,6 +407,15 @@ $block: ".boss-check"
     // $Check block title MOD: role clickable action
     &_role_action
       cursor: pointer
+
+    &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
 
     // $Check block title status
   &__title-status
@@ -417,7 +439,8 @@ $block: ".boss-check"
     &_role_location,
     &_role_payment,
     &_role_arcade,
-    &_role_message
+    &_role_message,
+    &_role_alert-action
 
       &:before
         width: 16px
@@ -499,6 +522,15 @@ $block: ".boss-check"
     // $Check block text MOD: role clickable action
     &_role_action
       cursor: pointer
+
+    &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
 
 
   // $Check block text line
@@ -701,6 +733,20 @@ $block: ".boss-check"
     justify-content: center
     align-items: stretch
 
+    @media screen and (max-width: 640px)
+      #{$block}_page_users-index &
+        flex-direction: column
+        align-items: center
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_invites-index &
+        justify-content: flex-start
+
+    &:not(:last-child)
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          border-bottom: 1px solid #eee
+
 
   // $Check block info cell
   &__info-cell
@@ -713,13 +759,38 @@ $block: ".boss-check"
     width: 50%
     padding: 10px 15px
 
+    @media screen and (max-width: 640px)
+      #{$block}_page_users-index &
+        width: 100%
+
     &:first-child
       align-items: flex-end
       text-align: right
 
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          align-items: center
+          text-align: center
+          padding-bottom: 0
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_invites-index &
+          flex-grow: 0
+          flex-shrink: 0
+          width: 100px
+
     &:last-child
       align-items: flex-start
       text-align: left
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          align-items: center
+          text-align: center
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_invites-index &
+          width: calc(100% - 100px)
 
 
   // $Check block action

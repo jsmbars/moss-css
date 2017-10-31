@@ -47,6 +47,9 @@ $block: ".boss-form"
     &_layout_half,
     &_layout_third,
     &_layout_quarter,
+    &_layout_max,
+    &_layout_min,
+    &_layout_fluid
       flex-grow: 0
       flex-shrink: 1
       margin-right: 30px
@@ -86,6 +89,29 @@ $block: ".boss-form"
       width: 25%
 
       @media screen and (max-width: 960px)
+        width: 100%
+
+    &_layout_max
+      flex-grow: 1
+      flex-shrink: 1
+      width: auto
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+    &_layout_min
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
+
+    &_layout_fluid
+      flex-grow: 0
+      flex-shrink: 0
+      width: auto
+
+      @media screen and (max-width: 960px)
+        flex-grow: 1
+        flex-shrink: 1
         width: 100%
 
     // $Common form group MOD: last position
@@ -330,7 +356,7 @@ $block: ".boss-form"
 
     // $Common form field MOD: no label
     &_no-label
-      padding-top: 35px
+      padding-top: 30px
 
       @media screen and (max-width: 960px)
         padding-top: 0
@@ -759,6 +785,7 @@ $block: ".boss-form"
     display: block
     width: 100%
     height: auto
+    min-height: 50px
     line-height: 1
     box-sizing: border-box
     background-color: #FFF
