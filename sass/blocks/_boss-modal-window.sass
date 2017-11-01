@@ -91,10 +91,12 @@ $block: ".boss-modal-window"
 
   // $Modal window MOD: role login
   // $Modal window MOD: role reset password
+  // $Modal window MOD: role change password
   &_role_login,
-  &_role_reset
-    width: 90%
-    max-width: 450px
+  &_role_reset,
+  &_role_change
+    width: 95%
+    max-width: 800px
     margin: 0 auto
 
     @media screen and (max-width: 960px)
@@ -242,18 +244,22 @@ $block: ".boss-modal-window"
       font-size: 24px
 
     #{$block}_role_login &,
-    #{$block}_role_reset &
+    #{$block}_role_reset &,
+    #{$block}_role_change &
       background-color: #f9f9f9
       background-position: center 15px
       background-repeat: no-repeat
       background-size: 170px 170px
       padding: 200px 25px 25px
 
+    #{$block}_role_login &
+      background-image: url('../images/illustration-lock-primary.svg')
+
     #{$block}_role_reset &
       background-image: url('../images/illustration-lock-refresh-primary.svg')
 
-    #{$block}_role_login &
-      background-image: url('../images/illustration-lock-primary.svg')
+    #{$block}_role_change &
+      background-image: url('../images/illustration-lock-gear-primary.svg')
 
 
     @media screen and (max-width: 960px)
@@ -269,7 +275,8 @@ $block: ".boss-modal-window"
 
     @media screen and (max-width: 479px)
       #{$block}_role_login &,
-      #{$block}_role_reset &
+      #{$block}_role_reset &,
+      #{$block}_role_change &
         background-size: 150px
         padding: 180px 15px 25px
 
@@ -324,7 +331,8 @@ $block: ".boss-modal-window"
     line-height: 1
 
     #{$block}_role_login &,
-    #{$block}_role_reset &
+    #{$block}_role_reset &,
+    #{$block}_role_change &
       text-align: center
 
     #{$block}_role_login &
@@ -369,6 +377,7 @@ $block: ".boss-modal-window"
     #{$block}_role_task-overview &,
     #{$block}_role_login &,
     #{$block}_role_reset &,
+    #{$block}_role_change &,
     #{$block}_role_rota &,
     #{$block}_role_bounced-email &
       padding: 0
@@ -387,6 +396,7 @@ $block: ".boss-modal-window"
       #{$block}_role_task-overview &,
       #{$block}_role_login &,
       #{$block}_role_reset &,
+      #{$block}_role_change &,
       #{$block}_role_rota &,
       #{$block}_role_bounced-email &
         padding: 0
@@ -440,7 +450,8 @@ $block: ".boss-modal-window"
       padding: 20px 30px 45px
 
     #{$block}_role_login &,
-    #{$block}_role_reset &
+    #{$block}_role_reset &,
+    #{$block}_role_change &
       padding: 25px
 
     @media screen and (max-width: 960px)
@@ -455,7 +466,8 @@ $block: ".boss-modal-window"
     @media screen and (max-width: 479px)
       #{$block}_role_task-create &,
       #{$block}_role_login &,
-      #{$block}_role_reset &
+      #{$block}_role_reset &,
+      #{$block}_role_change &
         padding-left: 15px
         padding-right: 15px
 
