@@ -200,6 +200,7 @@ $block: ".boss-details"
       word-break: break-word
       hyphens: auto
 
+
   // $Details value new line
   &__value-line
     display: block
@@ -207,4 +208,32 @@ $block: ".boss-details"
 
     &:last-of-type
       margin-bottom: 0
+
+
+  // $Details value action
+  &__value-action
+    display: inline-block
+    cursor: pointer
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:not(:last-child)
+      margin-right: 10px
+
+    &:hover,
+    &:focus
+      color: darken(map-get($boss-app-palette, primary), 10%)
+      text-decoration: none
+
+    &_role_alert
+      color: map-get($boss-app-palette, alert)
+
+      &:before
+        background-image: url(../icons/icon-danger-alert.svg)
+
+      &:hover
+        color: darken(map-get($boss-app-palette, alert), 10%)
+
+
+
 
