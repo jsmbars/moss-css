@@ -238,13 +238,15 @@ $block: ".boss-question"
       opacity: 1
       transition: all .4s
 
-    &:hover:before
-      opacity: 0.5
-
     // $Question icon MOD: role attachment
     &_role_att
       &:before
         background-image: url(../icons/envelope-medium-gray.svg)
+
+    // $Question icon MOD: role photo
+    &_role_photo
+      &:before
+        background-image: url(../icons/icon-camera-solid-medium-gray.svg)
 
     // $Question icon MOD: state visible
     &_state_visible
