@@ -92,9 +92,13 @@ $block: ".boss-modal-window"
   // $Modal window MOD: role login
   // $Modal window MOD: role reset password
   // $Modal window MOD: role change password
+  // $Modal window MOD: role set password
+  // $Modal window MOD: role set password confirmation
   &_role_login,
   &_role_reset,
-  &_role_change
+  &_role_change,
+  &_role_set,
+  &_role_set-confirmation
     width: 95%
     max-width: 800px
     margin: 0 auto
@@ -245,7 +249,9 @@ $block: ".boss-modal-window"
 
     #{$block}_role_login &,
     #{$block}_role_reset &,
-    #{$block}_role_change &
+    #{$block}_role_change &,
+    #{$block}_role_set &,
+    #{$block}_role_set-confirmation &
       background-color: #f9f9f9
       background-position: center 15px
       background-repeat: no-repeat
@@ -260,6 +266,12 @@ $block: ".boss-modal-window"
 
     #{$block}_role_change &
       background-image: url('../images/illustration-lock-gear-primary.svg')
+
+    #{$block}_role_set &
+      background-image: url('../images/illustration-lock-gear-primary.svg')
+
+    #{$block}_role_set-confirmation &
+      background-image: url('../images/illustration-check-secondary.svg')
 
 
     @media screen and (max-width: 960px)
@@ -276,7 +288,9 @@ $block: ".boss-modal-window"
     @media screen and (max-width: 479px)
       #{$block}_role_login &,
       #{$block}_role_reset &,
-      #{$block}_role_change &
+      #{$block}_role_change &,
+      #{$block}_role_set &,
+      #{$block}_role_set-confirmation &
         background-size: 150px
         padding: 180px 15px 25px
 
@@ -332,7 +346,9 @@ $block: ".boss-modal-window"
 
     #{$block}_role_login &,
     #{$block}_role_reset &,
-    #{$block}_role_change &
+    #{$block}_role_change &,
+    #{$block}_role_set &,
+    #{$block}_role_set-confirmation &
       text-align: center
 
     #{$block}_role_login &
@@ -378,6 +394,8 @@ $block: ".boss-modal-window"
     #{$block}_role_login &,
     #{$block}_role_reset &,
     #{$block}_role_change &,
+    #{$block}_role_set &,
+    #{$block}_role_set-confirmation &,
     #{$block}_role_rota &,
     #{$block}_role_bounced-email &
       padding: 0
@@ -397,6 +415,8 @@ $block: ".boss-modal-window"
       #{$block}_role_login &,
       #{$block}_role_reset &,
       #{$block}_role_change &,
+      #{$block}_role_set &,
+      #{$block}_role_set-confirmation &,
       #{$block}_role_rota &,
       #{$block}_role_bounced-email &
         padding: 0
@@ -451,7 +471,9 @@ $block: ".boss-modal-window"
 
     #{$block}_role_login &,
     #{$block}_role_reset &,
-    #{$block}_role_change &
+    #{$block}_role_change &,
+    #{$block}_role_set &,
+    #{$block}_role_set-confirmation &
       padding: 25px
 
     @media screen and (max-width: 960px)
@@ -467,7 +489,9 @@ $block: ".boss-modal-window"
       #{$block}_role_task-create &,
       #{$block}_role_login &,
       #{$block}_role_reset &,
-      #{$block}_role_change &
+      #{$block}_role_change &,
+      #{$block}_role_set &,
+      #{$block}_role_set-confirmation &
         padding-left: 15px
         padding-right: 15px
 
