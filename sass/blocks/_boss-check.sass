@@ -69,6 +69,9 @@ $block: ".boss-check"
   &_state_alert
     background-color: #feeeee
 
+
+  &__group
+
   // $Check block row
   &__row
     display: flex
@@ -282,6 +285,7 @@ $block: ".boss-check"
     &_role_payment,
     &_role_arcade,
     &_role_message,
+    &_role_uniform,
     &_role_alert-action
 
       &:before
@@ -335,6 +339,10 @@ $block: ".boss-check"
     &_role_message
       &:before
         background-image: url('../icons/icon-text-paper-dark-gray.svg')
+
+    &_role_uniform
+      &:before
+        background-image: url('../icons/icon-tshirt-dark-gray.svg')
 
     &_role_alert-action
       &:before
@@ -397,6 +405,7 @@ $block: ".boss-check"
     &_role_payment,
     &_role_arcade,
     &_role_message,
+    &_role_uniform,
     &_role_alert-action
       &:before
         width: 18px
@@ -440,6 +449,7 @@ $block: ".boss-check"
     &_role_payment,
     &_role_arcade,
     &_role_message,
+    &_role_uniform,
     &_role_alert-action
 
       &:before
@@ -522,6 +532,7 @@ $block: ".boss-check"
     // $Check block text MOD: role clickable action
     &_role_action
       cursor: pointer
+      color: #FFF
 
     &_role_alert-action
       cursor: pointer
@@ -659,6 +670,7 @@ $block: ".boss-check"
     outline: none
     text-decoration: none
     white-space: nowrap
+    cursor: pointer
 
     &:hover
       color: $boss-dark-gray
@@ -684,6 +696,12 @@ $block: ".boss-check"
     &_state_closed
       &:after
         transform: rotate(0)
+
+    // $Check block dropdown link MOD: state inactive
+    &_state_inactive
+      cursor: default
+      &:after
+        display: none
 
 
   // $Check block info

@@ -68,7 +68,8 @@ $block: ".boss-table"
       display: none
 
   &_page_maintenance-index-card,
-  &_page_maintenance-managers-index-card
+  &_page_maintenance-managers-index-card,
+  &_page_uniform-requests-card
     background-color: #fbfbfb
 
   &_page_invites-index
@@ -236,7 +237,8 @@ $block: ".boss-table"
     #{$block}_page_maintenance-index &,
     #{$block}_page_maintenance-managers-index &,
     #{$block}_page_maintenance-index-card &,
-    #{$block}_page_maintenance-managers-index-card &
+    #{$block}_page_maintenance-managers-index-card &,
+    #{$block}_page_uniform-requests-card &
       background-color: transparent
 
     @media screen and (max-width: 1120px)
@@ -285,18 +287,26 @@ $block: ".boss-table"
       #{$block}_page_smp-owed-hours &,
       #{$block}_page_message-board &
       #{$block}_page_maintenance-index &,
-      #{$block}_page_invites-index &
+      #{$block}_page_invites-index &,
+      #{$block}_page_uniform-requests-card &
         padding-top: 15px
         padding-bottom: 15px
 
       #{$block}_page_maintenance-index &,
       #{$block}_page_maintenance-managers-index &,
       #{$block}_page_maintenance-index-card &,
-      #{$block}_page_maintenance-managers-index-card &
+      #{$block}_page_maintenance-managers-index-card &,
+      #{$block}_page_uniform-requests-card &
         display: flex
 
-      #{$block}_page_maintenance-index-card &
+      #{$block}_page_maintenance-index-card &,
+      #{$block}_page_uniform-requests-card &
         flex-wrap: wrap
+
+
+    &:not(:last-child)
+      #{$block}_page_uniform-requests-card &
+        border-bottom: 1px solid #eee
 
     &:nth-child(odd)
       #{$block}_page_change-order-report &,
@@ -404,8 +414,12 @@ $block: ".boss-table"
     #{$block}_page_maintenance-managers-index &,
     #{$block}_page_maintenance-index-card &,
     #{$block}_page_maintenance-managers-index-card &,
-    #{$block}_page_invites-index &
+    #{$block}_page_invites-index &,
+    #{$block}_page_uniform-requests-card &
       padding: 15px 10px
+
+    #{$block}_page_uniform-requests-card &
+      border-bottom: none
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
@@ -540,6 +554,10 @@ $block: ".boss-table"
         width: 30%
         padding-left: 40px
 
+      #{$block}_page_uniform-requests-card &
+        width: 30%
+        padding-left: 30px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -568,7 +586,8 @@ $block: ".boss-table"
         #{$block}_page_smp-holidays &,
         #{$block}_page_smp-owed-hours &,
         #{$block}_page_message-board &,
-        #{$block}_page_users-index &
+        #{$block}_page_users-index &,
+        #{$block}_page_uniform-requests-card &
           width: 100%
           padding-left: 15px
 
@@ -617,7 +636,8 @@ $block: ".boss-table"
 
       &:after
         #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
+        #{$block}_page_maintenance-managers-index-card &,
+        #{$block}_page_uniform-requests-card &
           content: ""
           position: absolute
           top: 50%
@@ -630,7 +650,8 @@ $block: ".boss-table"
 
         @media screen and (max-width: 960px)
           #{$block}_page_maintenance-index-card &,
-          #{$block}_page_maintenance-managers-index-card &
+          #{$block}_page_maintenance-managers-index-card &,
+          #{$block}_page_uniform-requests-card &
             display: none
 
 
@@ -704,6 +725,9 @@ $block: ".boss-table"
       #{$block}_page_users-index &
         width: 20%
 
+      #{$block}_page_uniform-requests-card &
+        width: 20%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -746,6 +770,16 @@ $block: ".boss-table"
           padding-right: 20px
           border-bottom: 1px solid #eee
 
+        #{$block}_page_uniform-requests-card &
+          width: 29.5%
+          padding-left: 20px
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_uniform-requests-card &
+          width: 100%
+          padding-right: 20px
+          padding-left: 20px
+
       @media screen and (max-width: 479px)
         #{$block}_page_maintenance-index-card &,
         #{$block}_page_maintenance-managers-index-card &
@@ -755,7 +789,8 @@ $block: ".boss-table"
 
       &:after
         #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
+        #{$block}_page_maintenance-managers-index-card &,
+        #{$block}_page_uniform-requests-card &
           content: ""
           position: absolute
           top: 50%
@@ -769,6 +804,10 @@ $block: ".boss-table"
         @media screen and (max-width: 960px)
           #{$block}_page_maintenance-index-card &,
           #{$block}_page_maintenance-managers-index-card &
+            display: none
+
+        @media screen and (max-width: 640px)
+          #{$block}_page_uniform-requests-card &
             display: none
 
 
@@ -842,6 +881,9 @@ $block: ".boss-table"
       #{$block}_page_users-index &
         width: 30%
 
+      #{$block}_page_uniform-requests-card &
+        width: 20%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &
@@ -879,6 +921,15 @@ $block: ".boss-table"
         #{$block}_page_voucher-usage &
           padding-right: 15px
 
+        #{$block}_page_uniform-requests-card &
+          width: 29.5%
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_uniform-requests-card &
+          width: 100%
+          padding-right: 20px
+          padding-left: 20px
+
       @media screen and (max-width: 479px)
         #{$block}_page_maintenance-index-card &,
         #{$block}_page_maintenance-managers-index-card &
@@ -889,7 +940,8 @@ $block: ".boss-table"
 
       &:after
         #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
+        #{$block}_page_maintenance-managers-index-card &,
+        #{$block}_page_uniform-requests-card &
           content: ""
           position: absolute
           top: 50%
@@ -903,6 +955,10 @@ $block: ".boss-table"
         @media screen and (max-width: 960px)
           #{$block}_page_maintenance-index-card &,
           #{$block}_page_maintenance-managers-index-card &
+            display: none
+
+        @media screen and (max-width: 640px)
+          #{$block}_page_uniform-requests-card &
             display: none
 
 
@@ -978,6 +1034,10 @@ $block: ".boss-table"
         width: 20%
         padding-right: 40px
 
+      #{$block}_page_uniform-requests-card &
+        width: 30%
+        padding-right: 30px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &
@@ -1024,6 +1084,16 @@ $block: ".boss-table"
           padding-right: 20px
           border-bottom: 1px solid #eee
           padding-right: 10px
+
+        #{$block}_page_uniform-requests-card &
+          width: 39.5%
+          padding-right: 20px
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_uniform-requests-card &
+          width: 100%
+          padding-right: 20px
+          padding-left: 20px
 
       @media screen and (max-width: 479px)
         #{$block}_page_maintenance-index-card &,
@@ -1386,6 +1456,10 @@ $block: ".boss-table"
     #{$block}_page_holidays-report &
       padding-top: 55px
 
+    #{$block}_page_uniform-requests-card #{$block}__cell:nth-child(1) &
+      display: inline-block
+      width: auto
+
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &
@@ -1399,6 +1473,10 @@ $block: ".boss-table"
       flex-direction: row
       justify-content: flex-start
       align-items: center
+
+      #{$block}_page_uniform-requests-card &
+        flex-direction: column
+        justify-content: center
 
       #{$block}_page_holidays-report &
         justify-content: center
@@ -1520,7 +1598,8 @@ $block: ".boss-table"
     #{$block}_page_message-board #{$block}__cell:nth-child(4) &,
     #{$block}_page_message-board #{$block}__cell:nth-child(5) &,
     #{$block}_page_maintenance-index-card &,
-    #{$block}_page_maintenance-managers-index-card &
+    #{$block}_page_maintenance-managers-index-card &,
+    #{$block}_page_uniform-requests-card &
       text-align: center
 
     @media screen and (max-width: 1120px)
@@ -1634,6 +1713,19 @@ $block: ".boss-table"
       word-break: break-word
       hyphens: auto
 
+    &_role_success-status
+      margin-bottom: 10px
+      color: #86dd75
+      text-transform: uppercase
+      font-weight: 600
+      hyphens: auto
+
+    &_role_alert-status
+      margin-bottom: 10px
+      color: #ed7f7e
+      text-transform: uppercase
+      font-weight: 600
+
   &__text-line,
   &__text-meta
     display: block
@@ -1681,7 +1773,8 @@ $block: ".boss-table"
     #{$block}_page_smp-holidays &,
     #{$block}_page_message-board &,
     #{$block}_page_maintenance-index-card &,
-    #{$block}_page_maintenance-managers-index-card &
+    #{$block}_page_maintenance-managers-index-card &,
+    #{$block}_page_uniform-requests-card &
       display: flex
       flex-direction: row
       justify-content: center

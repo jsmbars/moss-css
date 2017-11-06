@@ -587,14 +587,8 @@ $block: ".boss-button"
 
 
   // $Common button MOD: role confirm
-  &_role_confirm
-    $background-color: map-get($boss-app-palette, primary)
-    +button-common($background-color: $background-color)
-    +button-with-icon-left($icon-url: '../icons/checked-white.svg')
-    +button-common-hover-behavior($background-color: $background-color)
-
-
   // $Common button MOD: role review
+  &_role_confirm,
   &_role_review
     $background-color: map-get($boss-app-palette, primary)
     +button-common($background-color: $background-color)
@@ -650,6 +644,12 @@ $block: ".boss-button"
     +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
     +button-with-icon-left($icon-url: '../icons/icon-close-alert.svg', $background-size: 12px)
     +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-close-white.svg')
+
+  &_role_confirm-light
+    $primary-color: map-get($boss-app-palette, primary)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-with-icon-left($icon-url: '../icons/icon-checked-primary.svg')
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/checked-white.svg')
 
   // $Common button MOD: role details
   &_role_details
