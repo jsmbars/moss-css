@@ -1203,7 +1203,7 @@ $block: ".boss-form"
 
     &_role_week
       @media screen and (max-width: 960px)
-        flex-direction: column
+        flex-wrap: wrap
 
 
     // $Common form field MOD: size small
@@ -1232,8 +1232,13 @@ $block: ".boss-form"
     justify-content: flex-start
     align-items: stretch
 
-    #{$block}__switcher_role_week &
-      width: 100%
+    @media screen and (max-width: 960px)
+      #{$block}__switcher_role_week &
+        width: 24.9%
+
+    @media screen and (max-width: 640px)
+      #{$block}__switcher_role_week &
+        width: 49.8%
 
   // $Common form switcher label text
   &__switcher-label-text
@@ -1277,6 +1282,14 @@ $block: ".boss-form"
 
       #{$block}__switcher_role_week &
         border-bottom: none
+
+    @media screen and (min-width: 641px) and (max-width: 960px)
+      #{$block}__switcher-label:nth-of-type(4n + 1) &
+        border-left: 1px solid map-get($boss-app-palette, inactive)
+
+    @media screen and (max-width: 640px)
+      #{$block}__switcher-label:nth-of-type(2n + 1) &
+        border-left: 1px solid map-get($boss-app-palette, inactive)
 
     &:hover
       color: #4c4c4c
