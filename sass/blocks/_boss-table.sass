@@ -665,8 +665,7 @@ $block: ".boss-table"
         width: 29%
 
       #{$block}_page_holidays-report &
-        width: 19%
-        padding-left: 0
+        width: 22%
 
       #{$block}_page_change-order-report &
         width: 11%
@@ -821,8 +820,7 @@ $block: ".boss-table"
         width: 24%
 
       #{$block}_page_holidays-report &
-        width: 19%
-        padding-left: 0
+        width: 22%
 
       #{$block}_page_change-order-report &
         width: 11%
@@ -973,8 +971,7 @@ $block: ".boss-table"
         padding-right: 55px
 
       #{$block}_page_holidays-report &
-        width: 19%
-        padding-left: 0
+        width: 22%
 
       #{$block}_page_change-order-report &
         width: 11%
@@ -1131,7 +1128,9 @@ $block: ".boss-table"
         width: 17%
 
       #{$block}_page_holidays-report &
-        width: 19%
+        flex-grow: 0
+        flex-shrink: 0
+        width: 160px
         padding-left: 0
 
       #{$block}_page_change-order-report &
@@ -1208,6 +1207,10 @@ $block: ".boss-table"
         #{$block}_page_message-board &
           width: 100%
 
+        #{$block}_page_holidays-report &
+          flex-grow: 1
+          flex-shrink: 1
+
         #{$block}_page_checklist-review &,
         #{$block}_page_vouchers-index &
           padding-right: 10px
@@ -1226,12 +1229,6 @@ $block: ".boss-table"
 
       #{$block}_page_staff-members-index &
         width: 20%
-
-      #{$block}_page_holidays-report &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 155px
-        padding-left: 0
 
       #{$block}_page_change-order-report &
         width: 11%
@@ -1269,16 +1266,10 @@ $block: ".boss-table"
         width: 100%
 
         #{$block}_page_staff-members-index &,
-        #{$block}_page_holidays-report &,
         #{$block}_page_change-order-report &,
         #{$block}_page_change-order-history &,
-        #{$block}_page_holidays-report &,
         #{$block}_page_smp-owed-hours &
           width: 100%
-
-        #{$block}_page_holidays-report &
-          flex-grow: 1
-          flex-shrink: 1
 
         #{$block}_page_maintenance-index &
           display: block
@@ -1493,7 +1484,7 @@ $block: ".boss-table"
 
     #{$block}_page_holidays-report &
       display: block
-      text-align: left
+      text-align: center
       text-transform: none
       font-size: 18px
       color: $boss-medium-gray
@@ -1528,6 +1519,7 @@ $block: ".boss-table"
         font-size: 18px
         padding-right: 25px
         padding-left: 25px
+        text-align: left
 
       #{$block}_page_change-order-history &
         flex-grow: 0
@@ -1582,6 +1574,7 @@ $block: ".boss-table"
     #{$block}_page_safe-checks-index #{$block}__cell:nth-child(1) &
       white-space: nowrap
 
+    #{$block}_page_holidays-report &,
     #{$block}_page_safe-checks-index &,
     #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
     #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
@@ -1620,6 +1613,7 @@ $block: ".boss-table"
         width: 220px
         padding-right: 25px
         padding-left: 25px
+        text-align: left
 
       #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
       #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
