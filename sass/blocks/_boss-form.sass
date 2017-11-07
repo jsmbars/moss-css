@@ -1201,6 +1201,11 @@ $block: ".boss-form"
     align-items: stretch
     width: 100%
 
+    &_role_week
+      @media screen and (max-width: 960px)
+        flex-wrap: wrap
+
+
     // $Common form field MOD: size small
     &_size_small
       width: 33%
@@ -1226,6 +1231,14 @@ $block: ".boss-form"
     flex-direction: row
     justify-content: flex-start
     align-items: stretch
+
+    @media screen and (max-width: 960px)
+      #{$block}__switcher_role_week &
+        width: 24.9%
+
+    @media screen and (max-width: 640px)
+      #{$block}__switcher_role_week &
+        width: 49.8%
 
   // $Common form switcher label text
   &__switcher-label-text
@@ -1260,10 +1273,30 @@ $block: ".boss-form"
     #{$block}__switcher-label:first-of-type &
       border-left: 1px solid map-get($boss-app-palette, inactive)
 
+    #{$block}__switcher_role_week &
+      padding-left: 5px
+      padding-right: 5px
+
+    @media screen and (max-width: 960px)
+      padding: 13px 20px
+
+      #{$block}__switcher_role_week &
+        border-bottom: none
+
+    @media screen and (min-width: 641px) and (max-width: 960px)
+      #{$block}__switcher-label:nth-of-type(4n + 1) &
+        border-left: 1px solid map-get($boss-app-palette, inactive)
+
+    @media screen and (max-width: 640px)
+      #{$block}__switcher-label:nth-of-type(2n + 1) &
+        border-left: 1px solid map-get($boss-app-palette, inactive)
+
     &:hover
       color: #4c4c4c
+      background-color: #f0f0f0
 
       #{$block}__switcher-radio:checked ~ &
+        background-color: map-get($boss-app-palette, primary)
         color: #fff
 
     // $Common form switcher label text MOD: type border
@@ -1275,31 +1308,36 @@ $block: ".boss-form"
         right: 0
         left: 0
         height: 5px
-        background-color: #FFF
+        background-color: transparent
         transition: all .4s
 
         #{$block}__switcher-radio:checked ~ &
           background-color: map-get($boss-app-palette, primary)
 
       &:hover
+        background-color: #FFF
+
         #{$block}__switcher-radio:checked ~ &
           color: #4c4c4c
+          background-color: #FFF
+
+        &:after
+          background-color: #f0f0f0
 
     // $Common form switcher label text MOD: state active
     &_state_active
       &:hover
         color: #fff
+        background-color: map-get($boss-app-palette, primary)
 
     // $Common form switcher label text MOD: type border state active
     &_type_border#{&}_state_active
       &:hover
         color: #4c4c4c
+        background-color: #FFF
 
       &:after
         background-color: map-get($boss-app-palette, primary)
-
-    @media screen and (max-width: 960px)
-      padding: 13px 20px
 
 
   // $Common form checkbox input
