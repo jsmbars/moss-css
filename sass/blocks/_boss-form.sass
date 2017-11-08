@@ -1235,6 +1235,10 @@ $block: ".boss-form"
 
       & .Select--single > .Select-control .Select-value .Select-value-label
         line-height: 60px
+
+      & .Select-staff-member
+        display: inline-block
+        width: 100%
         white-space: nowrap
 
       & .Select-staff-member-avatar
@@ -1253,7 +1257,8 @@ $block: ".boss-form"
       & .Select-staff-member-name
         +text-normalizer()
         display: inline-block
-        padding: 0 70px 0 10px
+        width: calc(100% - 50px)
+        padding: 0 20px 0 10px
         font-size: 18px
         vertical-align: middle
         white-space: normal
