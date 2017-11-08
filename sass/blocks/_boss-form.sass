@@ -1185,6 +1185,10 @@ $block: ".boss-form"
       & .Select-menu-outer
         border-color: map-get($boss-app-palette, alert)
 
+    &_icon_time
+      & .Select-arrow
+        display: none
+
     &_role_time
       & .Select-placeholder,
       & .Select--single > .Select-control .Select-value
@@ -1217,9 +1221,50 @@ $block: ".boss-form"
       & .Select--multi .Select-value-icon
         display: none
 
-    &_icon_time
-      & .Select-arrow
-        display: none
+    &_role_staff-member
+      & .Select-control
+        height: 75px
+
+      & .Select-multi-value-wrapper
+        line-height: 73px
+
+      & .Select-placeholder,
+      & .Select--single > .Select-control .Select-value
+        line-height: 73px
+        text-overflow: clip
+
+      & .Select--single > .Select-control .Select-value .Select-value-label
+        line-height: 60px
+
+      & .Select-staff-member
+        display: inline-block
+        width: 100%
+        white-space: nowrap
+
+      & .Select-staff-member-avatar
+        display: inline-block
+        width: 50px
+        height: 50px
+        overflow: hidden
+        border-radius: 50%
+        vertical-align: middle
+
+        & > img
+          display: block
+          width: 100%
+          max-width: 100%
+
+      & .Select-staff-member-name
+        +text-normalizer()
+        display: inline-block
+        width: calc(100% - 50px)
+        padding: 0 20px 0 10px
+        font-size: 18px
+        vertical-align: middle
+        white-space: normal
+
+        @media screen and (max-width: 479px)
+          font-size: 16px
 
 
   // $Common form switcher
