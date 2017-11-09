@@ -26,11 +26,15 @@
   background-color: $background-color
   color: $color
 
+  &:not(.boss-button_type_no-behavior):focus
+    color: $color
+    background-color: $background-color
+    border-color: $border-color
+
 
 =button-bordered-hover-behavior($color: '#4c4c4c', $border-color: '#4c4c4c', $background-color: '#fff', $icon-hover-url: '')
 
-  &:not(.boss-button_type_no-behavior):hover,
-  &:not(.boss-button_type_no-behavior):focus
+  &:not(.boss-button_type_no-behavior):hover
     color: $color
     background-color: $background-color
     border-color: $border-color
@@ -38,7 +42,6 @@
     &:after,
     &:before
       background-image: url($icon-hover-url)
-
 
 =button-bordered-active-behavior($color: '#4c4c4c', $border-color: '#4c4c4c', $background-color: '#fff', $icon-active-url: '')
 
@@ -51,6 +54,11 @@
     &:after,
     &:before
       background-image: url($icon-active-url)
+
+    &:focus
+      color: $color
+      background-color: $background-color
+      border-color: $border-color
 
 =button-with-icon-left($icon-url: '', $background-size: 13px)
   white-space: nowrap
@@ -658,6 +666,18 @@ $block: ".boss-button"
     +button-with-icon-left($icon-url: '../icons/icon-plus-secondary.svg', $background-size: 12px)
     +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-plus-white.svg')
     +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-plus-white.svg')
+
+  // $Common button MOD: role details switch
+  &_role_details-switch
+    $primary-color: map-get($boss-app-palette, secondary)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-with-icon-left($icon-url: '../icons/icon-plus-secondary.svg', $background-size: 12px)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-plus-white.svg')
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-minus-white.svg')
+
+    &#{$block}_state_active:not(.boss-button_type_no-behavior)
+      cursor: pointer
+
 
   // $Common button MOD: monochrome button profile
   &_role_profile
