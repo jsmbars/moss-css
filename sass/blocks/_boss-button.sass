@@ -660,23 +660,20 @@ $block: ".boss-button"
     +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/checked-white.svg')
 
   // $Common button MOD: role details
-  &_role_details
+  // $Common button MOD: role details show
+  &_role_details,
+  &_role_details-show
     $primary-color: map-get($boss-app-palette, secondary)
     +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
     +button-with-icon-left($icon-url: '../icons/icon-plus-secondary.svg', $background-size: 12px)
     +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-plus-white.svg')
-    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-plus-white.svg')
 
-  // $Common button MOD: role details switch
-  &_role_details-switch
-    $primary-color: map-get($boss-app-palette, secondary)
+  &_role_details-hide
+    // $Common button MOD: role details hide
+    $primary-color: map-get($boss-app-palette, alert)
     +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
-    +button-with-icon-left($icon-url: '../icons/icon-plus-secondary.svg', $background-size: 12px)
-    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-plus-white.svg')
-    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-minus-white.svg')
-
-    &#{$block}_state_active:not(.boss-button_type_no-behavior)
-      cursor: pointer
+    +button-with-icon-left($icon-url: '../icons/icon-minus-alert.svg', $background-size: 12px)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-minus-white.svg')
 
 
   // $Common button MOD: monochrome button profile
