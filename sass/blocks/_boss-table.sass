@@ -54,8 +54,19 @@ $block: ".boss-table"
   &_page_maintenance-index,
   &_page_maintenance-managers-index,
   &_page_invites-index,
-  &_page_users-index
+  &_page_users-index,
+  &_page_venues-index
     border: 1px solid #eee
+
+  &_page_maintenance-index-card,
+  &_page_maintenance-managers-index-card,
+  &_page_uniform-requests-card
+    background-color: #fbfbfb
+
+  &_page_invites-index,
+  &_page_venues-index
+    @media screen and (max-width: 1120px)
+      display: none
 
   &_page_checklist-review,
   &_page_vhci,
@@ -67,15 +78,6 @@ $block: ".boss-table"
   &_page_users-index,
   &_page_holidays-report-details
     @media screen and (max-width: 960px)
-      display: none
-
-  &_page_maintenance-index-card,
-  &_page_maintenance-managers-index-card,
-  &_page_uniform-requests-card
-    background-color: #fbfbfb
-
-  &_page_invites-index
-    @media screen and (max-width: 1120px)
       display: none
 
 
@@ -260,7 +262,8 @@ $block: ".boss-table"
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
-      #{$block}_page_invites-index &
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
         display: block
         padding-top: 20px
         padding-bottom: 20px
@@ -352,7 +355,8 @@ $block: ".boss-table"
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
-        #{$block}_page_invites-index &
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
           display: none
 
       @media screen and (max-width: 960px)
@@ -419,7 +423,8 @@ $block: ".boss-table"
       padding: 10px 15px
       border-bottom: none
 
-    #{$block}_page_safe-checks-index &
+    #{$block}_page_safe-checks-index &,
+    #{$block}_page_venues-index &
       padding: 15px 5px
       justify-content: center
 
@@ -443,7 +448,8 @@ $block: ".boss-table"
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
-      #{$block}_page_invites-index &
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
         flex-direction: column
         justify-content: center
         min-height: 0
@@ -584,6 +590,11 @@ $block: ".boss-table"
         width: 20%
         padding-left: 25px
 
+      #{$block}_page_venues-index &
+        width: 19%
+        padding-left: 10px
+
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -595,6 +606,10 @@ $block: ".boss-table"
         #{$block}_page_invites-index &
           width: 100%
           padding-left: 15px
+
+        #{$block}_page_venues-index &
+          width: 100%
+          padding-left: 10px
 
       @media screen and (max-width: 960px)
         padding-left: 15px
@@ -759,6 +774,9 @@ $block: ".boss-table"
       #{$block}_page_holidays-report-details &
         width: 30%
 
+      #{$block}_page_venues-index &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -766,7 +784,8 @@ $block: ".boss-table"
           width: 100%
           border-right: none
 
-        #{$block}_page_invites-index &
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
           width: 100%
 
       @media screen and (max-width: 960px)
@@ -918,9 +937,14 @@ $block: ".boss-table"
       #{$block}_page_holidays-report-details &
         width: 30%
 
+      #{$block}_page_venues-index &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
-        #{$block}_page_invites-index &
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &,
+        #{$block}_page_venues-index &
           width: 100%
 
       @media screen and (max-width: 960px)
@@ -1076,9 +1100,13 @@ $block: ".boss-table"
         width: 20%
         justify-content: center
 
+      #{$block}_page_venues-index &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
-        #{$block}_page_invites-index &
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
           width: 100%
 
         #{$block}_page_message-board &
@@ -1224,9 +1252,13 @@ $block: ".boss-table"
       #{$block}_page_invites-index &
         width: 12%
 
+      #{$block}_page_venues-index &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
-        #{$block}_page_invites-index &
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
           width: 100%
 
         #{$block}_page_maintenance-managers-index-card &
@@ -1298,10 +1330,21 @@ $block: ".boss-table"
       #{$block}_page_invites-index &
         width: 14%
 
+      #{$block}_page_venues-index &
+        flex-grow: 0
+        flex-shrink: 0
+        justify-content: center
+        width: 150px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
-        #{$block}_page_invites-index &
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
           width: 100%
+
+        #{$block}_page_venues-index &
+          flex-grow: 1
+          flex-shrink: 1
 
       @media screen and (max-width: 960px)
         width: 100%
@@ -1351,12 +1394,21 @@ $block: ".boss-table"
         flex-shrink: 0
         width: 140px
 
+      #{$block}_page_venues-index &
+        flex-grow: 0
+        flex-shrink: 0
+        justify-content: center
+        width: 150px
+        padding-right: 10px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
-        #{$block}_page_invites-index &
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
           width: 100%
 
-        #{$block}_page_invites-index &
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
           flex-grow: 1
           flex-shrink: 1
 
@@ -1367,8 +1419,7 @@ $block: ".boss-table"
         #{$block}_page_smp-owed-hours &
           width: 100%
 
-        #{$block}_page_smp-owed-hours &,
-        #{$block}_page_invites-index &
+        #{$block}_page_smp-owed-hours &
           flex-grow: 1
           flex-shrink: 1
 
@@ -1424,6 +1475,7 @@ $block: ".boss-table"
         color: #FFF
 
       #{$block}_page_safe-checks-index &
+      #{$block}_page_venues-index &
         font-size: 14px
         text-transform: none
         font-weight: 600
@@ -1499,7 +1551,8 @@ $block: ".boss-table"
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
-      #{$block}_page_invites-index &
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
         display: flex
         flex-direction: row
         justify-content: flex-start
@@ -1548,7 +1601,8 @@ $block: ".boss-table"
         font-size: 16px
 
       #{$block}_page_safe-checks-index &,
-      #{$block}_page_invites-index &
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
         flex-grow: 1
         flex-shrink: 0
         display: block
@@ -1645,7 +1699,8 @@ $block: ".boss-table"
     #{$block}_page_maintenance-index-card &,
     #{$block}_page_maintenance-managers-index-card &,
     #{$block}_page_uniform-requests-card &,
-    #{$block}_page_holidays-report-details #{$block}__cell:nth-child(4) &
+    #{$block}_page_holidays-report-details #{$block}__cell:nth-child(4) &,
+    #{$block}_page_venues-index &
       text-align: center
 
     #{$block}_page_holidays-report-details &
@@ -1653,11 +1708,16 @@ $block: ".boss-table"
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
-      #{$block}_page_invites-index &
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
         flex-grow: 1
         flex-shrink: 0
         width: 50%
         text-align: left
+
+      #{$block}_page_venues-index &
+        text-align: left
+
 
     @media screen and (max-width: 960px)
       flex-grow: 1
@@ -1837,9 +1897,13 @@ $block: ".boss-table"
     #{$block}_page_maintenance-managers-index-card #{$block}__cell:nth-child(5) &
       justify-content: flex-end
 
+    #{$block}_page_venues-index &
+      text-align: center
+
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
-      #{$block}_page_invites-index &
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
         flex-grow: 1
         flex-shrink: 0
         width: 50%
@@ -1847,6 +1911,9 @@ $block: ".boss-table"
 
       #{$block}_page_maintenance-managers-index-card #{$block}__cell:nth-child(5) &
         justify-content: center
+
+      #{$block}_page_venues-index &
+        text-align: left
 
     @media screen and (max-width: 960px)
       flex-grow: 1

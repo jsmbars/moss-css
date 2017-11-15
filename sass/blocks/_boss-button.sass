@@ -414,6 +414,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: role edit alternative
+  &_role_edit-alt
+    $background-color: map-get($boss-app-palette, secondary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // $Common button MOD: role edit mode
   &_role_edit-mode
     $background-color: map-get($boss-app-palette, edit)
@@ -632,6 +640,14 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
+  // $Common button MOD: uniforms
+  &_role_uniforms
+    $background-color: map-get($boss-app-palette, secondary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-tshirt-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+
   // Bordered buttons
 
   // $Common button MOD: role edit-light
@@ -660,8 +676,14 @@ $block: ".boss-button"
     +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/checked-white.svg')
 
   // $Common button MOD: role details
+  &_role_details
+    $primary-color: map-get($boss-app-palette, secondary)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-with-icon-left($icon-url: '../icons/icon-zoom-secondary.svg', $background-size: 12px)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-zoom-white.svg')
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-zoom-white.svg')
+
   // $Common button MOD: role details show
-  &_role_details,
   &_role_details-show
     $primary-color: map-get($boss-app-palette, secondary)
     +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
