@@ -675,8 +675,17 @@ $block: ".boss-button"
     +button-with-icon-left($icon-url: '../icons/icon-checked-primary.svg')
     +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/checked-white.svg')
 
+  // $Common button MOD: role view
+  &_role_view-details-light
+    $primary-color: map-get($boss-app-palette, primary)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-with-icon-left($icon-url: '../icons/icon-zoom-primary.svg', $background-size: 12px)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-zoom-white.svg')
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-zoom-white.svg')
+
   // $Common button MOD: role details
-  &_role_details
+  &_role_details,
+  &_role_details-light
     $primary-color: map-get($boss-app-palette, secondary)
     +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
     +button-with-icon-left($icon-url: '../icons/icon-zoom-secondary.svg', $background-size: 12px)
