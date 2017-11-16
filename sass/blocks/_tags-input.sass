@@ -1,0 +1,124 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Tags input
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".tags-input"
+
+#{$block}
+
+
+  &_state_error
+    & .react-tagsinput
+      outline: 1px solid map-get($boss-app-palette, alert-border)
+
+  & .react-tagsinput
+    box-sizing: border-box
+    display: block
+    width: 100%
+    height: auto
+    min-height: 50px
+    padding: 10px 20px 0
+    background-color: #FFF
+    line-height: 1
+    border: 1px solid $boss-very-light-gray
+    border-radius: 2px
+
+
+  & .react-tagsinput-tag
+    +text-normalizer()
+    box-sizing: border-box
+    display: inline-block
+    vertical-align: middle
+    margin-bottom: 10px
+    margin-right: 10px
+    padding: 0
+    line-height: 1
+    white-space: nowrap
+    background-color: #f0f0f0
+    border: 1px solid #d8d8d8
+    border-radius: 5px
+    overflow: hidden
+
+    & > span
+      display: inline-block
+      vertical-align: middle
+      padding: 2px 8px
+
+    & > a
+      display: inline-block
+      vertical-align: middle
+      padding: 2px 8px
+      font-size: 20px
+      color: #FFF
+      font-weight: 400
+      cursor: pointer
+      background-color: rgba(0, 0, 0, .2)
+      transition: .4s
+
+      &:before
+
+      &:hover
+        background-color: rgba(0, 0, 0, .6)
+
+      &:focus
+        color: #FFF
+
+
+  & .react-tagsinput-input
+    +text-normalizer()
+    display: block
+    vertical-align: middle
+    width: 100%
+    height: auto
+    min-height: 30px
+    margin-bottom: 10px
+    line-height: 1
+    box-sizing: border-box
+    background-color: #FFF
+    border: none
+    padding: 0
+    border-radius: 0
+    box-shadow: none
+
+    &:focus
+      outline: none
+      box-shadow: none
+      border-color: $boss-very-light-gray
+
+    &[type=text]::-ms-clear
+      display: none
+
+    &[readonly]
+      background-color: #FFF
+      cursor: text
+
+    ::-webkit-input-placeholder
+      color: $boss-input-placeholder-color
+      opacity:  1 !important
+
+    :-moz-placeholder
+      color: $boss-input-placeholder-color
+      opacity:  1 !important
+
+    ::-moz-placeholder
+      color: $boss-input-placeholder-color
+      opacity:  1 !important
+
+    :-ms-input-placeholder
+      color: $boss-input-placeholder-color
+      opacity:  1 !important
+
+    :placeholder-shown
+      color: $boss-input-placeholder-color
+      opacity:  1 !important
+
