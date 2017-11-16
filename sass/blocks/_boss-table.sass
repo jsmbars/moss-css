@@ -59,7 +59,6 @@ $block: ".boss-table"
     border: 1px solid #eee
 
   &_page_maintenance-index-card,
-  &_page_maintenance-managers-index-card,
   &_page_uniform-requests-card
     background-color: #fbfbfb
 
@@ -256,7 +255,6 @@ $block: ".boss-table"
     #{$block}_page_maintenance-index &,
     #{$block}_page_maintenance-managers-index &,
     #{$block}_page_maintenance-index-card &,
-    #{$block}_page_maintenance-managers-index-card &,
     #{$block}_page_uniform-requests-card &
       background-color: transparent
 
@@ -268,9 +266,6 @@ $block: ".boss-table"
         padding-top: 20px
         padding-bottom: 20px
         border-bottom: 1px solid #eee
-
-      #{$block}_page_maintenance-managers-index-card &
-        flex-wrap: wrap
 
 
     @media screen and (max-width: 960px)
@@ -316,7 +311,6 @@ $block: ".boss-table"
       #{$block}_page_maintenance-index &,
       #{$block}_page_maintenance-managers-index &,
       #{$block}_page_maintenance-index-card &,
-      #{$block}_page_maintenance-managers-index-card &,
       #{$block}_page_uniform-requests-card &
         display: flex
 
@@ -438,7 +432,6 @@ $block: ".boss-table"
     #{$block}_page_maintenance-index &,
     #{$block}_page_maintenance-managers-index &,
     #{$block}_page_maintenance-index-card &,
-    #{$block}_page_maintenance-managers-index-card &,
     #{$block}_page_invites-index &,
     #{$block}_page_uniform-requests-card &
       padding: 15px 10px
@@ -568,11 +561,7 @@ $block: ".boss-table"
         border-right: 1px solid #eee
 
       #{$block}_page_maintenance-index-card &
-        width: 25%
-        padding-left: 30px
-
-      #{$block}_page_maintenance-managers-index-card &
-        width: 19%
+        width: 33.3%
         padding-left: 30px
 
       #{$block}_page_invites-index &
@@ -658,8 +647,7 @@ $block: ".boss-table"
           width: 150px
           padding-left: 20px
 
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
+        #{$block}_page_maintenance-index-card &
           width: 49.5%
           padding-left: 20px
           border-bottom: 1px solid #eee
@@ -671,8 +659,7 @@ $block: ".boss-table"
           width: 100px
           padding-left: 10px
 
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
+        #{$block}_page_maintenance-index-card &
           width: 100%
           padding-left: 20px
           padding-right: 20px
@@ -680,7 +667,6 @@ $block: ".boss-table"
 
       &:after
         #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &,
         #{$block}_page_uniform-requests-card &
           content: ""
           position: absolute
@@ -694,7 +680,6 @@ $block: ".boss-table"
 
         @media screen and (max-width: 960px)
           #{$block}_page_maintenance-index-card &,
-          #{$block}_page_maintenance-managers-index-card &,
           #{$block}_page_uniform-requests-card &
             display: none
 
@@ -757,10 +742,7 @@ $block: ".boss-table"
         border-right: 1px solid #eee
 
       #{$block}_page_maintenance-index-card &
-        width: 25%
-
-      #{$block}_page_maintenance-managers-index-card &
-        width: 19%
+        width: 33.3%
 
       #{$block}_page_invites-index &
         width: 10%
@@ -815,8 +797,7 @@ $block: ".boss-table"
           width: 60%
           border-right: none
 
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
+        #{$block}_page_maintenance-index-card &
           width: 49.5%
           padding-right: 20px
           border-bottom: 1px solid #eee
@@ -832,15 +813,13 @@ $block: ".boss-table"
           padding-left: 20px
 
       @media screen and (max-width: 479px)
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
+        #{$block}_page_maintenance-index-card &
           width: 100%
           padding-left: 20px
           padding-right: 20px
 
       &:after
         #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &,
         #{$block}_page_uniform-requests-card &
           content: ""
           position: absolute
@@ -853,8 +832,7 @@ $block: ".boss-table"
           border-right: 1px solid #ddd
 
         @media screen and (max-width: 960px)
-          #{$block}_page_maintenance-index-card &,
-          #{$block}_page_maintenance-managers-index-card &
+          #{$block}_page_maintenance-index-card &
             display: none
 
         @media screen and (max-width: 640px)
@@ -920,10 +898,8 @@ $block: ".boss-table"
         border-right: 1px solid #eee
 
       #{$block}_page_maintenance-index-card &
-        width: 25%
-
-      #{$block}_page_maintenance-managers-index-card &
-        width: 19%
+        width: 33.3%
+        padding-right: 30px
 
       #{$block}_page_invites-index &
         width: 14%
@@ -970,12 +946,11 @@ $block: ".boss-table"
         #{$block}_page_maintenance-managers-index &
           display: none
 
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
-          width: 49.5%
+        #{$block}_page_maintenance-index-card &
+          width: 100%
           padding-left: 20px
-          border-bottom: 1px solid #eee
-          border-right: 1px solid #eee
+          padding-right: 20px
+          border-right: none
 
         #{$block}_page_voucher-usage &
           padding-right: 15px
@@ -989,17 +964,7 @@ $block: ".boss-table"
           padding-right: 20px
           padding-left: 20px
 
-      @media screen and (max-width: 479px)
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
-          width: 100%
-          padding-left: 20px
-          padding-right: 20px
-          border-right: none
-
       &:after
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &,
         #{$block}_page_uniform-requests-card &
           content: ""
           position: absolute
@@ -1010,11 +975,6 @@ $block: ".boss-table"
           height: 30px
           margin-top: -15px
           border-right: 1px solid #ddd
-
-        @media screen and (max-width: 960px)
-          #{$block}_page_maintenance-index-card &,
-          #{$block}_page_maintenance-managers-index-card &
-            display: none
 
         @media screen and (max-width: 640px)
           #{$block}_page_uniform-requests-card &
@@ -1078,13 +1038,6 @@ $block: ".boss-table"
         width: 17%
         border-right: 1px solid #eee
 
-      #{$block}_page_maintenance-index-card &
-        width: 25%
-        padding-right: 30px
-
-      #{$block}_page_maintenance-managers-index-card &
-        width: 19%
-
       #{$block}_page_invites-index &
         width: 10%
 
@@ -1145,13 +1098,6 @@ $block: ".boss-table"
         #{$block}_page_maintenance-managers-index &
           display: none
 
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
-          width: 49.5%
-          padding-right: 20px
-          border-bottom: 1px solid #eee
-          padding-right: 10px
-
         #{$block}_page_uniform-requests-card &
           width: 39.5%
           padding-right: 20px
@@ -1161,34 +1107,6 @@ $block: ".boss-table"
           width: 100%
           padding-right: 20px
           padding-left: 20px
-
-      @media screen and (max-width: 479px)
-        #{$block}_page_maintenance-index-card &,
-        #{$block}_page_maintenance-managers-index-card &
-          width: 100%
-          padding-left: 20px
-          padding-right: 20px
-
-      &:after
-        #{$block}_page_maintenance-managers-index-card &
-          content: ""
-          position: absolute
-          top: 50%
-          right: 0
-          display: block
-          width: 0
-          height: 30px
-          margin-top: -15px
-          border-right: 1px solid #ddd
-
-        @media screen and (max-width: 1120px)
-          #{$block}_page_maintenance-managers-index-card &
-            display: none
-
-        @media screen and (max-width: 960px)
-          #{$block}_page_maintenance-index-card &,
-          #{$block}_page_maintenance-managers-index-card &
-            display: none
 
 
     // $Common table cell fifth column
@@ -1243,12 +1161,6 @@ $block: ".boss-table"
       #{$block}_page_maintenance-managers-index &
         border-right: 1px solid #eee
 
-      #{$block}_page_maintenance-managers-index-card &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 270px
-        padding-right: 30px
-
       #{$block}_page_invites-index &
         width: 12%
 
@@ -1260,11 +1172,6 @@ $block: ".boss-table"
         #{$block}_page_invites-index &,
         #{$block}_page_venues-index &
           width: 100%
-
-        #{$block}_page_maintenance-managers-index-card &
-          width: 100%
-          padding-left: 20px
-          padding-right: 20px
 
       @media screen and (max-width: 960px)
         width: 100%
@@ -1697,7 +1604,6 @@ $block: ".boss-table"
     #{$block}_page_message-board #{$block}__cell:nth-child(4) &,
     #{$block}_page_message-board #{$block}__cell:nth-child(5) &,
     #{$block}_page_maintenance-index-card &,
-    #{$block}_page_maintenance-managers-index-card &,
     #{$block}_page_uniform-requests-card &,
     #{$block}_page_holidays-report-details #{$block}__cell:nth-child(4) &,
     #{$block}_page_venues-index &
@@ -1887,15 +1793,11 @@ $block: ".boss-table"
     #{$block}_page_smp-holidays &,
     #{$block}_page_message-board &,
     #{$block}_page_maintenance-index-card &,
-    #{$block}_page_maintenance-managers-index-card &,
     #{$block}_page_uniform-requests-card &
       display: flex
       flex-direction: row
       justify-content: center
       align-items: center
-
-    #{$block}_page_maintenance-managers-index-card #{$block}__cell:nth-child(5) &
-      justify-content: flex-end
 
     #{$block}_page_venues-index &
       text-align: center
@@ -1908,9 +1810,6 @@ $block: ".boss-table"
         flex-shrink: 0
         width: 50%
         justify-content: flex-start
-
-      #{$block}_page_maintenance-managers-index-card #{$block}__cell:nth-child(5) &
-        justify-content: center
 
       #{$block}_page_venues-index &
         text-align: left
@@ -1960,7 +1859,7 @@ $block: ".boss-table"
     #{$block}_page_message-board &:not(:last-of-type),
       margin-right: 10px
 
-    #{$block}_page_maintenance-managers-index-card #{$block}__cell:nth-child(5) &:not(:last-of-type)
+    #{$block}_page_maintenance-index-card #{$block}__cell:nth-child(3) &:not(:last-of-type)
       margin-right: 20px
 
     #{$block}_page_change-order-report &:not(:last-of-type),
