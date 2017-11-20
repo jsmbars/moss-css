@@ -35,6 +35,9 @@ $block: ".boss-requests"
     width: 100%
     margin-bottom: 40px
 
+    @media screen and (max-width: 640px)
+      margin-bottom: 30px
+
     &:after
       content: ""
       position: absolute
@@ -49,8 +52,10 @@ $block: ".boss-requests"
 
       @media screen and (max-width: 640px)
         left: 15px
+        bottom: -35px
 
     &:last-child
+      margin-bottom: 0
       &:after
         display: none
 
@@ -75,7 +80,7 @@ $block: ".boss-requests"
     flex-shrink: 0
     width: 170px
     padding-right: 10px
-    line-height: 35px
+    line-height: 30px
     text-align: right
 
     @media screen and (max-width: 640px)
@@ -92,7 +97,7 @@ $block: ".boss-requests"
     +text-normalizer()
     display: block
     text-transform: uppercase
-    line-height: 35px
+    line-height: 30px
     white-space: nowrap
 
     @media screen and (max-width: 640px)
