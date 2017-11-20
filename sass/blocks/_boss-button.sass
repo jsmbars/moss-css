@@ -732,6 +732,14 @@ $block: ".boss-button"
     +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-clock-white.svg')
     +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-clock-white.svg')
 
+  // $Common button MOD: monochrome button uniforms
+  &_role_uniforms
+    $primary-color: #4c4c4c
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: transparent)
+    +button-with-icon-left($icon-url: '../icons/icon-tshirt-dark-gray.svg')
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-hover-url: '../icons/icon-tshirt-white.svg')
+    +button-bordered-active-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color, $icon-active-url: '../icons/icon-tshirt-white.svg')
+
   // $Common button MOD: monochrome button enabled
   &_role_enabled-sb
     $primary-color: map-get($boss-app-palette, secondary)
