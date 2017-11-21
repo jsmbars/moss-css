@@ -1,0 +1,216 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Requests
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-requests"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+
+  // $Requests list
+  &__list
+    display: block
+    width: 100%
+    margin: 0
+    list-style: none
+
+
+  // $Requests item
+  &__item
+    position: relative
+    width: 100%
+    margin-bottom: 40px
+
+    @media screen and (max-width: 640px)
+      margin-bottom: 30px
+
+    &:after
+      content: ""
+      position: absolute
+      top: 5px
+      bottom: -45px
+      left: 185px
+      z-index: 0
+      display: block
+      width: 4px
+      margin-left: -2px
+      background-color: map-get($boss-app-palette, inactive)
+
+      @media screen and (max-width: 640px)
+        left: 15px
+        bottom: -35px
+
+    &:last-child
+      margin-bottom: 0
+      &:after
+        display: none
+
+
+  // $Requests meta
+  &__meta
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+
+    @media screen and (max-width: 640px)
+      flex-direction: column
+      align-items: flex-start
+
+
+  // $Requests date
+  &__date
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    width: 170px
+    padding-right: 10px
+    line-height: 30px
+    text-align: right
+
+    @media screen and (max-width: 640px)
+      order: 2
+      width: auto
+      padding-left: 40px
+      text-align: left
+
+
+  // $Requests status
+  &__status
+    position: relative
+    z-index: 5
+    +text-normalizer()
+    display: block
+    text-transform: uppercase
+    line-height: 30px
+    white-space: nowrap
+
+    @media screen and (max-width: 640px)
+      order: 1
+
+    &:before
+      content: ""
+      display: inline-block
+      width: 30px
+      height: 30px
+      margin-right: 10px
+      border-radius: 50%
+      border: 5px solid #fff
+      vertical-align: middle
+
+    // $Requests status MOD: role pending
+    &_role_pending
+      color: map-get($boss-app-palette, pending)
+
+      &:before
+        background-color: map-get($boss-app-palette, pending)
+
+    // $Requests status MOD: role rejected
+    &_role_rejected
+      color: map-get($boss-app-palette, alert)
+
+      &:before
+        background-color: map-get($boss-app-palette, alert)
+
+    // $Requests status MOD: role accepted
+    &_role_accepted
+      color: map-get($boss-app-palette, secondary)
+
+      &:before
+        background-color: map-get($boss-app-palette, secondary)
+
+
+  // $Requests content
+  &__content
+    padding-left: 210px
+
+    @media screen and (max-width: 640px)
+      padding-left: 40px
+
+
+  // $Requests title
+  &__title
+    +text-normalizer()
+    display: inline-block
+    margin-right: 20px
+    font-size: 18px
+    font-weight: 300
+    vertical-align: middle
+
+
+  // $Requests title name
+  &__title-name
+    margin-right: 5px
+
+
+  // $Requests title size
+  &__title-size
+    font-weight: 400
+
+
+  // $Requests actions
+  &__actions
+    display: inline-block
+    vertical-align: middle
+
+
+  // $Requests action
+  &__action
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    font-size: 16px
+    cursor: pointer
+    vertical-align: middle
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    &:hover
+      text-decoration: none
+
+    // $Requests action MOD: role cancel
+    &_role_cancel
+      padding-left: 20px
+
+      &:after
+        content: ''
+        position: absolute
+        left: 0
+        top: 50%
+        display: block
+        width: 12px
+        height: 12px
+        margin-top: -6px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        transition: all .4s
+
+    &_role_cancel
+      color: map-get($boss-app-palette, alert)
+
+      &:after
+        background-image: url(../icons/icon-close-alert.svg)
+
+      &:hover,
+      &:focus
+        color: map-get($boss-app-palette, alert)
