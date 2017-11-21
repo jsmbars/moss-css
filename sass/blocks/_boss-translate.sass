@@ -1,0 +1,162 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Translate
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-translate"
+
+#{$block}
+  +text-normalizer()
+  display: block
+  width: 100%
+
+
+  // $Translate control
+  &__control
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+
+
+  // $Translate control form
+  &__control-form
+    flex-grow: 1
+    flex-shrink: 1
+    margin-right: 20px
+
+
+  // $Translate control select
+  &__control-select
+    display: block
+    width: 100%
+
+    & .Select-control
+      height: 50px
+      border-radius: 2px
+      border-color: #d8d8d8
+
+    & .Select-multi-value-wrapper
+      line-height: 48px
+
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      line-height: 48px
+      padding-left: 20px
+      padding-right: 10px
+      color: #aaa
+
+    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+      color: #4c4c4c
+
+    & .Select-input
+      vertical-align: middle
+      line-height: 1
+      height: auto
+
+      & input
+        line-height: 1
+        height: 30px
+        padding: 0
+
+    & .Select-option
+      padding: 10px 10px 10px 20px
+
+    & .Select-menu-outer
+      border-color: #d8d8d8
+      margin-top: 0
+      border-top: none
+
+    &_state_error
+      & .Select-control,
+      & .Select-menu-outer
+        border-color: map-get($boss-app-palette, alert)
+
+
+  // $Translate control actions
+  &__control-actions
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
+    vertical-align: middle
+
+
+  // $Translate action
+  &__action
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    font-size: 16px
+    cursor: pointer
+    vertical-align: middle
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    &:hover
+      text-decoration: none
+
+    // $Requests action MOD: role cancel
+    &_role_cancel
+      padding-left: 20px
+
+      &:after
+        content: ''
+        position: absolute
+        left: 0
+        top: 50%
+        display: block
+        width: 12px
+        height: 12px
+        margin-top: -6px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        transition: all .4s
+
+    &_role_cancel
+      color: map-get($boss-app-palette, alert)
+
+      &:after
+        background-image: url(../icons/icon-close-alert.svg)
+
+      &:hover,
+      &:focus
+        color: map-get($boss-app-palette, alert)
+
+
+  // $Translate content
+  &__content
+    display: block
+    width: 100%
+
+
+  // $Translate text
+  &__text
+    +text-normalizer()
+
+    // $Translate text MOD: role original
+    &_role_original
+      padding: 20px 20px 15px
+
+    // $Translate text MOD: role translated
+    &_role_translated
+      padding: 10px 20px
+      background-color: #f0f0f0
+      font-family: Helvetica, Arial, sans-serif
+      font-size: 16px
+      font-weight: 400
