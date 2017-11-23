@@ -259,6 +259,22 @@ $block: ".boss-horizontal-table"
           display: none
 
 
+  // $Common table link
+  &__link
+    +text-normalizer()
+    display: inline-block
+    max-width: 100%
+    color: $boss-dark-gray
+    vertical-align: middle
+    text-decoration: none
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: none
+      color: $boss-dark-gray
+
+
   // Owl slider custom theming
   @at-root
     #pending-orders,
