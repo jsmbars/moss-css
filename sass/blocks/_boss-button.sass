@@ -374,6 +374,13 @@ $block: ".boss-button"
 
   // Buttons with icons
 
+  // $Common button MOD: role next
+  &_role_next
+    $background-color: map-get($boss-app-palette, primary)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-dir-left-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
   // $Common button MOD: role previous
   &_role_previous
     $background-color: map-get($boss-app-palette, primary)

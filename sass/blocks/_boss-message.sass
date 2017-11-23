@@ -315,15 +315,31 @@ $block: ".boss-message"
         height: 16px
         background-image: url("../icons/icon-user-dark-gray.svg")
 
+  // $Message meta actions
+  &__meta-actions
+    display: inline-block
+    white-space: nowrap
+    text-align: center
 
-  // $Message meta action
-  &__meta-action
     @media screen and (max-width: 960px)
       align-self: center
       margin-top: 30px
 
     @media screen and (max-width: 480px)
       margin-top: 20px
+      white-space: normal
+
+  // $Message meta action
+  &__meta-action
+
+    &:not(:last-child)
+      margin-right: 15px
+
+      @media screen and (max-width: 480px)
+        display: block
+        width: 100%
+        margin-right: 0
+        margin-bottom: 15px
 
 
   // $Message wysiwyg-generated content
