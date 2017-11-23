@@ -338,6 +338,34 @@ $block: ".boss-page-main"
         margin-bottom: 30px
 
 
+  // $Page main container scroll area
+  &__scroll
+    display: block
+    width: 100%
+    padding: 20px
+    background-color: #FFF
+
+
+  // $Page main container scroll area inner container
+  &__scroll-inner
+    position: relative
+    display: block
+    width: 100%
+    padding-bottom: 20px
+    overflow: hidden
+    text-align: center
+
+    // $Page main container scroll area inner container MOD: type native
+    &_type_native
+      overflow-x: auto
+
+
+  // $Page main container scroll area content
+  &__scroll-content
+    display: inline-block
+    text-align: left
+
+
   // $Page main container flow layout
   &__flow
     display: flex

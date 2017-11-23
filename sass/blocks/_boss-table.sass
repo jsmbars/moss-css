@@ -79,6 +79,9 @@ $block: ".boss-table"
     @media screen and (max-width: 960px)
       display: none
 
+  &_page_weekly-reports
+    width: 1160px
+
 
   // $Common table group
   &__group
@@ -300,7 +303,7 @@ $block: ".boss-table"
       #{$block}_page_vouchers-index &,
       #{$block}_page_smp-holidays &,
       #{$block}_page_smp-owed-hours &,
-      #{$block}_page_message-board &
+      #{$block}_page_message-board &,
       #{$block}_page_maintenance-index &,
       #{$block}_page_invites-index &,
       #{$block}_page_uniform-requests-card &,
@@ -311,7 +314,8 @@ $block: ".boss-table"
       #{$block}_page_maintenance-index &,
       #{$block}_page_maintenance-managers-index &,
       #{$block}_page_maintenance-index-card &,
-      #{$block}_page_uniform-requests-card &
+      #{$block}_page_uniform-requests-card &,
+      #{$block}_page_weekly-reports &
         display: flex
 
       #{$block}_page_maintenance-index-card &,
@@ -320,7 +324,8 @@ $block: ".boss-table"
 
 
     &:not(:last-child)
-      #{$block}_page_uniform-requests-card &
+      #{$block}_page_uniform-requests-card &,
+      #{$block}_page_weekly-reports &
         border-bottom: 1px solid #eee
 
     &:nth-child(odd)
@@ -332,6 +337,10 @@ $block: ".boss-table"
       #{$block}_page_voucher-usage &,
       #{$block}_page_invites-index &,
       #{$block}_page_users-index &
+        background-color: #fbfbfb
+
+    &:nth-child(even)
+      #{$block}_page_weekly-reports &
         background-color: #fbfbfb
 
     // $Common table first row
@@ -384,7 +393,8 @@ $block: ".boss-table"
       &:nth-child(odd),
       &:nth-child(even)
         #{$block}_page_safe-checks-index &,
-        #{$block}_page_message-board &
+        #{$block}_page_message-board &,
+        #{$block}_page_weekly-reports &
           background-color: #feeeee
 
 
@@ -422,6 +432,11 @@ $block: ".boss-table"
       padding: 15px 5px
       justify-content: center
 
+    #{$block}_page_weekly-reports &
+      min-height: 75px
+      padding: 15px 5px
+      justify-content: center
+
     #{$block}_page_smp-holidays &,
     #{$block}_page_holidays-report-details &
       min-height: 0
@@ -436,7 +451,8 @@ $block: ".boss-table"
     #{$block}_page_uniform-requests-card &
       padding: 15px 10px
 
-    #{$block}_page_uniform-requests-card &
+    #{$block}_page_uniform-requests-card &,
+    #{$block}_page_weekly-reports &
       border-bottom: none
 
     @media screen and (max-width: 1120px)
@@ -483,6 +499,9 @@ $block: ".boss-table"
         align-items: flex-start
         padding-top: 20px
         padding-bottom: 20px
+
+      #{$block}_page_weekly-reports &
+        flex-direction: row
 
     &:first-child
       padding-left: 25px
@@ -582,6 +601,11 @@ $block: ".boss-table"
       #{$block}_page_venues-index &
         width: 19%
         padding-left: 10px
+
+      #{$block}_page_weekly-reports &
+        justify-content: flex-start
+        width: 18%
+        padding-left: 15px
 
 
       @media screen and (max-width: 1120px)
@@ -759,6 +783,9 @@ $block: ".boss-table"
       #{$block}_page_venues-index &
         width: 14%
 
+      #{$block}_page_weekly-reports &
+        width: 10%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -916,6 +943,9 @@ $block: ".boss-table"
       #{$block}_page_venues-index &
         width: 14%
 
+      #{$block}_page_weekly-reports &
+        width: 10%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
@@ -1056,6 +1086,9 @@ $block: ".boss-table"
       #{$block}_page_venues-index &
         width: 14%
 
+      #{$block}_page_weekly-reports &
+        width: 10%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
@@ -1167,6 +1200,9 @@ $block: ".boss-table"
       #{$block}_page_venues-index &
         width: 14%
 
+      #{$block}_page_weekly-reports &
+        width: 10%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
@@ -1243,6 +1279,9 @@ $block: ".boss-table"
         justify-content: center
         width: 150px
 
+      #{$block}_page_weekly-reports &
+        width: 10%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
@@ -1308,6 +1347,9 @@ $block: ".boss-table"
         width: 150px
         padding-right: 10px
 
+      #{$block}_page_weekly-reports &
+        width: 10%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
@@ -1345,6 +1387,9 @@ $block: ".boss-table"
         width: 170px
         padding-right: 10px
 
+      #{$block}_page_weekly-reports &
+        width: 10%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -1364,6 +1409,10 @@ $block: ".boss-table"
         flex-shrink: 0
         width: 145px
 
+      #{$block}_page_weekly-reports &
+        width: 12%
+        padding-right: 15px
+
       @media screen and (max-width: 960px)
 
         #{$block}_page_change-order-report &
@@ -1381,8 +1430,9 @@ $block: ".boss-table"
         min-height: 40px
         color: #FFF
 
-      #{$block}_page_safe-checks-index &
-      #{$block}_page_venues-index &
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_venues-index &,
+      #{$block}_page_weekly-reports &
         font-size: 14px
         text-transform: none
         font-weight: 600
@@ -1399,6 +1449,9 @@ $block: ".boss-table"
       &:nth-child(1)
         #{$block}_page_safe-checks-index &
           border-right: none
+
+        #{$block}_page_weekly-reports &
+          text-align: left
 
       &:nth-child(2)
         #{$block}_page_safe-checks-index &
@@ -1439,6 +1492,9 @@ $block: ".boss-table"
     // $Common table cell MOD: state alert
     &_state_alert
       background-color: #ff8587
+
+      #{$block}_page_weekly-reports &
+        color: #fff
 
 
   // $Common table info
@@ -1764,7 +1820,6 @@ $block: ".boss-table"
         flex-shrink: 0
         width: 50%
 
-
   // $Common table actions
   &__actions
     text-align: left
@@ -1920,11 +1975,20 @@ $block: ".boss-table"
     vertical-align: middle
     text-decoration: none
 
+    #{$block}_page_weekly-reports &
+      text-align: center
+
+    #{$block}_page_weekly-reports #{$block}__cell_state_alert &
+      color: #fff
+
     &:hover,
     &:focus
       outline: none
       text-decoration: none
       color: $boss-dark-gray
+
+      #{$block}_page_weekly-reports #{$block}__cell_state_alert &
+        color: #fff
 
 
   //  $Common table sort link
