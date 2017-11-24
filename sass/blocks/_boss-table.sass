@@ -64,8 +64,7 @@ $block: ".boss-table"
     background-color: #fbfbfb
 
   &_page_invites-index,
-  &_page_venues-index,
-  &_page_daily-reports
+  &_page_venues-index
     @media screen and (max-width: 1120px)
       display: none
 
@@ -92,7 +91,8 @@ $block: ".boss-table"
 
     &:nth-child(odd)
       #{$block}_page_maintenance-index &,
-      #{$block}_page_maintenance-managers-index &
+      #{$block}_page_maintenance-managers-index &,
+      #{$block}_page_daily-reports &
         background-color: #fbfbfb
 
 
@@ -134,13 +134,25 @@ $block: ".boss-table"
 
     // $Common table details MOD: state closed
     &_state_closed
+      @media screen and (max-width: 1120px)
+        #{$block}_page_daily-reports &
+          display: none
+
       @media screen and (max-width: 960px)
-        display: none
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          display: none
 
     // $Common form row MOD: visible on mobiles
     &_state_visible-mobile
+      @media screen and (min-width: 1121px)
+        #{$block}_page_daily-reports &
+          display: none !important
+
       @media screen and(min-width: 961px)
-        display: none !important
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          display: none !important
 
 
   // $Common table details inner container
@@ -152,6 +164,9 @@ $block: ".boss-table"
     #{$block}_page_maintenance-managers-index &
       max-width: 350px
 
+    #{$block}_page_daily-reports &
+      max-width: 400px
+
 
   // $Common table details item
   &__details-item
@@ -162,9 +177,6 @@ $block: ".boss-table"
     width: 100%
     padding: 10px 0
 
-    &:not(:last-child)
-      border-bottom: 1px solid #eee
-
 
   // $Common table details label
   &__details-label
@@ -173,7 +185,7 @@ $block: ".boss-table"
     width: 50%
     padding-left: 15px
     padding-right: 10px
-    text-transform: uppercase
+    color: #808080
 
     #{$block}_page_maintenance-index &,
     #{$block}_page_maintenance-managers-index &
@@ -182,10 +194,17 @@ $block: ".boss-table"
       width: 150px
       padding-left: 20px
 
+    #{$block}_page_daily-reports &
+      width: calc(100% - 120px)
+      padding-left: 20px
+
     @media screen and (max-width: 479px)
       #{$block}_page_maintenance-index &,
       #{$block}_page_maintenance-managers-index &
-        width: 100px
+        width: 120px
+        padding-left: 10px
+
+      #{$block}_page_daily-reports &
         padding-left: 10px
 
 
@@ -194,18 +213,27 @@ $block: ".boss-table"
     +text-normalizer()
     flex-grow: 1
     width: 50%
-    padding-left: 15px
-    padding-right: 10px
+    padding-right: 15px
+    padding-left: 10px
 
     #{$block}_page_maintenance-index &,
     #{$block}_page_maintenance-managers-index &
       width: calc(100% - 150px)
-      padding-left: 10px
+      padding-right: 10px
+
+    #{$block}_page_daily-reports &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 100px
+      padding-right: 20px
 
     @media screen and (max-width: 479px)
       #{$block}_page_maintenance-index &,
       #{$block}_page_maintenance-managers-index &
         width: calc(100% - 100px)
+
+      #{$block}_page_daily-reports &
+        padding-right: 10px
 
     &_role_action
       cursor: pointer
@@ -260,14 +288,14 @@ $block: ".boss-table"
     #{$block}_page_maintenance-index &,
     #{$block}_page_maintenance-managers-index &,
     #{$block}_page_maintenance-index-card &,
-    #{$block}_page_uniform-requests-card &
+    #{$block}_page_uniform-requests-card &,
+    #{$block}_page_daily-reports &
       background-color: transparent
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &,
-      #{$block}_page_daily-reports &
+      #{$block}_page_venues-index &
         display: block
         padding-top: 20px
         padding-bottom: 20px
@@ -318,7 +346,8 @@ $block: ".boss-table"
       #{$block}_page_maintenance-managers-index &,
       #{$block}_page_maintenance-index-card &,
       #{$block}_page_uniform-requests-card &,
-      #{$block}_page_weekly-reports &
+      #{$block}_page_weekly-reports &,
+      #{$block}_page_daily-reports &
         display: flex
 
       #{$block}_page_maintenance-index-card &,
@@ -362,8 +391,7 @@ $block: ".boss-table"
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
-        #{$block}_page_venues-index &,
-        #{$block}_page_daily-reports &
+        #{$block}_page_venues-index &
           display: none
 
       @media screen and (max-width: 960px)
@@ -453,7 +481,8 @@ $block: ".boss-table"
     #{$block}_page_maintenance-managers-index &,
     #{$block}_page_maintenance-index-card &,
     #{$block}_page_invites-index &,
-    #{$block}_page_uniform-requests-card &
+    #{$block}_page_uniform-requests-card &,
+    #{$block}_page_daily-reports &
       padding: 15px 10px
 
     #{$block}_page_uniform-requests-card &,
@@ -463,13 +492,21 @@ $block: ".boss-table"
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &,
-      #{$block}_page_daily-reports &
+      #{$block}_page_venues-index &
         flex-direction: column
         justify-content: center
         min-height: 0
         padding: 10px
         border-bottom: none
+
+      #{$block}_page_daily-reports &
+        flex-direction: column
+        min-height: 0
+        justify-content: flex-start
+        align-items: flex-start
+        padding-top: 20px
+        padding-bottom: 20px
+
 
     @media screen and (max-width: 960px)
       flex-direction: column
@@ -616,7 +653,7 @@ $block: ".boss-table"
       #{$block}_page_daily-reports &
         justify-content: flex-start
         width: 16%
-        padding-left: 10px
+        padding-left: 20px
 
 
       @media screen and (max-width: 1120px)
@@ -631,10 +668,13 @@ $block: ".boss-table"
           width: 100%
           padding-left: 15px
 
-        #{$block}_page_venues-index &,
-        #{$block}_page_daily-reports &
+        #{$block}_page_venues-index &
           width: 100%
           padding-left: 10px
+
+        #{$block}_page_daily-reports &
+          width: calc(100% - 50px)
+           padding-left: 20px
 
       @media screen and (max-width: 960px)
         padding-left: 15px
@@ -700,6 +740,10 @@ $block: ".boss-table"
           padding-left: 20px
           padding-right: 20px
           border-right: none
+
+        #{$block}_page_daily-reports &
+          width: calc(100% - 40px)
+          padding-left: 10px
 
       &:after
         #{$block}_page_maintenance-index-card &,
@@ -809,9 +853,11 @@ $block: ".boss-table"
           border-right: none
 
         #{$block}_page_invites-index &,
-        #{$block}_page_venues-index &,
-        #{$block}_page_daily-reports &
+        #{$block}_page_venues-index &
           width: 100%
+
+        #{$block}_page_daily-reports &
+          display: none
 
       @media screen and (max-width: 960px)
         width: 100%
@@ -972,6 +1018,9 @@ $block: ".boss-table"
         #{$block}_page_daily-reports &
           width: 100%
 
+        #{$block}_page_daily-reports &
+          display: none
+
       @media screen and (max-width: 960px)
         width: 100%
 
@@ -1121,6 +1170,9 @@ $block: ".boss-table"
         #{$block}_page_message-board &
           width: 110px
 
+        #{$block}_page_daily-reports &
+          display: none
+
       @media screen and (max-width: 960px)
         width: 100%
 
@@ -1236,6 +1288,9 @@ $block: ".boss-table"
         #{$block}_page_daily-reports &
           width: 100%
 
+        #{$block}_page_daily-reports &
+          display: none
+
       @media screen and (max-width: 960px)
         width: 100%
 
@@ -1323,6 +1378,9 @@ $block: ".boss-table"
           flex-grow: 1
           flex-shrink: 1
 
+        #{$block}_page_daily-reports &
+          display: none
+
       @media screen and (max-width: 960px)
         width: 100%
 
@@ -1397,6 +1455,9 @@ $block: ".boss-table"
           flex-grow: 1
           flex-shrink: 1
 
+        #{$block}_page_daily-reports &
+          display: none
+
       @media screen and (max-width: 960px)
 
         #{$block}_page_change-order-report &,
@@ -1426,16 +1487,29 @@ $block: ".boss-table"
       #{$block}_page_weekly-reports &
         width: 10%
 
+      #{$block}_page_daily-reports &
+        display: none
+        flex-grow: 0
+        flex-shrink: 0
+        width: 50px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
           flex-shrink: 1
           width: 100%
 
+        #{$block}_page_daily-reports &
+          display: block
+
       @media screen and (max-width: 960px)
 
         #{$block}_page_change-order-report &
           width: 100%
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_daily-reports &
+          width: 40px
 
     // $Common table cell ninth column
     &:nth-child(9)
@@ -1553,8 +1627,7 @@ $block: ".boss-table"
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &,
-      #{$block}_page_daily-reports &
+      #{$block}_page_venues-index &
         display: flex
         flex-direction: row
         justify-content: flex-start
@@ -1604,8 +1677,7 @@ $block: ".boss-table"
 
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &,
-      #{$block}_page_daily-reports &
+      #{$block}_page_venues-index &
         flex-grow: 1
         flex-shrink: 0
         display: block
@@ -1702,19 +1774,16 @@ $block: ".boss-table"
     #{$block}_page_maintenance-index-card &,
     #{$block}_page_uniform-requests-card &,
     #{$block}_page_holidays-report-details #{$block}__cell:nth-child(4) &,
-    #{$block}_page_venues-index &,
-    #{$block}_page_daily-reports &
+    #{$block}_page_venues-index &
       text-align: center
 
-    #{$block}_page_holidays-report-details &,
-    #{$block}_page_daily-reports #{$block}__cell:nth-child(1) &
+    #{$block}_page_holidays-report-details &
       text-align: left
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &,
-      #{$block}_page_daily-reports &
+      #{$block}_page_venues-index &
         flex-grow: 1
         flex-shrink: 0
         width: 50%
@@ -1894,22 +1963,19 @@ $block: ".boss-table"
       justify-content: center
       align-items: center
 
-    #{$block}_page_venues-index &,
-    #{$block}_page_daily-reports &
+    #{$block}_page_venues-index &
       text-align: center
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &,
-      #{$block}_page_daily-reports &
+      #{$block}_page_venues-index &
         flex-grow: 1
         flex-shrink: 0
         width: 50%
         justify-content: flex-start
 
-      #{$block}_page_venues-index &,
-      #{$block}_page_daily-reports &
+      #{$block}_page_venues-index &
         text-align: left
 
     @media screen and (max-width: 960px)
