@@ -55,7 +55,8 @@ $block: ".boss-table"
   &_page_maintenance-managers-index,
   &_page_invites-index,
   &_page_users-index,
-  &_page_venues-index
+  &_page_venues-index,
+  &_page_daily-reports
     border: 1px solid #eee
 
   &_page_maintenance-index-card,
@@ -63,7 +64,8 @@ $block: ".boss-table"
     background-color: #fbfbfb
 
   &_page_invites-index,
-  &_page_venues-index
+  &_page_venues-index,
+  &_page_daily-reports
     @media screen and (max-width: 1120px)
       display: none
 
@@ -264,7 +266,8 @@ $block: ".boss-table"
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &
+      #{$block}_page_venues-index &,
+      #{$block}_page_daily-reports &
         display: block
         padding-top: 20px
         padding-bottom: 20px
@@ -359,7 +362,8 @@ $block: ".boss-table"
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
-        #{$block}_page_venues-index &
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
           display: none
 
       @media screen and (max-width: 960px)
@@ -428,7 +432,8 @@ $block: ".boss-table"
       border-bottom: none
 
     #{$block}_page_safe-checks-index &,
-    #{$block}_page_venues-index &
+    #{$block}_page_venues-index &,
+    #{$block}_page_daily-reports &
       padding: 15px 5px
       justify-content: center
 
@@ -458,7 +463,8 @@ $block: ".boss-table"
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &
+      #{$block}_page_venues-index &,
+      #{$block}_page_daily-reports &
         flex-direction: column
         justify-content: center
         min-height: 0
@@ -607,6 +613,11 @@ $block: ".boss-table"
         width: 18%
         padding-left: 15px
 
+      #{$block}_page_daily-reports &
+        justify-content: flex-start
+        width: 16%
+        padding-left: 10px
+
 
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
@@ -620,7 +631,8 @@ $block: ".boss-table"
           width: 100%
           padding-left: 15px
 
-        #{$block}_page_venues-index &
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
           width: 100%
           padding-left: 10px
 
@@ -786,6 +798,9 @@ $block: ".boss-table"
       #{$block}_page_weekly-reports &
         width: 10%
 
+      #{$block}_page_daily-reports &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &
           flex-grow: 1
@@ -794,7 +809,8 @@ $block: ".boss-table"
           border-right: none
 
         #{$block}_page_invites-index &,
-        #{$block}_page_venues-index &
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
           width: 100%
 
       @media screen and (max-width: 960px)
@@ -946,11 +962,14 @@ $block: ".boss-table"
       #{$block}_page_weekly-reports &
         width: 10%
 
+      #{$block}_page_daily-reports &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
         #{$block}_page_venues-index &,
-        #{$block}_page_venues-index &
+        #{$block}_page_daily-reports &
           width: 100%
 
       @media screen and (max-width: 960px)
@@ -1089,10 +1108,14 @@ $block: ".boss-table"
       #{$block}_page_weekly-reports &
         width: 10%
 
+      #{$block}_page_daily-reports &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
-        #{$block}_page_venues-index &
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
           width: 100%
 
         #{$block}_page_message-board &
@@ -1203,10 +1226,14 @@ $block: ".boss-table"
       #{$block}_page_weekly-reports &
         width: 10%
 
+      #{$block}_page_daily-reports &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
-        #{$block}_page_venues-index &
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
           width: 100%
 
       @media screen and (max-width: 960px)
@@ -1282,10 +1309,14 @@ $block: ".boss-table"
       #{$block}_page_weekly-reports &
         width: 10%
 
+      #{$block}_page_daily-reports &
+        width: 14%
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
-        #{$block}_page_venues-index &
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
           width: 100%
 
         #{$block}_page_venues-index &
@@ -1350,10 +1381,15 @@ $block: ".boss-table"
       #{$block}_page_weekly-reports &
         width: 10%
 
+      #{$block}_page_daily-reports &
+        width: 14%
+        padding-right: 10px
+
       @media screen and (max-width: 1120px)
         #{$block}_page_safe-checks-index &,
         #{$block}_page_invites-index &,
-        #{$block}_page_venues-index &
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
           width: 100%
 
         #{$block}_page_invites-index &,
@@ -1432,7 +1468,8 @@ $block: ".boss-table"
 
       #{$block}_page_safe-checks-index &,
       #{$block}_page_venues-index &,
-      #{$block}_page_weekly-reports &
+      #{$block}_page_weekly-reports &,
+      #{$block}_page_daily-reports &
         font-size: 14px
         text-transform: none
         font-weight: 600
@@ -1516,7 +1553,8 @@ $block: ".boss-table"
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &
+      #{$block}_page_venues-index &,
+      #{$block}_page_daily-reports &
         display: flex
         flex-direction: row
         justify-content: flex-start
@@ -1566,7 +1604,8 @@ $block: ".boss-table"
 
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &
+      #{$block}_page_venues-index &,
+      #{$block}_page_daily-reports &
         flex-grow: 1
         flex-shrink: 0
         display: block
@@ -1663,22 +1702,22 @@ $block: ".boss-table"
     #{$block}_page_maintenance-index-card &,
     #{$block}_page_uniform-requests-card &,
     #{$block}_page_holidays-report-details #{$block}__cell:nth-child(4) &,
-    #{$block}_page_venues-index &
+    #{$block}_page_venues-index &,
+    #{$block}_page_daily-reports &
       text-align: center
 
-    #{$block}_page_holidays-report-details &
+    #{$block}_page_holidays-report-details &,
+    #{$block}_page_daily-reports #{$block}__cell:nth-child(1) &
       text-align: left
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &
+      #{$block}_page_venues-index &,
+      #{$block}_page_daily-reports &
         flex-grow: 1
         flex-shrink: 0
         width: 50%
-        text-align: left
-
-      #{$block}_page_venues-index &
         text-align: left
 
 
@@ -1855,19 +1894,22 @@ $block: ".boss-table"
       justify-content: center
       align-items: center
 
-    #{$block}_page_venues-index &
+    #{$block}_page_venues-index &,
+    #{$block}_page_daily-reports &
       text-align: center
 
     @media screen and (max-width: 1120px)
       #{$block}_page_safe-checks-index &,
       #{$block}_page_invites-index &,
-      #{$block}_page_venues-index &
+      #{$block}_page_venues-index &,
+      #{$block}_page_daily-reports &
         flex-grow: 1
         flex-shrink: 0
         width: 50%
         justify-content: flex-start
 
-      #{$block}_page_venues-index &
+      #{$block}_page_venues-index &,
+      #{$block}_page_daily-reports &
         text-align: left
 
     @media screen and (max-width: 960px)
