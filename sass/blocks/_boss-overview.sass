@@ -672,19 +672,33 @@ $block: ".boss-overview"
     justify-content: space-between
     align-items: center
     padding: 10px 15px
-    border-bottom: 1px solid $boss-very-light-gray
+
+    &:not(:last-child)
+      border-bottom: 1px solid $boss-very-light-gray
 
     &:nth-of-type(even)
       background-color: $boss-extra-light-gray
+
+    &_role_stats
+      padding: 15px
+
+      &:nth-of-type(even)
+        background-color: transparent
+
+    &_state_alert,
+    &_state_alert:nth-of-type(even)
+      background-color: #feeeee
 
 
   // $Overview list name
   &__list-name
     +text-normalizer()
     font-weight: 600
+    text-align: left
 
 
   // $Overview number
   &__list-number
     +text-normalizer()
     font-weight: 600
+    text-align: right

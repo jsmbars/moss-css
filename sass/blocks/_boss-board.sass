@@ -129,6 +129,9 @@ $block: ".boss-board"
     &_status_failed
       color: map-get($boss-app-palette, alert)
 
+    &_size_medium
+      font-size: 20px
+
     &_size_small
       font-size: 16px
 
@@ -167,6 +170,10 @@ $block: ".boss-board"
     display: inline-block
     vertical-align: middle
 
+  // $Board title text marked
+  &__title-text-marked
+    font-weight: 600
+
 
   // $Board title link
   &__title-link
@@ -204,6 +211,14 @@ $block: ".boss-board"
   &__title-action
     display: inline-block
     margin-left: 10px
+    margin-top: 5px
+    margin-bottom: 5px
+
+
+  // $Board title label
+  &__title-label
+    display: inline-block
+    margin-right: 10px
     margin-top: 5px
     margin-bottom: 5px
 
@@ -798,7 +813,7 @@ $block: ".boss-board"
       padding: 0 20px
 
 
-  // $Board wnotice area
+  // $Board notice area
   &__notice
     display: block
     width: 100%
@@ -812,6 +827,28 @@ $block: ".boss-board"
 
     @media screen and (max-width: 960px)
       padding: 0 20px
+
+
+  // $Board overview area
+  &__overview
+    display: block
+    width: 100%
+    padding: 5px 20px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
+
+
+  // $Board table area
+  &__table
+    display: block
+    width: 100%
+    padding: 0 20px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
 
 
   // $Board details link
