@@ -953,6 +953,36 @@ $block: ".boss-form"
         left: 0
 
 
+  // $Checklist search-clear
+  &__search-clear
+    +text-normalizer()
+    position: absolute
+    top: 50%
+    right: 10px
+    z-index: 10
+    display: block
+    width: 20px
+    height: 20px
+    margin-top: -10px
+    color: transparent
+    font-size: 0
+    line-height: 0
+    text-align: center
+    cursor: pointer
+    overflow: hidden
+
+    &:before
+      content: "\00D7"
+      display: inline-block
+      color: #999
+      font-size: 18px
+      line-height: 20px
+      text-align: center
+
+    &:hover:before
+      color: #D0021B
+
+
   // $Common form select
   &__select
     position: relative
