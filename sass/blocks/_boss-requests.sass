@@ -111,6 +111,7 @@ $block: ".boss-requests"
       margin-right: 10px
       border-radius: 50%
       border: 5px solid #fff
+      background-color: #fff
       vertical-align: middle
 
     // $Requests status MOD: role pending
@@ -134,6 +135,13 @@ $block: ".boss-requests"
       &:before
         background-color: map-get($boss-app-palette, secondary)
 
+    // $Requests status MOD: role requested
+    &_role_requested
+      color: map-get($boss-app-palette, warning)
+
+      &:before
+        background-color: map-get($boss-app-palette, warning)
+
 
   // $Requests content
   &__content
@@ -141,6 +149,10 @@ $block: ".boss-requests"
 
     @media screen and (max-width: 640px)
       padding-left: 40px
+
+
+  // $Requests header
+  &__header
 
 
   // $Requests title
@@ -188,7 +200,9 @@ $block: ".boss-requests"
       text-decoration: none
 
     // $Requests action MOD: role cancel
-    &_role_cancel
+    // $Requests action MOD: role request
+    &_role_cancel,
+    &_role_request
       padding-left: 20px
 
       &:after
@@ -214,3 +228,130 @@ $block: ".boss-requests"
       &:hover,
       &:focus
         color: map-get($boss-app-palette, alert)
+
+    &_role_request
+      color: map-get($boss-app-palette, primary)
+
+      &:after
+        background-image: url(../icons/icon-pencil-primary.svg)
+
+      &:hover,
+      &:focus
+        color: map-get($boss-app-palette, primary)
+
+
+  // $Requests details
+  &__details
+    display: block
+    width: 100%
+    padding-top: 10px
+
+
+  // $Requests details switch
+  &__details-switch
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    padding-left: 20px
+    font-size: 16px
+    cursor: pointer
+    vertical-align: middle
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      display: block
+      width: 12px
+      height: 12px
+      margin-top: -6px
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      transition: all .4s
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    &:hover
+      text-decoration: none
+
+    // $Requests details switch MOD: role list
+    &_role_list
+      color: map-get($boss-app-palette, primary)
+
+      &:after
+        background-image: url(../icons/icon-text-paper-primary.svg)
+
+      &:hover,
+      &:focus
+        color: map-get($boss-app-palette, primary)
+
+    // $Requests details switch MOD: role cancel
+    &_role_cancel
+      color: map-get($boss-app-palette, alert)
+
+      &:after
+        background-image: url(../icons/icon-close-alert.svg)
+
+      &:hover,
+      &:focus
+        color: map-get($boss-app-palette, alert)
+
+    // $Requests details switch MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Requests details dropdown
+  &__details-dropdown
+    display: block
+    width: 100%
+
+    // $Requests details dropdown MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Requests details content
+  &__details-content
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+
+  // $Requests details record
+  &__details-record
+    flex-grow: 0
+    flex-shrink: 1
+    display: inline-block
+    max-width: 100%
+    padding: 15px 20px
+
+    &:not(:last-child)
+      border-bottom: 1px solid #eee
+
+
+  // $Requests details text
+  &__details-text
+    +text-normalizer()
+    display: block
+    max-width: 100%
+
+    // $Requests details text MOD: role meta
+    &_role_meta
+      margin-top: 5px
+      color: #808080
+
+
+  // $Requests details text-marked
+  &__details-text-marked
+    font-weight: 600
+
+
