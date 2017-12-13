@@ -26,16 +26,24 @@ $block: ".boss-tags-input"
     width: 100%
 
 
+  &__tags-inner
+    display: block
+    width: 100%
+
+
   // $Tags input tag
   &__tag
     +text-normalizer()
-    box-sizing: border-box
+    position: relative
     display: inline-block
-    vertical-align: middle
+    height: 25px
     margin-bottom: 10px
     margin-right: 10px
-    padding: 0
-    line-height: 1
+    padding: 0 35px 0 10px
+    vertical-align: middle
+    text-align: center
+    font-size: 14px
+    line-height: 25px
     white-space: nowrap
     background-color: #f0f0f0
     border: 1px solid #d8d8d8
@@ -44,20 +52,13 @@ $block: ".boss-tags-input"
     cursor: move
 
 
-  // $Tags input tag text
-  &__tag-text
-    display: inline-block
-    vertical-align: middle
-    height: 25px
-    padding: 0 10px
-    text-align: center
-    font-size: 14px
-    line-height: 25px
-
-
   // $Tags input tag cancel
   &__tag-cancel
-    display: inline-block
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    display: block
     vertical-align: middle
     height: 25px
     width: 25px
