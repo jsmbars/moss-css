@@ -334,7 +334,7 @@ $block: ".boss-page-main"
         padding: 20px 10px
 
     &_context_stack
-      &:not(:last-of-type)
+      &:not(:last-child)
         margin-bottom: 30px
 
 
@@ -610,6 +610,35 @@ $block: ".boss-page-main"
     display: inline-block
     width: 100%
     max-width: 100%
+
+
+  // $Page main container note
+  &__note
+    display: block
+    width: 100%
+    padding: 25px 20px 30px
+    background-color: #FFF
+
+    @media screen and (max-width: 400px)
+      padding: 20px 15px 30px
+
+    // $Page main container note MOD: context stack
+    &_context_stack
+      &:not(:last-child)
+        margin-bottom: 30px
+
+    // $Page main container note MOD: role alert
+    &_role_alert
+      border: 2px solid map-get($boss-app-palette, alert)
+
+  // $Page main container note text
+  &__note-text
+    display: block
+    +text-normalizer()
+    font-size: 16px
+
+    &_role_primary
+      font-weight: 600
 
 
   // $Page main container text placeholder
