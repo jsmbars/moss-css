@@ -73,7 +73,8 @@ $block: ".boss-modal-window"
   &_role_task-overview,
   &_role_venue-details,
   &_role_edit,
-  &_role_add
+  &_role_add,
+  &_role_shift-details
     width: 90%
     max-width: 800px
 
@@ -89,6 +90,14 @@ $block: ".boss-modal-window"
   &_role_bounced-email
     width: 90%
     max-width: 450px
+
+  &_role_shift-details
+    width: 90%
+    max-width: 640px
+    margin-top: 100px
+
+    @media screen and (max-width: 960px)
+      margin-top: 100px
 
   // $Modal window MOD: role login
   // $Modal window MOD: role reset password
@@ -172,7 +181,8 @@ $block: ".boss-modal-window"
     #{$block}_role_task-create &,
     #{$block}_role_task-overview &,
     #{$block}_role_bounced-email &,
-    #{$block}_role_venue-details &
+    #{$block}_role_venue-details &,
+    #{$block}_role_shift-details &
       width: 16px
       height: 16px
       top: 30px
@@ -188,7 +198,8 @@ $block: ".boss-modal-window"
     @media screen and (max-width: 479px)
       #{$block}_role_task-create &,
       #{$block}_role_task-overview &,
-      #{$block}_role_bounced-email &
+      #{$block}_role_bounced-email &,
+      #{$block}_role_shift-details &
         right: 15px
 
   // $Modal window header
@@ -227,7 +238,8 @@ $block: ".boss-modal-window"
     #{$block}_role_task-create &,
     #{$block}_role_task-overview &,
     #{$block}_role_bounced-email &,
-    #{$block}_role_venue-details &
+    #{$block}_role_venue-details &,
+    #{$block}_role_shift-details &
       padding: 20px 50px 20px 30px
       background-color: $boss-extra-light-gray
       text-transform: none
@@ -240,7 +252,8 @@ $block: ".boss-modal-window"
         font-size: 22px
 
     #{$block}_role_task-overview &,
-    #{$block}_role_bounced-email &
+    #{$block}_role_bounced-email &,
+    #{$block}_role_shift-details &
       background-color: #fff
 
     // $Modal window header CONTEXT: $Modal window MOD: role details
@@ -285,7 +298,8 @@ $block: ".boss-modal-window"
 
       #{$block}_role_task-create &,
       #{$block}_role_task-overview &,
-      #{$block}_role_bounced-email &
+      #{$block}_role_bounced-email &,
+      #{$block}_role_shift-details &
         padding-left: 30px
 
     @media screen and (max-width: 479px)
@@ -299,7 +313,8 @@ $block: ".boss-modal-window"
 
       #{$block}_role_task-create &,
       #{$block}_role_task-overview &,
-      #{$block}_role_bounced-email &
+      #{$block}_role_bounced-email &,
+      #{$block}_role_shift-details &
         padding-left: 15px
         padding-right: 35px
 
@@ -309,7 +324,8 @@ $block: ".boss-modal-window"
       #{$block}_role_task-create &,
       #{$block}_role_task-overview &,
       #{$block}_role_bounced-email &,
-      #{$block}_role_venue-details &
+      #{$block}_role_venue-details &,
+      #{$block}_role_shift-details &
         font-size: 22px
 
     // $Modal window header MOD: error
@@ -409,6 +425,10 @@ $block: ".boss-modal-window"
     #{$block}_role_venue-details &
       padding: 0
 
+    @media screen and (max-width: 960px)
+      #{$block}_role_shift-details &
+        padding-top: 0
+
     #{$block}_role_rota &
       border-top-right-radius: $border-radius !important
       border-top-left-radius: $border-radius !important
@@ -430,6 +450,15 @@ $block: ".boss-modal-window"
       #{$block}_role_bounced-email &,
       #{$block}_role_venue-details &
         padding: 0
+
+      #{$block}_role_shift-details &
+        padding-left: 30px
+        padding-right: 30px
+
+    @media screen and (max-width: 479px)
+      #{$block}_role_shift-details &
+        padding-left: 15px
+        padding-right: 15px
 
     // $Modal window content MOD: role error
     &_role_error
@@ -579,6 +608,10 @@ $block: ".boss-modal-window"
     max-width: 100%
 
 
+  &__chart
+    margin-bottom: 20px
+
+
   // $Modal window controls block
   &__controls-block
     display: flex
@@ -597,6 +630,9 @@ $block: ".boss-modal-window"
     // $Modal window actions CONTEXT: $Modal window MOD: role note
     #{$block}_role_note &
       justify-content: flex-end
+
+    #{$block}_role_shift-details &
+      justify-content: flex-start
 
     @media screen and (max-width: 960px)
       #{$block}_role_note &
@@ -622,7 +658,8 @@ $block: ".boss-modal-window"
       text-decoration: none
 
     &_role_edit,
-    &_role_save
+    &_role_save,
+    &_role_details
       padding-left: 20px
 
       &:after
@@ -646,6 +683,10 @@ $block: ".boss-modal-window"
     &_role_save
       &:after
         background-image: url(../icons/icon-checked-primary.svg)
+
+    &_role_details
+      &:after
+        background-image: url(../icons/icon-zoom-primary.svg)
 
     &_position_after
       margin-left: 20px

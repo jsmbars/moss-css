@@ -516,9 +516,7 @@ $block: ".boss-user-summary"
     max-width: 100%
 
     @media screen and(max-width: 960px)
-      align-items: center
-
-    @media screen and (max-width: 640px)
+      justify-content: center
       flex-wrap: wrap
 
     @media screen and (max-width: 480px)
@@ -531,40 +529,20 @@ $block: ".boss-user-summary"
     margin-right: 10px
 
     @media screen and (max-width: 960px)
-      flex-grow: 1
-      width: calc(25% - 8px)
-
-    @media screen and (max-width: 640px)
-      width: 100%
-      margin-right: 0
+      flex-grow: 0
+      flex-shrink: 0
       margin-bottom: 15px
 
-    // @media screen and (max-width: 640px)
-    //   flex-grow: 0
-    //   width: calc(50% - 6px)
-    //   margin-bottom: 15px
-
-    // @media screen and (max-width: 480px)
-    //   width: 100%
-    //   margin-right: 0
-    //   margin-bottom: 15px
-
-    // &:nth-child(2n)
-    //   @media screen and (max-width: 640px)
-    //     margin-right: 0
-
-    // &:nth-last-child(-n+2)
-    //   @media screen and (min-width: 481px) and (max-width: 640px)
-    //     margin-bottom: 0
+    @media screen and (max-width: 480px)
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
 
     &:last-child
       margin-right: 0
 
-      @media screen and (max-width: 640px)
+      @media screen and (max-width: 480px)
         margin-bottom: 0
-
-      // @media screen and (max-width: 480px)
-      //   margin-bottom: 0
 
 
   // $User summary review list
