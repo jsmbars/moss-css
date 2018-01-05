@@ -611,6 +611,14 @@ $block: ".boss-modal-window"
   &__chart
     margin-bottom: 20px
 
+    &_hidden-xs
+      @media screen and (max-width: 480px)
+        display: none
+
+    &_visible-xs
+      @media screen and (min-width: 481px)
+        display: none
+
 
   // $Modal window controls block
   &__controls-block
