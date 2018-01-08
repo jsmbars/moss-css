@@ -75,6 +75,11 @@ $block: ".boss-page-dashboard"
     #{$block}_page_profile-reduced &
       justify-content: flex-end
 
+    @media screen and(max-width: 1120px)
+      #{$block}_page_profile &
+        flex-direction: column
+        justify-content: flex-start
+
 
     @media screen and(max-width: 960px)
       flex-direction: column
@@ -120,7 +125,6 @@ $block: ".boss-page-dashboard"
         #{$block}_page_add-staff-member &
           padding-left: 10px
           padding-right: 10px
-
 
 
   // $Page dashboard sub group contain
@@ -216,6 +220,13 @@ $block: ".boss-page-dashboard"
       flex-direction: column
       align-items: stretch
 
+    @media screen and(max-width: 1120px)
+      #{$block}_page_profile &
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        width: 100%
+
     @media screen and(max-width: 960px)
       margin-bottom: 25px
 
@@ -225,7 +236,6 @@ $block: ".boss-page-dashboard"
       #{$block}_page_report &_mobile
         display: flex
 
-      #{$block}_page_profile &,
       #{$block}_page_profile-disabled &,
       #{$block}_page_change-order-form &,
       #{$block}_page_user-profile &,
@@ -268,8 +278,11 @@ $block: ".boss-page-dashboard"
 
   // $Page dashboard button
   &__button
+    @media screen and(max-width: 1120px)
+      #{$block}_page_profile &
+        width: 50%
+
     @media screen and(max-width: 960px)
-      #{$block}_page_profile &,
       #{$block}_page_change-order-form &,
       #{$block}_page_holidays-report &,
       #{$block}_page_daily-reports &
@@ -303,8 +316,12 @@ $block: ".boss-page-dashboard"
       #{$block}_page_venues &
         margin-right: 15px
 
+      @media screen and(max-width: 1120px)
+        #{$block}_page_profile &
+          margin-bottom: 0
+          margin-right: 15px
+
       @media screen and(max-width: 960px)
-        #{$block}_page_profile &,
         #{$block}_page_change-order-form &,
         #{$block}_page_holidays-report &,
         #{$block}_page_daily-reports &
@@ -514,11 +531,23 @@ $block: ".boss-page-dashboard"
       width: auto
       max-width: 100%
 
+    @media screen and(max-width: 1120px)
+      #{$block}_page_profile &
+        margin-bottom: 25px
+        border-bottom: 1px solid $boss-very-light-gray
+
     @media screen and(max-width: 960px)
       margin-bottom: 25px
       border-bottom: 1px solid $boss-very-light-gray
+
+      #{$block}_page_profile &
+        padding-bottom: 15px
 
       #{$block}_page_hours-overview &,
       #{$block}_page_ssr-details &
         border-bottom: none
         margin-bottom: 0
+
+    @media screen and(max-width: 480px)
+      #{$block}_page_profile &
+        padding-bottom: 25px
