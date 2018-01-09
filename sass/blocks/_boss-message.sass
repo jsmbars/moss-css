@@ -41,6 +41,16 @@ $block: ".boss-message"
     @media screen and (max-width: 480px)
       padding: 15px
 
+  // $Message MOD: photo requirements
+  &_role_photos-requirements
+    padding: 25px 25px 25px 40px
+
+    @media screen and (max-width: 960px)
+      padding: 20px 20px 20px 30px
+
+    @media screen and (max-width: 480px)
+      padding: 15px
+
   // $Message MOD: type accent
   &_type_accent
     border: 3px solid map-get($boss-app-palette, primary)
@@ -115,6 +125,15 @@ $block: ".boss-message"
   // $Message MOD: status success
   &_status_success
     background-color: map-get($boss-app-palette, secondary)
+
+  &_space_regular-before
+    margin-top: 30px
+
+  &_space_regular-after
+    margin-bottom: 30px
+
+  &_space_regular
+    margin: 30px 0
 
 
   // $Message ribbon container
@@ -198,6 +217,19 @@ $block: ".boss-message"
       color: map-get($boss-app-palette, primary)
 
 
+  // $Message subtitle
+  &__subtitle
+    +text-normalizer()
+    margin-bottom: 10px
+    font-size: 20px
+    line-height: 1
+    font-weight: 600
+
+    // $Message subtitle MOD: accent
+    &_accent
+      color: map-get($boss-app-palette, primary)
+
+
   // $Message text
   &__text
     +text-normalizer()
@@ -237,6 +269,43 @@ $block: ".boss-message"
     // $Message text MOD: marked text
     &_marked
       font-weight: 600
+
+    &_role_block
+      margin-bottom: 20px
+
+
+  &__text-line
+    display: block
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+
+  // $Message List
+  &__list
+    list-style: none
+    margin: 0
+    padding: 0
+    margin-bottom: 20px
+
+
+  // $Message List item
+  &__list-item
+    +text-normalizer()
+    position: relative
+    margin-bottom: 10px
+    font-size: 18px
+    padding-left: 12px
+
+    &:before
+      content: "-"
+      position: absolute
+      left: 0
+      top: 0
+      display: inline-block
+
+    @media screen and (max-width: 480px)
+      font-size: 16px
 
 
   // $Message meta information
@@ -340,6 +409,81 @@ $block: ".boss-message"
         width: 100%
         margin-right: 0
         margin-bottom: 15px
+
+
+  // $Message
+  &__details
+    display: block
+    width: 100%
+
+
+  // $Message details header
+  &__details-header
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: flex-start
+
+    @media screen and (max-width: 640px)
+      width: 100%
+
+
+  // $Message details content
+  &__details-content
+    display: block
+    width: 100%
+
+    &_state_closed
+      display: none
+
+
+  // $Message details inner
+  &__details-inner
+    display: block
+    width: 100%
+    padding-top: 20px
+
+
+  // $Message details switch
+  &__details-switch
+    +text-normalizer()
+
+    position: relative
+    display: inline-block
+    cursor: pointer
+    padding-left: 20px
+    font-size: 18px
+    color: map-get($boss-app-palette, primary)
+    text-decoration: none
+
+    &:hover
+      text-decoration: underline
+
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      display: block
+      width: 14px
+      height: 14px
+      margin-top: -7px
+      background-image: url(../icons/icon-arrow-down-primary.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      transform: rotate(180deg)
+      transition: all .4s
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    // $Message details switch MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
 
 
   // $Message wysiwyg-generated content
