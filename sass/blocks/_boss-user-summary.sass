@@ -160,6 +160,7 @@ $block: ".boss-user-summary"
     position: absolute
     top: 0
     right: 0
+    z-index: 10
     display: block
     width: 32px
     height: 32px
@@ -187,8 +188,8 @@ $block: ".boss-user-summary"
       background-size: contain
 
     &:hover
-      background-color: map-get($boss-app-palette, primary)
-      opacity: 0.9
+      background-color: map-get($boss-app-palette, secondary)
+      opacity: 0.8
 
     // $User summary avatar icon MOD: role edit
     &_role_edit
@@ -199,6 +200,46 @@ $block: ".boss-user-summary"
     &_role_info
       &:before
         background: url(../icons/icon-lens-white.svg)
+
+    // $User summary avatar icon MOD: role retake
+    &_role_retake
+      top: auto
+      bottom: 0
+      background-color: map-get($boss-app-palette, alert)
+
+      &:before
+        background: url(../icons/icon-close-white.svg)
+
+      &:hover
+        background-color: map-get($boss-app-palette, alert)
+
+
+  &__avatar-overlay
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    background-color: #FFF
+    border-radius: 50%
+    border: 1px solid $boss-extra-light-gray
+
+
+  &__avatar-overlay-text
+    +text-normalizer()
+    display: block
+    max-width: 100%
+    text-align: center
+
+    &_role_retake
+      font-size: 16px
+      font-weight: 600
+      color: map-get($boss-app-palette, alert)
+      text-transform: uppercase
 
 
   // $User summary controls
