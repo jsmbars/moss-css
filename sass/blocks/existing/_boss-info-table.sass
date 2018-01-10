@@ -113,7 +113,7 @@
     vertical-align: top
     position: relative
     height: 66px
-    padding-right: 1em
+    margin-right: 1em
 
     &:before
       content: ''
@@ -122,6 +122,7 @@
       height: 14px
       left: 56px
       top: 26px
+      z-index: 10
       border-radius: 50%
       box-shadow: 0 0 0 3pt white
 
@@ -136,6 +137,36 @@
     &_on-break
       &:before
         background-color: map-get($boss-sign-palette, break)
+
+
+  &__user-avatar-overlay
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 1
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    background-color: #FFF
+    border-radius: 50%
+    border: 1px solid $boss-extra-light-gray
+
+
+  &__user-avatar-overlay-text
+    +text-normalizer()
+    display: block
+    max-width: 100%
+    text-align: center
+    color: #4c4c4c
+
+    &_role_retake
+      font-size: 10px
+      font-weight: 600
+      color: map-get($boss-app-palette, alert)
+      text-transform: uppercase
 
 
   &__user-avatar-image

@@ -16,7 +16,7 @@ $block: ".boss-avatar"
 
 #{$block}
   $avatar-side-size: 120px
-
+  position: relative
   display: block
   width: $avatar-side-size
   height: $avatar-side-size
@@ -63,6 +63,51 @@ $block: ".boss-avatar"
     @media screen and (max-width: 960px)
       width: 100px
       height: 100px
+
+
+  // $Avatar overlay
+  &__overlay
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 1
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    background-color: #FFF
+    border-radius: 50%
+    border: 1px solid $boss-extra-light-gray
+
+
+  // $Avatar overlay text
+  &__overlay-text
+    +text-normalizer()
+    display: block
+    max-width: 100%
+    text-align: center
+    color: #4c4c4c
+
+    &_role_retake
+      font-size: 14px
+      font-weight: 600
+      color: map-get($boss-app-palette, alert)
+      text-transform: uppercase
+
+      #{$block}_type_combined &
+        font-size: 12px
+
+      #{$block}_type_big &
+        font-size: 18px
+
+      #{$block}_type_small &
+        font-size: 7px
+
+      @media screen and (max-width: 960px)
+        #{$block}_type_combined &
+          font-size: 14px
 
 
   // $Avatar image
