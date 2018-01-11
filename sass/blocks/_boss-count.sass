@@ -1,0 +1,246 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Count
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-count"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: inline-block
+  padding: 10px 15px
+  background-color: #FFF
+  border: 2px solid #c4c4c4
+  border-radius: 6px
+
+  // $Count MOD: role link
+  &_role_link
+    color: initial
+    transition: all .4s
+
+    &:hover
+      color: initial
+      opacity: 0.5
+
+    &:focus
+      color: initial
+      outline: none
+
+  // $Count MOD: adjust row layout
+  &_adjust_row
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+
+  // $Count MOD: adjust flow layout
+  &_adjust_flow
+    margin-bottom: 15px
+
+    @media screen and (max-width: 960px)
+      width: 100%
+
+  // $Count MOD: adjust tags layout
+  &_adjust_tags
+    margin-bottom: 15px
+
+    &:not(:last-child)
+      margin-right: 15px
+
+  &_adjust_flow,
+  &_adjust_row
+
+    @media screen and (max-width: 960px)
+      width: 100%
+
+    &:not(:last-child)
+      margin-right: 15px
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+        margin-bottom: 15px
+
+  // $Count MOD: size half
+  &_size_half
+    flex-grow: 0
+    width: calc(50% - 8px)
+
+    @media screen and (max-width: 960px)
+      width: 100%
+
+  // $Count MOD: type solid colored
+  &_type_solid
+    background-color: #eaeaea
+    border-color: #eaeaea
+
+  // $Count MOD: type badge
+  &_type_badge
+    border: none
+    padding: 40px 20px
+    box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+    @media screen and(max-width: 480px)
+      padding: 30px 20px
+
+  // $Count MOD: type badge adjust flow
+  &_type_badge#{&}_adjust_flow
+    margin-bottom: 40px
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 30px
+
+  &_type_badge#{&}_adjust_row,
+  &_type_badge#{&}_adjust_flow
+    &:not(:last-child)
+      margin-right: 30px
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+        margin-bottom: 30px
+
+  &_type_badge#{&}_size_half
+    flex-grow: 0
+    width: calc(50% - 15px)
+
+    @media screen and (max-width: 960px)
+      width: 100%
+
+  // $Count MOD: type badge state alert
+  &_type_badge#{&}_state_alert
+    background-color: #ff8587
+
+
+  // $Count group
+  &__group
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+    // $Count group CONTEXT: $Count MOD: type badge
+    #{$block}_type_badge &
+      align-items: center
+
+
+  // $Count number
+  &__number
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
+    height: 26px
+    min-width: 26px
+    margin-right: 15px
+    padding: 5px
+    font-size: 16px
+    line-height: 1
+    text-align: center
+    color: #FFF
+    border-radius: 13px / 50%
+    background-color: #c1c1c1
+
+    // $Count number CONTEXT: $Count MOD: type badge
+    #{$block}_type_badge &
+      height: auto
+      min-width: 0
+      padding: 0
+      font-size: 50px
+      text-align: left
+      background-color: transparent
+      border-radius: 0
+      color: #808080
+
+    // $Count group CONTEXT: $Count MOD: type badge state alert
+    #{$block}_type_badge#{$block}_state_alert &
+      color: #FFF
+
+    @media screen and(max-width: 960px)
+      #{$block}_type_badge &
+        font-size: 45px
+
+    @media screen and(max-width: 480px)
+      #{$block}_type_badge &
+        font-size: 40px
+
+    // $Count number MOD: position last
+    &_position_last
+      margin-right: 0
+      margin-left: 15px
+
+
+  // $Count label
+  &__label
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    max-width: 100%
+    padding-top: 2px
+    font-weight: 600
+
+    // $Count label CONTEXT: $Count MOD: type badge
+    #{$block}_type_badge &
+      padding-top: 0
+      font-size: 20px
+      color: #808080
+
+    // $Count label CONTEXT: $Count MOD: type badge state alert
+    #{$block}_type_badge#{$block}_state_alert &
+      color: #FFF
+
+    @media screen and(max-width: 960px)
+      #{$block}_type_badge &
+        line-height: 1.3
+
+    // $Count label MOD: role date
+    // $Count label MOD: role time
+    // $Count label MOD: role arcade
+    // $Count label MOD: role user
+    &_role_date,
+    &_role_time,
+    &_role_arcade,
+    &_role_user
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        background-size: contain
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url(../icons/icon-calendar-dark-gray.svg)
+
+    &_role_time
+      &:before
+        background-image: url(../icons/icon-clock-dark-gray.svg)
+
+    &_role_arcade
+      &:before
+        width: 18px
+        height: 18px
+        background-image: url(../icons/icon-arcade-dark-gray.svg)
+
+    &_role_user
+      &:before
+        background-image: url(../icons/icon-user-dark-gray.svg)
+
+    &_size_medium
+      font-size: 16px
+
+    &_size_large
+      font-size: 18px
+

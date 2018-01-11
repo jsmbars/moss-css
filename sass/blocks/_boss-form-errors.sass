@@ -1,0 +1,38 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Form errors
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-form-errors"
+
+#{$block}
+  +normalize-block()
+
+  display: block
+  margin: 10px 0
+  padding: 9px 10px 9px 50px
+  border-radius: $boss-global-border-radius
+  background: map-get($boss-app-palette, error-background) url('../icons/icon-danger-white.svg') 14px center no-repeat
+  background-size: 20px auto
+
+  // $Form errors MOD: context stack
+  &_context_stack
+    margin-bottom: 30px
+
+
+  // $Form errors error
+  &__error
+    +normalize-block()
+
+    display: block
+    color: white
+    font-weight: 300

@@ -1,0 +1,704 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Overview
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-overview"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+  // $Overview header
+  &__header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: flex-start
+    width: 100%
+
+    #{$block}_page_change-order-history &
+      margin-bottom: 20px
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+
+      #{$block}_page_change-order-history &
+        padding-bottom: 25px
+        border-bottom: 1px solid #eee
+
+    &_layout_reverse
+      flex-direction: row-reverse
+
+      @media screen and (max-width: 960px)
+        flex-direction: column
+
+
+  // $Overview dropdown
+  &__dropdown
+
+    // $Overview dropdown MOD: context stack
+    &_context_stack
+      margin-bottom: 25px
+
+
+  // $Overview dropdown header
+  &__dropdown-header
+    @media screen and (min-width: 961px)
+      #{$block}__dropdown_active-mobile &
+        display: none
+
+
+  // $Overview dropdown switch
+  &__dropdown-switch
+    display: block
+    width: 100%
+    padding: 15px 20px
+    border-radius: $boss-global-border-radius
+    line-height: 1
+    color: #fff
+    white-space: nowrap
+    cursor: pointer
+    transition: all .4s
+
+    @media screen and (max-width: 400px)
+      padding: 10px 15px
+
+    &:after
+      content: ""
+      display: inline-block
+      width: 12px
+      height: 12px
+      margin-top: -2px
+      margin-left: 10px
+      vertical-align: middle
+      background: url(../icons/icon-arrow-down-white.svg) no-repeat center center
+      background-size: contain
+      transform: rotate(180deg)
+
+    // $Overview dropdown switch MOD: role activity switch
+    &_role_activity
+      background-color: map-get($boss-app-palette, primary)
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 16px
+        margin-top: -2px
+        margin-right: 10px
+        vertical-align: middle
+        background: url(../icons/icon-bell-white.svg) no-repeat center center
+        background-size: contain
+
+    // $Overview dropdown switch MOD: role notes switch
+    &_role_notes
+      background-color: map-get($boss-app-palette, action)
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 16px
+        margin-top: -2px
+        margin-right: 10px
+        vertical-align: middle
+        background: url(../icons/icon-envelope-white.svg) no-repeat center center
+        background-size: contain
+
+    // $Overview dropdown switch MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+
+  // $Overview dropdown content
+  &__dropdown-content
+    padding-top: 15px
+
+    @media screen and (min-width: 961px)
+      #{$block}__dropdown_active-mobile &
+        padding-top: 0
+
+    // $Overview dropdown content MOD: state closed
+    &_state_closed
+      display: none
+
+      @media screen and (min-width: 961px)
+        #{$block}__dropdown_active-mobile &
+          display: block !important
+
+
+  // $Overview group
+  &__group
+    display: block
+    width: 100%
+    margin-bottom: 25px
+
+    // $Overview group MOD: position last
+    &_position_last
+      margin-bottom: 0
+
+    // $Overview group MOD: adjust gallery
+    &_adjust_gallery
+      margin-bottom: 5px
+
+
+  // $Overview label
+  &__label
+    +text-normalizer()
+    margin-bottom: 5px
+    white-space: nowrap
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_change-order-history &
+        margin-bottom: 10px
+
+    &_state_hidden-mobile
+      @media screen and (max-width: 960px)
+        display: none
+
+
+  // $Overview label text
+  &__label-text
+    display: inline-block
+    text-transform: uppercase
+    vertical-align: middle
+    color: $boss-light-gray
+
+    // $Overview label text MOD: role key
+    &_role_key
+      &:after
+        content: ":"
+        display: inline-block
+        margin-left: 15px
+
+    // $Overview value
+    &_role_value
+      margin-left: 15px
+      text-transform: none
+
+
+  // $Overview indicator
+  &__indicator
+    +text-normalizer()
+    position: relative
+    padding-left: 20px
+
+    &:before
+      content: ""
+      z-index: 10
+      position: absolute
+      top: 6px
+      left: 0
+      display: block
+      width: 10px
+      height: 10px
+      border-radius: 50%
+      background-color: $boss-very-light-gray
+
+    // $Overview indicator MOD: high priority
+    &_priority_high
+      &:before
+        background-color: map-get($boss-app-palette, alert)
+
+    // $Overview indicator MOD: medium priority
+    &_priority_medium
+      &:before
+        background-color: map-get($boss-app-palette, warning)
+
+    // $Overview indicator MOD: low priority
+    &_priority_low
+      &:before
+        background-color: map-get($boss-app-palette, secondary)
+
+
+  // $Overview text
+  &__text
+    +text-normalizer()
+
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
+
+  // $Overview text line
+  &__text-line
+    display: block
+
+
+  // $Overview link
+  &__link
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    font-size: 16px
+    cursor: pointer
+    vertical-align: middle
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    &:hover
+      text-decoration: none
+
+    &_role_edit,
+    &_role_save
+      padding-left: 20px
+
+      &:after
+        content: ''
+        position: absolute
+        left: 0
+        top: 50%
+        display: block
+        width: 14px
+        height: 14px
+        margin-top: -7px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        transition: all .4s
+
+    &_role_edit
+      &:after
+        background-image: url(../icons/icon-pencil-primary.svg)
+
+    &_role_save
+      &:after
+        background-image: url(../icons/icon-checked-primary.svg)
+
+    &_position_after
+      margin-left: 20px
+
+    &_type_fluid
+      @media screen and (max-width: 960px)
+        font-size: 0
+        line-height: 0
+        color: transparent
+        text-decoration: none
+
+      &:after
+        @media screen and (max-width: 960px)
+          position: relative
+          top: auto
+          left: auto
+          width: 18px
+          height: 18px
+          margin-top: 0
+
+      &:hover
+        @media screen and (max-width: 960px)
+          text-decoration: none
+
+    &_type_fluid#{&}_role_edit
+      @media screen and (max-width: 960px)
+        padding-left: 0
+
+
+  // $Overview translate
+  &__translate
+    padding-top: 5px
+
+
+  // $Overview status
+  &__status
+    padding-top: 5px
+
+    &_role_control
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
+
+  // $Overview gallery
+  &__gallery
+    display: block
+    width: 100%
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 5px
+
+    @media screen and (max-width: 479px)
+      margin-bottom: 10px
+
+
+  // $Overview gallery flow area
+  &__gallery-flow
+    display: block
+    width: 100%
+
+
+  // $Overview gallery item area
+  &__gallery-item
+    position: relative
+    display: inline-block
+    width: 150px
+    height: 150px
+    margin-right: 25px
+    margin-bottom: 25px
+    vertical-align: top
+    background-color: $boss-extra-light-gray
+    transition: opacity .4s
+
+    @media screen and (max-width: 960px)
+      width: 135px
+      height: 135px
+      margin-right: 20px
+      margin-bottom: 20px
+
+    @media screen and (max-width: 479px)
+      width: 120px
+      height: 120px
+      margin-right: 15px
+      margin-bottom: 15px
+
+    @media screen and (max-width: 400px)
+      width: 105px
+      height: 105px
+
+    &:hover
+      opacity: 0.75
+
+    &:nth-child(2n)
+      @media screen and (max-width: 479px)
+        margin-right: 0
+
+      @media screen and (max-width: 400px)
+        margin-right: 0
+
+
+  // $Overview gallery full width preview
+  &__gallery-full
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 25px
+    padding: 30px 30px 20px
+    background-color: $boss-extra-light-gray
+
+    @media screen and (max-width: 479px)
+      padding: 35px 12px 20px
+
+
+  // $Overview gallery close
+  &__gallery-close
+    position: absolute
+    top: 12px
+    right: 12px
+    z-index: 10002
+    display: block
+    width: 12px
+    height: 12px
+    cursor: pointer
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    background-image: url(../icons/icon-close-light-gray.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+
+
+  // $Overview gallery actions area
+  &__gallery-actions
+    padding-top: 20px
+    text-align: center
+
+
+  // $Overview gallery link
+  &__gallery-link
+    +text-normalizer()
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    overflow: hidden
+
+
+  // $Overview gallery image
+  &__gallery-image
+    display: block
+    width: 100%
+
+
+  &__notes
+    display: block
+    width: 100%
+
+
+  // $Overview notes control
+  &__notes-control
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding-bottom: 10px
+    border-bottom: 1px solid #eee
+
+
+  // $Overview notes label
+  &__notes-label
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    white-space: nowrap
+    vertical-align: middle
+    font-weight: 600
+    color: $boss-medium-gray
+
+    &:before
+      content: ''
+      display: inline-block
+      width: 18px
+      height: 16px
+      margin-top: -2px
+      margin-right: 10px
+      vertical-align: middle
+      background: url(../icons/icon-envelope-medium-gray.svg) no-repeat center center
+      background-size: contain
+
+
+  // $Overview notes switch
+  &__notes-switch
+    +text-normalizer()
+
+    position: relative
+    display: inline-block
+    cursor: pointer
+    padding-left: 20px
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      display: block
+      width: 14px
+      height: 14px
+      margin-top: -7px
+      background-image: url(../icons/icon-plus-primary.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      transform: rotate(45deg)
+      transition: all .4s
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    // $Overview notes switch MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+
+  // $Overview notes form
+  &__notes-form
+    display: block
+    width: 100%
+    padding: 15px
+    border-bottom: 1px solid #eee
+
+    // $Overview notes form MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Overview notes messages
+  &__notes-messages
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-start
+    width: 100%
+    padding-top: 15px
+
+
+  // $Overview meta information
+  &__meta
+    +text-normalizer()
+
+    // $Overview meta information MOD: role date
+    &_role_date
+      position: relative
+      padding-left: 25px
+
+      &:before
+        content: ""
+        position: absolute
+        top: 50%
+        left: 0
+        display: block
+        width: 15px
+        height: 14px
+        margin-top: -7px
+        background-image: url(../icons/icon-clock-primary.svg)
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: contain
+
+    &_adjust_nested
+      margin-left: 5px
+
+
+  // $Overview meta information label
+  &__meta-label
+    font-weight: 600
+
+
+  // $Overview meta information date
+  &__meta-date
+
+
+  // $Overview meta information user
+  &__meta-user
+    font-weight: 600
+
+
+  // $Overview activity list
+  &__activity
+    position: relative
+    display: block
+    max-width: 100%
+    margin: 0
+    padding: 0
+    list-style: none
+    padding-left: 25px
+
+    &_adjust_nested
+      padding-left: 30px
+
+    &_adjust_row
+      padding-top: 8px
+
+
+  // $Overview activity list item
+  &__activity-item
+    position: relative
+
+    &:before
+      content: ""
+      z-index: 10
+      position: absolute
+      top: 5px
+      left: -23px
+      display: block
+      width: 10px
+      height: 10px
+      border-radius: 50%
+      background-color: $boss-very-light-gray
+
+    &:not(:last-of-type)
+      margin-bottom: 20px
+
+      &:after
+        content: ""
+        z-index: 1
+        position: absolute
+        left: -19px
+        top: 10px
+        bottom: -30px
+        width: 2px
+        background-color: $boss-very-light-gray
+
+    // $Overview activity item MOD: role updated
+    &_role_updated
+      &:before
+        background-color: map-get($boss-app-palette, primary)
+
+    // $Overview activity item MOD: role accepted
+    &_role_accepted
+      &:before
+        background-color: map-get($boss-app-palette, secondary)
+
+    // $Overview activity item MOD: role completed
+    &_role_completed
+      &:before
+        background-color: map-get($boss-app-palette, secondary)
+
+    // $Overview activity item MOD: role created
+    &_role_created
+      &:before
+        background-color: map-get($boss-app-palette, pending)
+
+    // $Overview activity item MOD: role rejected
+    &_role_rejected
+      &:before
+        background-color: map-get($boss-app-palette, alert)
+
+    // $Overview activity item MOD: role waiting
+    &_role_waiting
+      &:before
+        background-color: map-get($boss-app-palette, warning)
+
+
+  // $Overview list
+  &__list
+    display: block
+    width: 100%
+    margin: 0
+    padding: 0
+    list-style: none
+
+
+  // $Overview list item
+  &__list-item
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    padding: 10px 15px
+
+    &:not(:last-child)
+      border-bottom: 1px solid $boss-very-light-gray
+
+    &:nth-of-type(even)
+      background-color: $boss-extra-light-gray
+
+    &_role_stats
+      padding: 15px
+
+      &:nth-of-type(even)
+        background-color: transparent
+
+    &_state_alert,
+    &_state_alert:nth-of-type(even)
+      background-color: #feeeee
+
+
+  // $Overview list name
+  &__list-name
+    +text-normalizer()
+    font-weight: 600
+    text-align: left
+
+
+  // $Overview number
+  &__list-number
+    +text-normalizer()
+    font-weight: 600
+    text-align: right

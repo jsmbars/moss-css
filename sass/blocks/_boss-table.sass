@@ -1,0 +1,2201 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common table
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-table"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+  background-color: #fff
+
+  &_type_common
+    display: table
+
+    @media screen and (max-width: 960px)
+      display: block
+
+  &_page_change-order-history
+    border: 1px solid #eee
+
+    @media screen and (max-width: 960px)
+      border: none
+
+  &_page_safe-checks-index
+    border: 1px solid #eee
+
+    @media screen and (max-width: 1120px)
+      border: none
+      display: none
+
+  &_page_message-board,
+  &_page_holidays-report-details
+    position: relative
+    z-index: 10
+    overflow: hidden
+    border-radius: 10px
+    box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+  &_page_checklist-review,
+  &_page_vhci,
+  &_page_vouchers-index,
+  &_page_voucher-usage,
+  &_page_maintenance-index,
+  &_page_maintenance-managers-index,
+  &_page_invites-index,
+  &_page_users-index,
+  &_page_venues-index,
+  &_page_daily-reports
+    border: 1px solid #eee
+
+  &_page_maintenance-index-card,
+  &_page_accessory-requests-card
+    background-color: #fbfbfb
+
+  &_page_invites-index,
+  &_page_venues-index
+    @media screen and (max-width: 1120px)
+      display: none
+
+  &_page_checklist-review,
+  &_page_vhci,
+  &_page_vouchers-index,
+  &_page_voucher-usage,
+  &_page_smp-holidays,
+  &_page_smp-owed-hours,
+  &_page_message-board,
+  &_page_users-index,
+  &_page_holidays-report-details
+    @media screen and (max-width: 960px)
+      display: none
+
+  &_page_weekly-reports
+    width: 1160px
+
+
+  // $Common table group
+  &__group
+    display: block
+    width: 100%
+
+    &:nth-child(odd)
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &,
+      #{$block}_page_daily-reports &
+        background-color: #fbfbfb
+
+
+  // $Common table dropdown
+  &__dropdown
+
+    #{$block}_page_message-board &
+      padding: 15px 25px
+      background-color: #fbfbfb
+
+    #{$block}_page_holidays-report &
+      padding: 25px
+      background-color: #fbfbfb
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_holidays-report &
+        padding: 15px 15px 25px
+
+    // $Common table dropdown MOD: state closed
+    &_state_closed
+      display: none
+
+    &_state_alert
+      #{$block}_page_message-board &
+        background-color: #feeeee
+
+
+  &__dropdown-actions
+    margin-bottom: 15px
+
+    &_justify_end
+      text-align: right
+
+
+  // $Common table details
+  &__details
+    padding: 10px 0
+    border-bottom: 1px solid #eee
+
+    // $Common table details MOD: state closed
+    &_state_closed
+      @media screen and (max-width: 1120px)
+        #{$block}_page_daily-reports &
+          display: none
+
+      @media screen and (max-width: 960px)
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          display: none
+
+    // $Common form row MOD: visible on mobiles
+    &_state_visible-mobile
+      @media screen and (min-width: 1121px)
+        #{$block}_page_daily-reports &
+          display: none !important
+
+      @media screen and(min-width: 961px)
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          display: none !important
+
+
+  // $Common table details inner container
+  &__details-inner
+    width: 100%
+    max-width: 300px
+
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &,
+    #{$block}_page_daily-reports &
+      max-width: 350px
+
+
+  // $Common table details item
+  &__details-item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    padding: 10px 0
+
+
+  // $Common table details label
+  &__details-label
+    +text-normalizer()
+    flex-grow: 1
+    width: 50%
+    padding-left: 15px
+    padding-right: 10px
+    color: #808080
+
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 150px
+      padding-left: 20px
+
+    #{$block}_page_daily-reports &
+      width: calc(100% - 120px)
+      padding-left: 20px
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
+        width: 120px
+        padding-left: 10px
+
+      #{$block}_page_daily-reports &
+        padding-left: 10px
+
+
+  // $Common table details value
+  &__details-value
+    +text-normalizer()
+    flex-grow: 1
+    width: 50%
+    padding-right: 15px
+    padding-left: 10px
+
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &
+      width: calc(100% - 150px)
+      padding-right: 10px
+
+    #{$block}_page_daily-reports &
+      flex-grow: 0
+      flex-shrink: 0
+      width: 100px
+      padding-right: 20px
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
+        width: calc(100% - 100px)
+
+      #{$block}_page_daily-reports &
+        padding-right: 10px
+
+    &_role_action
+      cursor: pointer
+
+    &_nowrap
+      white-space: nowrap
+
+
+  &__details-switch
+    display: block
+    width: 20px
+    height: 20px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+    background-color: $boss-light-gray
+    background-image: url(../icons/icon-arrow-down-white.svg)
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 9px 9px
+    border-radius: 50%
+    transform: rotate(180deg)
+    transition: all .4s
+    cursor: pointer
+
+    &_state_closed
+      transform: rotate(0)
+
+    &:hover
+      opacity: .8
+
+    &:focus
+      outline: #FFF
+
+
+  // $Common table row
+  &__row
+    +text-normalizer()
+
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    width: 100%
+    background-color: #FFF
+
+    #{$block}_type_common &
+      display: table-row
+
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &,
+    #{$block}_page_maintenance-index-card &,
+    #{$block}_page_accessory-requests-card &,
+    #{$block}_page_daily-reports &
+      background-color: transparent
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
+        display: block
+        padding-top: 20px
+        padding-bottom: 20px
+        border-bottom: 1px solid #eee
+
+
+    @media screen and (max-width: 960px)
+      display: block
+      border-bottom: 1px solid #eee
+
+      #{$block}_type_common &
+        display: block
+
+      #{$block}_page_fruit-order-history &
+        padding-top: 20px
+        padding-bottom: 20px
+
+      #{$block}_page_staff-members-index &
+        padding-top: 40px
+        padding-bottom: 40px
+
+      #{$block}_page_holidays-report &
+        padding-top: 15px
+        padding-bottom: 15px
+
+      #{$block}_page_change-order-report &
+        padding-bottom: 20px
+        padding-top: 20px
+
+      #{$block}_page_change-order-history &
+        background-color: transparent
+        border-bottom: none
+
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vhci &,
+      #{$block}_page_vouchers-index &,
+      #{$block}_page_smp-holidays &,
+      #{$block}_page_smp-owed-hours &,
+      #{$block}_page_message-board &,
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_invites-index &,
+      #{$block}_page_accessory-requests-card &,
+      #{$block}_page_holidays-report-details &
+        padding-top: 15px
+        padding-bottom: 15px
+
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &,
+      #{$block}_page_maintenance-index-card &,
+      #{$block}_page_accessory-requests-card &,
+      #{$block}_page_weekly-reports &,
+      #{$block}_page_daily-reports &
+        display: flex
+
+      #{$block}_page_maintenance-index-card &,
+      #{$block}_page_accessory-requests-card &
+        flex-wrap: wrap
+
+
+    &:not(:last-child)
+      #{$block}_page_accessory-requests-card &,
+      #{$block}_page_weekly-reports &
+        border-bottom: 1px solid #eee
+
+    &:nth-child(odd)
+      #{$block}_page_change-order-report &,
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vhci &,
+      #{$block}_page_vouchers-index &,
+      #{$block}_page_voucher-usage &,
+      #{$block}_page_invites-index &,
+      #{$block}_page_users-index &
+        background-color: #fbfbfb
+
+    &:nth-child(even)
+      #{$block}_page_weekly-reports &
+        background-color: #fbfbfb
+
+    // $Common table first row
+    &:nth-child(1),
+    &_role_header
+
+      #{$block}_page_change-order-history &
+        background-color: $boss-dark-gray
+
+      #{$block}_page_change-order-report &
+        background-color: #FFF
+
+      #{$block}_page_smp-owed-hours &
+        background-color: #fbfbfb
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
+          display: none
+
+      @media screen and (max-width: 960px)
+        #{$block}_page_staff-members-index &,
+        #{$block}_page_fruit-order-history &,
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_users-index &,
+        #{$block}_page_holidays-report-details &
+          display: none
+
+    &_role_header
+      @media screen and (max-width: 960px)
+        #{$block}_page_message-board &
+          display: none
+
+    // $Common table second row
+    &:nth-child(2)
+      @media screen and (max-width: 960px)
+        #{$block}_page_change-order-report &
+          padding-top: 0
+
+    // $Common table cell MOD: state alert
+    &_state_alert
+      &:nth-child(odd),
+      &:nth-child(even)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_message-board &,
+        #{$block}_page_weekly-reports &
+          background-color: #feeeee
+
+
+  // $Common table cell
+  &__cell
+    position: relative
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    min-height: 90px
+    padding: 15px
+    border-bottom: 1px solid #eee
+
+    #{$block}_type_common &
+      display: table-cell
+      height: 90px
+      text-align: left
+      vertical-align: middle
+
+    #{$block}_page_holidays-report &
+      align-items: flex-start
+      padding-top: 30px
+      padding-bottom: 40px
+
+    #{$block}_page_change-order-history &
+      min-height: 55px
+      padding: 10px 15px
+      border-bottom: none
+
+    #{$block}_page_safe-checks-index &,
+    #{$block}_page_venues-index &,
+    #{$block}_page_daily-reports &
+      padding: 15px 5px
+      justify-content: center
+
+    #{$block}_page_weekly-reports &
+      min-height: 75px
+      padding: 15px 5px
+      justify-content: center
+
+    #{$block}_page_smp-holidays &,
+    #{$block}_page_holidays-report-details &
+      min-height: 0
+      padding: 15px 10px
+
+    #{$block}_page_smp-owed-hours &,
+    #{$block}_page_message-board &,
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_maintenance-managers-index &,
+    #{$block}_page_maintenance-index-card &,
+    #{$block}_page_invites-index &,
+    #{$block}_page_accessory-requests-card &,
+    #{$block}_page_daily-reports &
+      padding: 15px 10px
+
+    #{$block}_page_accessory-requests-card &,
+    #{$block}_page_weekly-reports &
+      border-bottom: none
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
+        flex-direction: column
+        justify-content: center
+        min-height: 0
+        padding: 10px
+        border-bottom: none
+
+      #{$block}_page_daily-reports &
+        flex-direction: column
+        min-height: 0
+        justify-content: flex-start
+        align-items: flex-start
+        padding-top: 20px
+        padding-bottom: 20px
+
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+      justify-content: center
+      min-height: 0
+      padding: 10px
+      border-bottom: none
+
+      #{$block}_type_common &
+        display: block
+        height: auto
+        text-align: center
+
+      #{$block}_page_holidays-report &
+        padding-top: 10px
+        padding-bottom: 10px
+        align-items: center
+
+      #{$block}_page_change-order-history &
+        padding-left: 0
+        padding-right: 0
+
+      #{$block}_page_smp-holidays &,
+      #{$block}_page_smp-owed-hours &,
+      #{$block}_page_message-board &,
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_holidays-report-details &
+        padding: 10px
+
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
+        justify-content: flex-start
+        align-items: flex-start
+        padding-top: 20px
+        padding-bottom: 20px
+
+      #{$block}_page_weekly-reports &
+        flex-direction: row
+
+    &:first-child
+      padding-left: 25px
+
+      @media screen and (max-width: 960px)
+        padding-left: 15px
+
+    &:last-child
+      padding-right: 25px
+
+      @media screen and (max-width: 960px)
+        padding-right: 15px
+
+
+    // $Common table cell first column
+    &:nth-child(1)
+      #{$block}_page_staff-members-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 130px
+
+      #{$block}_page_fruit-order-history &
+        width: 18%
+        padding-left: 55px
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 150px
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      #{$block}_page_safe-checks-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 130px
+        padding-left: 10px
+        border-right: 1px solid #eee
+
+      #{$block}_page_checklist-review &
+        width: 24%
+        padding-left: 40px
+
+      #{$block}_page_vhci &
+        width: 30%
+        padding-left: 40px
+
+      #{$block}_page_vouchers-index &
+        width: 20%
+        padding-left: 40px
+
+      #{$block}_page_voucher-usage &
+        width: 35%
+        padding-left: 40px
+
+      #{$block}_page_smp-holidays &
+        width: 18%
+        padding-left: 40px
+
+      #{$block}_page_smp-owed-hours &
+        width: 15%
+
+      #{$block}_page_message-board &
+        width: 17%
+
+      #{$block}_page_maintenance-index &
+        width: 20%
+        border-right: 1px solid #eee
+
+      #{$block}_page_maintenance-managers-index &
+        width: 18%
+        border-right: 1px solid #eee
+
+      #{$block}_page_maintenance-index-card &
+        width: 33.3%
+        padding-left: 30px
+
+      #{$block}_page_invites-index &
+        width: 20%
+
+      #{$block}_page_users-index &
+        width: 30%
+        padding-left: 40px
+
+      #{$block}_page_accessory-requests-card &
+        width: 30%
+        padding-left: 30px
+
+      #{$block}_page_holidays-report-details &
+        width: 20%
+        padding-left: 25px
+
+      #{$block}_page_venues-index &
+        width: 13%
+        padding-left: 10px
+
+      #{$block}_page_weekly-reports &
+        justify-content: flex-start
+        width: 18%
+        padding-left: 15px
+
+      #{$block}_page_daily-reports &
+        justify-content: flex-start
+        width: 16%
+        padding-left: 20px
+
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &
+          flex-grow: 1
+          flex-shrink: 1
+          width: 100%
+          padding-left: 15px
+          border-right: none
+
+        #{$block}_page_invites-index &
+          width: 100%
+          padding-left: 15px
+
+        #{$block}_page_venues-index &
+          width: 100%
+          padding-left: 10px
+
+        #{$block}_page_daily-reports &
+          width: calc(100% - 50px)
+           padding-left: 20px
+
+      @media screen and (max-width: 960px)
+        padding-left: 15px
+        width: 100%
+
+        #{$block}_page_staff-members-index &,
+        #{$block}_page_fruit-order-history &,
+        #{$block}_page_holidays-report &,
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &,
+        #{$block}_page_users-index &,
+        #{$block}_page_accessory-requests-card &,
+        #{$block}_page_holidays-report-details &
+          width: 100%
+          padding-left: 15px
+
+        #{$block}_page_holidays-report &,
+        #{$block}_page_change-order-history &
+          padding-left: 0
+
+        #{$block}_page_staff-members-index &
+          padding-bottom: 25px
+
+        #{$block}_page_fruit-order-history &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_holidays-report-details &
+          padding-left: 10px
+
+
+        #{$block}_page_staff-members-index &
+          flex-grow: 1
+          flex-shrink: 1
+
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          flex-grow: 0
+          flex-shrink: 0
+          width: 150px
+          padding-left: 20px
+
+        #{$block}_page_maintenance-index-card &
+          width: 49.5%
+          padding-left: 20px
+          border-bottom: 1px solid #eee
+          border-right: 1px solid #eee
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          width: 100px
+          padding-left: 10px
+
+        #{$block}_page_maintenance-index-card &
+          width: 100%
+          padding-left: 20px
+          padding-right: 20px
+          border-right: none
+
+        #{$block}_page_daily-reports &
+          width: calc(100% - 40px)
+          padding-left: 10px
+
+      &:after
+        #{$block}_page_maintenance-index-card &,
+        #{$block}_page_accessory-requests-card &
+          content: ""
+          position: absolute
+          top: 50%
+          right: 0
+          display: block
+          width: 0
+          height: 30px
+          margin-top: -15px
+          border-right: 1px solid #ddd
+
+        @media screen and (max-width: 960px)
+          #{$block}_page_maintenance-index-card &,
+          #{$block}_page_accessory-requests-card &
+            display: none
+
+
+    // $Common table cell second column
+    &:nth-child(2)
+
+      #{$block}_page_staff-members-index &
+        width: 17%
+
+      #{$block}_page_fruit-order-history &
+        width: 29%
+
+      #{$block}_page_holidays-report &
+        width: 22%
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      #{$block}_page_safe-checks-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 210px
+        padding-left: 10px
+        padding-right: 10px
+        border-right: 1px solid #eee
+        overflow: hidden
+
+      #{$block}_page_checklist-review &
+        width: 20%
+
+      #{$block}_page_vhci &
+        width: 25%
+
+      #{$block}_page_vouchers-index &
+        width: 24%
+
+      #{$block}_page_voucher-usage &
+        width: 35%
+
+      #{$block}_page_smp-holidays &
+        width: 21%
+
+      #{$block}_page_smp-owed-hours &
+        width: 13%
+
+      #{$block}_page_message-board &
+        width: 20%
+        min-width: 120px
+
+      #{$block}_page_maintenance-index &
+        width: 24%
+        border-right: 1px solid #eee
+
+      #{$block}_page_maintenance-managers-index &
+        width: 20%
+        border-right: 1px solid #eee
+
+      #{$block}_page_maintenance-index-card &
+        width: 33.3%
+
+      #{$block}_page_invites-index &
+        width: 10%
+
+      #{$block}_page_users-index &
+        width: 20%
+
+      #{$block}_page_accessory-requests-card &
+        width: 20%
+
+      #{$block}_page_holidays-report-details &
+        width: 30%
+
+      #{$block}_page_venues-index &
+        width: 9%
+
+      #{$block}_page_weekly-reports &
+        width: 10%
+
+      #{$block}_page_daily-reports &
+        width: 14%
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &
+          flex-grow: 1
+          flex-shrink: 1
+          width: 100%
+          border-right: none
+
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &
+          width: 100%
+
+        #{$block}_page_daily-reports &
+          display: none
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &,
+        #{$block}_page_fruit-order-history &,
+        #{$block}_page_holidays-report &,
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &,
+        #{$block}_page_users-index &,
+        #{$block}_page_holidays-report-details &
+          width: 100%
+
+        #{$block}_page_maintenance-index &
+          width: 70%
+          border-right: none
+
+        #{$block}_page_maintenance-managers-index &
+          width: 60%
+          border-right: none
+
+        #{$block}_page_maintenance-index-card &
+          width: 49.5%
+          padding-right: 20px
+          border-bottom: 1px solid #eee
+
+        #{$block}_page_accessory-requests-card &
+          width: 29.5%
+          padding-left: 20px
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_accessory-requests-card &
+          width: 100%
+          padding-right: 20px
+          padding-left: 20px
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index-card &
+          width: 100%
+          padding-left: 20px
+          padding-right: 20px
+
+      &:after
+        #{$block}_page_maintenance-index-card &,
+        #{$block}_page_accessory-requests-card &
+          content: ""
+          position: absolute
+          top: 50%
+          right: 0
+          display: block
+          width: 0
+          height: 30px
+          margin-top: -15px
+          border-right: 1px solid #ddd
+
+        @media screen and (max-width: 960px)
+          #{$block}_page_maintenance-index-card &
+            display: none
+
+        @media screen and (max-width: 640px)
+          #{$block}_page_accessory-requests-card &
+            display: none
+
+
+    // $Common table cell third column
+    &:nth-child(3)
+
+      #{$block}_page_staff-members-index &
+        width: 21%
+
+      #{$block}_page_fruit-order-history &
+        width: 24%
+
+      #{$block}_page_holidays-report &
+        width: 22%
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      #{$block}_page_safe-checks-index &
+        width: 11%
+
+      #{$block}_page_safe-checks-index &
+        width: 11%
+
+      #{$block}_page_checklist-review &
+        width: 16%
+
+      #{$block}_page_vhci &
+        width: 20%
+        justify-content: center
+
+      #{$block}_page_vouchers-index &
+        width: 18%
+        justify-content: center
+
+      #{$block}_page_voucher-usage &
+        width: 30%
+        padding-right: 40px
+
+      #{$block}_page_smp-holidays &
+        width: 20%
+
+      #{$block}_page_smp-owed-hours &
+        width: 10%
+        justify-content: center
+
+      #{$block}_page_message-board &
+        width: 31%
+
+      #{$block}_page_maintenance-index &
+        width: 18%
+        border-right: 1px solid #eee
+
+      #{$block}_page_maintenance-managers-index &
+        width: 16%
+        border-right: 1px solid #eee
+
+      #{$block}_page_maintenance-index-card &
+        width: 33.3%
+        padding-right: 30px
+
+      #{$block}_page_invites-index &
+        width: 14%
+
+      #{$block}_page_users-index &
+        width: 30%
+
+      #{$block}_page_accessory-requests-card &
+        width: 20%
+
+      #{$block}_page_holidays-report-details &
+        width: 30%
+
+      #{$block}_page_venues-index &
+        width: 7%
+
+      #{$block}_page_weekly-reports &
+        width: 10%
+
+      #{$block}_page_daily-reports &
+        width: 14%
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
+          width: 100%
+
+        #{$block}_page_daily-reports &
+          display: none
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &,
+        #{$block}_page_fruit-order-history &,
+        #{$block}_page_holidays-report &,
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_voucher-usage &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &,
+        #{$block}_page_users-index &,
+        #{$block}_page_holidays-report-details &
+          width: 100%
+
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          display: none
+
+        #{$block}_page_maintenance-index-card &
+          width: 100%
+          padding-left: 20px
+          padding-right: 20px
+          border-right: none
+
+        #{$block}_page_voucher-usage &
+          padding-right: 15px
+
+        #{$block}_page_accessory-requests-card &
+          width: 29.5%
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_accessory-requests-card &
+          width: 100%
+          padding-right: 20px
+          padding-left: 20px
+
+      &:after
+        #{$block}_page_accessory-requests-card &
+          content: ""
+          position: absolute
+          top: 50%
+          right: 0
+          display: block
+          width: 0
+          height: 30px
+          margin-top: -15px
+          border-right: 1px solid #ddd
+
+        @media screen and (max-width: 640px)
+          #{$block}_page_accessory-requests-card &
+            display: none
+
+
+    // $Common table cell fourth column
+    &:nth-child(4)
+
+      #{$block}_page_staff-members-index &
+        width: 15%
+
+      #{$block}_page_fruit-order-history &
+        width: 29%
+        padding-right: 55px
+
+      #{$block}_page_holidays-report &
+        width: 22%
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      #{$block}_page_safe-checks-index &
+        width: 12%
+
+      #{$block}_page_checklist-review &
+        width: 20%
+        justify-content: center
+
+      #{$block}_page_vhci &
+        width: 25%
+        padding-right: 40px
+        justify-content: center
+
+      #{$block}_page_vouchers-index &
+        width: 18%
+        justify-content: center
+
+      #{$block}_page_smp-holidays &
+        width: 21%
+        justify-content: center
+
+      #{$block}_page_smp-owed-hours &
+        width: 10%
+        justify-content: center
+
+      #{$block}_page_message-board &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 150px
+        justify-content: center
+
+      #{$block}_page_maintenance-index &
+        width: 18%
+        border-right: 1px solid #eee
+
+      #{$block}_page_maintenance-managers-index &
+        width: 17%
+        border-right: 1px solid #eee
+
+      #{$block}_page_invites-index &
+        width: 10%
+
+      #{$block}_page_users-index &
+        width: 20%
+        padding-right: 40px
+
+      #{$block}_page_accessory-requests-card &
+        width: 30%
+        padding-right: 30px
+
+      #{$block}_page_holidays-report-details &
+        width: 20%
+        justify-content: center
+
+      #{$block}_page_venues-index &
+        width: 11%
+
+      #{$block}_page_weekly-reports &
+        width: 10%
+
+      #{$block}_page_daily-reports &
+        width: 14%
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
+          width: 100%
+
+        #{$block}_page_message-board &
+          width: 110px
+
+        #{$block}_page_daily-reports &
+          display: none
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &,
+        #{$block}_page_fruit-order-history &,
+        #{$block}_page_holidays-report &,
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &,
+        #{$block}_page_users-index &,
+        #{$block}_page_holidays-report-details &
+          width: 100%
+
+        #{$block}_page_vhci &,
+        #{$block}_page_users-index &
+          padding-right: 10px
+
+        #{$block}_page_fruit-order-history &
+          padding-right: 0
+
+        #{$block}_page_message-board &
+          flex-grow: 1
+          flex-shrink: 1
+
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          display: none
+
+        #{$block}_page_accessory-requests-card &
+          width: 39.5%
+          padding-right: 20px
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_accessory-requests-card &
+          width: 100%
+          padding-right: 20px
+          padding-left: 20px
+
+
+    // $Common table cell fifth column
+    &:nth-child(5)
+
+      #{$block}_page_staff-members-index &
+        width: 17%
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 160px
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      #{$block}_page_safe-checks-index &
+        width: 12%
+
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vouchers-index &
+        width: 20%
+        padding-right: 40px
+        justify-content: center
+
+      #{$block}_page_smp-holidays &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 220px
+        padding-right: 25px
+        justify-content: center
+
+      #{$block}_page_smp-owed-hours &
+        width: 15%
+        justify-content: center
+
+      #{$block}_page_message-board &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 230px
+        justify-content: center
+
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 200px
+
+      #{$block}_page_maintenance-managers-index &
+        border-right: 1px solid #eee
+
+      #{$block}_page_invites-index &
+        width: 12%
+
+      #{$block}_page_venues-index &
+        width: 11%
+
+      #{$block}_page_weekly-reports &
+        width: 10%
+
+      #{$block}_page_daily-reports &
+        width: 14%
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
+          width: 100%
+
+        #{$block}_page_daily-reports &
+          display: none
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &,
+        #{$block}_page_holidays-report &,
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
+          width: 100%
+
+        #{$block}_page_holidays-report &
+          flex-grow: 1
+          flex-shrink: 1
+
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vouchers-index &
+          padding-right: 10px
+
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_message-board &
+          flex-grow: 1
+          flex-shrink: 1
+
+        #{$block}_page_maintenance-index &,
+        #{$block}_page_maintenance-managers-index &
+          display: none
+
+    // $Common table cell sixth column
+    &:nth-child(6)
+
+      #{$block}_page_staff-members-index &
+        width: 20%
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      #{$block}_page_safe-checks-index &
+        width: 12%
+
+      #{$block}_page_smp-owed-hours &
+        width: 25%
+
+      #{$block}_page_maintenance-index &
+        display: none
+        flex-grow: 0
+        flex-shrink: 0
+        width: 50px
+
+      #{$block}_page_maintenance-managers-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 140px
+        padding-right: 25px
+
+      #{$block}_page_invites-index &
+        width: 14%
+
+      #{$block}_page_venues-index &
+        width: 14%
+
+      #{$block}_page_weekly-reports &
+        width: 10%
+
+      #{$block}_page_daily-reports &
+        width: 14%
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
+          width: 100%
+
+        #{$block}_page_venues-index &
+          flex-grow: 1
+          flex-shrink: 1
+
+        #{$block}_page_daily-reports &
+          display: none
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+        #{$block}_page_staff-members-index &,
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_smp-owed-hours &
+          width: 100%
+
+        #{$block}_page_maintenance-index &
+          display: block
+
+        #{$block}_page_maintenance-managers-index &
+          display: none
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_maintenance-index &
+          width: 40px
+          padding-right: 10px
+
+    // $Common table cell seventh column
+    &:nth-child(7)
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_change-order-history &
+        width: 14%
+
+      #{$block}_page_safe-checks-index &
+        width: 12%
+
+      #{$block}_page_smp-owed-hours &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 135px
+
+      #{$block}_page_maintenance-managers-index &
+        display: none
+        flex-grow: 0
+        flex-shrink: 0
+        width: 50px
+
+      #{$block}_page_invites-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 140px
+
+      #{$block}_page_weekly-reports &
+        width: 10%
+
+      #{$block}_page_daily-reports &
+        width: 14%
+        padding-right: 10px
+
+      #{$block}_page_venues-index &
+        width: 11%
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_invites-index &,
+        #{$block}_page_venues-index &,
+        #{$block}_page_daily-reports &
+          width: 100%
+
+        #{$block}_page_invites-index &
+          flex-grow: 1
+          flex-shrink: 1
+
+        #{$block}_page_daily-reports &
+          display: none
+
+      @media screen and (max-width: 960px)
+
+        #{$block}_page_change-order-report &,
+        #{$block}_page_change-order-history &,
+        #{$block}_page_smp-owed-hours &
+          width: 100%
+
+        #{$block}_page_smp-owed-hours &
+          flex-grow: 1
+          flex-shrink: 1
+
+        #{$block}_page_maintenance-managers-index &
+          display: block
+
+    // $Common table cell eighth column
+    &:nth-child(8)
+
+      #{$block}_page_change-order-report &
+        width: 11%
+
+      #{$block}_page_safe-checks-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 170px
+        padding-right: 10px
+
+      #{$block}_page_weekly-reports &
+        width: 10%
+
+      #{$block}_page_daily-reports &
+        display: none
+        flex-grow: 0
+        flex-shrink: 0
+        width: 50px
+
+      #{$block}_page_venues-index &
+        flex-grow: 0
+        flex-shrink: 0
+        justify-content: center
+        width: 120px
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_venues-index &
+          flex-grow: 1
+          flex-shrink: 1
+          width: 100%
+
+        #{$block}_page_daily-reports &
+          display: block
+
+      @media screen and (max-width: 960px)
+
+        #{$block}_page_change-order-report &
+          width: 100%
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_daily-reports &
+          width: 40px
+
+    // $Common table cell ninth column
+    &:nth-child(9)
+
+      #{$block}_page_change-order-report &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 145px
+
+      #{$block}_page_weekly-reports &
+        width: 12%
+        padding-right: 15px
+
+      #{$block}_page_venues-index &
+        flex-grow: 0
+        flex-shrink: 0
+        justify-content: center
+        width: 110px
+        padding-right: 10px
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_venues-index &
+          flex-grow: 1
+          flex-shrink: 1
+          width: 100%
+
+      @media screen and (max-width: 960px)
+
+        #{$block}_page_change-order-report &
+          flex-grow: 1
+          flex-shrink: 1
+          width: 100%
+
+    // $Common table cell MOD: role header
+    &_role_header
+      min-height: 60px
+      font-size: 16px
+      text-transform: uppercase
+
+      #{$block}_page_change-order-history &
+        min-height: 40px
+        color: #FFF
+
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_venues-index &,
+      #{$block}_page_weekly-reports &,
+      #{$block}_page_daily-reports &
+        font-size: 14px
+        text-transform: none
+        font-weight: 600
+        text-align: center
+
+      #{$block}_page_smp-holidays &,
+      #{$block}_page_smp-owed-hours &,
+      #{$block}_page_message-board &,
+      #{$block}_page_holidays-report-details &
+        font-size: 14px
+        text-transform: none
+        font-weight: 600
+
+      &:nth-child(1)
+        #{$block}_page_safe-checks-index &
+          border-right: none
+
+        #{$block}_page_weekly-reports &
+          text-align: left
+
+      &:nth-child(2)
+        #{$block}_page_safe-checks-index &
+          padding: 15px
+          border-right: none
+
+      &:nth-child(3)
+        #{$block}_page_vhci &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-owed-hours &
+          text-align: center
+
+      &:nth-child(4)
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &,
+        #{$block}_page_holidays-report-details &
+          text-align: center
+
+      &:nth-child(5)
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vouchers-index &,
+        #{$block}_page_smp-holidays &,
+        #{$block}_page_smp-owed-hours &,
+        #{$block}_page_message-board &
+          text-align: center
+
+      @media screen and (max-width: 1120px)
+        #{$block}_page_safe-checks-index &
+          min-height: 0
+
+      @media screen and (max-width: 960px)
+        min-height: 0
+
+    // $Common table cell MOD: state alert
+    &_state_alert
+      background-color: #ff8587
+
+      #{$block}_page_weekly-reports &
+        color: #fff
+        font-weight: 600
+
+
+  // $Common table info
+  &__info
+    display: block
+    width: 100%
+
+    #{$block}_page_holidays-report &
+      padding-top: 55px
+
+    #{$block}_page_holidays-report-details &
+      padding-top: 0
+
+    #{$block}_page_accessory-requests-card #{$block}__cell:nth-child(1) &
+      display: inline-block
+      width: auto
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: flex-start
+
+    @media screen and (max-width: 960px)
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
+      #{$block}_page_accessory-requests-card &
+        flex-direction: column
+        justify-content: center
+
+      #{$block}_page_holidays-report &
+        justify-content: center
+        align-items: flex-start
+        padding-top: 0
+
+
+  // $Common table label
+  &__label
+    +text-normalizer()
+    display: none
+    text-transform: uppercase
+    text-align: right
+
+    #{$block}_page_holidays-report &
+      display: block
+      text-align: center
+      text-transform: none
+      font-size: 18px
+      color: $boss-medium-gray
+
+    #{$block}_page_holidays-report-details &
+      display: none
+
+    #{$block}_page_change-order-report &,
+    #{$block}_page_safe-checks-index &
+      text-transform: none
+      font-weight: 600
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_holidays-report &
+        font-size: 16px
+
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
+        flex-grow: 1
+        flex-shrink: 0
+        display: block
+        width: 50%
+        padding-right: 50px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 0
+      display: block
+      width: 50%
+      padding-right: 50px
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        width: 220px
+        font-size: 18px
+        padding-right: 25px
+        padding-left: 25px
+        text-align: left
+
+      #{$block}_page_holidays-report-details &
+        display: block
+
+      #{$block}_page_change-order-history &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 70px
+        padding-left: 0
+        padding-right: 35px
+
+      #{$block}_page_change-order-history &
+        text-transform: none
+        font-weight: 600
+
+    @media screen and (max-width: 640px)
+      padding-right: 40px
+
+      #{$block}_page_fruit-order-history &
+        width: 40%
+
+    @media screen and (max-width: 480px)
+      #{$block}_page_fruit-order-history &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 120px
+        padding-right: 20px
+
+      #{$block}_page_holidays-report &
+        width: 50%
+        padding-right: 10px
+        font-size: 16px
+
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_invites-index &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 140px
+        padding-right: 30px
+
+    // $Common table label MOD: state alert
+    &_state_alert
+      color: #FFF
+
+
+  // $Common table text
+  &__text
+    +text-normalizer()
+    max-width: 100%
+    vertical-align: middle
+
+    #{$block}_page_holidays-report &
+      color: $boss-medium-gray
+
+    #{$block}_page_safe-checks-index #{$block}__cell:nth-child(1) &
+      white-space: nowrap
+
+    #{$block}_page_holidays-report &,
+    #{$block}_page_safe-checks-index &,
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
+    #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
+    #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
+    #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
+    #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
+    #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &,
+    #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &,
+    #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(3) &,
+    #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(4) &,
+    #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(5) &,
+    #{$block}_page_message-board #{$block}__cell:nth-child(4) &,
+    #{$block}_page_message-board #{$block}__cell:nth-child(5) &,
+    #{$block}_page_maintenance-index-card &,
+    #{$block}_page_accessory-requests-card &,
+    #{$block}_page_holidays-report-details #{$block}__cell:nth-child(4) &,
+    #{$block}_page_venues-index &
+      text-align: center
+
+    #{$block}_page_holidays-report-details &
+      text-align: left
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
+        flex-grow: 1
+        flex-shrink: 0
+        width: 50%
+        text-align: left
+
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 0
+      width: 50%
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        width: 220px
+        padding-right: 25px
+        padding-left: 25px
+        text-align: left
+
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(4) &,
+      #{$block}_page_checklist-review #{$block}__cell:nth-child(5) &,
+      #{$block}_page_vhci #{$block}__cell:nth-child(3) &,
+      #{$block}_page_vhci #{$block}__cell:nth-child(4) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(3) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(4) &,
+      #{$block}_page_vouchers-index #{$block}__cell:nth-child(5) &,
+      #{$block}_page_smp-holidays #{$block}__cell:nth-child(4) &,
+      #{$block}_page_smp-holidays #{$block}__cell:nth-child(5) &,
+      #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(3) &,
+      #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(4) &,
+      #{$block}_page_smp-owed-hours #{$block}__cell:nth-child(5) &,
+      #{$block}_page_message-board #{$block}__cell:nth-child(4) &,
+      #{$block}_page_message-board #{$block}__cell:nth-child(5) &,
+      #{$block}_page_holidays-report-details #{$block}__cell:nth-child(4) &
+        text-align: left
+
+      #{$block}_page_accessory-requests-card &
+        width: 100%
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_fruit-order-history &
+        width: 60%
+
+    @media screen and (max-width: 480px)
+      #{$block}_page_holidays-report &
+        padding-left: 10px
+        width: 50%
+
+    // $Common table text MOD: state alert
+    &_state_alert
+      color: #FFF
+      font-weight: 600
+      font-size: 16px
+
+    &_role_date,
+    &_role_venue
+      vertical-align: middle
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 14px
+        height: 14px
+        margin-right: 7px
+        margin-top: -3px
+        background-size: contain
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url(../icons/icon-calendar-dark-gray.svg)
+
+      &>span
+        white-space: nowrap
+
+    &_role_date#{&}_type_faded
+      &:before
+        background-image: url(../icons/icon-calendar-medium-gray.svg)
+
+    &_role_venue
+      &:before
+        background-image: url(../icons/icon-storefront-dark-gray.svg)
+
+    &_role_action
+      cursor: pointer
+
+    &_role_alert-action
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
+
+    &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:before
+        background-image: url(../icons/icon-danger-alert.svg)
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
+
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
+    &_role_success-status
+      margin-bottom: 10px
+      color: #86dd75
+      text-transform: uppercase
+      font-weight: 600
+      hyphens: auto
+
+    &_role_alert-status
+      margin-bottom: 10px
+      color: #ed7f7e
+      text-transform: uppercase
+      font-weight: 600
+
+  &__text-line,
+  &__text-meta
+    display: block
+
+
+  &__text-meta
+    color: $boss-light-gray
+    font-size: 12px
+
+
+  // $Common table stats
+  &__stats
+    display: block
+    width: 100%
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_safe-checks-index &
+        flex-grow: 1
+        flex-shrink: 0
+        width: 50%
+
+  // $Common table actions
+  &__actions
+    text-align: left
+
+    #{$block}_page_fruit-order-history &
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+
+    #{$block}_page_holidays-report &
+      text-align: right
+
+    #{$block}_page_change-order-report &,
+    #{$block}_page_smp-owed-hours &,
+    #{$block}_page_maintenance-managers-index #{$block}__cell:nth-child(6) &
+      display: flex
+      flex-direction: column
+      align-items: stretch
+      justify-content: flex-start
+
+    #{$block}_page_safe-checks-index &,
+    #{$block}_page_vhci &,
+    #{$block}_page_checklist-review &,
+    #{$block}_page_vouchers-index &,
+    #{$block}_page_smp-holidays &,
+    #{$block}_page_message-board &,
+    #{$block}_page_maintenance-index-card &,
+    #{$block}_page_accessory-requests-card &
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
+
+    #{$block}_page_venues-index &
+      text-align: center
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_invites-index &,
+      #{$block}_page_venues-index &
+        flex-grow: 1
+        flex-shrink: 0
+        width: 50%
+        justify-content: flex-start
+
+      #{$block}_page_venues-index &
+        text-align: left
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 0
+      width: 50%
+
+      #{$block}_page_holidays-report &
+        flex-grow: 0
+        width: auto
+
+      #{$block}_page_change-order-report &,
+      #{$block}_page_smp-owed-hours &
+        flex-direction: row
+        align-items: flex-start
+
+      #{$block}_page_vhci &,
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vouchers-index &,
+      #{$block}_page_smp-holidays &,
+      #{$block}_page_message-board &
+        justify-content: flex-start
+
+      #{$block}_page_accessory-requests-card &
+        width: 100%
+
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_fruit-order-history &
+        width: 60%
+
+      #{$block}_page_smp-holidays &,
+      #{$block}_page_message-board &
+        flex-direction: column
+        align-items: flex-start
+
+    @media screen and (max-width: 480px)
+      #{$block}_page_change-order-report &,
+      #{$block}_page_smp-owed-hours &
+        flex-direction: column
+
+
+  // $Common table action
+  &__action
+    #{$block}_page_fruit-order-history &:not(:last-of-type)
+      margin-right: 15px
+
+    #{$block}_page_smp-holidays &:not(:last-of-type),
+    #{$block}_page_message-board &:not(:last-of-type),
+      margin-right: 10px
+
+    #{$block}_page_maintenance-index-card #{$block}__cell:nth-child(3) &:not(:last-of-type),
+    #{$block}_page_accessory-requests-card #{$block}__cell:nth-child(4) &:not(:last-of-type)
+      margin-right: 20px
+
+    #{$block}_page_change-order-report &:not(:last-of-type),
+    #{$block}_page_smp-owed-hours &:not(:last-of-type),
+    #{$block}_page_maintenance-managers-index #{$block}__cell:nth-child(6) &:not(:last-of-type)
+      margin-bottom: 10px
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_change-order-report &:not(:last-of-type),
+      #{$block}_page_smp-owed-hours &:not(:last-of-type)
+        margin-bottom: 0
+        margin-right: 10px
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_smp-holidays &:not(:last-of-type),
+      #{$block}_page_message-board &:not(:last-of-type)
+        margin-right: 0
+        margin-bottom: 10px
+
+    @media screen and (max-width: 480px)
+      #{$block}_page_fruit-order-history &:not(:last-of-type)
+        margin-right: 10px
+
+      #{$block}_page_change-order-report &:not(:last-of-type),
+      #{$block}_page_smp-owed-hours &:not(:last-of-type)
+        margin-right: 0
+        margin-bottom: 10px
+
+
+    // $Common table action MOD: desktop visible
+    &_desktop
+      display: inline-block
+
+      @media screen and (max-width: 480px)
+        #{$block}_page_fruit-order-history &
+          display: none
+
+    // $Common table action MOD: mobile visible
+    &_mobile
+      display: none
+
+      @media screen and (max-width: 480px)
+        #{$block}_page_fruit-order-history &
+          display: inline-block
+
+
+  // $Common table image
+  &__image
+    display: inline-block
+
+
+  // $Common table link
+  &__link
+    +text-normalizer()
+    display: inline-block
+    max-width: 100%
+    color: $boss-dark-gray
+    vertical-align: middle
+    text-decoration: none
+
+    #{$block}_page_weekly-reports &
+      text-align: center
+
+    #{$block}_page_weekly-reports #{$block}__cell_state_alert &
+      color: #fff
+      font-weight: 600
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: none
+      color: $boss-dark-gray
+
+      #{$block}_page_weekly-reports #{$block}__cell_state_alert &
+        color: #fff
+
+
+  //  $Common table sort link
+  &__sort
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    z-index: 10
+    display: block
+    width: 35px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+
+    &:before
+      content: ""
+      position: absolute
+      right: 10px
+      top: 50%
+      display: block
+      width: 15px
+      height: 20px
+      margin-top: -11px
+      background-image: url(../icons/sort.svg)
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+      opacity: .2
+      transition: opacity .4s
+
+    &:hover,
+    &:focus
+      color: transparent
+      outline: none
+
+    &:hover
+      &:before
+        opacity: 1
+
+
+  //  $Common table status indicator
+  &__status
+    +text-normalizer()
+    display: inline-block
+    max-width: 100%
+    white-space: nowrap
+
+    &_role_action
+      cursor: pointer
+
+  &__status-text
+    max-width: 100%
+    vertical-align: middle
+
+
+  &__status-indicator
+    display: inline-block
+    margin-right: 15px
+    width: 20px
+    height: 20px
+    background-color: #d8d8d8
+    border-radius: 50%
+    vertical-align: middle
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_maintenance-managers-index &
+        width: 15px
+        height: 15px
+        margin-right: 5px
+
+    &_priority_high
+      background-color: map-get($boss-app-palette, alert)
+
+    &_priority_medium
+      background-color: map-get($boss-app-palette, warning)
+
+    &_priority_low
+      background-color: map-get($boss-app-palette, secondary)

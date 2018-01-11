@@ -1,0 +1,704 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $User summary
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-user-summary"
+
+#{$block}
+  +box-model-normalizer()
+  position: relative
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: flex-start
+  width: 100%
+  transition: all .4s
+
+  @media screen and(max-width: 960px)
+    flex-direction: column
+    align-items: center
+
+  // $User summary MOD: role link
+  &_role_link
+    color: initial
+
+    &:hover
+      color: initial
+      opacity: 0.5
+
+    &:focus
+      color: initial
+      outline: none
+
+  // $User summary MOD: role review
+  &_role_review
+    padding: 20px
+    border-radius: 10px
+    border: 2px solid transparent
+
+    @media screen and(max-width: 960px)
+      flex-direction: row
+      align-items: flex-start
+      padding: 10px
+
+    @media screen and(max-width: 400px)
+      flex-direction: column
+      align-items: center
+
+  &_role_ssr-details,
+  &_role_user-profile
+    align-items: center
+
+  // $User summary MOD: role rotas daily
+  // $User summary MOD: role review short
+  &_role_rotas-daily,
+  &_role_review-short,
+  &_role_hours-overview
+    @media screen and(max-width: 960px)
+      flex-direction: row
+      align-items: flex-start
+
+  &_role_hours-overview,
+  &_role_ssr-details,
+  &_role_user-profile
+    @media screen and(max-width: 479px)
+      flex-direction: column
+      align-items: center
+
+
+  // $User summary MOD: state dismissed
+  &_state_dismissed
+    opacity: 0.3
+
+    &:hover
+      opacity: 1
+      border: 2px solid map-get($boss-app-palette, primary)
+
+
+  // $User summary side area
+  &__side
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+
+
+  // $User summary avatar
+  &__avatar
+    flex-shrink: 0
+    position: relative
+    display: block
+    width: 115px
+    height: 115px
+    margin-bottom: 20px
+
+    // $User summary avatar CONTEXT: $User summary MOD: role report
+    #{$block}_role_report &
+      width: 100px
+      height: 100px
+      margin-bottom: 0
+
+    // $User summary avatar CONTEXT: $User summary MOD: role rotas daily
+    // $User summary avatar CONTEXT: $User summary MOD: role review short
+    #{$block}_role_rotas-daily &,
+    #{$block}_role_review-short &
+      width: 70px
+      height: 70px
+      margin-bottom: 0
+
+    // $User summary avatar CONTEXT: $User summary MOD: role hours overview
+    #{$block}_role_hours-overview &,
+    #{$block}_role_ssr-details &,
+    #{$block}_role_user-profile &
+      width: 80px
+      height: 80px
+      margin-bottom: 0
+
+    // $User summary avatar CONTEXT: $User summary MOD: role rotas daily tooltip
+    #{$block}_role_rotas-daily-tooltip &
+      width: 70px
+      height: 70px
+      margin-bottom: 0
+
+    @media screen and(max-width: 960px)
+
+      #{$block}_role_report &,
+      #{$block}_role_ssr-details &,
+      #{$block}_role_user-profile &
+        margin-bottom: 10px
+
+    @media screen and(max-width: 640px)
+      #{$block}_role_rotas-daily &
+        width: 40px
+        height: 40px
+
+
+  // $User summary avatar inner
+  &__avatar-inner
+    display: block
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    overflow: hidden
+    background-image: url('../icons/avatar-placeholder.svg')
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: contain
+
+
+  // $User summary avatar icon
+  &__avatar-icon
+    position: absolute
+    top: 0
+    right: 0
+    z-index: 10
+    display: block
+    width: 32px
+    height: 32px
+    background-color: map-get($boss-app-palette, secondary)
+    border: 2px solid #fff
+    border-radius: 50%
+    font-size: 0
+    color: transparent
+    opacity: 1
+    transition: all .4s
+
+    &:before
+      content: ''
+      position: absolute
+      left: 50%
+      top: 50%
+      display: block
+      width: 14px
+      height: 14px
+      margin-top: -7px
+      margin-left: -7px
+      background-image: url(../icons/icon-pencil-white.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+
+    &:hover
+      background-color: map-get($boss-app-palette, secondary)
+      opacity: 0.8
+
+    // $User summary avatar icon MOD: role edit
+    &_role_edit
+      &:before
+        background: url(../icons/icon-pencil-white.svg)
+
+    // $User summary avatar icon MOD: role info
+    &_role_info
+      &:before
+        background: url(../icons/icon-lens-white.svg)
+
+    // $User summary avatar icon MOD: role retake
+    &_role_retake
+      top: auto
+      bottom: 0
+      background-color: map-get($boss-app-palette, alert)
+
+      &:before
+        background: url(../icons/icon-close-white.svg)
+
+      &:hover
+        background-color: map-get($boss-app-palette, alert)
+
+
+  &__avatar-overlay
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 1
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    background-color: #FFF
+    border-radius: 50%
+    border: 1px solid $boss-extra-light-gray
+
+
+  &__avatar-overlay-text
+    +text-normalizer()
+    display: block
+    max-width: 100%
+    text-align: center
+    color: #4c4c4c
+
+    &_role_retake
+      font-size: 16px
+      font-weight: 600
+      color: map-get($boss-app-palette, alert)
+      text-transform: uppercase
+
+
+  // $User summary controls
+  &__controls
+    display: block
+    text-align: center
+
+
+  // $User summary content area
+  &__content
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    padding-left: 35px
+
+    // $User summary content area CONTEXT: $User summary MOD: role report
+    #{$block}_role_report &
+      position: absolute
+      left: 100%
+      padding-left: 20px
+
+    // $User summary content CONTEXT: $User summary MOD: role review
+    #{$block}_role_review &
+      padding-left: 25px
+
+    // $User summary content CONTEXT: $User summary MOD: role rotas daily
+    // $User summary content CONTEXT: $User summary MOD: role review short
+    // $User summary avatar CONTEXT: $User summary MOD: role hours overview
+    #{$block}_role_rotas-daily &,
+    #{$block}_role_review-short &,
+    #{$block}_role_hours-overview &,
+    #{$block}_role_ssr-details &,
+    #{$block}_role_user-profile &
+      padding-left: 20px
+
+    // $User summary content CONTEXT: $User summary MOD: role rotas daily tooltip
+    #{$block}_role_rotas-daily-tooltip &
+      padding-left: 20px
+
+    @media screen and(max-width: 960px)
+      padding-left: 0
+
+      #{$block}_role_review &
+        padding-left: 25px
+
+      #{$block}_role_report &
+        position: relative
+        left: auto
+        padding-left: 0
+
+      #{$block}_role_daily-tooltip &,
+      #{$block}_role_ssr-details &,
+      #{$block}_role_user-profile &
+        padding-left: 0
+
+    @media screen and(max-width: 640px)
+      #{$block}_role_rotas-daily &,
+      #{$block}_role_review-short &,
+      #{$block}_role_hours-overview &
+        padding-left: 15px
+
+    @media screen and(max-width: 479px)
+      #{$block}_role_hours-overview &
+        padding-left: 0
+
+    @media screen and(max-width: 400px)
+      #{$block}_role_review &
+        padding-left: 0
+
+    // $User summary content MOD: adjust middle alignment in a row
+    &_adjust_middle
+      align-self: center
+
+    // $User summary content MOD: adjust single
+    &_adjust_single
+      padding-left: 0
+
+      #{$block}_role_user-profile &
+        padding-left: 0
+
+
+  // $User summary header area
+  &__header
+    display: block
+    width: 100%
+    max-width: 100%
+    margin-bottom: 15px
+
+    // $User summary header area CONTEXT: $User summary MOD: role report
+    #{$block}_role_report &
+      white-space: nowrap
+
+    // $User summary header area CONTEXT: $User summary MOD: role rotas daily
+    // $User summary header area CONTEXT: $User summary MOD: role review short
+    // $User summary header area CONTEXT: $User summary MOD: role rotas daily tooltip
+    #{$block}_role_rotas-daily &,
+    #{$block}_role_rotas-daily-tooltip &,
+    #{$block}_role_review-short &,
+      margin-top: 5px
+      margin-bottom: 0
+      text-align: left
+
+    // $User summary avatar CONTEXT: $User summary MOD: role hours overview
+    #{$block}_role_hours-overview &,
+    #{$block}_role_ssr-details &,
+    #{$block}_role_user-profile &
+      margin-bottom: 0
+      text-align: left
+
+    @media screen and(max-width: 960px)
+      text-align: center
+
+      #{$block}_role_review &
+        margin-bottom: 0
+        text-align: left
+
+      #{$block}_role_report &
+        white-space: normal
+
+      #{$block}_role_rotas-daily &,
+      #{$block}_role_review-short &
+        margin-top: 0
+        text-align: left
+
+      #{$block}_role_rotas-daily-tooltip &
+        text-align: center
+
+    @media screen and(max-width: 479px)
+      #{$block}_role_hours-overview &,
+      #{$block}_role_ssr-details &,
+      #{$block}_role_user-profile &
+        text-align: center
+
+    @media screen and(max-width: 400px)
+      #{$block}_role_review &
+        text-align: center
+
+
+  // $User summary name
+  &__name
+    +text-normalizer()
+    display: inline-block
+    margin-right: 35px
+    font-size: 24px
+    font-weight: 300
+    vertical-align: middle
+
+    // $User summary name CONTEXT: $User summary MOD: role review
+    #{$block}_role_review &
+      margin-right: 25px
+
+    // $User summary name CONTEXT: $User summary MOD: role report
+    #{$block}_role_report &
+      margin-right: 20px
+      font-weight: 400
+      white-space: nowrap
+
+    // $User summary name CONTEXT: $User summary MOD: role rotas daily
+    // $User summary name CONTEXT: $User summary MOD: role review short
+    #{$block}_role_rotas-daily &,
+    #{$block}_role_review-short &
+      display: block
+      margin-bottom: 5px
+      margin-right: 0
+      font-size: 16px
+      font-weight: 400
+
+    // $User summary avatar CONTEXT: $User summary MOD: role hours overview
+    #{$block}_role_hours-overview &,
+    #{$block}_role_ssr-details &,
+      display: block
+      margin-bottom: 10px
+      margin-right: 0
+      font-size: 20px
+      font-weight: 400
+
+    #{$block}_role_user-profile &
+      display: block
+      margin-right: 0
+      font-weight: 400
+
+    #{$block}_role_rotas-daily &
+      color: #808080
+
+    // $User summary name CONTEXT: $User summary MOD: role rotas daily tooltip
+    #{$block}_role_rotas-daily-tooltip &
+      display: block
+      margin-bottom: 5px
+      font-size: 18px
+      font-weight: 400
+      color: #808080
+
+    @media screen and(max-width: 960px)
+      display: block
+      margin: 0 auto 15px
+      text-align: center
+
+      #{$block}_role_report &
+        margin-right: 0
+        white-space: normal
+
+      #{$block}_role_review &
+        display: inline-block
+        margin-right: 0
+        margin-bottom: 10px
+        text-align: left
+
+      #{$block}_role_rotas-daily &,
+      #{$block}_role_review-short &,
+      #{$block}_role_hours-overview &
+        text-align: left
+
+      #{$block}_role_rotas-daily-tooltip &
+        margin-bottom: 10px
+
+    @media screen and(max-width: 479px)
+      #{$block}_role_hours-overview &
+        text-align: center
+
+    @media screen and(max-width: 400px)
+      #{$block}_role_review &
+        display: inline-block
+        text-align: center
+
+
+  // $User summary label
+  &__label
+    display: inline-block
+    vertical-align: middle
+    cursor: default
+
+    #{$block}_role_review-short &
+      margin-bottom: 3px
+
+
+  // $User summary contacts
+  &__contacts
+    display: block
+    width: 100%
+    max-width: 100%
+    margin-bottom: 15px
+
+    @media screen and(max-width: 960px)
+      text-align: center
+      margin-bottom: 20px
+
+
+  // $User summary link
+  &__link
+    +text-normalizer()
+    display: inline-block
+    color: $boss-dark-gray
+    vertical-align: middle
+    outline: none
+    text-decoration: none
+    cursor: pointer
+
+    &:hover
+      opacity: .7
+      color: $boss-global-font-color
+
+    &:focus
+      color: $boss-global-font-color
+
+    &:not(:last-child)
+      margin-right: 25px
+
+    &_role_email,
+    &_role_phone,
+    &_role_alert-action
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
+
+
+    // $User summary link MOD: role email
+    &_role_email
+      &:before
+        background-image: url(../icons/icon-envelope-dark-gray.svg)
+
+    // $User summary link MOD: role phone
+    &_role_phone
+      &:before
+        background-image: url(../icons/icon-phone-dark-gray.svg)
+
+    // $User summary link MOD: role alert action
+    &_role_alert-action
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:before
+        background-image: url(../icons/icon-danger-alert.svg)
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
+
+
+  // $User summary meta information
+  &__meta
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    max-width: 100%
+
+    @media screen and(max-width: 960px)
+      justify-content: center
+      flex-wrap: wrap
+
+    @media screen and (max-width: 480px)
+      flex-direction: column
+
+
+  // $User summary switch
+  &__switch
+    display: inline-block
+    margin-right: 10px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 0
+      flex-shrink: 0
+      margin-bottom: 15px
+
+    @media screen and (max-width: 480px)
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
+
+    &:last-child
+      margin-right: 0
+
+      @media screen and (max-width: 480px)
+        margin-bottom: 0
+
+
+  // $User summary review list
+  &__review-list
+    display: block
+    width: 100%
+    max-width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+
+    &:not(:last-of-type)
+      margin-bottom: 10px
+
+    &_type_box,
+    &_type_box-alert
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
+
+      @media screen and(max-width: 960px)
+        align-self: center
+
+    &_type_box-alert
+      border: 2px solid map-get($boss-app-palette, alert)
+      border-radius: 5px
+      padding: 10px
+
+
+  // $User summary review item
+  &__review-item
+    +text-normalizer()
+    margin-bottom: 5px
+    color: $boss-medium-gray
+
+    @media screen and(max-width: 960px)
+      text-align: center
+
+      #{$block}_role_review &,
+      #{$block}_role_review-short &
+        text-align: left
+
+    // $User summary review item MOD: role date
+    // $User summary review item MOD: role user
+    // $User summary review item MOD: role reason
+    &_role_date,
+    &_role_user,
+    &_role_reason,
+    &_role_venue
+      text-align: left
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 14px
+        height: 14px
+        margin-right: 5px
+        margin-top: -3px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_user
+      &:before
+        background-image: url('../icons/icon-user-dark-gray.svg')
+
+    &_role_reason
+      &:before
+        background-image: url('../icons/icon-block-dark-gray.svg')
+
+    &_role_venue
+      &:before
+        background-image: url('../icons/icon-storefront-dark-gray.svg')
+
+
+  // $User summary review label
+  &__review-label
+
+
+  // $User summary review value
+  &__review-val
+
+    // $User summary review value MOD: marked
+    &_marked
+      color: #4c4c4c
+      font-weight: 600
+
+
+  &__review-wrap
+    overflow-wrap: break-word
+    word-wrap: break-word
+    word-break: break-word
+    hyphens: auto
+
+
+  // $User summary controls
+  &__controls
+    margin-bottom: 10px
+
+
+  // $User summary action
+  &__action
+    opacity: 1
+    transition: all .4s
+
+    // $User summary action CONTEXT: $User summary MOD: state dismissed
+    #{$block}_state_dismissed &
+      opacity: 0.3
+
+    #{$block}_state_dismissed:hover &
+      opacity: 1

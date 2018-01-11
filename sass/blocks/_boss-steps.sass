@@ -1,0 +1,122 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Steps block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-steps"
+
+#{$block}
+
+  +normalize-block()
+
+  clear: both
+  display: flex
+  justify-content: space-between
+  width: 100%
+
+
+  // $Steps block step
+  &__step
+    position: relative
+    display: flex
+    flex-direction: column
+    width: 16.6%
+    align-items: center
+
+
+  // $Steps block step line
+  &__step-line
+    position: absolute
+    left: 0
+    top: 15px
+    right: 0
+    display: block
+    height: 4px
+    background-color: map-get($boss-app-palette, inactive)
+
+    // $Steps block line MOD: after index
+    &_after
+      left: 50%
+      right: -1px
+
+    // $Steps block line MOD: before index
+    &_before
+      right: 50%
+
+    // $Steps block line MOD: state completed
+    &_state_completed
+      background-color: map-get($boss-app-palette, primary)
+
+    // $Steps block line MOD: state error
+    &_state_error
+      background-color: map-get($boss-app-palette, alert)
+
+
+  // $Steps block step index
+  &__step-index
+    position: relative
+    z-index: 1
+    display: block
+    width: 30px
+    height: 30px
+    margin-bottom: 8px
+    border-radius: 50%
+    text-align: center
+    color: white
+    line-height: 30px
+    background-color: map-get($boss-app-palette, inactive)
+    cursor: pointer
+    cursor: pointer
+
+    // $Steps block step index MOD: state completed
+    &_state_completed
+      background-color: map-get($boss-app-palette, primary)
+
+    // $Steps block step index MOD: state error
+    &_state_error
+      background-color: map-get($boss-app-palette, alert)
+
+    // $Steps block step index MOD: state review error
+    &_state_review-error
+      background-color: map-get($boss-app-palette, alert)
+
+    // $Steps block step index MOD: state with error
+    &_state_with-error
+      &:after
+        content: ''
+        position: absolute
+        right: 0
+        top: -3px
+        width: 10px
+        height: 10px
+        border-radius: 50%
+        background-color: red
+
+
+  // $Steps block step title
+  &__step-title
+    display: block
+    max-width: 100%
+    text-align: center
+    color: $boss-light-gray
+
+    @media screen and (max-width: 960px)
+      font-size: 13px
+      letter-spacing: -1px
+
+    @media screen and (max-width: 480px)
+      font-size: 12px
+
+    // $Steps block step title MOD: state active
+    &_state_active
+      color: $boss-global-font-color

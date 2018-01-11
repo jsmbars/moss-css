@@ -1,0 +1,93 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Hours chart
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".hours-chart"
+
+#{$block}
+  -webkit-user-select: none
+
+  &__inner
+    position: relative
+    display: block
+    width: 100%
+    overflow: hidden
+    text-align: center
+
+
+  &__content
+    display: inline-block
+    text-align: left
+
+
+  & *
+    shape-rendering: crispEdges
+
+
+  & .domain
+    fill: none
+    stroke: #bebebe
+
+
+  & .axis .tick line
+    stroke: #ededed
+
+  & .tick text
+    fill: #4c4c4c
+    font-size: 13px
+
+  &__labels
+    & text
+      fill: #4c4c4c
+      font-size: 13px
+
+
+  &__rotaed-interval
+    & rect
+      stroke: none
+      fill: #84bef0
+
+    & text
+      stroke: none
+      fill: white
+      font-size: 13px
+
+
+  &__clocked-interval
+
+    &--hours
+      fill: #9df084
+
+    &--break
+      fill: orange
+
+    &--incomplete
+      fill: lime
+
+
+  &__clock-in-out-markers
+    stroke: #4c4c4c
+
+
+  &__amended-interval
+
+    &--hours
+      fill: #45ca45
+
+    &--break
+      fill: #f3c537
+
+    &--error
+      fill: #f98a83
+
+

@@ -1,0 +1,343 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Event calendar
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".event-calendar"
+
+#{$block}
+  +box-model-normalizer()
+  position: relative
+  display: block
+  width: 100%
+
+  // $Event calendar inner container
+  &__inner
+    position: relative
+    display: block
+    width: 100%
+    overflow: hidden
+
+
+  // $Event calendar content
+  &__content
+    display: block
+    width: 100%
+    min-width: 960px
+    padding: 1px
+
+
+  // $Event calendar tooltip
+  &__tooltip
+    position: absolute
+    z-index: 100
+    width: 200px
+    min-height: 100px
+    text-align: left
+    border-radius: 10px
+    background-color: #FFF
+    box-shadow: #FFF
+    box-shadow: 0 0 20px 10px fade-out(#000, .9)
+
+
+  // $Event calendar tooltip pointer
+  &__tooltip-pointer
+    position: absolute
+    z-index: 101
+    display: block
+
+    // $Event calendar tooltip pointer MOD: position left
+    &_position_left
+      top: 50%
+      right: 100%
+      margin-top: -12px
+      border-right: 12px solid #fff
+      border-top: 12px solid transparent
+      border-bottom: 12px solid transparent
+
+    // $Event calendar tooltip pointer MOD: position right
+    &_position_right
+      top: 50%
+      left: 100%
+      margin-top: -12px
+      border-left: 12px solid #fff
+      border-top: 12px solid transparent
+      border-bottom: 12px solid transparent
+
+    // $Event calendar tooltip pointer MOD: position top
+    &_position_top
+      bottom: 100%
+      left: 50%
+      margin-left: -12px
+      border-bottom: 12px solid #fff
+      border-right: 12px solid transparent
+      border-left: 12px solid transparent
+
+    // $Event calendar tooltip pointer MOD: position bottom
+    &_position_bottom
+      top: 100%
+      left: 50%
+      margin-left: -12px
+      border-top: 12px solid #fff
+      border-right: 12px solid transparent
+      border-left: 12px solid transparent
+
+
+  // $Event calendar tooltip content
+  &__tooltip-content
+    padding: 15px 10px
+
+
+  // $Event calendar tooltip date
+  &__tooltip-date
+    +text-normalizer()
+    margin-bottom: 10px
+    font-weight: 600
+    text-align: center
+
+
+  // $Event calendar labels
+  &__labels
+
+
+  // $Event calendar label
+  &__label
+    +text-normalizer()
+    display: block
+    width: 100%
+    margin-bottom: 10px
+    padding: 8px 10px
+    border-radius: 5px
+    line-height: 1
+    color: #fff
+    font-weight: 400
+    cursor: pointer
+    transition: all .4s
+
+    &:hover
+      opacity: .8
+
+
+  // $Event calendar action
+  &__action
+    +text-normalizer()
+    display: block
+    width: 100%
+    padding: 8px 10px
+    border-radius: 5px
+    font-size: 12px
+    line-height: 1
+    color: $boss-medium-gray
+    font-weight: 400
+    border: 1px solid $boss-light-gray
+    transition: all .4s
+
+    &:hover
+      color: $boss-dark-gray
+      background-color: $boss-extra-light-gray
+
+
+  // React big calendar overrides
+  & .rbc-calendar
+    width: 100%
+    height: 400px
+
+
+  & .rbc-toolbar
+    width: 100%
+
+
+  & .rbc-toolbar .rbc-toolbar-label
+    flex-grow: 1
+    flex-shrink: 1
+    width: auto
+    font-family: $boss-global-font-family
+    color: $boss-global-font-color
+    font-size: 18px
+
+
+  & .rbc-toolbar button
+    font-family: $boss-global-font-family
+    color: $boss-global-font-color
+    font-size: 14px
+
+
+  & .rbc-toolbar button:active,
+  & .rbc-toolbar button.rbc-active
+    background-color: #f0f0f0
+    border-color: #ccc
+    box-shadow: none
+
+
+  & .rbc-toolbar button:active:hover,
+  & .rbc-toolbar button.rbc-active:hover,
+  & .rbc-toolbar button:active:focus,
+  & .rbc-toolbar button.rbc-active:focus
+    background-color: #f0f0f0
+    border-color: #ccc
+    cursor: default
+
+
+  & .rbc-toolbar button:focus
+    background-color: #f0f0f0
+    border-color: #ccc
+
+
+  & .rbc-toolbar button:hover
+    background-color: #f0f0f0
+    border-color: #ccc
+
+
+  & .rbc-btn-group
+
+
+  & .rbc-btn-group + .rbc-btn-group,
+  & .rbc-btn-group + button
+
+
+  & .rbc-month-view
+    border: none
+
+
+    & .rbc-event
+      position: relative
+      min-height: 5px
+      margin: 0 5px
+      padding: 0
+      font-size: 0
+      line-height: 0
+      color: transparent
+
+
+    & .rbc-event.rbc-selected
+
+
+    & .rbc-event-label
+
+
+    & .rbc-event-overlaps
+
+
+    & .rbc-event-continues-prior,
+    & .rbc-event-continues-earlier
+      margin-left: 0
+
+
+    & .rbc-event-continues-after,
+    & .rbc-event-continues-later
+      margin-right: 0
+
+
+    & .rbc-month-row
+      border-bottom: 1px solid #ddd
+
+
+
+    & .rbc-month-row + .rbc-month-row
+      border-top: none
+
+
+    & .rbc-row
+      border-left: 1px solid #ddd
+      border-right: 1px solid #ddd
+      margin-bottom: 2px
+
+      &:first-child,
+      &:last-child
+        margin-bottom: 5px
+
+
+    & .rbc-row.rbc-month-header
+      margin-bottom: 0
+      border-left: none
+      border-right: none
+      border-bottom: 1px solid #ddd
+
+
+    & .rbc-row-content
+
+
+    & .rbc-row-segment
+
+
+    & .rbc-selected-cell
+
+
+    & .rbc-show-more
+      display: inline-block
+      padding-left: 5px
+      font-family: $boss-global-font-family
+      font-size: 12px
+      font-weight: 400
+
+
+    & .rbc-header
+      font-family: $boss-global-font-family
+      color: $boss-global-font-color
+      font-size: 14px
+      padding: 15px 5px
+      font-weight: 600
+      color: #808080
+      border-bottom: none
+
+
+    & .rbc-header + .rbc-header
+      border-left: none
+
+
+    & .rbc-header > a,
+    & .rbc-header > a:active,
+    & .rbc-header > a:visited
+
+
+    & .rbc-date-cell
+      background-color: #f5f5f5
+      color: #4c4c4c
+
+
+    & .rbc-date-cell.rbc-off-range
+      color: #c3c3c3
+
+
+    & .rbc-date-cell + .rbc-date-cell
+      border-left: 1px solid #ddd
+
+
+    & .rbc-date-cell.rbc-current
+    & .rbc-date-cell.rbc-now
+      background-color: #ffed9b
+      border-left: 2px solid #ffed9b
+      font-weight: 400
+
+    & .rbc-date-cell.rbc-off-range
+      color: #c3c3c3
+
+
+    & .rbc-date-cell > a,
+    & .rbc-date-cell > a:active,
+    & .rbc-date-cell > a:visited
+
+
+    & .rbc-row-bg
+      border-left: 1px solid #ddd
+      border-right: 1px solid #ddd
+
+
+    & .rbc-day-bg
+      background-color: #fff
+
+    & .rbc-day-bg.rbc-today
+      background-color: #fff
+      border: 2px solid #ffed9b
+
+
+    & .rbc-day-bg + .rbc-day-bg

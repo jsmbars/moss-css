@@ -1,0 +1,241 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Alert
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-alert"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  position: relative
+  padding: 10px 20px
+  background-color: map-get($boss-app-palette, alert)
+  border-radius: $boss-global-border-radius
+
+  &:before
+    content: ""
+    position: absolute
+    top: 14px
+    left: 20px
+    display: block
+    width: 14px
+    height: 14px
+    background-image: url(../icons/danger-white.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+
+  &_status_success
+    background-color: map-get($boss-app-palette, secondary)
+
+  &_status_warning
+    background-color: map-get($boss-app-palette, edit)
+
+  &_status_alert
+    background-color: map-get($boss-app-palette, alert)
+
+  &_status_danger
+    background-color: map-get($boss-app-palette, danger)
+
+  // $Alert MOD: role page notification
+  &_role_page-note
+    padding: 15px 15px 15px 25px
+    border-radius: 0
+
+    &:before
+      top: 10px
+      width: 30px
+      height: 30px
+      background-color: rgba(0,0,0,.35)
+      background-image: url(../icons/checked-white.svg)
+      background-size: 12px 12px
+      border-radius: 50%
+
+  &_role_page-note#{&}_status_success
+    &:before
+      background-image: url(../icons/checked-white.svg)
+
+  &_role_page-note#{&}_status_warning
+    &:before
+      background-image: url(../icons/icon-lock-white.svg)
+
+  &_role_page-note#{&}_status_alert,
+  &_role_page-note#{&}_status_danger
+    &:before
+      background-image: url(../icons/danger-white.svg)
+
+  // $Alert MOD: role position fixed
+  &_position_fixed
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    z-index: 10005
+
+  // $Alert MOD: role notification
+  &_role_note,
+  &_no-icon,
+  &_role_page-note#{&}_role_note,
+  &_role_page-note#{&}_no-icon
+    &:before
+      display: none
+
+  // $Alert MOD: role time
+  &_role_time
+    &:before
+      background-image: url(../icons/icon-clock-white.svg)
+
+  // $Alert MOD: role alert
+  &_role_alert
+    &:before
+      background-image: url(../icons/danger-white.svg)
+
+  // $Alert MOD: role lock
+  &_role_lock
+    &:before
+      background-image: url(../icons/icon-lock-white.svg)
+
+  // $Alert MOD: role confirm
+  // $Alert MOD: role review
+  &_role_confirm,
+  &_role_review
+    &:before
+      background-image: url(../icons/checked-white.svg)
+
+  // $Alert MOD: role danger
+  &_role_danger
+    &:before
+      background-image: url(../icons/danger-white.svg)
+
+  // $Alert MOD: role information
+  &_role_info
+    padding: 15px 15px 15px 25px
+
+    @media screen and (max-width: 400px)
+      padding: 10px 15px 10px 20px
+
+    &:before
+      top: 12px
+      width: 25px
+      height: 25px
+      background-color: #b35456
+      background-image: url(../icons/icon-info-white.svg)
+      background-size: 12px 12px
+      border-radius: 50%
+
+      @media screen and (max-width: 400px)
+        left: 15px
+        width: 20px
+        height: 20px
+        background-size: 10px 10px
+
+  &_role_area
+    border-radius: 0
+
+  // $Alert MOD: context above
+  &_context_above
+    margin-bottom: 15px
+
+  // $Alert MOD: context below
+  &_context_below
+    margin-top: 15px
+
+  // $Alert MOD: context between
+  &_context_between
+    margin-top: 15px
+    margin-bottom: 15px
+
+  // $Alert MOD: state opened
+  &_state_opened
+    display: block
+
+  // $Alert MOD: state closed
+  &_state_closed
+    display: none
+
+
+  // $Alert text
+  &__text
+    +text-normalizer()
+    position: relative
+    display: block
+    max-width: 100%
+    padding: 0 30px
+    font-weight: 300
+    color: #FFF
+
+    // $Alert text CONTEXT: $Alert MOD: role page notification
+    #{$block}_role_page-note &
+      padding: 0 30px 0 45px
+      font-weight: bold
+
+    // $Alert text CONTEXT: $Alert MOD: role notification
+    #{$block}_role_note &
+      padding: 0
+      font-weight: bold
+
+
+  // $Alert text value
+  &__text-value
+
+
+  // $Alert text link
+  &__text-link
+    +text-normalizer()
+    display: inline-block
+    color: #FFF
+    outline: none
+    font-weight: 300
+    text-decoration: underline
+
+    &:hover
+      text-decoration: none
+      color: #FFF
+
+    &:focus
+      outline: none
+      color: #FFF
+
+
+  // $Alert text line
+  &__line
+    display: block
+
+    &_role_item
+      font-weight: 600
+
+      &:before
+        content: "-"
+        display: inline-block
+        margin-right: 5px
+
+
+  // $Alert close button
+  &__button-close
+    position: absolute
+    width: 30px
+    height: 30px
+    top: 50%
+    right: 20px
+    display: block
+    margin-top: -15px
+    background-image: url(../icons/icon-close-black-small.svg)
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: 10px 10px
+    opacity: 0.4
+
+    // $Alert close button CONTEXT: $Alert MOD: role page notification
+    #{$block}_role_page-note &
+      right: 15px

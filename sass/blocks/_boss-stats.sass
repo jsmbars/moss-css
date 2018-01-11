@@ -1,0 +1,416 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Stats block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-stats"
+
+#{$block}
+  +box-model-normalizer()
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  width: 100%
+
+  // $Stats block MOD: adjust for table
+  &_adjust_table
+    @media screen and (max-width: 1120px)
+      align-items: flex-start
+
+
+  // $Stats block meta
+  &__meta
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: flex-start
+    width: 100%
+    padding: 20px 20px 25px
+
+    // $Stats block meta CONTEXT: $Stats block MOD: adjust for table
+    #{$block}_adjust_table &
+      margin-top: 10px
+      padding: 0
+      text-align: center
+
+    @media screen and (max-width: 1120px)
+      #{$block}_adjust_table &
+        display: block
+        text-align: left
+
+    @media screen and (max-width: 960px)
+      display: block
+
+
+  &__checklist
+    display: block
+    width: 100%
+    padding: 20px 20px 30px
+    border-top: 1px solid #eee
+
+
+  // $Stats block note
+  &__note
+    display: block
+    width: 100%
+
+
+  // $Stats block note control
+  &__note-control
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding: 20px 25px
+    border-bottom: 1px solid #eee
+
+    @media screen and (max-width: 960px)
+      padding-left: 40px
+      padding-right: 40px
+
+    @media screen and (max-width: 480px)
+      padding-left: 30px
+      padding-right: 30px
+
+
+  // $Stats block note meta
+  &__note-meta
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    white-space: nowrap
+    vertical-align: middle
+    font-weight: 600
+
+    &:before
+      content: ''
+      display: inline-block
+      width: 18px
+      height: 16px
+      margin-top: -2px
+      margin-right: 10px
+      vertical-align: middle
+      background: url(../icons/icon-envelope-dark-gray.svg) no-repeat center center
+      background-size: contain
+
+
+  // $Stats block note switch
+  &__note-switch
+    +text-normalizer()
+
+    position: relative
+    display: inline-block
+    cursor: pointer
+    padding-left: 20px
+    color: map-get($boss-app-palette, primary)
+    text-decoration: underline
+
+    &:after
+      content: ''
+      position: absolute
+      left: 0
+      top: 50%
+      display: block
+      width: 14px
+      height: 14px
+      margin-top: -7px
+      background-image: url(../icons/icon-plus-primary.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      transform: rotate(45deg)
+      transition: all .4s
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    // $Stats block note switch MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+
+  // $Stats block note form
+  &__note-form
+    display: block
+    width: 100%
+    padding: 15px 30px 15px 55px
+    background-color: #fbfbfb
+    border-bottom: 1px solid #eee
+
+    @media screen and (max-width: 960px)
+      padding-left: 40px
+      padding-right: 40px
+
+    @media screen and (max-width: 480px)
+      padding-left: 30px
+      padding-right: 30px
+
+    // $Stats block note form MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Stats block note messages
+  &__note-messages
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    justify-content: flex-start
+    width: 100%
+    padding: 15px 30px 15px 55px
+
+    @media screen and (max-width: 960px)
+      padding-left: 40px
+      padding-right: 40px
+
+    @media screen and (max-width: 480px)
+      padding-left: 30px
+      padding-right: 30px
+
+
+  // $Stats block text
+  &__text
+    +text-normalizer()
+    position: relative
+    max-width: 100%
+    padding-right: 30px
+    font-size: 12px
+
+    &:after
+      content: ""
+      position: absolute
+      top: 50%
+      right: 0
+      display: block
+      width: 22px
+      height: 14px
+      margin-top: -7px
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+
+    &_indicator_att:after
+      background-image: url("../icons/icon-envelope-dark-gray.svg")
+
+    @media screen and (max-width: 1120px)
+      #{$block}_adjust_table &
+        display: inline-block
+
+    @media screen and (max-width: 960px)
+      display: inline-block
+
+  // $Stats block label
+  &__label
+    +text-normalizer()
+    flex-shrink: 0
+    position: relative
+    display: inline-block
+    width: auto
+    min-height: 40px
+    margin-right: 20px
+    padding: 10px 20px
+    font-size: 14px
+    font-weight: 600
+    white-space: nowrap
+    vertical-align: middle
+    color: $boss-dark-gray
+    border: 2px solid $boss-dark-gray
+    background-color: $boss-extra-light-gray
+    border-radius: 25px
+
+    // $Stats block label CONTEXT: $Stats block MOD: adjust for table
+    #{$block}_adjust_table &
+      min-height: 30px
+      margin: 0
+      padding: 9px 10px
+      font-size: 12px
+      line-height: 1
+      color: #5890C9
+      border: 2px solid #5890c9
+      border-radius: 14px / 50%
+      background-color: transparent
+
+    @media screen and (max-width: 1120px)
+      #{$block}_adjust_table &
+        width: auto
+        margin-right: 0
+        margin-bottom: 20px
+        transform: none
+
+    @media screen and (max-width: 960px)
+      flex-shrink: 1
+      width: 100%
+      margin-right: 0
+      margin-bottom: 20px
+      text-align: center
+
+    &:before,
+    &:after
+      #{$block}_adjust_table &
+        content: ""
+        position: absolute
+        top: 50%
+        display: block
+        width: 500px
+        height: 0
+        border-top: 1px solid #eee
+
+      @media screen and (max-width: 1120px)
+        #{$block}_adjust_table &
+          display: none
+
+    &:before
+      #{$block}_adjust_table &
+        right: calc(100% + 2px)
+
+    &:after
+      #{$block}_adjust_table &
+        left: calc(100% + 2px)
+
+    &:last-of-type
+      margin-right: 0
+
+      @media screen and (max-width: 1120px)
+        #{$block}_adjust_table &
+          margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+    // $Stats block label MOD: role date
+    &_role_date
+      &:before
+        content: ""
+        display: inline-block
+        width: 20px
+        height: 20px
+        margin-right: 10px
+        vertical-align: middle
+        line-height: 100%
+        background-image: url("../icons/icon-calendar-dark-gray.svg")
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+
+    // $Stats block label MOD: role user
+    &_role_user
+      flex-shrink: 1
+      white-space: normal
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 20px
+        margin-right: 10px
+        vertical-align: middle
+        line-height: 100%
+        background-image: url("../icons/icon-user-dark-gray.svg")
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+
+    // $Stats block label MOD: role venue
+    &_role_venue
+      flex-shrink: 1
+      white-space: normal
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 20px
+        height: 20px
+        margin-right: 10px
+        vertical-align: middle
+        line-height: 100%
+        background-image: url("../icons/icon-storefront-dark-gray.svg")
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+
+    // $Stats block label MOD: state alert
+    &_state_alert
+      background-color: #ff8587
+      border-color: darken(#ff8587, 10%)
+      color: #fff
+
+
+  // $Stats block table
+  &__table
+    display: block
+    width: 100%
+
+
+  // $Stats block table row
+  &__table-row
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    border-bottom: 1px solid #eee
+
+    &:nth-of-type(odd)
+      background-color: #fbfbfb
+
+    &:nth-of-type(1)
+      border-top: 1px solid #eee
+
+
+  // $Stats block table cell
+  &__table-cell
+    min-height: 50px
+    padding: 20px
+
+    @media screen and (max-width: 480px)
+      padding: 15px
+      min-height: 0
+
+    &:nth-of-type(1)
+      width: 40%
+      padding-left: 50px
+      border-right: 1px solid #eee
+
+      @media screen and (max-width: 960px)
+        padding-left: 40px
+
+      @media screen and (max-width: 480px)
+        width: 50%
+        padding-left: 30px
+
+    &:nth-of-type(2)
+      width: 60%
+      padding-left: 60px
+
+      @media screen and (max-width: 960px)
+        padding-left: 50px
+
+      @media screen and (max-width: 480px)
+        width: 50%
+        padding-left: 40px
+
+
+  // $Stats block table text
+  &__table-text
+    +text-normalizer()
+    font-size: 14px
+    line-height: 1
+
+    // $Stats block table text MOD: role label
+    &_role_label
+      font-weight: 600
+      font-size: 16px
+
+

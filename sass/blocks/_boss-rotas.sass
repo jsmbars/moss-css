@@ -1,0 +1,139 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Rotas
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-rotas"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+
+  // $Rotas filter
+  &__filter
+    display: block
+    width: 100%
+    margin-bottom: 30px
+
+    // $Rotas filter MOD: type no space
+    &_type_no-space
+      margin-bottom: 0
+
+    // $Rotas filter MOD: type inner
+    &_type_inner
+
+      @media screen and (max-width: 960px)
+        padding: 15px 15px 0
+
+
+  // $Rotas summary
+  &__summary
+    display: block
+    width: 100%
+    margin-bottom: 30px
+
+
+  // $Rotas graphs
+  &__graphs
+    display: block
+    width: 100%
+    margin-bottom: 25px
+
+    // $Rotas graphs graphs MOD: state hidden
+    &_state_mobile-hidden
+      @media screen and (max-width: 960px)
+        display: none
+
+
+  // $Rotas graphs list
+  &__graphs-list
+    display: block
+    width: 100%
+    padding: 0 20px 20px
+    box-shadow: inset 0 60px 60px -60px rgba(0,0,0,.2)
+    background-color: #FFF
+
+
+  // $Rotas graphs item
+  &__graphs-item
+    position: relative
+    display: block
+    width: 100%
+
+
+  // $Rotas graphs manager section
+  &__manager
+    display: block
+    width: 100%
+    padding: 25px 30px
+    background-color: #FFF
+
+    @media screen and (max-width: 960px)
+      padding: 0
+
+    // $Rotas graphs manager section MOD: state visible
+    &_state_visible
+      display: block
+
+    // $Rotas graphs manager section MOD: state hidden
+    &_state_hidden
+      display: none
+
+    // $Rotas graphs manager section MOD: state hidden
+    &_state_mobile-hidden
+      @media screen and (max-width: 960px)
+        display: none
+
+
+  // $Rotas graphs people list
+  &__people
+
+
+  // $Rotas days
+  &__days
+
+
+  // $Rotas days navigation
+  &__days-nav
+    display: block
+    width: 100%
+    margin-bottom: 30px
+
+
+  // $Rotas days item
+  &__days-item
+    display: block
+    width: 100%
+    background-color: #FFF
+
+    // $Rotas days item state visible
+    &_state_visible
+      display: block
+
+    // $Rotas days item state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Rotas form
+  &__form
+    display: block
+    width: 100%
+    margin-bottom: 30px
+
+
+  // $Rotas staff section
+  &__staff
+    display: block
+    width: 100%

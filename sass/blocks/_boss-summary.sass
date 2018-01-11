@@ -1,0 +1,182 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Summary block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-summary"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+  // $Summary block header
+  &__header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding: 5px 10px 10px
+    border-bottom: 1px solid #eee
+
+
+  // $Summary block text
+  &__text
+    +text-normalizer()
+    color: #808080
+    font-weight: 300
+
+    // $Summary block text MOD: context row
+    &_context_row
+      padding-right: 25px
+
+    // $Summary block text MOD: faded text
+    &_faded
+      color: $boss-light-gray
+
+    // $Summary block text MOD: marked text
+    &_marked
+      font-weight: 400
+
+    // $Summary block text MOD: highlighted
+    &_highlighted
+      font-weight: 400
+      color: map-get($boss-app-palette, primary)
+
+    &_adjust_break
+      word-break: break-all;
+
+
+  // $Summary block marked text
+  &__text-marked
+    font-weight: 400
+
+
+  // $Summary block content
+  &__content
+    position: relative
+    display: block
+    width: 100%
+    max-height: 180px
+    overflow: hidden
+
+    // $Summary block content MOD: state closed
+    &_state_closed
+      display: none
+
+    // $Summary block content MOD: state opened
+    &_state_opened
+      display: block
+
+
+  // $Summary block content inner
+  &__content-inner
+    display: block
+    width: 100%
+
+
+  // $Summary block content list
+  &__list
+    display: block
+    width: 100%
+    margin: 0
+    padding: 0
+    list-style: none
+
+
+  // $Summary block content item
+  &__item
+    display: block
+    width: 100%
+    padding: 10px
+    border-bottom: 1px solid #eee
+
+    &:nth-of-type(even)
+      background-color: #fafafa
+
+    // $Summary block content item MOD: role header
+    &_role_header
+      padding-top: 5px
+
+    // $Summary block content item MOD: layout row
+    &_layout_row
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+
+
+  // $Summary block content action
+  &__action
+    +text-normalizer()
+    position: relative
+    display: block
+    width: 100%
+    padding: 10px 50px 10px 10px
+    background-color: #f9f9f9
+    text-align: left
+    font-size: 0
+    color: transparent
+    text-decoration: none
+    vertical-align: middle
+    outline: none
+
+    &:before
+      content: "more"
+      display: inline-block
+      font-size: 14px
+      color: map-get($boss-app-palette, primary)
+
+    &:after
+      content: ""
+      position: absolute
+      top: 50%
+      right: 15px
+      display: block
+      width: 20px
+      height: 12px
+      margin-left: 5px
+      margin-top: -6px
+      background-image: url(../icons/icon-arrow-down-primary.svg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+      transform-origin: center center
+      vertical-align: middle
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: underline
+      color: map-get($boss-app-palette, primary)
+
+    // $Summary block content action MOD: state closed
+    &_state_closed
+      &:after
+        background-image: url(../icons/icon-arrow-down-primary.svg)
+
+      &:before
+        content: "more"
+
+    // $Summary block content action MOD: state opened
+    &_state_opened
+      &:after
+        background-image: url(../icons/icon-arrow-down-primary.svg)
+        transform: rotate(-180deg)
+
+      &:before
+        content: "less"
+
+
+  // $Register block button notes count
+  &__action-count

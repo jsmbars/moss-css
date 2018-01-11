@@ -1,0 +1,821 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Check block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-check"
+
+#{$block}
+  +box-model-normalizer()
+  position: relative
+  z-index: 10
+  display: block
+  width: 100%
+  overflow: hidden
+
+  // $Check block MOD: role board
+  &_role_board
+    margin-bottom: 30px
+    background-color: #FFF
+    border-radius: 10px
+
+    &:last-of-type
+      margin-bottom: 0
+
+  // $Check block MOD: role panel
+  &_role_panel
+    margin-bottom: 30px
+    background-color: #FFF
+    border-radius: 10px
+    box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+    &:last-of-type
+      margin-bottom: 0
+
+  // $Check block MOD: page safe check index
+  &_page_safe-checks-index,
+  &_page_invites-index,
+  &_page_venues-index
+    @media screen and (min-width: 1121px)
+      display: none
+
+  // $Check block MOD: page checklist review
+  // $Check block MOD: page venue health check index
+  &_page_checklist-review,
+  &_page_vhci,
+  &_page_vouchers-index,
+  &_page_voucher-usage,
+  &_page_smp-holidays,
+  &_page_smp-owed-hours,
+  &_page_message-board,
+  &_page_users-index,
+  &_page_holidays-report-details
+    @media screen and (min-width: 961px)
+      display: none
+
+  // $Check block MOD: state alert
+  &_state_alert
+    background-color: #feeeee
+
+
+  &__header
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    min-height: 80px
+    padding: 20px 30px
+    border-bottom: 1px solid #eee
+
+    @media screen and (max-width: 960px)
+      min-height: 60px
+      padding: 20px
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_maintenance-index &
+        flex-wrap: wrap
+
+
+  &__header-info
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_maintenance-index &
+        width: calc(100% - 50px)
+
+
+  &__header-status
+    flex-grow: 0
+    flex-shrink: 0
+    padding-right: 10px
+    padding-left: 10px
+    text-align: center
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_maintenance-index &
+        order: 99
+        flex-grow: 1
+        flex-shrink: 1
+        width: 100%
+        margin-top: 20px
+        padding: 20px 0 0
+        border-top: 1px solid #eee
+
+
+  &__header-actions
+    flex-grow: 0
+    flex-shrink: 0
+
+
+  &__group
+
+  // $Check block row
+  &__row
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: stretch
+    border-bottom: 1px solid #eee
+
+    &_role_actions
+
+    &_role_buttons
+      padding: 15px 10px
+
+    // $Check block row MOD: role table
+    &_role_table
+      &:nth-child(even)
+        background-color: #FFF
+
+      &:nth-child(odd)
+        background-color: #fbfbfb
+
+    // $Check block row MOD: marked
+    &_marked
+      background-color: #fbfbfb
+
+
+  // $Check block cell
+  &__cell
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    padding: 15px
+    text-align: center
+
+    @media screen and (max-width: 960px)
+      padding: 15px 10px
+
+    &_size_half
+      width: 50%
+
+      &:not(:last-child)
+        border-right: 1px solid #eee
+
+    &_size_third
+      width: 50%
+
+      &:not(:last-child)
+        border-right: 1px solid #eee
+
+    &_size_fourth
+      width: 25%
+
+      &:not(:last-child)
+        border-right: 1px solid #eee
+
+    &_size_half#{&}_delimiter_light,
+    &_size_third#{&}_delimiter_light
+    &_size_fourth#{&}_delimiter_light
+      position: relative
+
+      &:not(:last-child)
+        border-right: none
+
+        &:after
+          content: ""
+          position: absolute
+          top: 50%
+          right: 0
+          display: block
+          width: 0
+          height: 30px
+          margin-top: -15px
+          border-right: 1px solid #ddd
+
+    // $Check block cell MOD: role table
+    &_role_table
+      min-height: 50px
+
+      &:nth-child(1)
+        padding-left: 20px
+        align-items: flex-end
+        text-align: right
+
+        @media screen and (max-width: 960px)
+          padding-left: 15px
+
+      &:nth-child(2)
+        padding-left: 25px
+        align-items: flex-start
+        text-align: left
+
+        @media screen and (max-width: 960px)
+          padding-left: 15px
+
+    // $Check block cell MOD: state alert
+    // $Check block cell MOD: state fail
+    // $Check block cell MOD: status rejected
+    &_state_alert,
+    &_status_fail
+      background-color: #ff8587
+
+    // $Check block cell MOD: status pass
+    &_status_pass
+      background-color: #67db72
+
+    // $Check block cell MOD: no border
+    &_no-border:not(:last-child)
+      border: none
+
+
+  // $Check block box
+  &__box
+    display: block
+    width: 100%
+    min-height: 70px
+    padding: 10px
+    border: 2px solid $boss-very-light-gray
+    border-radius: 6px
+
+    &:not(:last-child)
+      margin-bottom: 15px
+
+    // $Check block box MOD: role clickable action
+    &_role_action
+      cursor: pointer
+
+
+  &__title,
+  &__text
+    +text-normalizer()
+    max-width: 100%
+    text-align: inherit
+
+    &_role_date,
+    &_role_date-calendar,
+    &_role_time,
+    &_role_user,
+    &_role_venue,
+    &_role_voucher,
+    &_role_note,
+    &_role_location,
+    &_role_payment,
+    &_role_arcade,
+    &_role_message,
+    &_role_accessory,
+    &_role_alert-action
+
+      &:before
+        content: ""
+        display: inline-block
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_time
+      &:before
+        background-image: url('../icons/icon-clock-dark-gray.svg')
+
+    &_role_date-calendar
+      &:before
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_user
+      &:before
+        background-image: url('../icons/icon-user-dark-gray.svg')
+
+    &_role_venue
+      &:before
+        background-image: url('../icons/icon-storefront-dark-gray.svg')
+
+    &_role_voucher
+      &:before
+        background-image: url('../icons/icon-ticket-dark-gray.svg')
+
+    &_role_location
+      &:before
+        background-image: url('../icons/icon-location-pin-dark-gray.svg')
+
+    &_role_note
+      &:before
+        background-image: url('../icons/icon-envelope-dark-gray.svg')
+
+    &_role_payment
+      &:before
+        background-image: url('../icons/icon-wallet-dark-gray.svg')
+
+    &_role_arcade
+      &:before
+        background-image: url('../icons/icon-arcade-dark-gray.svg')
+
+    &_role_message
+      &:before
+        background-image: url('../icons/icon-text-paper-dark-gray.svg')
+
+    &_role_accessory
+      &:before
+        background-image: url('../icons/icon-tshirt-dark-gray.svg')
+
+    &_role_alert-action
+      &:before
+        background-image: url('../icons/icon-danger-alert.svg')
+
+    &_indicator_att,
+    &_indicator_notes,
+    &_indicator_images,
+    &_indicator_notes-images
+      position: relative
+      padding-right: 25px
+
+      &:after
+        content: ""
+        position: absolute
+        display: inline-block
+        width: 25px
+        height: 14px
+        margin-top: 7px
+        background-repeat: no-repeat
+        background-position: 10px center
+        background-size: 15px 14px
+        vertical-align: middle
+
+    &_indicator_att,
+    &_indicator_notes
+      &:after
+        background-image: url('../icons/icon-envelope-dark-gray.svg')
+
+    &_indicator_images
+      &:after
+        background-image: url('../icons/icon-camera-dark-gray.svg')
+
+    &_indicator_notes-images
+      padding-right: 50px
+      &:after
+        width: 50px
+        background-image: url('../icons/icon-envelope-dark-gray.svg'), url('../icons/icon-camera-dark-gray.svg')
+        background-position: 10px center, 35px center
+
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
+
+  // $Check block title
+  &__title
+    font-size: 18px
+    font-weight: 600
+
+    &_role_date,
+    &_role_date-calendar,
+    &_role_time,
+    &_role_user,
+    &_role_venue,
+    &_role_voucher,
+    &_role_note,
+    &_role_location,
+    &_role_payment,
+    &_role_arcade,
+    &_role_message,
+    &_role_accessory,
+    &_role_alert-action
+      &:before
+        width: 18px
+        height: 18px
+        margin-right: 10px
+        margin-top: -3px
+
+    // $Check block title MOD: role clickable action
+    &_role_action
+      cursor: pointer
+
+    &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
+
+    // $Check block title status
+  &__title-status
+    font-weight: 400
+    color: #808080
+
+
+  // $Check block text
+  &__text
+
+    &_role_date,
+    &_role_date-calendar,
+    &_role_time,
+    &_role_user,
+    &_role_venue,
+    &_role_voucher,
+    &_role_note,
+    &_role_location,
+    &_role_payment,
+    &_role_arcade,
+    &_role_message,
+    &_role_accessory,
+    &_role_alert-action
+
+      &:before
+        width: 16px
+        height: 16px
+        margin-right: 7px
+        margin-top: -3px
+
+    &_role_date
+      #{$block}_page_safe-checks-index &,
+      #{$block}_page_checklist-review &,
+      #{$block}_page_vouchers-index &
+        font-size: 16px
+        font-weight: 600
+        letter-spacing: -1px
+        text-align: left
+
+      &:before
+        #{$block}_page_safe-checks-index &,
+        #{$block}_page_checklist-review &,
+        #{$block}_page_vhci &
+          background-image: url('../icons/icon-clock-dark-gray.svg')
+
+
+    &_role_voucher
+      &:before
+        width: 18px
+        height: 18px
+
+    &_role_location
+      &:before
+        width: 16px
+        height: 16px
+
+    // $Check block text MOD: marked
+    &_marked
+      font-size: 16px
+      font-weight: 600
+
+    // $Check block text MOD: role main
+    &_role_main
+      font-size: 16px
+      font-weight: 600
+      color: #4c4c4c
+
+    // $Check block text MOD: role primary
+    &_role_primary
+      font-size: 14px
+      font-weight: 600
+      color: #4c4c4c
+
+    // $Check block text MOD: role secondary
+    &_role_secondary
+      font-size: 12px
+      color: #808080
+
+    // $Check block text MOD: state alert
+    &_state_alert
+      color: #FFF
+
+    // $Check block text MOD: status fail
+    // $Check block text MOD: status pass
+    &_status_fail,
+    &_status_pass
+      font-size: 18px
+      text-transform: uppercase
+      color: #FFF
+      text-align: center
+
+    // $Check block text MOD: role clickable action
+    &_role_action
+      cursor: pointer
+
+    &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
+
+
+  // $Check block text line
+  &__text-line
+    display: block
+
+
+  // $Check block text label
+  &__text-label
+    color: #808080
+
+
+  // $Check block link
+  &__link
+    +text-normalizer()
+    color: inherit
+    font-weight: inherit
+    text-decoration: none
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: none
+      color: inherit
+
+
+  // $Check block label
+  &__label
+    margin-top: 5px
+    padding: 6px 12px
+
+    @media screen and (max-width: 400px)
+      padding: 6px 12px
+
+
+  &__indicator
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
+    width: 35px
+    height: 35px
+    font-size: 22px
+    line-height: 35px
+    font-weight: 600
+    color: #FFF
+    text-align: center
+    border-radius: 50%
+    background-color: map-get($boss-app-palette, primary)
+
+    @media screen and (max-width: 400px)
+      width: 30px
+      height: 30px
+      font-size: 18px
+      line-height: 30px
+
+    &_position_before
+      margin-right: 20px
+
+      @media screen and (max-width: 400px)
+        margin-right: 10px
+
+    &_position_after
+      margin-left: 20px
+
+      @media screen and (max-width: 400px)
+        margin-left: 10px
+
+    &_priority_high
+      background-color: map-get($boss-app-palette, alert)
+
+    &_priority_medium
+      background-color: map-get($boss-app-palette, warning)
+
+    &_priority_low
+      background-color: map-get($boss-app-palette, secondary)
+
+
+  // $Check block dropdown
+  &__dropdown
+
+    #{$block}_page_maintenance-index &
+      background-color: #fbfbfb
+
+    // $Check block dropdown CONTEXT: $Check block MOD: page message board
+    #{$block}_page_message-board &
+      padding: 15px 10px
+      background-color: #fbfbfb
+      border-bottom: 1px solid #eee
+
+    // $Check block dropdown MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Check block dropdown link
+  &__dropdown-link
+    +text-normalizer()
+    color: $boss-dark-gray
+    vertical-align: middle
+    outline: none
+    text-decoration: none
+    white-space: nowrap
+    cursor: pointer
+
+    &:hover
+      color: $boss-dark-gray
+
+    &:focus
+      color: $boss-dark-gray
+
+    &:after
+      content: ""
+      display: inline-block
+      width: 10px
+      height: 10px
+      margin-left: 10px
+      margin-top: -3px
+      background-image: url('../icons/icon-arrow-down-dark-gray.svg')
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      vertical-align: middle
+      transform: rotate(180deg)
+
+    &_type_icon
+      font-size: 0
+      line-height: 0
+      color: transparent
+
+      &:after
+        width: 30px
+        height: 30px
+        background-size: 15px 15px
+
+    // $Check block dropdown link MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+    // $Check block dropdown link MOD: state inactive
+    &_state_inactive
+      cursor: default
+      &:after
+        display: none
+
+
+  // $Check block info
+  &__info
+    display: block
+    width: 100%
+    min-height: 70px
+    padding: 10px
+
+    // $Check block info MOD: role clickable action
+    &_role_action
+      cursor: pointer
+
+
+  &__info-content
+    text-align: left
+
+
+  // $Check block info text
+  &__info-text
+    +text-normalizer()
+
+    // $Check block info text role main
+    &_role_main
+      font-size: 18px
+      font-weight: 600
+
+      #{$block}_page_message-board &
+        font-size: 16px
+
+    // $Check block info text marked
+    &_marked
+      font-weight: 600
+
+
+  // $Check block info table
+  &__info-table
+    display: block
+    width: 100%
+    padding: 10px 0
+
+
+  // $Check block info row
+  &__info-row
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: stretch
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_users-index &
+        flex-direction: column
+        align-items: center
+
+    @media screen and (max-width: 479px)
+      #{$block}_page_invites-index &
+        justify-content: flex-start
+
+    &:not(:last-child)
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          border-bottom: 1px solid #eee
+
+
+  // $Check block info cell
+  &__info-cell
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 50%
+    padding: 10px 15px
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_users-index &
+        width: 100%
+
+    &:first-child
+      align-items: flex-end
+      text-align: right
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          align-items: center
+          text-align: center
+          padding-bottom: 0
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_invites-index &
+          flex-grow: 0
+          flex-shrink: 0
+          width: 100px
+
+    &:last-child
+      align-items: flex-start
+      text-align: left
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-index &
+          align-items: center
+          text-align: center
+
+      @media screen and (max-width: 479px)
+        #{$block}_page_invites-index &
+          width: calc(100% - 100px)
+
+
+  // $Check block action
+  &__action
+    flex-grow: 1
+    width: 50%
+    padding: 15px
+    border-radius: 0
+    text-align: center
+
+    @media screen and (max-width: 400px)
+      padding: 15px
+
+
+  // $Check block button
+  &__button
+    &:not(:last-of-type)
+      margin-right: 20px
+
+
+  // $Check block meta
+  &__meta
+    +text-normalizer()
+    font-size: 12px
+    text-align: center
+    color: $boss-light-gray
+
+
+  // $Check block meta text
+  &__meta-text
+    display: block
+    font-weight: 600
+
+
+  // $Check block meta label
+  &__meta-label
+    display: block
+
+    // $Check block meta label MOD: role time
+    &_role_time
+      &:before
+        content: ""
+        display: inline-block
+        width: 12px
+        height: 12px
+        margin-right: 5px
+        margin-top: -2px
+        background-image: url('../icons/icon-clock-medium-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle

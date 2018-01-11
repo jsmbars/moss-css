@@ -1,0 +1,162 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Questionnaire
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-questionnaire"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+  // $Questionnaire MOD: space medium
+  &_space_medium
+    padding: 30px 0 30px
+
+
+  // $Questionnaire list
+  &__list
+    display: block
+    margin: 0
+    padding: 0 30px 0 105px
+    list-style: none
+
+    @media screen and (max-width: 1280px)
+      padding: 0 20px 0 90px
+
+    @media screen and (max-width: 480px)
+      padding-left: 60px
+
+
+  // $Questionnaire item
+  &__item
+    position: relative
+    display: block
+    margin-bottom: 30px
+
+    &:after
+      content: ""
+      position: absolute
+      top: 25px
+      bottom: -55px
+      right: calc(100% + 45px)
+      margin-right: -3px
+      z-index: 10
+      display: block
+      width: 6px
+      background-color: map-get($boss-app-palette, inactive)
+
+      @media screen and (max-width: 480px)
+        top: 15px
+        bottom: -45px
+        right: calc(100% + 30px)
+        width: 4px
+        margin-right: -2px
+
+    &:last-of-type
+      margin-bottom: 10px
+
+      &:after
+        display: none
+
+    // $Questionnaire item MOD: state visible
+    &_state_visible
+      display: block
+
+    // $Questionnaire item MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Questionnaire pointer
+  &__pointer
+    +text-normalizer()
+    position: absolute
+    top: 0
+    right: calc(100% + 20px)
+    z-index: 100
+    display: block
+    width: 50px
+    height: 50px
+    margin: 0
+    background-color: map-get($boss-app-palette, inactive)
+    border-radius: 50%
+    font-size: 18px
+    color: #FFF
+    transition: all .4s
+
+    // $Questionnaire pointer MOD: state active
+    &_state_active
+      background-color: map-get($boss-app-palette, primary)
+
+    @media screen and (max-width: 480px)
+      width: 30px
+      height: 30px
+      top: 10px
+      right: calc(100% + 15px)
+      font-size: 15px
+
+
+  // $Questionnaire pointer text
+  &__pointer-text
+    position: absolute
+    top: 50%
+    left: 50%
+    display: block
+    transform: translate(-50%, -50%)
+
+
+  // $Questionnaire question
+  &__question
+    position: relative
+    border-radius: 10px
+    border: 2px solid map-get($boss-app-palette, inactive)
+    transition: all .4s
+
+    &:before
+      content: ""
+      position: absolute
+      top: 25px
+      right: calc(100% - 1px)
+      z-index: 10
+      display: block
+      width: 0
+      height: 0
+      margin-top: -11px
+      border-top: 11px solid transparent
+      border-bottom: 11px solid transparent
+      border-right: 11px solid #FFF
+
+    &:after
+      content: ""
+      position: absolute
+      top: 25px
+      right: 100%
+      z-index: 9
+      display: block
+      width: 0
+      height: 0
+      margin-top: -13px
+      border-top: 13px solid transparent
+      border-bottom: 13px solid transparent
+      border-right: 13px solid map-get($boss-app-palette, inactive)
+      transition: all .4s
+
+    // $Questionnaire question MOD: state active
+    &_state_active
+      border-color: map-get($boss-app-palette, primary)
+
+      &:after
+        border-right-color: map-get($boss-app-palette, primary)
+

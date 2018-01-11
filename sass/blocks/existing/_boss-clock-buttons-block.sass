@@ -1,0 +1,15 @@
+@import '../../helpers/settings'
+@import '../../helpers/mixins'
+
+.boss-clock-buttons-block
+  +normalize-block()
+
+  &_adjust_button
+    &.boss-clock-button_type_big
+      margin-right: 1em
+
+    &.boss-clock-button_type_small
+      margin-bottom: 0.8em
+
+    &:last-child
+      margin: 0

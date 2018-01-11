@@ -1,0 +1,261 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Results
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-results"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+  border: 1px solid #eee
+
+
+  // $Results group
+  &__group
+    position: relative
+    display: block
+    width: 100%
+
+    &:nth-of-type(even)
+      background-color: #f8f8f8
+
+
+  // $Results switch
+  &__switch
+    content: ""
+    position: absolute
+    top: 18px
+    left: 10px
+    display: none
+    width: 20px
+    height: 15px
+    margin: 0 auto
+    background: url(../icons/arrow-left-dark-gray.svg) center center no-repeat
+    background-size: contain
+    cursor: pointer
+    transform: rotate(-90deg)
+    transform-origin: center center
+    transition: all .4s
+
+    @media screen and (max-width: 960px)
+      display: block
+
+    // $Results switch MOD: state opened
+    &_state_opened
+      transform: rotate(90deg)
+
+    // $Results switch MOD: state closed
+    &_state_closed
+      transform: rotate(-90deg)
+
+
+  // $Results meta information
+  &__meta
+    max-height: 0
+    overflow: hidden
+    transition: max-height .4s
+
+    // $Results meta information MOD: state opened
+    &_state_opened
+      @media screen and (max-width: 960px)
+        max-height: 400px
+
+    // $Results meta information MOD: state closed
+    &_state_closed
+      @media screen and (max-width: 960px)
+        max-height: 0
+        overflow: hidden
+
+
+  // $Results meta information inner container
+  &__meta-inner
+    width: 100%
+    max-width: 325px
+    margin: 0
+    padding-left: 55px
+    padding-bottom: 30px
+
+
+  // $Results meta information item
+  &__meta-item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    padding: 10px
+    border-bottom: 1px solid #eee
+
+
+  // $Results meta information label
+  &__meta-label
+    +text-normalizer()
+    flex-grow: 1
+    width: 50%
+    text-transform: uppercase
+    font-weight: bold
+
+
+  // $Results meta information value
+  &__meta-value
+    +text-normalizer()
+    flex-grow: 1
+    width: 50%
+
+
+  // $Results row
+  &__row
+    display: flex
+    flex-direction: row
+    width: 100%
+
+
+  // $Results cell
+  &__cell
+    +text-normalizer()
+    flex-shrink: 0
+    padding: 15px
+    border: 1px solid #eee
+
+    @media screen and (max-width: 1280px)
+      padding: 15px 10px
+
+    &:nth-of-type(1)
+      width: 120px
+
+      @media screen and (max-width: 960px)
+        width: 110px
+
+    &:nth-of-type(2)
+      width: 130px
+
+      @media screen and (max-width: 960px)
+        display: none
+
+    &:nth-of-type(3)
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
+
+    &:nth-of-type(4)
+      width: 140px
+
+      @media screen and (max-width: 960px)
+        display: none
+
+    &:nth-of-type(5)
+      width: 100px
+
+      @media screen and (max-width: 960px)
+        width: 90px
+
+    // $Results cell MOD: role header
+    &_role_header
+      position: relative
+      padding: 15px
+      border: 1px solid #eee
+      text-transform: uppercase
+      font-weight: bold
+
+      @media screen and (max-width: 1280px)
+        padding: 15px 10px
+
+    // $Results cell MOD: status
+    &_status_rejected,
+    &_status_approved,
+    &_status_failed,
+    &_status_passed,
+      &:before
+        content: ""
+        display: block
+        width: 20px
+        height: 20px
+        margin: 0 auto
+        background-size: contain
+        background-position: center center
+        background-repeat: no-repeat
+
+    // $Results cell MOD: status rejected
+    &_status_rejected
+      &:before
+        background-image: url(../icons/thumb-down_red.svg)
+
+    // $Results cell MOD: status approved
+    &_status_approved
+      &:before
+        background-image: url(../icons/thumb-up_green.svg)
+
+    // $Results cell MOD: status failed
+    &_status_failed
+      &:before
+        background-image: url(../icons/thumb-down_red.svg)
+
+    // $Results cell MOD: status passed
+    &_status_passed
+      &:before
+        background-image: url(../icons/thumb-up_green.svg)
+
+    // $Results cell MOD: action popover
+    &_action_popover
+      position: relative
+      &:before
+        content: ""
+        display: block
+        width: 20px
+        height: 20px
+        background: url(../icons/envelope.svg) center center no-repeat
+        background-size: contain
+        cursor: pointer
+
+
+  // $Results sort link
+  &__sort
+    position: absolute
+    right: 0
+    top: 0
+    bottom: 0
+    z-index: 10
+    display: block
+    width: 35px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    outline: none
+
+    &:before
+      content: ""
+      position: absolute
+      right: 10px
+      top: 50%
+      display: block
+      width: 15px
+      height: 20px
+      margin-top: -11px
+      background-image: url(../icons/sort.svg)
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+      opacity: .2
+      transition: opacity .4s
+
+    &:hover,
+    &:focus
+      color: transparent
+      outline: none
+
+    &:hover
+      &:before
+        opacity: 1
+
+

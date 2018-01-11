@@ -1,0 +1,117 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Avatar
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-avatar"
+
+#{$block}
+  $avatar-side-size: 120px
+  position: relative
+  display: block
+  width: $avatar-side-size
+  height: $avatar-side-size
+  border-radius: 50%
+  overflow: hidden
+
+  &-avatar-container
+    position: relative
+    border-radius: 50%
+
+    &:before
+      content: ''
+      position: absolute
+      visibility: hidden
+      right: 0
+      top: -5px
+      width: 30px
+      height: 30px
+      z-index: 1
+      border: 6px solid white
+      border-radius: 50%
+
+    &_role
+      &_clocked-out
+        &:before
+          visibility: visible
+          background-color: map-get($boss-sign-palette, clocked-out)
+
+  // $Avatar MOD: type small
+  &_type_small
+    width: 40px
+    height: 40px
+
+  // $Avatar MOD: type big
+  &_type_big
+    width: 150px
+    height: 150px
+
+  // $Avatar MOD: type combined
+  &_type_combined
+    width: 80px
+    height: 80px
+
+    @media screen and (max-width: 960px)
+      width: 100px
+      height: 100px
+
+
+  // $Avatar overlay
+  &__overlay
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 1
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    background-color: #FFF
+    border-radius: 50%
+    border: 1px solid $boss-extra-light-gray
+
+
+  // $Avatar overlay text
+  &__overlay-text
+    +text-normalizer()
+    display: block
+    max-width: 100%
+    text-align: center
+    color: #4c4c4c
+
+    &_role_retake
+      font-size: 14px
+      font-weight: 600
+      color: map-get($boss-app-palette, alert)
+      text-transform: uppercase
+
+      #{$block}_type_combined &
+        font-size: 12px
+
+      #{$block}_type_big &
+        font-size: 18px
+
+      #{$block}_type_small &
+        font-size: 7px
+
+      @media screen and (max-width: 960px)
+        #{$block}_type_combined &
+          font-size: 14px
+
+
+  // $Avatar image
+  &__image
+    display: block
+    width: 100%
+    max-width: 100%

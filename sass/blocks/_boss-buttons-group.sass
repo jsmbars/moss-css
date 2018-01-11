@@ -1,0 +1,33 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Buttons group
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-buttons-group"
+
+#{$block}
+
+  +normalize-block()
+
+  // $Buttons group MOD: adjust
+  &_adjust
+    // $Buttons group MOD: adjust button
+    &_button
+      display: inline-block
+
+      & + &
+        margin-left: 6px !important
+
+    // $Buttons group MOD: adjust button single
+    &_button-single
+      display: inline-block
+      text-align: center

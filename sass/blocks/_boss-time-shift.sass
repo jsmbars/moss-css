@@ -1,0 +1,768 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Time shift
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-time-shift"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+  border: 1px solid $boss-very-light-gray
+
+
+  // $Time shift header
+  &__header
+    display: block
+    width: 100%
+    padding: 20px 15px
+    border-bottom: 1px solid $boss-very-light-gray
+
+
+  // $Time shift title
+  &__title
+    +text-normalizer()
+    font-size: 14px
+    color: $boss-dark-gray
+
+
+  // $Time shift form
+  &__form
+    display: block
+    width: 100%
+    padding: 20px 15px
+
+
+  // $Time shift log
+  &__log
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+    margin-bottom: 5px
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+
+    // $Time shift log MOD: layout break
+    &_layout_break
+      margin-bottom: 0
+
+
+  // $Time shift group
+  &__group
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+
+    // $Time shift group CONTEXT: $Time shift log MOD: layout break
+    #{$block}__log_layout_break &
+      flex-grow: 0
+      width: auto
+
+    // $Time shift group CONTEXT: $Time shift log MOD: state accepted
+    #{$block}__log_state_accepted &
+      flex-direction: row
+
+    @media screen and (max-width: 1280px)
+      flex-direction: column
+
+      #{$block}__log_layout_break &
+        flex-grow: 1
+        flex-direction: row
+        width: 100%
+
+    @media screen and (max-width: 1120px)
+      flex-direction: row
+
+      #{$block}__log_layout_break &
+        flex-grow: 0
+        flex-direction: row
+        width: auto
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+
+      #{$block}__log_layout_break &
+        flex-grow: 1
+        flex-direction: row
+        width: 100%
+
+    @media screen and (max-width: 400px)
+      #{$block}__log_state_accepted &
+        flex-direction: column
+
+
+  // $Time shift time
+  &__time
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    align-items: flex-start
+    width: 100%
+    max-width: 300px
+    padding-right: 20px
+
+    // $Time shift time CONTEXT: $Time shift log MOD: state accepted
+    #{$block}__log_state_accepted &
+      width: 50%
+      padding-right: 10px
+
+    @media screen and (max-width: 1280px)
+      flex-grow: 1
+      flex-shrink: 1
+      max-width: none
+
+    @media screen and (max-width: 1120px)
+      flex-grow: 0
+      flex-shrink: 0
+      max-width: 300px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 1
+      max-width: none
+      padding-right: 0
+
+    @media screen and (max-width: 480px)
+      #{$block}__log_state_accepted &
+        width: 60%
+        padding-right: 5px
+
+    @media screen and (max-width: 400px)
+      #{$block}__log_state_accepted &
+        width: 100%
+        padding-right: 0
+
+
+  // $Time shift interval
+  &__interval
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-end
+    width: 100%
+    margin-bottom: 20px
+
+    // $Time shift select CONTEXT: $Time shift log
+    #{$block}__log_layout_break &
+      margin-bottom: 0
+
+
+  // $Time shift hours
+  &__hours
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 120px
+
+    // $Time shift hours CONTEXT: $Time shift log MOD: state accepted
+    #{$block}__log_state_accepted &
+      flex-grow: 0
+      width: auto
+
+    @media screen and (max-width: 1280px)
+      flex-grow: 1
+      flex-shrink: 1
+      width: calc(50% - 20px)
+
+    @media screen and (max-width: 1120px)
+      flex-grow: 0
+      flex-shrink: 0
+      width: 120px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 1
+      width: calc(50% - 20px)
+
+    @media screen and (max-width: 400px)
+      width: calc(50% - 12px)
+
+
+  // $Time shift delimeiter
+  &__delimiter
+    flex-grow: 0
+    flex-shrink: 0
+    position: relative
+    display: block
+    width: 40px
+    height: 45px
+
+    @media screen and (max-width: 400px)
+      width: 25px
+
+    &:after
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 10px
+      height: 0
+      border: 1px solid $boss-medium-gray
+      transform: translate(-50%, -50%)
+
+
+  // $Time shift label
+  &__label
+    +text-normalizer()
+    margin-bottom: 5px
+    font-size: 14px
+    color: $boss-medium-gray
+
+
+  // $Time shift label text
+  &__label-text
+
+
+  // $Time shift select
+  &__select
+    position: relative
+    display: block
+    width: 100%
+    height: 45px
+
+    &:before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 15px
+      z-index: 10
+      display: block
+      width: 15px
+      height: 15px
+      background: url(../icons/icon-clock-medium-gray.svg) no-repeat 0 0
+      background-size: contain
+      transform: translateY(-50%)
+
+      #{$block}__log_state_accepted &
+        left: 0
+
+      @media screen and (max-width: 400px)
+        left: 10px
+
+
+    // $Time shift MOD: error
+    &_state_error
+      &:before
+        background: url(../icons/icon-clock-alert.svg) no-repeat 0 0
+        background-size: contain
+
+
+  &__select
+
+    #{$block}__log_state_accepted &
+      & .Select
+        display: none
+
+
+    & .Select-control
+      height: 45px
+      border-radius: 2px
+      border-color: #d8d8d8
+
+    & .Select-placeholder,
+    & .Select--single > .Select-control .Select-value
+      line-height: 45px
+      padding-left: 40px
+      padding-right: 10px
+
+      @media screen and (max-width: 400px)
+        padding-left: 35px
+
+    & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+    & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+      color: #808080
+
+    & .Select-input
+      height: auto
+      line-height: 45px
+      padding-left: 40px
+      padding-right: 10px
+
+      & input
+        height: auto
+        line-height: 45px
+        padding: 0
+
+    & .Select-option
+      padding: 10px 10px 10px 40px
+      color: #808080
+
+      @media screen and (max-width: 400px)
+        padding-left: 35px
+
+    & .Select-menu-outer
+      border-color: #d8d8d8
+
+    &_state_error
+      & .Select-control,
+      & .Select-menu-outer
+        border-color: map-get($boss-app-palette, alert)
+
+      & .has-value.Select--single > .Select-control .Select-value .Select-value-label,
+      & .has-value.is-pseudo-focused.Select--single > .Select-control .Select-value .Select-value-label
+        color: map-get($boss-app-palette, alert)
+
+
+
+  // $Time shift select value
+  &__select-value
+    +text-normalizer()
+    display: none
+    width: 100%
+    height: auto
+    box-sizing: border-box
+    background: none
+    padding: 12px 0 12px 30px
+    color: $boss-medium-gray
+
+    // $Time shift select value CONTEXT: $Time shift log MOD: state accepted
+    #{$block}__log_state_accepted &
+      display: block
+
+
+  // $Time shift error
+  &__error
+    flex-grow: 1
+    display: block
+    width: 100%
+    margin-bottom: 30px
+    padding: 10px
+    background-color: map-get($boss-app-palette, alert)
+    border: 1px solid map-get($boss-app-palette, alert-border)
+    border-radius: $boss-global-border-radius
+
+    @media screen and (max-width: 1280px)
+      margin-bottom: 15px
+
+    @media screen and (max-width: 1120px)
+      margin-bottom: 30px
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 15px
+
+
+  // $Time shift error text
+  &__error-text
+    +text-normalizer()
+    position: relative
+    display: block
+    font-size: 14px
+    line-height: 1.8
+    font-weight: 300
+    color: #FFF
+
+    // $Time shift error text MOD: role title
+    &_role_title
+      font-weight: 400
+
+
+  // $Time shift message
+  &__message
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    padding-right: 20px
+
+    // $Time shift message CONTEXT: $Time shift log MOD: state accepted
+    #{$block}__log_state_accepted &
+      flex-shrink: 0
+      width: 50%
+      padding-left: 10px
+
+    @media screen and (max-width: 1280px)
+      margin-bottom: 15px
+
+    @media screen and (max-width: 1120px)
+      margin-bottom: 0
+
+    @media screen and (max-width: 960px)
+      padding-right: 0
+
+    @media screen and (max-width: 480px)
+      #{$block}__log_state_accepted &
+        width: 40%
+        padding-left: 5px
+
+    @media screen and (max-width: 400px)
+      #{$block}__log_state_accepted &
+        width: 100%
+        margin-bottom: 10px
+        padding-left: 0
+
+
+  // $Time shift message value
+  &__message-value
+    +text-normalizer()
+    display: none
+    font-size: 14px
+    padding: 12px 0
+    color: $boss-medium-gray
+
+    // $Time shift message value CONTEXT: $Time shift log MOD: state accepted
+    #{$block}__log_state_accepted &
+      display: block
+
+
+  // $Time shift trextarea
+  &__textarea
+    resize: vertical
+    display: block
+    width: 100%
+    height: 95px
+    margin: 0
+    box-sizing: border-box
+    border: 1px solid $boss-very-light-gray
+    padding: 13px 20px
+    box-shadow: none
+
+    // $Time shift trextarea CONTEXT: $Time shift log MOD: state accepted
+    #{$block}__log_state_accepted &
+      display: none
+
+    &:focus
+      outline: none
+      box-shadow: none
+      border-color: $boss-very-light-gray
+
+
+  // $Time shift actions
+  &__actions
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    min-width: 160px
+    padding-top: 25px
+
+    // $Time shift actions CONTEXT: $Time shift log MOD: state accepted
+    #{$block}__log_state_accepted &
+      padding-top: 0
+
+    // $Time shift actions CONTEXT: $Time shift log MOD: layout break
+    #{$block}__log_layout_break &
+      flex-direction: row
+      margin-bottom: 0
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 1
+      flex-direction: row
+      width: 100%
+      margin-bottom: 15px
+
+    @media screen and (max-width: 400px)
+      flex-direction: column
+
+
+  // $Time shift button
+  &__button
+    margin-bottom: 10px
+
+    // $Time shift button CONTEXT: $Time shift log MOD: layout break
+    #{$block}__log_layout_break &
+      margin-bottom: 0
+      margin-right: 20px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      width: 100%
+      margin-bottom: 0
+      margin-right: 20px
+      padding-left: 15px
+      padding-right: 15px
+      text-align: center
+
+    @media screen and (max-width: 480px)
+      margin-right: 10px
+      padding-left: 10px
+      padding-right: 10px
+
+      #{$block}__log_layout_break &
+        margin-right: 10px
+
+    @media screen and (max-width: 400px)
+      margin-right: 0
+      margin-bottom: 10px
+
+    // $Time shift button MOD: role add break
+    &_role_add-break
+      @media screen and (max-width: 960px)
+        #{$block}__log_layout_break &
+          flex-grow: 0
+          width: auto
+          margin-right: 0
+
+    // $Time shift button MOD: role delete break
+    &_role_delete-break
+
+      @media screen and (max-width: 960px)
+        flex-grow: 0
+        width: auto
+        padding-left: 15px
+        padding-right: 15px
+
+    // $Time shift button MOD: role accept shift
+    &_role_accept-shift
+
+    // $Time shift button MOD: role delete shift
+    &_role_delete-shift
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+
+      @media screen and (max-width: 400px)
+        margin-bottom: 0
+
+    // $Time shift button MOD: role unaccept shift
+    &_role_unaccept-shift
+      display: none
+
+      @media screen and (max-width: 960px)
+        margin-right: 0
+
+      @media screen and (max-width: 400px)
+        margin-bottom: 0
+
+    // $Time shift button MOD: state hidden
+    &_state_hidden
+      display: none
+
+    // $Time shift button MOD: state visible
+    &_state_visible
+      display: inline-block
+
+
+  // $Time shift button count
+  &__button-count
+
+
+  // $Time shift status
+  &__status
+    +text-normalizer()
+    display: none
+    width: auto
+    max-width: 180px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      width: 100%
+      max-width: none
+      margin-right: 20px
+
+    @media screen and (max-width: 480px)
+      margin-right: 15px
+
+    @media screen and (max-width: 400px)
+      margin-right: 0
+      text-align: center
+
+    // $Time shift status MOD: state visible
+    &_state_visible
+      display: inline-block
+
+    // $Time shift status MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Time shift status count
+  &__status-count
+    display: block
+    font-size: 16px
+    font-weight: 600
+    white-space: nowrap
+    color: map-get($boss-app-palette, secondary)
+
+
+  // $Time shift status meta
+  &__status-meta
+    display: block
+    margin-bottom: 10px
+    color: #808080
+
+
+
+  // $Time shift break
+  &__break
+    position: relative
+    display: block
+    width: 100%
+
+
+  // $Time shift break controls
+  &__break-controls
+    position: absolute
+    left: 0
+    bottom: 100%
+    display: block
+    width: auto
+
+    @media screen and (max-width: 1280px)
+      position: relative
+      left: auto
+      bottom: auto
+
+    @media screen and (max-width: 1120px)
+      position: absolute
+      left: 0
+      bottom: 100%
+
+    @media screen and (max-width: 960px)
+      position: relative
+      left: auto
+      bottom: auto
+
+
+  // $Time shift break add link
+  &__break-add
+    +text-normalizer()
+    display: block
+    color: $boss-medium-gray
+    outline: none
+    white-space: nowrap
+    vertical-align: middle
+    text-decoration: underline
+    font-weight: 600
+
+    &:hover
+      text-decoration: none
+      color: $boss-medium-gray
+
+    &:focus
+      color: $boss-medium-gray
+
+    &:before
+      content: ""
+      display: inline-block
+      width: 12px
+      height: 12px
+      margin-right: 5px
+      background-image: url(../icons/icon-plus-medium-gray.svg)
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+
+    // $Time shift break add link MOD: state hidden
+    &_state_hidden
+      display: none
+
+    // $Time shift break add link MOD: state visible
+    &_state_visible
+      display: block
+
+
+  // $Time shift break toggle
+  &__break-toggle
+    +text-normalizer()
+
+    position: relative
+    display: none
+    white-space: nowrap
+    vertical-align: middle
+    text-decoration: underline
+    cursor: pointer
+
+    &:before
+      content: ''
+      display: none
+      width: 9px
+      height: 9px
+      margin-right: 10px
+      background: url(../icons/icon-down-arrow-dark-gray.svg) no-repeat 0 0
+      background-repeat: no-repeat
+      background-position: center center
+      transform: rotate(0)
+      transition: all .4s
+
+    &:hover,
+    &:focus
+      color: $boss-global-font-color
+
+    // $Time shift break toggle link MOD: state hidden
+    &_state_hidden
+      display: none
+
+    // $Time shift break toggle link MOD: state visible
+    &_state_visible
+      display: block
+
+    // $Time shift break toggle MOD: state opened
+    &_state_opened
+      text-decoration: none
+
+      &:before
+        display: inline-block
+        transform: rotate(180deg)
+
+    // $Time shift break toggle MOD: state closed
+    &_state_closed
+      text-decoration: underline
+
+      &:before
+        display: none
+        transform: rotate(0)
+
+
+  // $Time shift break content
+  &__break-content
+    display: none
+    width: 100%
+
+    // $Time shift break content MOD: state opened
+    &_state_opened
+      display: block
+
+    // $Time shift break content MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Time shift break inner container
+  &__break-inner
+    position: relative
+    display: block
+    width: 100%
+    padding-top: 30px
+
+    &:before
+      content: ""
+      position: absolute
+      top: 15px
+      left: 0
+      right: 0
+      display: block
+      width: 100%
+      border-top: 1px solid map-get($boss-app-palette, inactive)
+
+
+  // $Time shift break-item
+  &__break-item
+    display: block
+    width: 100%
+    margin-bottom: 30px
+
+    &:last-of-type
+      margin-bottom: 0

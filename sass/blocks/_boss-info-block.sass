@@ -1,0 +1,66 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Info block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-info-block"
+
+#{$block}
+  +normalize-block()
+
+  display: inline-block
+  vertical-align: top
+
+  // $Info block MOD: type
+  &_type
+    // $Info block MOD: type with index
+    &_with-index
+      position: relative
+      padding-left: 45px
+
+
+  // $Info block header
+  &__header
+    font-size: 16px
+    font-weight: 600
+
+
+  // $Info block index
+  &__index
+    $index-side-size: 30px
+
+    position: absolute
+    top: 0
+    left: 0
+    width: $index-side-size
+    height: $index-side-size
+    margin-bottom: 8px
+    border-radius: 50%
+    text-align: center
+    overflow: hidden
+    color: white
+    line-height: $index-side-size
+    background-color: map-get($boss-app-palette, primary)
+
+
+  // $Info block image
+  &__image
+    display: block
+    width: 150px
+    height: 150px
+    overflow: hidden
+    border-radius: 50%
+
+
+  // $Info block error
+  &__error
+    color: map-get($boss-app-palette, error-text)

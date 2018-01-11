@@ -1,0 +1,57 @@
+html
+  +normalize-block()
+  margin: 0 !important
+  padding: 0 !important
+  box-sizing: border-box !important
+  height: 100% !important
+
+.is-ios *
+  cursor: pointer;
+
+.boss-body
+  +normalize-block()
+
+  position: relative
+  width: 100%
+  height: 100%
+  margin: 0
+  padding: 0
+  background-color: map-get($boss-app-palette, body-background)
+  color: $boss-dark-gray
+  overflow-x: hidden
+
+  @if ($boss-body-antialiased)
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+  &_state_inactive
+    &:before
+      content: ""
+      position: fixed
+      display: none
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 9999
+      background-color: rgba(0,0,0,.5)
+
+      @media screen and (max-width: 960px)
+        display: block
+
+  &_state_modal
+    overflow: hidden
+
+  &_state_menu
+    @media screen and (max-width: 640px)
+      overflow: hidden
+
+  &_state_notification
+    &:after
+      content: ""
+      display: block
+      width: 100%
+      height: 150px
+
+      @media screen and (max-width: 960px)
+        height: 250px

@@ -1,0 +1,204 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Notes block
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-notes"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+  // $Notes block label
+  &__label
+    +text-normalizer()
+    margin-bottom: 10px
+    font-size: 14px
+    font-weight: 600
+
+
+  // $Notes block content
+  &__content
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 10px
+    max-height: 200px
+    overflow: hidden
+
+    // $Notes block content CONTEXT: $Notes blockMOD: hrc page
+    #{$block}_page_hrc &
+      max-height: 140px
+
+    @media screen and (max-width: 1280px)
+      #{$block}_page_hrc &
+        max-height: 70px
+
+    @media screen and (max-width: 1120px)
+      #{$block}_page_hrc &
+        max-height: 140px
+
+    @media screen and (max-width: 960px)
+      #{$block}_page_hrc &
+        max-height: 80px
+
+    @media screen and (max-width: 800px)
+      #{$block}_page_hrc &
+        max-height: 90px
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_hrc &
+        max-height: 100px
+
+
+  // $Notes block content inner container
+  &__content-inner
+
+
+  // $Notes block lsit
+  &__list
+    position: relative
+    display: block
+    width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+
+    @media screen and (max-width: 1280px)
+
+      #{$block}_page_hrc &
+        column-count: 2
+        column-gap: 40px
+        column-width: 50%
+
+    @media screen and (max-width: 1120px)
+
+      #{$block}_page_hrc &
+        column-count: auto
+        column-gap: normal
+        column-width: auto
+
+    @media screen and (max-width: 960px)
+
+      #{$block}_page_hrc &
+        column-count: 2
+        column-gap: 40px
+        column-width: 50%
+
+    @media screen and (max-width: 400px)
+
+      #{$block}_page_hrc &
+        column-count: auto
+        column-gap: normal
+        column-width: auto
+
+
+  // $Notes block item
+  &__item
+    position: relative
+    display: block
+    margin-bottom: 10px
+    padding: 0
+    padding-left: 20px
+    line-height: 1.4
+
+    &:before
+      content: ""
+      position: absolute
+      top: 5px
+      left: 0
+      display: block
+      width: 7px
+      height: 7px
+      border-radius: 50%
+      background-color: map-get($boss-app-palette, primary)
+
+    // $Notes block item MOD: role not working
+    &_role_not-working
+      &:before
+        background-color: map-get($boss-app-palette, secondary)
+
+    // $Notes block item MOD: working
+    &_role_working
+      &:before
+        background-color: map-get($boss-app-palette, primary)
+
+    // $Notes block item MOD: state hidden
+    &_state_hidden
+      display: none
+
+    // $Notes block item MOD: state visible
+    &_state_visible
+      display: block
+
+
+  // $Notes block link
+  &__link
+    +text-normalizer()
+    font-size: 14px
+    line-height: 1.4
+    color: $boss-dark-gray
+    text-decoration: none
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: none
+      color: $boss-dark-gray
+
+
+  // $Notes block text
+  &__text
+    +text-normalizer()
+    font-size: 14px
+    cursor: pointer
+
+
+  // $Notes block button
+  &__button
+    position: relative
+    display: block
+    width: 100%
+    padding: 10px
+    background-color: #F3F3F3
+    text-align: center
+    color: $boss-dark-gray
+    text-decoration: underline
+    vertical-align: middle
+
+    &:after
+      content: ""
+      display: inline-block
+      width: 20px
+      height: 12px
+      margin-left: 5px
+      background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+      transform-origin: center center
+      vertical-align: middle
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: none
+      color: $boss-dark-gray
+
+    // $Notes block button MOD: state hidden
+    &_state_hidden
+      display: none
+
+
+  // $Notes block button notes count
+  &__button-count

@@ -1,0 +1,15 @@
+@import '../../helpers/settings'
+@import '../../helpers/mixins'
+
+.boss-filter-block
+  +normalize-block()
+
+  position: relative
+  padding: $boss-content-block-padding
+  background-color: white
+  border-bottom: 1px solid $boss-very-light-gray
+
+  &_adjust
+    &_buttons-group
+      margin: $boss-buttons-group-margin
+      text-align: center

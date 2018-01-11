@@ -1,0 +1,57 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Action
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-action"
+
+#{$block}
+  +text-normalizer()
+  display: inline-block
+  font-size: inherit
+  color: inherit
+  white-space: nowrap
+  cursor: pointer
+
+  &:before
+    content: ""
+    display: inline-block
+    width: 16px
+    height: 16px
+    margin-right: 5px
+    background-size: contain
+    background-repeat: no-repeat
+    background-position: center center
+    vertical-align: middle
+
+  &:hover
+    color: inherit
+
+  &_role_alert
+    color: map-get($boss-app-palette, alert)
+
+    &:before
+      background-image: url(../icons/icon-danger-alert.svg)
+
+    &:hover
+      color: map-get($boss-app-palette, alert)
+
+
+  // $Action text
+  &__text
+    display: inline-block
+    white-space: normal
+    text-decoration: underline
+    vertical-align: middle
+
+    #{$block}:hover &
+      text-decoration: none

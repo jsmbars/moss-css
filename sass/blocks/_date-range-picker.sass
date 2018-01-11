@@ -1,0 +1,379 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Date range picker
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".date-range-picker"
+
+#{$block}
+  display: block
+  width: 100%
+
+  & .DateRangePicker
+    display: block
+    width: 100%
+
+  & .DateRangePickerInput
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+
+    @media screen and (max-width: 400px)
+      white-space: nowrap
+
+  & .DateRangePickerInput__arrow
+    & svg
+      display: none
+
+    &:before
+      content: "\2014"
+      display: inline-block
+      font-weight: 600
+
+      @media screen and (max-width: 480px)
+        content: "\2013"
+
+  & .DateRangePickerInput__clear-dates
+    margin: 0
+    margin-left: auto
+
+  & .DateRangePickerInput__close-icon
+    & svg
+      width: 12px
+      height: 12px
+
+  & .DateRangePickerInput__clear-dates--hide
+    visibility: visible
+    opacity: 0.5
+    pointer-events: none
+
+  & .DateRangePickerInput__clear-dates:focus,
+  & .DateRangePickerInput__clear-dates--hover
+    background: none
+    border-radius: 0
+
+  & .DateInput
+    width: auto
+    min-height: 50px
+    padding: 12px 20px
+    background-color: transparent
+
+  & .DateInput__input
+    font-family: $boss-global-font-family
+    font-size: 14px
+    margin: 0
+    padding: 5px 15px
+    background-color: transparent
+    border-color: transparent
+
+  & .DateInput__display-text
+    padding: 0
+    font-family: $boss-global-font-family
+    font-size: 14px
+    font-weight: 400
+
+  & .DateInput__display-text--focused
+    background: transparent
+    border-color: transparent
+    color: #0060a6
+
+
+  // $Date range picker MOD: type interval
+  // $Date range picker MOD: type interval fluid
+  &_type_interval,
+  &_type_interval-fluid
+    & .DateRangePickerInput
+      border: none
+      background-color: transparent
+
+    & .DateRangePickerInput__clear-dates
+      margin: 0
+      padding-right: 0
+
+      @media screen and (max-width: 960px)
+        position: absolute
+        top: -30px
+        right: 0
+        padding: 0
+        white-space: nowrap
+
+      &:after
+        @media screen and (max-width: 960px)
+          content: "Clear"
+          display: inline-block
+          padding: 2px 5px
+          font-size: 14px
+          line-height: 1
+          color: #808080
+
+    & .DateRangePickerInput__close-icon
+      @media screen and (max-width: 960px)
+        display: inline-block
+
+      & svg
+        @media screen and (max-width: 960px)
+          width: 10px
+          height: 10px
+          vertical-align: baseline
+
+    & .DateInput
+      flex-grow: 1
+      flex-shrink: 1
+      position: relative
+      border: 1px solid #d8d8d8
+      border-radius: 2px
+      background-color: #FFF
+
+
+  // $Date range picker MOD: type interval
+  &_type_interval
+    & .DateInput
+
+      // First date input
+      &:first-of-type
+        margin-right: 10px
+
+        @media screen and (max-width: 480px)
+          margin-right: 5px
+
+      // Second date input
+      &:last-of-type
+        margin-left: 10px
+
+        @media screen and (max-width: 480px)
+          margin-left: 5px
+
+
+  // $Date range picker MOD: type interval fluid
+  &_type_interval-fluid
+    & .DateRangePickerInput
+      @media screen and (max-width: 960px)
+        flex-direction: column
+        align-items: flex-start
+
+    & .DateRangePickerInput__arrow
+      @media screen and (max-width: 960px)
+        display: none
+
+    & .DateInput
+      @media screen and (max-width: 960px)
+        width: 100%
+
+      // First date input
+      &:first-of-type
+        margin-right: 10px
+
+        @media screen and (max-width: 960px)
+          margin-right: 0
+          margin-bottom: 20px
+
+      // Second date input
+      &:last-of-type
+        margin-left: 10px
+
+        @media screen and (max-width: 960px)
+          margin-left: 0
+
+
+  // $Date range picker MOD: type icon
+  &_type_icon
+
+    & .DateInput,
+    & .DateInput__input
+      padding-right: 40px
+
+    & .DateInput
+      &:after
+        content: ""
+        position: absolute
+        top: 50%
+        right: 20px
+        display: block
+        width: 16px
+        height: 16px
+        margin-top: -9px
+        background-size: contain
+        vertical-align: middle
+        background-image: url(../icons/icon-calendar-medium-gray.svg)
+
+  // $Date range picker MOD: type interval with icon
+  &_type_interval#{&}_type_icon
+    & .DateInput,
+    & .DateInput__input
+      @media screen and (max-width: 400px)
+        padding-left: 15px
+        padding-right: 35px
+
+    & .DateInput
+      &:after
+        @media screen and (max-width: 400px)
+          right: 15px
+
+    & .DateInput__input,
+    & .DateInput__display-text
+      @media screen and (max-width: 400px)
+        letter-spacing: -1px
+
+  // $Date range picker MOD: adjust control
+  &_adjust_control
+
+    & .DateInput,
+    & .DateInput__input
+      @media screen and (max-width: 480px)
+        padding-left: 10px
+        padding-right: 10px
+
+      @media screen and (max-width: 400px)
+        padding-right: 5px
+        padding-left: 5px
+
+    & .DateInput__input,
+    & .DateInput__display-text
+      @media screen and (max-width: 400px)
+        letter-spacing: -1px
+
+  // $Date range picker MOD: adjust third
+  &_adjust_third
+    & .DateInput,
+    & .DateInput__input
+      @media screen and (min-width: 961px) and (max-width: 1280px)
+        padding-left: 10px
+        padding-right: 10px
+
+    & .DateInput__input,
+    & .DateInput__display-text
+      @media screen and (min-width: 961px) and (max-width: 1120px)
+        letter-spacing: -1px
+
+  // $Date range picker MOD: adjust third with icon
+  &_adjust_third#{&}_type_icon
+    & .DateInput,
+    & .DateInput__input
+      @media screen and (min-width: 961px) and (max-width: 1280px)
+        padding-right: 30px
+
+    & .DateInput
+      &:after
+        @media screen and (min-width: 961px) and (max-width: 1280px)
+          right: 10px
+
+
+  &_state_error
+    & .DateInput
+      outline: 1px solid map-get($boss-app-palette, alert-border)
+
+
+  // Date range picker direct overrides
+  @at-root
+    .DateRangePicker__picker
+      z-index: 11000
+
+      // Foundation override
+      tbody tr:nth-child(2n)
+        background-color: transparent
+
+      thead,
+      tbody,
+      tfoot
+        border: none
+        background-color: transparent
+
+
+
+    .DateRangePicker__picker--portal
+      background-color: rgba(0, 0, 0, .75)
+
+
+    .CalendarMonth__caption
+      font-family: $boss-global-font-family
+      color: $boss-global-font-color
+
+
+    .DayPicker__week-header ul
+      white-space: nowrap
+
+
+    .DayPicker__week-header li:not(:last-child)
+      font-family: $boss-global-font-family
+      color: $boss-global-font-color
+      margin-left: -4px
+
+
+    .CalendarDay
+      font-family: $boss-global-font-family
+      font-size: 14px
+
+
+    .CalendarDay--highlighted-calendar
+      &:active
+        background: #0060a6
+
+
+    .CalendarDay--selected-span
+      background: #66ace2
+      border-color: #3394da
+
+      &.CalendarDay--hovered,
+      &:active
+        background: #3394da
+        border-color: #006fc0
+
+      &.CalendarDay--last-in-range
+        border-right: #006fc0
+
+
+    .CalendarDay--hovered-span,
+    .CalendarDay--after-hovered-start
+      background: #b2d7f1
+      border-color: #80bce8
+      color: #0060a6
+
+      &:active
+        background: #80bce8
+
+
+    .CalendarDay--selected-start,
+    .CalendarDay--selected-end,
+    .CalendarDay--selected
+      background: #006fc0
+      border-color: #006fc0
+
+      &:active
+        background: #006fc0
+
+
+    .DayPickerKeyboardShortcuts__title
+      font-family: $boss-global-font-family
+      color: $boss-global-font-color
+      line-height: 1
+      margin-bottom: 5px
+
+
+    .DayPickerKeyboardShortcuts__show--bottom-right
+      border-right-color: #006fc0
+
+
+    .DayPickerKeyboardShortcuts__show--top-right
+      border-right-color: #006fc0
+
+
+    .DayPickerKeyboardShortcuts__show--top-left
+      border-left-color: #006fc0
+
+
+    .KeyboardShortcutRow__action
+      font-family: $boss-global-font-family
+      color: $boss-global-font-color
+      font-weight: 300

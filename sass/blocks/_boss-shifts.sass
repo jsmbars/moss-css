@@ -1,0 +1,284 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Shifts
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-shifts"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+
+  // $Shifts list
+  &__list
+    display: block
+    width: 100%
+    margin: 0
+    list-style: none
+
+
+  // $Shifts item
+  &__item
+    position: relative
+    width: 100%
+    margin-bottom: 40px
+
+    @media screen and (max-width: 480px)
+      margin-bottom: 30px
+
+    &:before
+      content: ""
+      position: absolute
+      top: 20px
+      left: 0
+      z-index: 1
+      display: block
+      width: 30px
+      height: 30px
+      border: 5px solid #fff
+      border-radius: 50%
+      background-color: #FFF
+      background-image: url('../icons/icon-clock-medium-gray.svg')
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 15px auto
+
+      @media screen and (max-width: 480px)
+        top: 10px
+
+    &:after
+      content: ""
+      position: absolute
+      top: 40px
+      bottom: -70px
+      left: 15px
+      z-index: 0
+      display: block
+      width: 3px
+      margin-left: -2px
+      background-color: #eee
+
+      @media screen and (max-width: 480px)
+        top: 30px
+        bottom: -50px
+
+    &:last-child
+      margin-bottom: 0
+      &:after
+        display: none
+
+
+  // $Shifts content
+  &__content
+    display: block
+    width: 100%
+    width: calc(100% - 40px)
+    margin-left: 40px
+    background-color: #FFF
+    border-radius: 10px
+    box-shadow: 0 5px 10px -5px rgba(0,0,0,.3)
+
+    @media screen and (max-width: 480px)
+      width: calc(100% - 35px)
+      margin-left: 35px
+
+
+  // $Shifts header
+  &__header
+    display: block
+    width: 100%
+    padding: 20px
+    border-bottom: 1px solid #eee
+
+    @media screen and (max-width: 640px)
+      padding: 10px 20px
+
+
+  // $Shifts title
+  &__title
+    +text-normalizer()
+    font-size: 18px
+    font-weight: 600
+
+    @media screen and (max-width: 640px)
+      text-align: center
+
+
+  // $Shifts records
+  &__records
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    max-width: 480px
+    padding: 20px
+
+    @media screen and (max-width: 640px)
+      padding: 10px
+
+
+  // $Shifts record
+  &__record
+    display: inline-block
+    padding: 0 10px 10px
+
+    @media screen and (max-width: 640px)
+      width: 100%
+
+    @media screen and (max-width: 480px)
+      padding: 0 0 10px
+
+    &:not(:last-child)
+      margin-bottom: 20px
+      border-bottom: 1px solid #eee
+
+
+  // $Shifts text
+  &__text
+    +text-normalizer()
+    margin-bottom: 5px
+
+    // $Shifts text MOD: role venue
+    &_role_venue
+      font-weight: 600
+      color: #808080
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 12px
+        height: 12px
+        margin-right: 7px
+        margin-top: -4px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        background-image: url('../icons/icon-storefront-medium-gray.svg')
+        vertical-align: middle
+
+
+  // $Shifts text marked
+  &__text-marked
+    font-weight: 600
+
+
+  // $Shifts text faded
+  &__text-faded
+   color: #808080
+
+
+  // $Shifts link
+  &__link
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    cursor: pointer
+    vertical-align: middle
+    color: map-get($boss-app-palette, primary)
+    text-decoration: none
+
+    &:hover,
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    &:hover
+      text-decoration: underline
+
+    // $Shifts link MOD: role details
+    &_role_details
+      padding-left: 20px
+
+      &:after
+        content: ''
+        position: absolute
+        left: 0
+        top: 50%
+        display: block
+        width: 12px
+        height: 12px
+        margin-top: -6px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        transition: all .4s
+
+    &_role_details
+      &:after
+        background-image: url(../icons/icon-zoom-primary.svg)
+
+
+  // $Shifts details
+  &__details
+    display: block
+    width: 100%
+
+
+  // $Shifts details header
+  &__details-header
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: flex-start
+    width: 250px
+
+    @media screen and (max-width: 640px)
+      width: 100%
+
+
+  // $Shifts details content
+  &__details-content
+    display: block
+    width: 100%
+
+    &_state_closed
+      display: none
+
+
+  // $Shifts details inner
+  &__details-inner
+    display: block
+    width: 100%
+
+
+  // $Shifts details switch
+  &__details-switch
+    +text-normalizer()
+    font-size: 0
+    line-height: 0
+    color: transparent
+    cursor: pointer
+
+    &:after
+      content: ""
+      display: inline-block
+      width: 30px
+      height: 30px
+      margin-left: 10px
+      margin-top: -3px
+      background-image: url('../icons/icon-arrow-down-dark-gray.svg')
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: 15px 15px
+      vertical-align: middle
+      transform: rotate(180deg)
+
+    // $Shifts details switch MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+

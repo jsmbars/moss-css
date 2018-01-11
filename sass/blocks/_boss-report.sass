@@ -1,0 +1,600 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Report
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-report"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+
+  // $Report group
+  &__group
+    position: relative
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 35px
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 30px
+
+    // $Report group MOD: last position
+    &_position_last
+      margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+    // $Report group MOD: role board
+    &_role_board
+      padding: 25px 30px
+      background-color: #FFF
+      box-shadow: 0 0 30px 0 rgba(0,0,0,.1)
+
+      @media screen and (max-width: 1280px)
+        padding: 20px 25px
+
+      @media screen and (max-width: 960px)
+        padding: 20px
+
+      @media screen and (max-width: 800px)
+        padding: 20px 15px
+
+      @media screen and (max-width: 640px)
+        padding: 15px 10px
+
+    // $Report group MOD: role middle
+    &_role_middle
+      padding: 0 30px
+
+      @media screen and (max-width: 1280px)
+        padding: 0 25px
+
+      @media screen and (max-width: 960px)
+        padding: 0 20px
+
+      @media screen and (max-width: 800px)
+        padding: 0 15px
+
+      @media screen and (max-width: 640px)
+        padding: 0 10px
+
+    &_adjust_stats-row
+      padding-bottom: 15px
+
+      @media screen and (max-width: 1280px)
+        padding-bottom: 15px
+
+      @media screen and (max-width: 960px)
+        padding-bottom: 15px
+
+      @media screen and (max-width: 800px)
+        padding-bottom: 15px
+
+      @media screen and (max-width: 640px)
+        padding-bottom: 15px
+
+
+  // $Report meta
+  &__meta
+    display: block
+    width: 100%
+    margin-bottom: 10px
+    text-align: center
+
+
+  // $Report stats
+  &__stats
+    display: block
+    width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+
+
+  // $Report stats note
+  &__stats-note
+    display: block
+    width: 100%
+    margin-top: 10px
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
+  // $Report stats item
+  &__stats-item
+    display: block
+    width: 100%
+    margin-bottom: 10px
+
+    &:last-child
+      margin-bottom: 0
+
+    &_layout_fluid-table-s
+      display: inline-block
+      width: auto
+      margin-right: 20px
+
+      @media screen and (max-width: 640px)
+        display: block
+        width: 100%
+        margin-right: 0
+
+    &_layout_table
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: stretch
+      margin-bottom: 0
+      border: 1px solid #eee
+
+      & + &
+        border-top: none
+
+      &:nth-child(odd)
+        background-color: #FBFBFB
+
+    &_layout_table-s
+      @media screen and (max-width: 640px)
+        display: flex
+        flex-direction: row
+        justify-content: flex-start
+        align-items: stretch
+        margin-bottom: 0
+        border: 1px solid #eee
+
+      & + &
+        @media screen and (max-width: 640px)
+          border-top: none
+
+
+  // $Report stats label
+  &__stats-label
+    display: inline-block
+    padding-right: 5px
+
+    #{$block}__stats-item_layout_table &
+      flex-grow: 1
+      flex-shrink: 1
+      width: 50%
+      padding: 10px
+      border-right: 1px solid #eee
+
+    @media screen and (max-width: 640px)
+      #{$block}__stats-item_layout_table-s &
+        flex-grow: 1
+        flex-shrink: 1
+        width: 50%
+        padding: 10px
+        border-right: 1px solid #eee
+
+
+  // $Report stats tooltip
+  &__stats-tooltip
+    position: relative
+    display: inline
+    vertical-align: middle
+
+    &_role_delimiter:after
+      content: ":"
+
+      #{$block}__stats-item_layout_table &
+        display: none
+
+      @media screen and (max-width: 640px)
+        #{$block}__stats-item_layout_table-s &
+          display: none
+
+
+  // $Report stats value
+  &__stats-value
+    display: inline-block
+
+    #{$block}__stats-item_layout_table &
+      flex-grow: 1
+      flex-shrink: 1
+      width: 50%
+      padding: 10px
+
+    @media screen and (max-width: 640px)
+      #{$block}__stats-item_layout_table &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 100px
+
+      #{$block}__stats-item_layout_table-s &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 100px
+        padding: 10px
+
+
+  // $Report stats text
+  &__stats-text
+    +text-normalizer()
+    max-width: 100%
+
+    // $Report stats text MOD: marked
+    &_marked
+      font-weight: 600
+
+    &_size_m
+      font-size: 16px
+
+    &_size_l
+      font-size: 18px
+
+    &_size_xl
+      font-size: 20px
+
+  // $Report stats text alert
+  &__stats-text-alert
+    color: map-get($boss-app-palette, alert)
+
+  // $Report stats text nowrap
+  &__stats-text-nowrap
+    white-space: nowrap
+
+
+  // $Report summary
+  &__summary
+    display: block
+    width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
+
+  // $Report summery item
+  &__summary-item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    margin-bottom: 20px
+
+    @media screen and (max-width: 960px)
+      flex-direction: column
+
+    &:last-child
+      margin-bottom: 0
+
+
+  // $Report summary label
+  &__summary-label
+    flex-grow: 0
+    flex-shrink: 0
+    width: 150px
+    padding-right: 20px
+
+    @media screen and (max-width: 960px)
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
+      margin-bottom: 3px
+      padding-right: 0
+
+    // $Report summery label MOD: size medium
+    &_size_medium
+      width: 250px
+
+      @media screen and (max-width: 960px)
+        width: 100%
+
+
+  // $Report summary value
+  &__summary-value
+    flex-grow: 1
+    flex-shrink: 1
+
+    @media screen and (max-width: 960px)
+      width: 100%
+
+
+  // $Report summary text
+  &__summary-text
+    +text-normalizer()
+    max-width: 100%
+
+    // $Report summary text MOD: marked
+    &_marked
+      font-weight: 600
+
+    // $Report summary text MOD: role date
+    // $Report summary text MOD: role time
+    // $Report summary text MOD: role user
+    // $Report summary text MOD: role venue
+    // $Report summary text MOD: role voucher
+    // $Report summary text MOD: role title
+    // $Report summary text MOD: role location
+    &_role_date,
+    &_role_time,
+    &_role_user,
+    &_role_venue,
+    &_role_title,
+    &_role_location
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 7px
+        margin-top: -3px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_time
+      &:before
+        background-image: url('../icons/icon-clock-dark-gray.svg')
+
+    &_role_user
+      &:before
+        background-image: url('../icons/icon-user-dark-gray.svg')
+
+    &_role_venue
+      &:before
+        background-image: url('../icons/icon-storefront-dark-gray.svg')
+
+    &_role_title
+      &:before
+        background-image: url('../icons/icon-pencil-dark-gray.svg')
+
+    &_role_location
+      &:before
+        background-image: url('../icons/icon-location-pin-dark-gray.svg')
+
+
+  // $Report note
+  &__note
+    display: block
+    width: 100%
+
+    // $Report note MOD: role control fluid on small screens
+    &_role_control-fluid-s
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: flex-start
+
+      @media screen and (max-width: 640px)
+        display: block
+
+
+  // $Report note label
+  &__note-label
+    +text-normalizer()
+    display: block
+    width: 100%
+    font-size: 16px
+    margin-bottom: 10px
+
+    #{$block}__note_role_control-fluid-s &
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
+      margin-bottom: 0
+      margin-right: 10px
+
+    @media screen and (max-width: 640px)
+      #{$block}__note_role_control-fluid-s &
+        margin-right: 0
+        margin-bottom: 10px
+
+
+  // $Report note-box
+  &__note-box
+    display: block
+    width: 100%
+    padding: 10px 15px
+    border: 2px solid #d8d8d8
+    border-radius: 6px
+
+    #{$block}__note_role_control-fluid-s &
+      flex-grow: 1
+      flex-shrink: 1
+
+
+  // $Report record
+  &__record
+    position: relative
+    display: block
+    width: 100%
+    margin-bottom: 35px
+
+    @media screen and (max-width: 960px)
+      margin-bottom: 30px
+
+    // $Report field MOD: position last
+    &:last-of-type,
+    &_position_last
+      margin-bottom: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
+
+
+  // $Report dropdown
+  &__dropdown
+
+
+  // $Report header
+  &__dropdown-header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+
+
+  // $Report dropdown switch
+  &__dropdown-switch
+    position: relative
+    display: inline-block
+    margin-left: 15px
+    border-radius: 50%
+    width: 28px
+    height: 28px
+    vertical-align: middle
+    font-size: 0
+    line-height: 0
+    color: transparent
+    cursor: pointer
+    outline: none
+    transition: .4s
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 20px
+      height: 15px
+      background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+      transform: translate(-50%, -50%) rotate(180deg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+      transform-origin: center center
+      transition: all .4s
+
+    // $Report dropdown switch MOD: state closed
+    &_state_closed
+      &:before
+        background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+        transform: translate(-50%, -50%) rotate(0)
+
+
+  // $Report dropdown content
+  &__dropdown-content
+    display: block
+    width: 100%
+    padding-top: 15px
+
+    // $Report dropdown area MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Report subtitle
+  &__subtitle
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 1
+    max-width: 100%
+    padding-bottom: 5px
+    margin-bottom: 15px
+    font-size: 20px
+    font-weight: 600
+    border-bottom: 1px solid #eee
+
+    &_role_dropdown-header
+      margin-bottom: 0
+
+    &_role_readings,
+    &_role_calculate
+      border-bottom: none
+      padding-bottom: 0
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 18px
+        height: 18px
+        margin-right: 10px
+        margin-top: -2px
+        background-size: contain
+        background-repeat: no-repeat
+        background-position: center center
+        vertical-align: middle
+
+    &_role_readings
+      &:before
+        background-image: url(../icons/icon-text-paper-dark-gray.svg)
+
+    &_role_calculate
+      &:before
+        background-image: url(../icons/icon-calculator-dark-gray.svg)
+
+
+  // $Report text
+  &__text
+    +text-normalizer()
+    display: block
+    width: 100%
+
+    &_size_m
+      font-size: 16px
+
+
+  // $Report wysiwyg-generated content
+  &__content
+
+    // wysiwyg-generated paragraph
+    p
+      +text-normalizer()
+      margin-bottom: 15px
+
+    // wysiwyg-generated lists
+    & ul,
+    & ol
+      list-style: none
+      margin: 0
+      padding: 0
+      margin-bottom: 15px
+
+      & li
+        +text-normalizer()
+        position: relative
+        margin-bottom: 10px
+
+    & ul
+      & li
+        padding-left: 12px
+        &:before
+          content: "-"
+          position: absolute
+          left: 0
+          top: 0
+          display: inline-block
+
+    & ol
+      counter-reset: item
+      & li
+        padding-left: 15px
+        &:before
+          content: counter(item) ". "
+          counter-increment: item
+          position: absolute
+          left: 0
+          top: 0
+          display: inline-block
+
+    // wysiwyg-generated sublists
+    & ul ul,
+    & ol ol
+      padding-left: 30px
+      margin-bottom: 0

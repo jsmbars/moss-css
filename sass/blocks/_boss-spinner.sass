@@ -1,0 +1,26 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Loading spinner
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-spinner"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 40px
+  height: 40px
+  margin: 0 auto
+  background-image: url('../icons/spinner.svg')
+  background-repeat: no-repeat
+  background-size: 30px 30px
+  background-position: center center

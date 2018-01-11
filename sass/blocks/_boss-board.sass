@@ -1,0 +1,892 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Board
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-board"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+  background-color: #fff
+
+  // $Board MOD: context stack
+  &_context_stack
+    &:not(:last-child)
+      margin-bottom: 30px
+
+  // $Board MOD: double layout
+  &_layout_double
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+
+    @media screen and (max-width: 1120px)
+      flex-direction: column
+      align-items: center
+
+  // $Board MOD: role panel
+  &_role_panel
+    border-radius: 10px
+    box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+  &_role_panel#{&}_context_stack
+    &:not(:last-child)
+      margin-bottom: 40px
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 30px
+
+  // $Board MOD: state edit
+  &_state_edit
+
+  // $Board MOD: state hidden
+  &_state_hidden
+    display: none
+
+
+  // $Board header area
+  &__header
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding: 20px
+
+    @media screen and (max-width: 640px)
+      #{$block}_state_edit-mode &,
+      #{$block}_state_edit &
+        flex-wrap: wrap
+        overflow: hidden
+
+    @media screen and (max-width: 400px)
+      padding: 15px
+
+    &:before
+      content: ''
+      position: absolute
+      bottom: 0
+      left: 0
+      display: block
+      height: 1px
+      width: 100%
+      background-color: map-get($boss-app-palette, inactive)
+
+    // $Board header MOD: status fail
+    &_status_failed
+      &:before
+        height: 5px
+        background-color: map-get($boss-app-palette, alert)
+
+    // $Board header MOD: type no boder
+    &_type_no-border
+      &:before
+        display: none
+
+    // $Board header MOD: adjust rotas weekly
+    &_adjust_rotas-weekly
+      @media screen and (max-width: 640px)
+        flex-direction: column
+
+
+  // $Board title
+  &__title
+    +text-normalizer()
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    padding-right: 10px
+    font-size: 24px
+    font-weight: 400
+    color: $boss-global-font-color
+
+    @media screen and (max-width: 640px)
+      #{$block}__header_adjust_rotas-weekly &
+        text-align: center
+        margin-bottom: 15px
+
+      #{$block}_state_edit-mode &
+        width: calc(100% - 50px)
+
+    @media screen and (max-width: 400px)
+      font-size: 20px
+
+    // $Board title MOD: status failed
+    &_status_failed
+      color: map-get($boss-app-palette, alert)
+
+    &_size_medium
+      font-size: 20px
+
+    &_size_small
+      font-size: 16px
+
+    // $Board title MOD: role date
+    // $Board title MOD: role venue
+    // $Board title MOD: role staff-type
+    &_role_date,
+    &_role_venue,
+    &_role_staff-type
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 20px
+        height: 20px
+        margin-right: 15px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url(../icons/icon-calendar-dark-gray.svg)
+
+    &_role_venue
+      &:before
+        background-image: url(../icons/icon-storefront-dark-gray.svg)
+
+    &_role_staff-type
+      &:before
+        background-image: url(../icons/icon-user-dark-gray.svg)
+
+
+  // $Board title text
+  &__title-text
+    display: inline-block
+    vertical-align: middle
+
+  // $Board title text marked
+  &__title-text-marked
+    font-weight: 600
+
+
+  // $Board title link
+  &__title-link
+    +text-normalizer()
+    display: inline-block
+    vertical-align: middle
+    color: $boss-dark-gray
+    text-decoration: none
+
+    &:hover,
+    &:focus
+      outline: none
+      text-decoration: none
+      color: $boss-dark-gray
+
+
+    // $Board title MOD: role date
+    &_role_date
+      &:before
+        content: ""
+        display: inline-block
+        width: 20px
+        height: 20px
+        margin-right: 15px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
+
+    &_role_date
+      &:before
+        background-image: url(../icons/icon-calendar-dark-gray.svg)
+
+
+  // $Board title action
+  &__title-action
+    display: inline-block
+    margin-left: 10px
+    margin-top: 5px
+    margin-bottom: 5px
+
+
+  // $Board title label
+  &__title-label
+    display: inline-block
+    margin-right: 10px
+    margin-top: 5px
+    margin-bottom: 5px
+
+
+  // $Board title number
+  &__title-number
+    display: inline-block
+    margin-left: 5px
+    color: #808080
+    vertical-align: middle
+    white-space: nowrap
+
+    &:before
+      content: "("
+      display: inline-block
+      font-weight: normal
+
+    &:after
+      content: ")"
+      display: inline-block
+      font-weight: normal
+
+
+  // $Board subtitle
+  &__subtitle
+    +text-normalizer()
+    display: inline-block
+    font-size: 20px
+    font-weight: 400
+    color: $boss-global-font-color
+    margin-bottom: 15px
+    padding: 0 15px
+
+    @media screen and (max-width: 960px)
+      padding: 0 20px
+
+
+  // $Board field
+  &__field
+    flex-grow: 1
+    flex-shrink: 1
+    position: relative
+    display: block
+
+    & input
+      +text-normalizer()
+      display: block
+      width: 100%
+      height: auto
+      line-height: 1.2
+      white-space: nowrap
+      box-sizing: border-box
+      border: none
+      padding: 0 20px 0 0
+      font-size: 24px
+      box-shadow: none
+
+      #{$block}_state_edit &
+        color: $boss-light-gray
+
+      @media screen and (max-width: 640px)
+        font-size: 20px
+
+      @media screen and (max-width: 480px)
+        font-size: 18px
+
+      @media screen and (max-width: 400px)
+        font-size: 16px
+
+      &:focus
+        outline: none
+        box-shadow: none
+        border: none
+
+      &::-webkit-input-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &:-moz-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &::-moz-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &:-ms-input-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &::-ms-input-placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &::placeholder
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &:placeholder-shown
+        color: $boss-input-placeholder-color !important
+        opacity:  1 !important
+
+      &[type=text]::-ms-clear
+        display: none
+
+
+  // $Board button group
+  &__button-group
+    flex-grow: 0
+    flex-shrink: 0
+
+    #{$block}_state_edit &
+      display: none
+
+    &_role_edit
+      position: relative
+      white-space: nowrap
+      display: none
+
+      #{$block}_state_edit-mode &,
+      #{$block}_state_edit &
+        display: block
+
+      @media screen and (max-width: 640px)
+        order: -99
+        width: 100%
+        margin-bottom: 15px
+        padding-bottom: 20px
+        text-align: center
+
+      &:after
+        content: ""
+        position: absolute
+        bottom: 0
+        left: -50px
+        right: -50px
+        display: none
+        height: 0
+        border-bottom: 1px solid map-get($boss-app-palette, inactive)
+
+        @media screen and (max-width: 640px)
+          display: block
+
+
+  // $Board action
+  &__action
+    margin-left: 20px
+
+    @media screen and (max-width: 960px)
+      margin-left: 10px
+
+    &_type_fluid
+      @media screen and (max-width: 480px)
+        font-size: 0
+        line-height: 0
+        color: transparent
+
+      &:before
+        @media screen and (max-width: 480px)
+          margin-right: 0
+
+    &_state_hidden
+      display: none
+
+
+  // $Board button
+  &__button
+    vertical-align: middle
+    text-transform: uppercase
+    font-weight: bold
+
+
+  // $Board switch
+  &__switch
+    position: relative
+    display: inline-block
+    margin-left: 15px
+    border-radius: 50%
+    width: 28px
+    height: 28px
+    vertical-align: middle
+    cursor: pointer
+    outline: none
+    transition: .4s
+
+    @media screen and (max-width: 640px)
+      #{$block}_state_edit-mode &
+        margin-left: 0
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 20px
+      height: 15px
+      background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+      transform: translate(-50%, -50%)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+      transform-origin: center center
+      transition: all .4s
+
+    // $Board switch MOD: state opened
+    &_state_opened
+      &:before
+        background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+        transform: translate(-50%, -50%) rotate(180deg)
+
+    // $Board switch MOD: state closed
+    &_state_closed
+      &:before
+        background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+        transform: translate(-50%, -50%)
+
+    // $Board switch MOD: type math signs
+    &_type_math
+      background-color: #ccc
+
+      @media screen and (max-width: 960px)
+        background-color: transparent
+
+      &:before
+        background-image: url(../icons/icon-plus-white.svg)
+        transform: translate(-50%, -50%)
+
+        @media screen and (max-width: 960px)
+          background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+          transform: translate(-50%, -50%)
+
+      &:hover
+        background-color: #ddd
+
+        @media screen and (max-width: 960px)
+          background-color: transparent
+
+    // $Board switch MOD: type math signs CONTEXT: $Board switch MOD: state opened
+    &_type_math#{&}_state_opened
+      &:before
+        background-image: url(../icons/icon-minus-white.svg)
+
+        @media screen and (max-width: 960px)
+          background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+          transform: translate(-50%, -50%) rotate(180deg)
+
+    // $Board switch MOD: type math signs CONTEXT: $Board switch MOD: state closed
+    &_type_math#{&}_state_closed
+      &:before
+        background-image: url(../icons/icon-plus-white.svg)
+
+        @media screen and (max-width: 960px)
+          background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+          transform: translate(-50%, -50%)
+
+
+  // $Board content area
+  &__content
+    display: none
+
+    // $Board content area MOD: state opened
+    &_state_opened
+      display: block
+
+    // $Board content area MOD: state closed
+    &_state_closed
+      display: none
+
+
+  // $Board content area inner container
+  &__content-inner
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: flex-start
+    padding: 20px 0
+
+    @media screen and (max-width: 1120px)
+      flex-direction: column
+      align-items: center
+
+
+  // $Board main content area
+  &__main
+    display: block
+    width: 100%
+
+
+  // $Board rota
+  &__rota
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    width: 100%
+    padding: 20px 0
+
+    @media screen and (max-width: 1120px)
+      flex-direction: column
+      align-items: center
+
+
+  // $Board info area
+  &__info
+    flex-grow: 1
+    flex-shrink: 1
+    width: 60%
+    padding: 0 30px 0 45px
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+      padding-left: 15px
+      padding-right: 15px
+
+
+  // $Board form area
+  &__form
+
+
+  // $Board manager form area
+  &__message-form
+    display: block
+    width: 100%
+    padding: 40px 50px
+
+    @media screen and (max-width: 960px)
+      padding: 35px 30px 45px
+
+    @media screen and (max-width: 480px)
+      padding: 30px 20px 40px
+
+    @media screen and (max-width: 400px)
+      padding: 25px 15px 35px
+
+
+  // $Board manager form area inner container
+  &__message-form-inner
+    display: block
+    width: 100%
+    max-width: 800px
+
+
+  // $Board manager area
+  &__manager
+    display: block
+    width: 100%
+    padding: 20px 20px 30px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
+
+
+  // $Board manager area stats
+  &__manager-stats
+    display: block
+    width: 100%
+
+    // $Board manager area stats MOD: layout row
+    &_layout_row
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: flex-start
+      padding-bottom: 15px
+
+      @media screen and (max-width: 960px)
+        flex-direction: column
+        justify-content: flex-start
+        align-items: flex-start
+
+    &_role_group-header
+      padding-top: 15px
+      padding-left: 20px
+      padding-right: 20px
+      border-bottom: 1px solid #eee
+
+      @media screen and (max-width: 960px)
+        padding-top: 0
+        padding-left: 0
+        padding-right: 0
+        border-bottom: none
+
+
+  // $Board manager area group
+  &__manager-group
+    position: relative
+    display: block
+    width: 100%
+    z-index: 5
+    border: 2px solid #e6e6e6
+    border-radius: 10px
+    overflow: hidden
+
+    @media screen and (max-width: 960px)
+      padding: 15px
+
+    @media screen and (max-width: 480px)
+      padding: 10px
+
+    &_role_data
+      border-width: 1px
+      @media screen and (max-width: 960px)
+        padding: 0
+        border: none
+        overflow: visible
+
+      @media screen and (max-width: 480px)
+        padding: 0
+
+    &_context_stack
+      &:not(:last-child)
+        margin-bottom: 30px
+
+
+  // $Board manager area filter
+  &__manager-filter
+    display: block
+    width: 100%
+    padding: 15px 30px
+    background-color: #f9f9f9
+
+    @media screen and (max-width: 960px)
+      padding: 30px
+      margin-bottom: 30px
+      background-color: #FFF
+      border-radius: 10px
+      box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+
+  // $Board manager area table
+  &__manager-table
+    display: block
+    width: 100%
+
+
+  // $Board manager area shifts
+  &__manager-shifts
+    display: block
+    width: 100%
+    padding: 30px
+
+    @media screen and (max-width: 960px)
+      padding: 0 0 30px
+
+
+  // $Board manager area actions
+  &__manager-actions
+    display: block
+    width: 100%
+    padding-bottom: 30px
+    text-align: center
+
+    @media screen and (max-width: 960px)
+      padding-bottom: 0
+
+
+  // $Board calendar
+  &__calendar
+    flex-grow: 0
+    flex-shrink: 0
+    width: 40%
+    border-right: 1px solid $boss-very-light-gray
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+      border-right: none
+
+
+  // $Board calendar inner
+  &__calendar-inner
+    display: block
+    width: 100%
+    padding-bottom: 40px
+    border-bottom: 1px solid $boss-very-light-gray
+
+
+  // $Board calendar note
+  &__calendar-note
+    display: block
+    width: 100%
+    padding: 20px 20px 20px 30px
+
+    @media screen and (max-width: 1120px)
+      padding-left: 15px
+      padding-right: 15px
+      border-bottom: 1px solid $boss-very-light-gray
+
+
+  // $Board chart
+  &__chart
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 300px
+    min-height: 320px
+    padding: 0 15px 0 20px
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+      padding-right: 0
+
+    @media screen and (max-width: 960px)
+      padding: 0 20px 0
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
+
+
+  // $Board graph
+  &__graph
+    position: relative
+    flex-grow: 0
+    flex-shrink: 0
+    width: 60%
+    padding-left: 20px
+    padding-right: 20px
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+      margin-bottom: 5px
+      padding-bottom: 30px
+      padding-left: 15px
+      padding-right: 15px
+      border-bottom: 1px solid $boss-very-light-gray
+
+
+  // $Board graph inner
+  &__graph-inner
+    position: relative
+    display: block
+    width: 100%
+
+
+  // $Board forecast
+  &__forecast
+    flex-grow: 1
+    flex-shrink: 1
+    width: 40%
+    padding-right: 20px
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+      padding-right: 15px
+      padding-left: 15px
+
+
+  // $Board report area
+  &__report
+    flex-grow: 1
+    width: 100%
+
+
+  // $Board results table area
+  &__results
+    width: 100%
+    padding: 0 20px 0 15px
+
+    @media screen and (max-width: 960px)
+      padding: 0
+
+
+  // $Board checklist area
+  &__checklist
+    display: block
+    width: 100%
+    margin-bottom: 10px
+    padding: 0 20px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
+
+
+  // $Board orders area
+  &__orders
+    padding: 10px 40px
+
+    @media screen and (max-width: 1280px)
+      padding-left: 30px
+      padding-right: 30px
+
+    @media screen and (max-width: 1120px)
+      padding-left: 20px
+      padding-right: 20px
+
+    @media screen and (max-width: 640px)
+      padding: 40px 10px 10px 15px
+
+
+  // $Board weather area
+  &__weather
+    display: block
+    width: 100%
+    padding: 0 40px
+
+    @media screen and (max-width: 960px)
+      padding: 0 20px
+
+
+  // $Board events area
+  &__events
+    display: block
+    width: 100%
+    padding: 0 30px 10px
+
+    @media screen and (max-width: 960px)
+      padding: 0 20px
+
+
+  // $Board notice area
+  &__notice
+    display: block
+    width: 100%
+    padding: 0 20px
+
+
+  // $Board message area
+  &__message
+    margin-bottom: 15px
+    padding: 0 60px 0 15px
+
+    @media screen and (max-width: 960px)
+      padding: 0 20px
+
+
+  // $Board overview area
+  &__overview
+    display: block
+    width: 100%
+    padding: 5px 20px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
+
+
+  // $Board table area
+  &__table
+    display: block
+    width: 100%
+    padding: 0 20px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
+
+
+  // $Board details link
+  &__more
+    +text-normalizer()
+    padding: 0 15px
+    font-size: 14px
+    color: map-get($boss-app-palette, primary)
+    outline: none
+    text-decoration: underline
+
+    &:hover
+      text-decoration: none
+      color: map-get($boss-app-palette, primary)
+
+    &:focus
+      color: map-get($boss-app-palette, primary)
+
+    @media screen and (max-width: 960px)
+      padding: 0 20px
