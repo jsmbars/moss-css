@@ -1,7 +1,7 @@
 # moss-css
 
 **Working with tags**
-List of releases can be found there https://github.com/jsmbars/boss-css/releases
+List of releases can be found there https://github.com/jsmbars/moss-css/releases
 
 Tags naming convention:
 * We use only major numbers for css releases.
