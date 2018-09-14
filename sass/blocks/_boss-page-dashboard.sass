@@ -75,13 +75,13 @@ $block: ".boss-page-dashboard"
     #{$block}_page_profile-reduced &
       justify-content: flex-end
 
-    @media screen and(max-width: 1120px)
+    @media screen and (max-width: 1120px)
       #{$block}_page_profile &
         flex-direction: column
         justify-content: flex-start
 
 
-    @media screen and(max-width: 960px)
+    @media screen and (max-width: 960px)
       flex-direction: column
       justify-content: flex-start
 
@@ -96,7 +96,7 @@ $block: ".boss-page-dashboard"
       #{$block}_page_vouchers-index &:nth-of-type(2)
         justify-content: flex-start
 
-    @media screen and(max-width: 640px)
+    @media screen and (max-width: 640px)
       #{$block}_page_rotas-daily &:first-of-type
         flex-direction: column
         justify-content: center
@@ -131,7 +131,7 @@ $block: ".boss-page-dashboard"
   &__sub-group
     display: block
 
-    @media screen and(max-width: 960px)
+    @media screen and (max-width: 960px)
       width: 100%
 
 
@@ -147,7 +147,7 @@ $block: ".boss-page-dashboard"
     color: $boss-global-font-color
     margin-bottom: 20px
 
-    @media screen and(max-width: 960px)
+    @media screen and (max-width: 960px)
       text-align: center
 
 
@@ -159,6 +159,10 @@ $block: ".boss-page-dashboard"
     // $Page dashboard title text MOD: marked
     &_marked
       font-weight: 600
+
+    // $Page dashboard title text MOD: faded
+    &_faded
+      color: #808080
 
 
   // $Page dashboard title info
@@ -185,7 +189,7 @@ $block: ".boss-page-dashboard"
     justify-content: flex-start
     margin-bottom: 25px
 
-    @media screen and(max-width: 960px)
+    @media screen and (max-width: 960px)
       flex-grow: 1
       flex-shrink: 1
       width: 100%
@@ -193,7 +197,7 @@ $block: ".boss-page-dashboard"
       #{$block}_page_rotas-daily &
         margin-right: 25px
 
-    @media screen and(max-width: 640px)
+    @media screen and (max-width: 640px)
       #{$block}_page_rotas-daily &
         margin-right: 0
 
@@ -220,14 +224,14 @@ $block: ".boss-page-dashboard"
       flex-direction: column
       align-items: stretch
 
-    @media screen and(max-width: 1120px)
+    @media screen and (max-width: 1120px)
       #{$block}_page_profile &
         flex-direction: row
         justify-content: center
         align-items: center
         width: 100%
 
-    @media screen and(max-width: 960px)
+    @media screen and (max-width: 960px)
       margin-bottom: 25px
 
       #{$block}_page_report &_desktop
@@ -241,7 +245,8 @@ $block: ".boss-page-dashboard"
       #{$block}_page_user-profile &,
       #{$block}_page_user-profile-disabled &,
       #{$block}_page_holidays-report &,
-      #{$block}_page_daily-reports &
+      #{$block}_page_daily-reports &,
+      #{$block}_page_rotas-daily-security &
         flex-direction: row
         justify-content: center
         align-items: center
@@ -250,11 +255,12 @@ $block: ".boss-page-dashboard"
       #{$block}_page_checklist-edit &
         margin-bottom: 0
 
-    @media screen and(min-width: 961px)
-      #{$block}_page_rotas-daily &
+    @media screen and (min-width: 961px)
+      #{$block}_page_rotas-daily &,
+      #{$block}_page_rotas-daily-security &
         display: none
 
-    @media screen and(max-width: 640px)
+    @media screen and (max-width: 640px)
       #{$block}_page_staff-members-index &,
       #{$block}_page_fruit-order-form &,
       #{$block}_page_checklist &,
@@ -278,11 +284,11 @@ $block: ".boss-page-dashboard"
 
   // $Page dashboard button
   &__button
-    @media screen and(max-width: 1120px)
+    @media screen and (max-width: 1120px)
       #{$block}_page_profile &
         width: 50%
 
-    @media screen and(max-width: 960px)
+    @media screen and (max-width: 960px)
       #{$block}_page_change-order-form &,
       #{$block}_page_holidays-report &,
       #{$block}_page_daily-reports &
@@ -316,23 +322,24 @@ $block: ".boss-page-dashboard"
       #{$block}_page_venues &
         margin-right: 15px
 
-      @media screen and(max-width: 1120px)
+      @media screen and (max-width: 1120px)
         #{$block}_page_profile &
           margin-bottom: 0
           margin-right: 15px
 
-      @media screen and(max-width: 960px)
+      @media screen and (max-width: 960px)
         #{$block}_page_change-order-form &,
         #{$block}_page_holidays-report &,
         #{$block}_page_daily-reports &
           margin-bottom: 0
           margin-right: 15px
 
-      @media screen and(max-width: 640px)
+      @media screen and (max-width: 640px)
         #{$block}_page_staff-members-index &,
         #{$block}_page_fruit-order-form &,
         #{$block}_page_checklist &,
         #{$block}_page_rotas-weekly &,
+        #{$block}_page_rotas-weekly-security &,
         #{$block}_page_incident-report-full &,
         #{$block}_page_venues &
           margin-right: 0
@@ -365,9 +372,10 @@ $block: ".boss-page-dashboard"
     flex-shrink: 1
     position: relative
     display: inline-block
+    max-width: 100%
     margin-bottom: 25px
 
-    @media screen and(max-width: 960px)
+    @media screen and (max-width: 960px)
       text-align: center
 
       #{$block}_page_holidays-report &,
@@ -416,7 +424,8 @@ $block: ".boss-page-dashboard"
     &_role_voucher,
     &_role_venue,
     &_role_user,
-    &_role_date
+    &_role_date,
+    &_role_time
       &:before
         content: ""
         display: inline-block
@@ -452,6 +461,10 @@ $block: ".boss-page-dashboard"
     &_role_date#{&}_type_faded
       &:before
         background-image: url(../icons/icon-calendar-medium-gray.svg)
+
+    &_role_time
+      &:before
+        background-image: url(../icons/icon-clock-dark-gray.svg)
 
     &_role_popover
       cursor: pointer
@@ -526,28 +539,68 @@ $block: ".boss-page-dashboard"
     width: 100%
     padding-bottom: 25px
 
-    #{$block}_page_hours-overview &,
-    #{$block}_page_ssr-details &
+    #{$block}_page_hours-overview &
       width: auto
       max-width: 100%
 
-    @media screen and(max-width: 1120px)
+    @media screen and (max-width: 1120px)
       #{$block}_page_profile &
         margin-bottom: 25px
         border-bottom: 1px solid $boss-very-light-gray
 
-    @media screen and(max-width: 960px)
+    @media screen and (max-width: 960px)
       margin-bottom: 25px
       border-bottom: 1px solid $boss-very-light-gray
 
       #{$block}_page_profile &
         padding-bottom: 15px
 
-      #{$block}_page_hours-overview &,
-      #{$block}_page_ssr-details &
+      #{$block}_page_hours-overview &
         border-bottom: none
         margin-bottom: 0
 
-    @media screen and(max-width: 480px)
+    @media screen and (max-width: 480px)
       #{$block}_page_profile &
         padding-bottom: 25px
+
+
+  // $Page dashboard switches
+  &__switches
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    flex-wrap: wrap
+    width: 100%
+    max-width: 100%
+    padding-bottom: 25px
+
+    @media screen and(max-width: 960px)
+      justify-content: center
+
+    @media screen and (max-width: 480px)
+      flex-direction: column
+
+  // $Page dashboard switch
+  &__switch
+    display: inline-block
+    margin-right: 10px
+    margin-bottom: 10px
+    flex-grow: 1
+    flex-shrink: 1
+
+    @media screen and(max-width: 960px)
+      flex-grow: 0
+      flex-shrink: 0
+
+    @media screen and (max-width: 480px)
+      flex-grow: 1
+      flex-shrink: 1
+      width: 100%
+      margin-right: 0
+
+    &:last-child
+      margin-right: 0
+
+      @media screen and (max-width: 480px)
+        margin-bottom: 0

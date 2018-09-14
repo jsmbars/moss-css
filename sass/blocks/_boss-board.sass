@@ -49,6 +49,15 @@ $block: ".boss-board"
       @media screen and (max-width: 960px)
         margin-bottom: 30px
 
+  // $Board MOD: role finance-report
+  &_role_finance-report
+
+  // $Board MOD: role checklist
+  &_role_checklist
+
+  // $Board MOD: state edit-mode
+  &_state_edit-mode
+
   // $Board MOD: state edit
   &_state_edit
 
@@ -67,14 +76,24 @@ $block: ".boss-board"
     width: 100%
     padding: 20px
 
+    @media screen and (max-width: 960px)
+      #{$block}_state_edit-mode &
+        flex-wrap: wrap
+        overflow: hidden
+
     @media screen and (max-width: 640px)
-      #{$block}_state_edit-mode &,
-      #{$block}_state_edit &
+      #{$block}_state_edit &,
+      #{$block}_role_checklist &,
+      #{$block}_role_finance-report &
         flex-wrap: wrap
         overflow: hidden
 
     @media screen and (max-width: 400px)
       padding: 15px
+
+      #{$block}_role_profile-disciplinary &
+        flex-wrap: wrap
+        justify-content: center
 
     &:before
       content: ''
@@ -87,10 +106,37 @@ $block: ".boss-board"
       background-color: map-get($boss-app-palette, inactive)
 
     // $Board header MOD: status fail
-    &_status_failed
+    // $Board title MOD: role general tasks
+    // $Board title MOD: role artwork tasks
+    // $Board title MOD: role music tasks
+    // $Board title MOD: role sports tasks
+    &_status_failed,
+    &_role_tasks-general,
+    &_role_tasks-artwork,
+    &_role_tasks-music,
+    &_role_tasks-sports
       &:before
         height: 5px
+
+    &_status_failed
+      &:before
         background-color: map-get($boss-app-palette, alert)
+
+    &_role_tasks-general
+      &:before
+        background-color: map-get($boss-tasks-palette, general)
+
+    &_role_tasks-artwork
+      &:before
+        background-color: map-get($boss-tasks-palette, artwork)
+
+    &_role_tasks-music
+      &:before
+        background-color: map-get($boss-tasks-palette, music)
+
+    &_role_tasks-sports
+      &:before
+        background-color: map-get($boss-tasks-palette, sports)
 
     // $Board header MOD: type no boder
     &_type_no-border
@@ -114,20 +160,47 @@ $block: ".boss-board"
     font-weight: 400
     color: $boss-global-font-color
 
+    @media screen and (max-width: 960px)
+      width: calc(100% - 50px)
+
+      #{$block}_role_finance-report &
+        width: calc(100% - 220px)
+
     @media screen and (max-width: 640px)
       #{$block}__header_adjust_rotas-weekly &
         text-align: center
         margin-bottom: 15px
 
-      #{$block}_state_edit-mode &
+      #{$block}_role_checklist &,
+      #{$block}_role_finance-report &
         width: calc(100% - 50px)
 
     @media screen and (max-width: 400px)
       font-size: 20px
 
+      #{$block}_role_profile-disciplinary &
+        text-align: center
+        margin-bottom: 15px
+
     // $Board title MOD: status failed
     &_status_failed
       color: map-get($boss-app-palette, alert)
+
+    // $Board title MOD: role general tasks
+    &_role_tasks-general
+      color: map-get($boss-tasks-palette, general)
+
+    // $Board title MOD: role artwork tasks
+    &_role_tasks-artwork
+      color: map-get($boss-tasks-palette, artwork)
+
+    // $Board title MOD: role music tasks
+    &_role_tasks-music
+      color: map-get($boss-tasks-palette, music)
+
+    // $Board title MOD: role sports tasks
+    &_role_tasks-sports
+      color: map-get($boss-tasks-palette, sports)
 
     &_size_medium
       font-size: 20px
@@ -140,7 +213,8 @@ $block: ".boss-board"
     // $Board title MOD: role staff-type
     &_role_date,
     &_role_venue,
-    &_role_staff-type
+    &_role_staff-type,
+    &_role_errors
 
       &:before
         content: ""
@@ -163,6 +237,10 @@ $block: ".boss-board"
     &_role_staff-type
       &:before
         background-image: url(../icons/icon-user-dark-gray.svg)
+
+    &_role_errors
+      &:before
+        background-image: url(../icons/icon-danger-dark-gray.svg)
 
 
   // $Board title text
@@ -240,6 +318,10 @@ $block: ".boss-board"
       content: ")"
       display: inline-block
       font-weight: normal
+
+
+  &__indicator
+    margin-right: 15px
 
 
   // $Board subtitle
@@ -334,20 +416,33 @@ $block: ".boss-board"
       display: none
 
     &_role_edit
-      position: relative
-      white-space: nowrap
-      display: none
-
-      #{$block}_state_edit-mode &,
       #{$block}_state_edit &
         display: block
 
+    &_role_edit,
+    &_role_actions
+      position: relative
+      white-space: nowrap
+
+      @media screen and (max-width: 960px)
+        #{$block}_state_edit-mode &
+          order: -99
+          width: 100%
+          margin-bottom: 15px
+          padding-bottom: 20px
+          text-align: center
+
       @media screen and (max-width: 640px)
-        order: -99
-        width: 100%
-        margin-bottom: 15px
-        padding-bottom: 20px
-        text-align: center
+        #{$block}_role_checklist &,
+        #{$block}_role_finance-report &
+          order: -99
+          width: 100%
+          margin-bottom: 15px
+          padding-bottom: 20px
+          text-align: center
+
+      @media screen and (max-width: 480px)
+          white-space: normal
 
       &:after
         content: ""
@@ -359,6 +454,10 @@ $block: ".boss-board"
         height: 0
         border-bottom: 1px solid map-get($boss-app-palette, inactive)
 
+        @media screen and (max-width: 960px)
+          #{$block}_state_edit-mode &
+            display: block
+
         @media screen and (max-width: 640px)
           display: block
 
@@ -369,6 +468,21 @@ $block: ".boss-board"
 
     @media screen and (max-width: 960px)
       margin-left: 10px
+
+    @media screen and (max-width: 480px)
+      #{$block}_state_edit-mode &,
+      #{$block}_state_edit &,
+      #{$block}_role_checklist &
+        display: block
+        width: 100%
+        margin-left: 0
+
+    &:not(:last-child)
+      @media screen and (max-width: 480px)
+        #{$block}_state_edit-mode &,
+        #{$block}_state_edit &,
+        #{$block}_role_checklist &
+          margin-bottom: 10px
 
     &_type_fluid
       @media screen and (max-width: 480px)
@@ -436,45 +550,6 @@ $block: ".boss-board"
         background-image: url(../icons/icon-arrow-down-dark-gray.svg)
         transform: translate(-50%, -50%)
 
-    // $Board switch MOD: type math signs
-    &_type_math
-      background-color: #ccc
-
-      @media screen and (max-width: 960px)
-        background-color: transparent
-
-      &:before
-        background-image: url(../icons/icon-plus-white.svg)
-        transform: translate(-50%, -50%)
-
-        @media screen and (max-width: 960px)
-          background-image: url(../icons/icon-arrow-down-dark-gray.svg)
-          transform: translate(-50%, -50%)
-
-      &:hover
-        background-color: #ddd
-
-        @media screen and (max-width: 960px)
-          background-color: transparent
-
-    // $Board switch MOD: type math signs CONTEXT: $Board switch MOD: state opened
-    &_type_math#{&}_state_opened
-      &:before
-        background-image: url(../icons/icon-minus-white.svg)
-
-        @media screen and (max-width: 960px)
-          background-image: url(../icons/icon-arrow-down-dark-gray.svg)
-          transform: translate(-50%, -50%) rotate(180deg)
-
-    // $Board switch MOD: type math signs CONTEXT: $Board switch MOD: state closed
-    &_type_math#{&}_state_closed
-      &:before
-        background-image: url(../icons/icon-plus-white.svg)
-
-        @media screen and (max-width: 960px)
-          background-image: url(../icons/icon-arrow-down-dark-gray.svg)
-          transform: translate(-50%, -50%)
-
 
   // $Board content area
   &__content
@@ -502,10 +577,61 @@ $block: ".boss-board"
       align-items: center
 
 
+  // $Board inner container
+  &__inner
+    display: block
+    width: 100%
+    padding: 20px 0
+
+
   // $Board main content area
   &__main
     display: block
     width: 100%
+
+
+  // $Board main content area inner
+  &__main-inner
+    display: block
+    width: 100%
+    padding: 20px 20px 30px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
+
+
+  // $Board scroll area
+  &__scroll
+    position: relative
+    display: block
+    width: 100%
+    padding-bottom: 20px
+    overflow: hidden
+    text-align: center
+
+    // $Board scroll area inner container MOD: type native
+    &_type_native
+      overflow-x: auto
+      padding-bottom: 0
+
+
+  // $Board scroll area content
+  &__scroll-content
+    display: inline-block
+    text-align: left
+    min-width: 100%
+
+
+  // $Board tasks
+  &__tasks
+    display: block
+    width: 100%
+    padding: 0 20px
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px
 
 
   // $Board rota
@@ -612,7 +738,6 @@ $block: ".boss-board"
     z-index: 5
     border: 2px solid #e6e6e6
     border-radius: 10px
-    overflow: hidden
 
     @media screen and (max-width: 960px)
       padding: 15px
@@ -625,29 +750,116 @@ $block: ".boss-board"
       @media screen and (max-width: 960px)
         padding: 0
         border: none
-        overflow: visible
 
       @media screen and (max-width: 480px)
         padding: 0
 
+    &_role_area
+      border: none
+
     &_context_stack
       &:not(:last-child)
         margin-bottom: 30px
+
+  // $Board manager area header
+  &__manager-header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    padding: 15px 20px
+    border-bottom: 1px solid #eee
+
+    #{$block}__manager-group_role_area &
+      padding-top: 0
+
+    @media screen and (max-width: 960px)
+      padding: 0
 
 
   // $Board manager area filter
   &__manager-filter
     display: block
     width: 100%
-    padding: 15px 30px
+    padding: 20px
     background-color: #f9f9f9
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
 
     @media screen and (max-width: 960px)
-      padding: 30px
       margin-bottom: 30px
       background-color: #FFF
       border-radius: 10px
       box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
+
+    &:only-child
+      border-radius: 10px
+
+
+  // $Board manager title
+  &__manager-title
+    +text-normalizer()
+    display: inline-block
+    font-size: 20px
+    font-weight: 400
+    color: $boss-global-font-color
+
+
+  // $Board manager switch
+  &__manager-switch
+    position: relative
+    display: inline-block
+    margin-left: 15px
+    border-radius: 50%
+    width: 28px
+    height: 28px
+    vertical-align: middle
+    cursor: pointer
+    outline: none
+    transition: .4s
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 20px
+      height: 15px
+      background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+      transform: translate(-50%, -50%) rotate(180deg)
+      background-position: center center
+      background-repeat: no-repeat
+      background-size: contain
+      transform-origin: center center
+      transition: all .4s
+
+    // $Board manager switch MOD: state closed
+    &_state_closed
+      &:before
+        background-image: url(../icons/icon-arrow-down-dark-gray.svg)
+        transform: translate(-50%, -50%)
+
+
+  // $Board manager content
+  &__manager-content
+
+    &_state_closed
+      display: none
+
+
+  // $Board manager area cards
+  &__manager-cards
+    display: block
+    width: 100%
+    padding: 30px 20px
+
+    #{$block}__manager-group_role_area &
+      padding-bottom: 0
+
+    @media screen and (max-width: 960px)
+      padding: 30px 0
 
 
   // $Board manager area table
@@ -656,11 +868,21 @@ $block: ".boss-board"
     width: 100%
 
 
-  // $Board manager area shifts
-  &__manager-shifts
+  // $Board manager area requests
+  &__manager-requests
     display: block
     width: 100%
-    padding: 30px
+    padding: 30px 20px
+
+    @media screen and (max-width: 960px)
+      padding: 0 0 30px
+
+
+  // $Board manager area timeline
+  &__manager-timeline
+    display: block
+    width: 100%
+    padding: 30px 20px
 
     @media screen and (max-width: 960px)
       padding: 0 0 30px
@@ -742,13 +964,25 @@ $block: ".boss-board"
     padding-left: 20px
     padding-right: 20px
 
+    &_role_daily
+      width: 65%
+
     @media screen and (max-width: 1120px)
       width: 100%
-      margin-bottom: 5px
-      padding-bottom: 30px
+      margin-bottom: 10px
+      padding-bottom: 20px
       padding-left: 15px
       padding-right: 15px
       border-bottom: 1px solid $boss-very-light-gray
+
+    &_layout_reverse
+      @media screen and (max-width: 1120px)
+        margin-bottom: 0
+        margin-top: 10px
+        padding-top: 20px
+        padding-bottom: 0
+        border-bottom: none
+        border-top: 1px solid $boss-very-light-gray
 
 
   // $Board graph inner
@@ -758,17 +992,95 @@ $block: ".boss-board"
     width: 100%
 
 
+  &__graph-legend
+
+
   // $Board forecast
-  &__forecast
+  // $Board staff count
+  // $Board staff list
+  &__forecast,
+  &__staff-count,
+  &__list
+    position: relative
     flex-grow: 1
     flex-shrink: 1
     width: 40%
     padding-right: 20px
 
+    &_role_daily
+      width: 35%
+
+    &_layout_reverse
+      padding-right: 0
+      padding-left: 20px
+
     @media screen and (max-width: 1120px)
       width: 100%
       padding-right: 15px
       padding-left: 15px
+
+    &_layout_reverse
+      @media screen and (max-width: 1120px)
+        padding-right: 15px
+        padding-left: 15px
+
+
+  &__list
+    min-height: 600px
+
+
+  &__list-inner
+    display: flex
+    flex-direction: column
+    align-items: stretch
+    justify-content: flex-start
+
+    &_type_static
+      position: absolute
+      top: 0
+      right: 20px
+      bottom: 0
+      left: 0
+      overflow: hidden
+
+      #{$block}__list_layout_reverse &
+        right: 0
+        left: 20px
+
+      @media screen and (max-width: 1120px)
+        left: 15px
+        right: 15px
+
+        #{$block}__list_layout_reverse &
+          left: 15px
+          right: 15px
+
+
+  &__list-header
+    flex-grow: 0
+    flex-shrink: 0
+    width: 100%
+    padding-top: 10px
+    padding-bottom: 20px
+
+
+  &__list-content
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+
+
+  &__list-scroll
+    position: relative
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+    overflow: hidden
+
+
+  &__list-scroll-content
+    display: inline-block
+    width: 100%
 
 
   // $Board report area
@@ -786,8 +1098,13 @@ $block: ".boss-board"
       padding: 0
 
 
+  // $Board group
   // $Board checklist area
-  &__checklist
+  // $Board table area
+  &__group,
+  &__checklist,
+  &__table,
+  &__cards
     display: block
     width: 100%
     margin-bottom: 10px
@@ -861,17 +1178,6 @@ $block: ".boss-board"
       padding-right: 15px
 
 
-  // $Board table area
-  &__table
-    display: block
-    width: 100%
-    padding: 0 20px
-
-    @media screen and (max-width: 400px)
-      padding-left: 15px
-      padding-right: 15px
-
-
   // $Board details link
   &__more
     +text-normalizer()
@@ -890,3 +1196,23 @@ $block: ".boss-board"
 
     @media screen and (max-width: 960px)
       padding: 0 20px
+
+
+  // $Board text placeholder
+  &__text-placeholder
+    +text-normalizer()
+    font-size: 16px
+    line-height: 1
+    color: #808080
+
+
+  // $Board tactions
+  &__actions
+    display: block
+    width: 100%
+    padding: 30px 20px 10px
+    text-align: center
+
+    @media screen and (max-width: 400px)
+      padding-left: 15px
+      padding-right: 15px

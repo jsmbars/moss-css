@@ -18,6 +18,9 @@ $block: ".time-picker"
 
 
   @at-root
+    .rc-time-picker-panel
+      z-index: 99999
+
     // Mobile devices fix
     .rc-time-picker-panel .rc-time-picker-panel-select
       @media (pointer:coarse)
@@ -40,18 +43,25 @@ $block: ".time-picker"
           content: ''
           position: absolute
           top: 50%
-          right: 20px
+          left: 20px
           z-index: 10
           display: block
-          width: 16px
-          height: 16px
+          width: 14px
+          height: 14px
           margin-top: -8px
           background: url(../icons/icon-clock-medium-gray.svg) no-repeat 0 0
           background-size: contain
 
+        & input,
+        & .time-picker-input-field
+          padding-left: 45px !important
+
       &_state_error input,
       &_state_error .time-picker-input-field
-        outline: 1px solid map-get($boss-app-palette, alert-border)
+        outline: 1px solid map-get($boss-app-palette, alert-border) !important
+
+      &_state_error input:focus
+        box-shadow: 0 0 5px 0 map-get($boss-app-palette, alert) !important
 
 
       & input
@@ -70,7 +80,7 @@ $block: ".time-picker"
 
         &:focus
           outline: none
-          box-shadow: none
+          box-shadow: 0 0 5px 0 $boss-very-light-gray
           border-color: $boss-very-light-gray
 
         &[type=text]::-ms-clear

@@ -1,0 +1,146 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Add avatar
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-add-avatar"
+
+#{$block}
+  @include normalize-block()
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  width: 100%
+  padding-bottom: 20px
+
+  // $Add avatar preview
+  &__preview
+    position: relative
+    display: block
+    width: 240px
+    height: 240px
+    background-image: url('../icons/avatar-placeholder.svg')
+    background-position: center center
+    background-repeat: no-repeat
+    background-size: contain
+    border-radius: 50%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+    @media screen and (max-width: 480px)
+      width: 200px
+      height: 200px
+
+    &_role_load
+      background-image: url('../icons/load-image-placeholder.svg')
+      cursor: pointer
+
+    &_state_alert
+      position: relative
+
+      &:before
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        z-index: 10
+        display: block
+        background-color: rgba(255, 255, 255, .6)
+        background-image: url('../icons/icon-close-alert.svg')
+        background-repeat: no-repeat
+        background-size: 120px 120px
+        background-position: center center
+
+        @media screen and (max-width: 480px)
+          background-size: 100px 100px
+
+
+  // $Add avatar preview action
+  &__preview-action
+    position: absolute
+    z-index: 10
+    display: block
+    width: 40px
+    height: 40px
+    background-color: map-get($boss-app-palette, primary)
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 18px 18px
+    border: 2px solid #fff
+    border-radius: 50%
+    font-size: 0
+    color: transparent
+    opacity: 1
+    transition: all .4s
+
+    &:hover
+      opacity: 0.8
+
+    // $Add avatar preview action MOD: role clear
+    &_role_clear
+      top: 15px
+      right: 15px
+      background-image: url(../icons/icon-close-white.svg)
+
+      @media screen and (max-width: 480px)
+        top: 10px
+        right: 10px
+
+
+
+  // $Add avatar preview image
+  &__preview-image
+    display: block
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    overflow: hidden
+
+    & img
+      display: block
+      width: 100%
+      max-width: 100%
+
+
+  // $Add avatar note
+  &__note
+    +text-normalizer()
+    max-width: 100%
+    text-align: center
+
+
+  &__message
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
+  &__actions
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+
+  &__action
+    &:not(:last-child)
+      margin-bottom: 15px

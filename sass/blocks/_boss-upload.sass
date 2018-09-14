@@ -19,6 +19,9 @@ $block: ".boss-upload"
   display: block
   width: 100%
 
+  // $Upload control MOD: state error
+  &_state_error
+
 
   // $Upload control flow area
   &__flow
@@ -161,6 +164,63 @@ $block: ".boss-upload"
     width: 100%
 
 
+  // #Upload control area
+  &__area
+    position: relative
+    display: block
+    width: 100%
+    height: 300px
+    background-color: $boss-extra-light-gray
+    border: 2px dashed $boss-very-light-gray
+    border-radius: 10px
+
+    #{$block}_state_error &
+      border-color: map-get($boss-app-palette, alert-border)
+
+
+  // $Upload control area inner container
+  &__area-inner
+    position: relative
+    z-index: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+    padding: 10px
+    text-align: center
+
+
+  // $Upload control area text
+  &__area-text
+    +text-normalizer()
+    max-width: 100%
+    font-size: 16px
+    text-align: center
+
+    &:not(:last-child)
+      margin-bottom: 15px
+
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
+  &__area-text-marked
+    font-weight: 600
+
+
+  // $Upload control area button
+  // $Upload control area spinner
+  &__area-button,
+  &__area-spinner
+
+    &:not(:last-child)
+      margin-bottom: 15px
+
+
   // $Upload control field
   &__field
     position: relative
@@ -213,12 +273,16 @@ $block: ".boss-upload"
 
 
   // $Upload control field input
-  &__field-input
+  // $Upload control area input
+  &__field-input,
+  &__area-input
     position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
     z-index: 10
     display: block
-    width: 100%
-    height: 100%
     margin: 0
     padding: 0
     cursor: pointer
