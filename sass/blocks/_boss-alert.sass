@@ -190,6 +190,11 @@ $block: ".boss-alert"
   &__text-value
 
 
+  // $Alert text marked
+  &__text-marked
+    font-weight: 600
+
+
   // $Alert text link
   &__text-link
     +text-normalizer()
@@ -209,12 +214,10 @@ $block: ".boss-alert"
 
 
   // $Alert text line
-  &__line
+  &__text-line
     display: block
 
     &_role_item
-      font-weight: 600
-
       &:before
         content: "-"
         display: inline-block

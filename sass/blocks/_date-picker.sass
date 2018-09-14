@@ -22,43 +22,64 @@ $block: ".date-picker"
       display: block
       width: 100%
 
+      &_size_min
+        min-width: 120px
+
       &_type_icon
         position: relative
+        min-width: 150px
 
         &:before
           content: ''
           position: absolute
           top: 50%
-          right: 20px
+          left: 20px
           z-index: 10
           display: block
-          width: 16px
-          height: 16px
-          margin-top: -8px
+          width: 14px
+          height: 14px
+          margin-top: -7px
           background: url(../icons/icon-calendar-medium-gray.svg) no-repeat 0 0
           background-size: contain
 
+        & input,
+        & .date-picker-input-field
+          min-width: 150px
+          padding-left: 45px
+
+      &_type_inline
+        margin-top: -2px
+
+        & input,
+        & .date-picker-input-field
+          height: 25px
+          line-height: 25px
+          padding: 0 10px
+
       &_state_error input,
       &_state_error .date-picker-input-field
-        outline: 1px solid map-get($boss-app-palette, alert-border)
+        outline: 1px solid map-get($boss-app-palette, alert-border) !important
+
+      &_state_error input:focus
+        box-shadow: 0 0 5px 0 map-get($boss-app-palette, alert) !important
 
       & input
         +text-normalizer()
         display: block
+        min-width: 120px
         width: 100%
-        height: auto
-        min-height: 50px
-        line-height: 1
+        height: 50px
+        line-height: 50px
         box-sizing: border-box
         background-color: #FFF
         border: 1px solid $boss-very-light-gray
-        padding: 15px 20px
+        padding: 0 20px
         border-radius: 2px
         box-shadow: none
 
         &:focus
           outline: none
-          box-shadow: none
+          box-shadow: 0 0 5px 0 $boss-very-light-gray
           border-color: $boss-very-light-gray
 
         &[type=text]::-ms-clear
@@ -92,19 +113,31 @@ $block: ".date-picker"
     .date-picker-input-field
       +text-normalizer()
       display: block
+      min-width: 120px
       width: 100%
-      height: auto
-      min-height: 50px
+      height: 50px
       box-sizing: border-box
       background-color: #FFF
-      line-height: 1
+      line-height: 50px
       border: 1px solid $boss-very-light-gray
-      padding: 15px 20px
+      padding: 0 20px
       border-radius: 2px
       cursor: text
 
       &_state_error
         outline: 1px solid map-get($boss-app-palette, alert-border)
+
+
+    .date-picker-input_type_inline.date-picker-input_type_icon
+      &:before
+        left: 10px
+        width: 12px
+        height: 12px
+        margin-top: -6px
+
+      & input,
+      & .date-picker-input-field
+        padding-left: 35px
 
 
   // Date picker direct overrides
@@ -177,6 +210,34 @@ $block: ".date-picker"
         background-size: contain
         transform: rotate(-180deg)
 
+      &--hidden
+        display: none
+
+
+    & .react-datepicker__overlay
+      position: absolute
+      top: 65px
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 100
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      background-color: rgba(0, 0, 0, .7)
+
+      &--hidden
+        display: none
+
+    & .react-datepicker__overlay-text
+      +text-normalizer()
+      width: 100%
+      max-width: 200px
+      padding-bottom: 40px
+      font-size: 24px
+      text-align: center
+      color: #fff
 
     & .react-datepicker__month
       position: relative
@@ -194,6 +255,13 @@ $block: ".date-picker"
         display: block
         height: 100px
         box-shadow: inset 0 60px 60px -60px rgba(0, 0, 0, .15)
+
+      &--inactive
+        opacity: .35
+
+
+    & .react-datepicker__week
+      white-space: nowrap
 
 
     & .react-datepicker__month-select
@@ -216,6 +284,9 @@ $block: ".date-picker"
 
     & .react-datepicker__day-names
       padding-top: 10px
+
+      &--inactive
+        opacity: .35
 
 
     & .react-datepicker__day-name

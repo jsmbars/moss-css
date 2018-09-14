@@ -1,0 +1,136 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Indicator
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-indicator"
+
+#{$block}
+  flex-grow: 0
+  flex-shrink: 0
+  display: inline-block
+  white-space: nowrap
+
+  // $Indicator MOD: position before
+  &_position_before
+    margin-right: 20px
+
+  // $Indicator MOD: position after
+  &_position_after
+    margin-left: 20px
+
+  // $Indicator MOD: role action
+  &_role_action
+    cursor: pointer
+    transition: opacity .4s
+
+    &:hover
+      opacity: 0.8
+
+
+  // $Indicator marker
+  &__marker
+    +text-normalizer()
+    display: inline-block
+    width: 30px
+    height: 30px
+    border-radius: 50%
+    background-color: #4c4c4c
+    background-position:  center center
+    background-repeat: no-repeat
+    font-size: 20px
+    line-height: 30px
+    text-align: center
+    color: #fff
+    vertical-align: middle
+
+    // $Indicator marker CONTEXT: $Indicator MOD: status success
+    // $Indicator marker CONTEXT: $Indicator MOD: status collected
+    #{$block}_status_success &,
+    #{$block}_status_collected &
+      background-color: map-get($boss-app-palette, secondary)
+
+    // $Indicator marker CONTEXT: $Indicator MOD: status error
+    #{$block}_status_error &,
+    #{$block}_status_sent-back &
+      background-color: map-get($boss-app-palette, alert)
+
+    // $Indicator marker CONTEXT: $Indicator MOD: status uncollected
+    // $Indicator marker CONTEXT: $Indicator MOD: status pending
+    #{$block}_status_uncollected &,
+    #{$block}_status_pending &
+      background-color: map-get($boss-app-palette, pending)
+
+    // $Indicator marker MOD: icon check
+    &_icon_check
+      background-size: 16px 16px
+      background-image: url('../icons/icon-checked-white.svg')
+
+    // $Indicator marker MOD: icon hour glass
+    &_icon_hour-glass
+      background-size: 18px 18px
+      background-image: url('../icons/icon-hour-glass-white.svg')
+
+    // $Indicator marker MOD: icon reload
+    &_icon_reload
+      background-size: 18px 18px
+      background-image: url('../icons/icon-reload-white.svg')
+
+
+  // $Indicator MOD: marker label
+  &__label
+    +text-normalizer()
+    display: inline-block
+    font-size: 18px
+    line-height: 1
+    font-weight: 600
+    vertical-align: middle
+
+    // $Indicator label CONTEXT: $Indicator MOD: status success
+    // $Indicator label CONTEXT: $Indicator MOD: status collected
+    #{$block}_status_success &,
+    #{$block}_status_collected &
+      color: map-get($boss-app-palette, secondary)
+
+    // $Indicator label CONTEXT: $Indicator MOD: status error
+    #{$block}_status_error &,
+    #{$block}_status_sent-back &
+      color: map-get($boss-app-palette, alert)
+
+    // $Indicator label CONTEXT: $Indicator MOD: status uncollected
+    // $Indicator label CONTEXT: $Indicator MOD: status pending
+    #{$block}_status_uncollected &,
+    #{$block}_status_pending &
+      color: map-get($boss-app-palette, pending)
+
+    // $Indicator MOD: position before
+    &_position_before
+      margin-right: 5px
+
+    // $Indicator MOD: position after
+    &_position_after
+      margin-left: 5px
+
+    // $Indicator label MOD: state hidden on medium screens
+    &_state_hidden-m
+      @media screen and (max-width: 960px)
+        display: none
+
+    // $Indicator label MOD: state hidden on small screens
+    &_state_hidden-s
+      @media screen and (max-width: 640px)
+        display: none
+
+    // $Indicator label MOD: state hidden on extra small screens
+    &_state_hidden-xs
+      @media screen and (max-width: 480px)
+        display: none

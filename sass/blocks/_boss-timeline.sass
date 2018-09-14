@@ -2,7 +2,7 @@
 @import '../helpers/mixins'
 
 ////////////////////////////////////////
-// $Shifts
+// $Timeline
 ////////////////////////////////////////
 
 //////////////////////////////////////// Block variables
@@ -12,7 +12,7 @@
 
 
 //////////////////////////////////////// Block styles
-$block: ".boss-shifts"
+$block: ".boss-timeline"
 
 #{$block}
   +box-model-normalizer()
@@ -21,7 +21,7 @@ $block: ".boss-shifts"
   width: 100%
 
 
-  // $Shifts list
+  // $Timeline list
   &__list
     display: block
     width: 100%
@@ -29,7 +29,7 @@ $block: ".boss-shifts"
     list-style: none
 
 
-  // $Shifts item
+  // $Timeline item
   &__item
     position: relative
     width: 100%
@@ -41,7 +41,7 @@ $block: ".boss-shifts"
     &:before
       content: ""
       position: absolute
-      top: 20px
+      top: 0
       left: 0
       z-index: 1
       display: block
@@ -50,19 +50,16 @@ $block: ".boss-shifts"
       border: 5px solid #fff
       border-radius: 50%
       background-color: #FFF
-      background-image: url('../icons/icon-clock-medium-gray.svg')
+      background-image: url('../icons/icon-clock-dark-gray.svg')
       background-repeat: no-repeat
       background-position: center center
       background-size: 15px auto
 
-      @media screen and (max-width: 480px)
-        top: 10px
-
     &:after
       content: ""
       position: absolute
-      top: 40px
-      bottom: -70px
+      top: 20px
+      bottom: -40px
       left: 15px
       z-index: 0
       display: block
@@ -70,53 +67,190 @@ $block: ".boss-shifts"
       margin-left: -2px
       background-color: #eee
 
-      @media screen and (max-width: 480px)
-        top: 30px
-        bottom: -50px
-
     &:last-child
       margin-bottom: 0
+
       &:after
         display: none
 
+    // $Timeline item MOD: adjust count
+    &_adjust_count
+      margin-bottom: 50px
 
-  // $Shifts content
-  &__content
+      @media screen and (max-width: 480px)
+        margin-bottom: 30px
+
+      &:before
+        display: none
+
+      &:after
+        left: 20px
+
+        @media screen and (max-width: 480px)
+          left: 18px
+
+    // $Timeline item MOD: role card
+    &_role_card
+      &:before
+        top: 20px
+        left: 0
+
+        @media screen and (max-width: 480px)
+          top: 10px
+
+      &:after
+        top: 40px
+        bottom: -70px
+
+        @media screen and (max-width: 480px)
+          top: 30px
+          bottom: -50px
+
+    // $Timeline item MOD: state alert
+    &_state_alert
+      &:before
+        background-image: url('../icons/icon-clock-alert.svg')
+
+
+  &__count
+    +text-normalizer()
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 1
+    display: block
+    width: 40px
+    height: 40px
+    font-size: 16px
+    line-height: 40px
+    font-weight: 600
+    text-align: center
+    color: #fff
+    background-color: map-get($boss-app-palette, primary)
+    border-radius: 50%
+
+    @media screen and (max-width: 480px)
+      width: 35px
+      height: 35px
+      font-size: 14px
+      line-height: 35px
+
+    &_state_alert
+      background-color: map-get($boss-app-palette, alert)
+
+
+  // $Timeline inner container
+  &__inner
     display: block
     width: 100%
     width: calc(100% - 40px)
     margin-left: 40px
-    background-color: #FFF
-    border-radius: 10px
-    box-shadow: 0 5px 10px -5px rgba(0,0,0,.3)
 
     @media screen and (max-width: 480px)
       width: calc(100% - 35px)
       margin-left: 35px
 
+    // $Timeline inner container MOD: adjust count
+    &_adjust_count
+      width: calc(100% - 50px)
+      margin-left: 50px
 
-  // $Shifts header
+      @media screen and (max-width: 480px)
+        width: calc(100% - 45px)
+        margin-left: 45px
+
+
+    // $Timeline inner container MOD: role card
+    &_role_card
+      background-color: #FFF
+      border-radius: 10px
+      box-shadow: 0 5px 15px rgba(0,0,0,.15)
+
+    // $Timeline inner container MOD: state alert
+    &_state_alert
+      background-color: #feeeee
+
+
+  // $Timeline header
   &__header
-    display: block
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
     width: 100%
-    padding: 20px
-    border-bottom: 1px solid #eee
 
-    @media screen and (max-width: 640px)
+    &_adjust_count
+      padding-top: 5px
+
+      @media screen and (max-width: 480px)
+        padding-top: 3px
+
+    // $Timeline header MOD: role card
+    &_role_card
+      padding: 20px
+      border-bottom: 1px solid #eee
+
+      @media screen and (max-width: 480px)
+        padding: 10px
+
+
+  // $Timeline content
+  &__content
+
+    // $Timeline content MOD: role card
+    &_role_card
+      padding: 20px
+
+      @media screen and (max-width: 480px)
+        padding: 10px
+
+
+  // $Timeline group
+  &__group
+
+    // $Timeline group MOD: role card
+    &_role_card
       padding: 10px 20px
 
+      &:not(:last-child)
+        border-bottom: 1px solid #eee
 
-  // $Shifts title
+      @media screen and (max-width: 480px)
+        padding: 10px
+
+    &_marked
+      background-color: #fbfbfb
+
+
+
+  // $Timeline title
   &__title
     +text-normalizer()
+    max-width: 100%
+    padding-top: 2px
     font-size: 18px
+    line-height: 25px
+
+    @media screen and (max-width: 480px)
+      padding-top: 3px
+      font-size: 16px
+
+
+  // $Timeline title primary
+  &__title-primary
+    margin-right: 20px
     font-weight: 600
 
-    @media screen and (max-width: 640px)
-      text-align: center
+  // $Timeline title secondary
+  &__title-secondary
+    color: #808080
+
+  // $Timeline title light
+  &__title-light
+    font-weight: 300
 
 
-  // $Shifts records
+  // $Timeline records
   &__records
     display: flex
     flex-direction: column
@@ -124,13 +258,12 @@ $block: ".boss-shifts"
     align-items: flex-start
     width: 100%
     max-width: 480px
-    padding: 20px
 
     @media screen and (max-width: 640px)
-      padding: 10px
+      max-width: 100%
 
 
-  // $Shifts record
+  // $Timeline record
   &__record
     display: inline-block
     padding: 0 10px 10px
@@ -145,13 +278,42 @@ $block: ".boss-shifts"
       margin-bottom: 20px
       border-bottom: 1px solid #eee
 
+  // $Timeline info list
+  &__info-list
+    display: block
+    width: 100%
+    list-style: none
+    margin: 0
+    padding: 0
 
-  // $Shifts text
+
+  // $Timeline info item
+  &__info-item
+    position: relative
+    display: block
+    width: 100%
+    padding-left: 15px
+
+    &:before
+      content: "-"
+      position: absolute
+      left: 0
+      top: 0
+      display: inline-block
+
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+  // $Timeline text
   &__text
     +text-normalizer()
     margin-bottom: 5px
 
-    // $Shifts text MOD: role venue
+    #{$block}__header &
+      padding-top: 5px
+
+    // $Timeline text MOD: role venue
     &_role_venue
       font-weight: 600
       color: #808080
@@ -170,17 +332,25 @@ $block: ".boss-shifts"
         vertical-align: middle
 
 
-  // $Shifts text marked
+  // $Timeline text marked
   &__text-marked
     font-weight: 600
 
 
-  // $Shifts text faded
+  // $Timeline text faded
   &__text-faded
    color: #808080
 
 
-  // $Shifts link
+  // $Timeline text wrap
+  &__text-wrap
+    overflow-wrap: break-word
+    word-wrap: break-word
+    word-break: break-word
+    hyphens: auto
+
+
+  // $Timeline link
   &__link
     +text-normalizer()
     position: relative
@@ -197,7 +367,7 @@ $block: ".boss-shifts"
     &:hover
       text-decoration: underline
 
-    // $Shifts link MOD: role details
+    // $Timeline link MOD: role details
     &_role_details
       padding-left: 20px
 
@@ -220,26 +390,26 @@ $block: ".boss-shifts"
         background-image: url(../icons/icon-zoom-primary.svg)
 
 
-  // $Shifts details
+  // $Timeline details
   &__details
     display: block
     width: 100%
 
 
-  // $Shifts details header
+  // $Timeline details header
   &__details-header
     position: relative
     display: flex
     flex-direction: row
     justify-content: space-between
     align-items: flex-start
-    width: 250px
+    width: 320px
 
     @media screen and (max-width: 640px)
       width: 100%
 
 
-  // $Shifts details content
+  // $Timeline details content
   &__details-content
     display: block
     width: 100%
@@ -248,13 +418,13 @@ $block: ".boss-shifts"
       display: none
 
 
-  // $Shifts details inner
+  // $Timeline details inner
   &__details-inner
     display: block
     width: 100%
 
 
-  // $Shifts details switch
+  // $Timeline details switch
   &__details-switch
     +text-normalizer()
     font-size: 0
@@ -276,7 +446,7 @@ $block: ".boss-shifts"
       vertical-align: middle
       transform: rotate(180deg)
 
-    // $Shifts details switch MOD: state closed
+    // $Timeline details switch MOD: state closed
     &_state_closed
       &:after
         transform: rotate(0)

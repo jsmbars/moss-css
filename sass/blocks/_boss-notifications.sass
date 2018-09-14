@@ -1,0 +1,145 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Notifications
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-notifications"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: flex-start
+  width: 100%
+  max-height: 100%
+  background-color: #efefef
+  border-radius: 4px
+  box-shadow: 0 5px 15px -5px rgba(0,0,0,.3)
+  white-space: normal
+  overflow: hidden
+
+
+  // $Notifications header
+  &__header
+    flex-grow: 0
+    flex-shrink: 0
+    width: 100%
+    height: 50px
+    padding: 15px 10px
+    background-color: #84bef0
+
+
+  // $Notifications title
+  &__title
+    +text-normalizer()
+    font-size: 18px
+    line-height: 1
+    font-weight: 600
+    color: #fff
+    overflow: hidden
+    text-overflow: ellipsis
+    white-space: nowrap
+
+
+  // $Notifications content
+  &__content
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    padding: 10px 5px
+    overflow: hidden
+
+
+  // $Notifications cards
+  &__cards
+    flex-grow: 1
+    flex-shrink: 1
+    width: 100%
+    overflow-x: hidden
+    overflow-y: auto
+    padding: 0 5px
+
+    // $Notifications cards MOD: context page content
+    // max-height is equal to 100vh minus header height + content's vertical space
+    &_context_page-content
+      max-height: calc(100vh - 270px)
+
+      @media screen and (max-width: 480px)
+        max-height: calc(100vh - 330px)
+
+      @media screen and (max-height: 480px)
+        max-height: calc(100vh - 130px)
+
+
+  // $Notifications card
+  &__card
+    position: relative
+    width: 100%
+    margin-bottom: 10px
+    padding: 10px 30px 10px 10px
+    border-radius: 2px
+    background-color: #fff
+    border: 1px solid #efefef
+    border-bottom: 1px solid #d8d8d8
+
+    &:last-child
+      margin-bottom: 0
+
+
+  // $Notifications card text
+  &__card-text
+    +text-normalizer()
+    font-weight: 300
+    line-height: 1.4
+
+    & b
+      font-weight: 600
+
+
+  // $Notifications card link
+  &__card-link
+    +text-normalizer()
+    color: #84bef0
+    text-decoration: underline
+
+    &:hover
+      text-decoration: none
+
+
+  // $Notifications dismiss action
+  &__dismiss
+    position: absolute
+    top: 0px
+    right: 0px
+    display: block
+    width: 30px
+    height: 40px
+    font-size: 0
+    line-height: 0
+    color: transparent
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: 10px 10px
+    transition: all .4s
+    background-image: url(../icons/icon-close-alert-dark.svg)
+    cursor: pointer
+    opacity: 0.9
+    transition: opacity .3s
+
+    &:hover
+      opacity: 0.8

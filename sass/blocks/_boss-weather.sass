@@ -1,0 +1,801 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Weather
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-weather"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+  &_adjust_precip
+
+  // $Weather daily area
+  &__daily
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    padding-bottom: 20px
+    margin-bottom: 20px
+    border-bottom: 1px solid #eee
+
+    #{$block}_adjust_precip &
+      flex-wrap: wrap
+
+    @media screen and (max-width: 1120px)
+      flex-direction: column
+      justify-content: center
+      align-items: flex-start
+
+    @media screen and (max-width: 640px)
+      padding: 0 0 20px
+
+
+  // $Weather summary
+  &__summary
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    width: 240px
+    padding-right: 40px
+
+    #{$block}_adjust_precip &
+      width: 320px
+      padding-right: 20px
+
+    @media screen and (max-width: 1120px)
+      flex-direction: row
+      justify-content: center
+      width: 100%
+      margin-bottom: 20px
+      padding-right: 0
+
+      #{$block}_adjust_precip &
+        width: 100%
+
+    @media screen and (max-width: 640px)
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+
+
+  // $Weather summary primary information
+  &__summary-primary
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    margin-bottom: 5px
+
+    @media screen and (max-width: 1120px)
+      flex-grow: 0
+      flex-shrink: 0
+      width: auto
+      margin-right: 20px
+
+    @media screen and (max-width: 640px)
+      align-items: center
+      margin-right: 0
+
+
+  // $Weather summary temp
+  &__summary-temp
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    height: 60px
+    padding-right: 10px
+    font-size: 60px
+    line-height: 60px
+    overflow: hidden
+
+    @media screen and (max-width: 640px)
+      font-size: 50px
+
+
+  // $Weather summary icon
+  &__summary-icon
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 60px
+    height: 60px
+    overflow: hidden
+
+
+  // $Weather summary skycon
+  &__summary-skycon
+    width: 60px
+    height: 60px
+
+
+  // $Weather summary secondary information
+  &__summary-secondary
+    display: block
+    width: 100%
+
+    @media screen and (max-width: 1120px)
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
+
+    @media screen and (max-width: 640px)
+      flex-grow: 1
+      width: 100%
+
+
+  // $Weather summary title
+  &__summary-title
+    +text-normalizer()
+    max-width: 100%
+    margin-bottom: 10px
+    font-size: 20px
+    line-height: 1
+    font-weight: 600
+
+    #{$block}_adjust_precip &
+      font-size: 24px
+
+    @media screen and (max-width: 1120px)
+      font-size: 24px
+
+    @media screen and (max-width: 640px)
+      font-size: 20px
+      text-align: center
+
+      #{$block}_adjust_precip &
+        font-size: 20px
+
+
+  // $Weather summary text
+  &__summary-text
+    +text-normalizer()
+    max-width: 100%
+    font-size: 14px
+    line-height: 1.2
+
+    #{$block}_adjust_precip &
+      font-size: 16px
+
+    @media screen and (max-width: 1120px)
+      font-size: 16px
+
+    @media screen and (max-width: 640px)
+      font-size: 14px
+      text-align: center
+
+      #{$block}_adjust_precip &
+        font-size: 14px
+
+
+  // $Weather precipitation
+  &__precip
+    flex-grow: 1
+    flex-shrink: 1
+    width: calc(100% - 320px)
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+
+  // $Weather precipitation graph
+  &__precip-graph
+    position: relative
+    width: 100%
+    padding-right: 70px
+    margin-bottom: 10px
+
+    @media screen and (max-width: 640px)
+      padding-right: 60px
+
+
+  // $Weather precipitation intensity
+  &__precip-intensity
+    position: relative
+    width: 100%
+
+
+  // $Weather precipitation canvas wrap
+  &__precip-canvas
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    z-index: 1
+    display: block
+
+    & canvas
+      width: 100%
+      height: 100%
+
+
+  // $Weather precipitation levels
+  &__precip-levels
+    width: 100%
+    height: 90px
+    border-right: 1px dashed #4c4c4c
+
+
+  // $Weather precipitation level
+  &__precip-level
+    position: relative
+    width: 100%
+    height: 30px
+
+    &:not(:last-child)
+      border-bottom: 1px dashed #4c4c4c
+
+
+  // $Weather precipitation label
+  &__precip-label
+    +text-normalizer()
+    position: absolute
+    left: calc(100% + 10px)
+    font-size: 14px
+    line-height: 30px
+    font-weight: 300
+
+    @media screen and (max-width: 640px)
+      font-size: 12px
+
+
+  // $Weather precipitation intervals
+  &__precip-intervals
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+
+  // $Weather precipitation interval
+  &__precip-interval
+    position: relative
+    display: block
+    width: calc(100% / 6)
+    padding-top: 5px
+
+    @media screen and (max-width: 480px)
+      padding-top: 8px
+
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      display: block
+      width: 1px
+      height: 5px
+      background-color: #808080
+
+    &:nth-child(2n-1):before
+      height: 10px
+
+
+  // $Weather precipitation data
+  &__precip-data
+    display: inline-block
+    text-align: center
+    transform: translateX(-50%)
+
+    #{$block}__precip-interval:nth-child(2n - 1) &
+      display: none
+
+
+  // $Weather precipitation time
+  &__precip-time
+    +text-normalizer()
+    display: block
+    font-size: 14px
+    line-height: 1
+    font-weight: 300
+    color: #4c4c4c
+    text-align: center
+
+    @media screen and (max-width: 640px)
+      font-size: 12px
+
+
+  // $Weather precipitation note
+  &__precip-note
+    +text-normalizer()
+    max-width: 100%
+    padding-right: 70px
+    font-size: 16px
+    line-height: 1
+    font-weight: 300
+    text-align: right
+
+    @media screen and (max-width: 640px)
+      padding-right: 60px
+      font-size: 14px
+
+    @media screen and (max-width: 480px)
+      padding-right: 0
+      text-align: center
+
+
+  // $Weather timeline
+  &__timeline
+    flex-grow: 1
+    flex-shrink: 1
+    width: calc(100% - 240px)
+
+    #{$block}_adjust_precip &
+      width: 100%
+      margin-top: 30px
+
+    @media screen and (max-width: 1120px)
+      width: 100%
+
+    @media screen and (max-width: 640px)
+      #{$block}_adjust_precip &
+        margin-top: 20px
+
+
+  // $Weather timeline conditions
+  &__timeline-conditions
+    position: relative
+    z-index: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
+    width: 100%
+    height: 60px
+    margin-bottom: 4px
+    background-color: #fefefe
+
+
+  // $Weather timeline condition
+  &__timeline-condition
+    position: relative
+    flex-grow: 1
+    flex-shrink: 1
+    height: 60px
+    background-color: #EEEEF5
+    color: #4c4c4c
+
+    &:first-child
+      border-top-left-radius: 4px
+      border-bottom-left-radius: 4px
+
+    &:last-child
+      border-top-right-radius: 4px
+      border-bottom-right-radius: 4px
+
+    // $Weather timeline condition MOD: clear
+    &_clear
+      background-color: #EEEEF5
+
+    // $Weather timeline condition MOD: partly-cloudy
+    &_partly-cloudy
+      background-color: #d5dae2
+
+    // $Weather timeline condition MOD: cloudy
+    &_cloudy
+      background-color: #b6bfcb
+
+    // $Weather timeline condition MOD: sprinkling flurries
+    &_sprinkling-flurries
+      background-color: #96b4da
+
+    // $Weather timeline condition MOD: light rain
+    &_light-rain
+      background-color: #80a5d6
+      color: #fff
+
+    // $Weather timeline condition MOD: rain
+    &_rain
+      background-color: #4a80c7
+      color: #fff
+
+    // $Weather timeline condition MOD: heavy rain
+    &_heavy-rain
+      background-color: #3267ad
+      color: #fff
+
+
+  // $Weather timeline label
+  &__timeline-label
+    +text-normalizer()
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: flex-start
+    flex-wrap: wrap
+    max-width: 100%
+    height: 60px
+    font-size: 14px
+    line-height: 60px
+    white-space: nowrap
+    color: inherit
+    text-align: center
+    overflow: hidden
+
+    @media screen and (max-width: 640px)
+      font-size: 12px
+
+    &:before,
+    &:after
+      content: ''
+      flex-grow: 1
+      flex-shrink: 1
+      display: block
+      height: 60px
+
+
+  // $Weather timeline label text
+  &__timeline-label_text
+    flex-grow: 10000
+
+
+  // $Weather timeline tooltip
+  &__timeline-tooltip
+    +text-normalizer()
+    position: absolute
+    bottom: 100%
+    left: 50%
+    z-index: 5
+    display: block
+    min-width: 115px
+    margin-bottom: 6px
+    padding: 6px
+    text-align: center
+    background-color: #fff
+    border-radius: 4px
+    border: 1px solid #eee
+    transform: translate(-50%, 0)
+    box-shadow: 0 3px 15px -3px rgba(0,0,0,.3)
+
+    @media screen and (max-width: 640px)
+      min-width: 100px
+      font-size: 12px
+
+    &:before
+      content: ''
+      position: absolute
+      top: 100%
+      left: 50%
+      z-index: 10
+      margin-left: -6px
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 6px 6px 0 6px
+      border-color: #eee transparent transparent transparent
+
+    &:after
+      content: ''
+      position: absolute
+      top: 100%
+      left: 50%
+      z-index: 15
+      margin-left: -5px
+      width: 0
+      height: 0
+      border-style: solid
+      border-width: 5px 5px 0 5px
+      border-color: #fff transparent transparent transparent
+
+
+  // $Weather timeline intervals
+  &__timeline-intervals
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+
+  // $Weather timeline interval
+  &__timeline-interval
+    position: relative
+    display: block
+    width: calc(100% / 23)
+    padding-top: 10px
+
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      display: block
+      width: 1px
+      height: 5px
+      background-color: #808080
+
+    &:nth-child(2n):before
+      height: 10px
+
+      @media screen and (max-width: 640px)
+        height: 5px
+
+    &:not(:nth-child(3n+1)):before
+      @media screen and (max-width: 640px)
+        height: 10px
+
+    &:nth-child(3n+1):before
+      @media screen and (max-width: 640px)
+        height: 5px
+
+
+  // $Weather timeline data
+  &__timeline-data
+    display: inline-block
+    text-align: center
+    transform: translateX(-50%)
+
+    #{$block}__timeline-interval:nth-child(2n) &
+      display: none
+
+    @media screen and (max-width: 640px)
+      display: none
+
+      #{$block}__timeline-interval:nth-child(3n+1) &
+        display: inline-block
+
+
+  // $Weather timeline hour
+  &__timeline-hour
+    +text-normalizer()
+    display: block
+    margin-bottom: 10px
+    font-size: 14px
+    line-height: 1
+    color: #4c4c4c
+    text-align: center
+
+    @media screen and (max-width: 640px)
+      font-size: 12px
+
+
+  // $Weather timeline temp
+  &__timeline-temp
+    +text-normalizer()
+    display: block
+    font-size: 16px
+    line-height: 1
+    font-weight: 300
+    color: #808080
+    text-align: center
+
+    @media screen and (max-width: 640px)
+      font-size: 14px
+
+
+  // $Weather weekly area
+  &__weekly
+    display: block
+    width: 100%
+
+
+  // $Weather forecast
+  &__forecast
+    display: block
+    width: 100%
+
+    // $Weather forecast MOD: horizontal layout
+    &_horizontal
+
+    // $Weather forecast MOD: vertical layout
+    &_vertical
+
+    // $Weather forecast MOD: hidden on mobile
+    &_hidden-mobile
+      @media screen and (max-width: 960px)
+        display: none
+
+    // $Weather forecast MOD: visible on mobile
+    &_visible-mobile
+      @media screen and (min-width: 961px)
+        display: none
+
+  // $Weather forecast days
+  &__forecast-days
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+    #{$block}__forecast_vertical &
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-start
+
+
+  // $Weather forecast day
+  &__forecast-day
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 12.5%
+
+    #{$block}__forecast_vertical &
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+      width: 100%
+      height: 40px
+      margin-bottom: 30px
+
+    @media screen and (max-width: 640px)
+      #{$block}__forecast_vertical &
+        align-items: flex-end
+        height: 60px
+
+
+  // $Weather forecast info
+  &__forecast-info
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    height: 80px
+
+    #{$block}__forecast_vertical &
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
+      width: 120px
+      height: 40px
+
+    @media screen and (max-width: 640px)
+      height: 70px
+
+      #{$block}__forecast_vertical &
+        flex-direction: column
+        justify-content: flex-start
+        align-items: flex-start
+        width: 60px
+        height: 60px
+
+
+  // $Weather forecast icon
+  &__forecast-icon
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 40px
+    height: 40px
+    overflow: hidden
+
+
+  // $Weather forecast skycon
+  &__forecast-skycon
+    width: 40px
+    height: 40px
+
+
+  // $Weather forecast label
+  &__forecast-label
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 1
+    display: block
+    max-width: 100%
+    margin-bottom: 10px
+    font-size: 16px
+    line-height: 1
+    text-align: center
+
+    #{$block}__forecast_vertical &
+      order: 99
+      margin-bottom: 0
+      margin-left: 10px
+      text-align: left
+
+    @media screen and (max-width: 640px)
+      margin-bottom: 5px
+      font-size: 14px
+
+      #{$block}__forecast_vertical &
+        order: -99
+        margin-left: 0
+        margin-bottom: 5px
+
+
+  // $Weather forecast temp
+  &__forecast-temp
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    height: 250px
+    padding-top: 25px
+    padding-bottom: 25px
+
+    #{$block}__forecast_vertical &
+      width: calc(100% - 120px)
+      height: 40px
+      padding: 10px 30px
+
+
+  // $Weather forecast range
+  &__forecast-range
+    position: relative
+
+
+  // $Weather forecast high
+  &__forecast-high
+    +text-normalizer()
+    position: absolute
+    font-size: 16px
+    line-height: 1
+    font-weight: 300
+    bottom: calc(100% + 5px)
+    left: 50%
+    text-align: center
+    transform: translateX(-50%)
+
+    #{$block}__forecast_vertical &
+      top: 50%
+      right: calc(100% + 5px)
+      bottom: auto
+      left: auto
+      transform: translateY(-50%)
+      text-align: right
+
+    @media screen and (max-width: 640px)
+      font-size: 14px
+
+
+  // $Weather forecast low
+  &__forecast-low
+    +text-normalizer()
+    position: absolute
+    font-size: 16px
+    line-height: 1
+    font-weight: 300
+    top: calc(100% + 5px)
+    left: 50%
+    text-align: center
+    transform: translateX(-50%)
+
+    #{$block}__forecast_vertical &
+      top: 50%
+      left: calc(100% + 5px)
+      transform: translateY(-50%)
+      text-align: left
+
+    @media screen and (max-width: 640px)
+      font-size: 14px
+
+
+  // $Weather forecast indicator
+  &__forecast-indicator
+    display: block
+    width: 20px
+    height: 100%
+    margin: 0 auto
+    background-color: #4c4c4c
+    border-radius: 10px
+
+    #{$block}__forecast_vertical &
+      width: 100%
+      height: 20px

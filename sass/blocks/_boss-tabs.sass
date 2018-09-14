@@ -1,0 +1,150 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Tabs
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-tabs"
+
+#{$block}
+  +box-model-normalizer()
+  display: block
+  width: 100%
+
+
+  // $Tabs labels
+  &__labels
+    position: relative
+    z-index: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-end
+    width: 100%
+
+    @media screen and (max-width: 640px)
+      flex-direction: column
+
+
+  // $Tabs label
+  &__label
+    +text-normalizer()
+    position: relative
+    z-index: 1
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
+    padding: 20px 30px
+    font-size: 18px
+    color: #fff
+    background-color: #808080
+    text-decoration: none
+    outline: none
+    font-weight: 600
+    white-space: nowrap
+    cursor: pointer
+
+    @media screen and (max-width: 640px)
+      display: block
+      width: 100%
+      padding-top: 15px
+      padding-bottom: 15px
+      text-align: center
+
+    // $Tabs label MOD: role general
+    &_role_general
+      background-color: map-get($boss-tasks-palette, general)
+
+    // $Tabs label MOD: role artwork
+    &_role_artwork
+      background-color: map-get($boss-tasks-palette, artwork)
+
+    // $Tabs label MOD: role music
+    &_role_music
+      background-color: map-get($boss-tasks-palette, music)
+
+    // $Tabs label MOD: role sports
+    &_role_sports
+      background-color: map-get($boss-tasks-palette, sports)
+
+    // $Tabs label MOD: state active
+    &_state_active
+      z-index: 2
+      padding-top: 30px
+      box-shadow: 8px 0 8px -6px rgba(0,0,0,.4), -8px 0 8px -6px rgba(0,0,0,.4)
+
+      @media screen and (max-width: 640px)
+        order: 99
+        padding-top: 25px
+        box-shadow: none
+
+      &:first-child
+        box-shadow: 8px 0 8px -6px rgba(0,0,0,.4)
+
+        @media screen and (max-width: 640px)
+          box-shadow: none
+
+      &:last-child
+        box-shadow: -8px 0 8px -6px rgba(0,0,0,.4)
+
+        @media screen and (max-width: 640px)
+          box-shadow: none
+
+    &:not(#{&}_state_active)
+      box-shadow: inset 0 -8px 8px -6px rgba(0,0,0,.4)
+      opacity: .9
+      transition: opacity .4s
+
+      @media screen and (max-width: 640px)
+        opacity: .7
+
+      &:hover
+        opacity: 1
+
+
+  // $Tabs panels
+  &__panels
+    position: relative
+    z-index: 3
+    display: block
+    width: 100%
+
+
+  // $Tabs panel
+  &__panel
+    display: block
+    width: 100%
+    padding: 30px
+    background-color: #fff
+    border-top: 15px solid #808080
+
+    @media screen and (max-width: 640px)
+      padding: 30px 15px
+
+    // $Tabs panel MOD: role general
+    &_role_general
+      border-color: map-get($boss-tasks-palette, general)
+
+    // $Tabs panel MOD: role artwork
+    &_role_artwork
+      border-color: map-get($boss-tasks-palette, artwork)
+
+    // $Tabs panel MOD: role music
+    &_role_music
+      border-color: map-get($boss-tasks-palette, music)
+
+    // $Tabs panel MOD: role sports
+    &_role_sports
+      border-color: map-get($boss-tasks-palette, sports)
+
+    // $Tabs panel MOD: state hidden
+    &_state_hidden
+      display: none

@@ -69,6 +69,11 @@ $block: ".boss-count"
         margin-right: 0
         margin-bottom: 15px
 
+  &_adjust_action
+    overflow: hidden
+    position: relative
+    padding-right: 60px
+
   // $Count MOD: size half
   &_size_half
     flex-grow: 0
@@ -77,10 +82,15 @@ $block: ".boss-count"
     @media screen and (max-width: 960px)
       width: 100%
 
+  // $Count MOD: type color
+  &_type_color
+    background-color: #808080
+    border: none
+
   // $Count MOD: type solid colored
   &_type_solid
     background-color: #eaeaea
-    border-color: #eaeaea
+    border: none
 
   // $Count MOD: type badge
   &_type_badge
@@ -130,6 +140,42 @@ $block: ".boss-count"
     // $Count group CONTEXT: $Count MOD: type badge
     #{$block}_type_badge &
       align-items: center
+
+
+  &__action
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 40px
+    border-left: 2px solid #c4c4c4
+    cursor: pointer
+
+    #{$block}_type_solid &,
+    #{$block}_type_color &
+      background-color: rgba(0,0,0,.3)
+      border: none
+
+    &_role_remove
+      &:before
+        content: ''
+        display: inline-block
+        width: 12px
+        height: 12px
+        background-image: url('../icons/icon-close-light-gray.svg')
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+
+        #{$block}_type_solid &,
+        #{$block}_type_color &
+          background-image: url('../icons/icon-close-white.svg')
+
+
 
 
   // $Count number
@@ -188,6 +234,10 @@ $block: ".boss-count"
     max-width: 100%
     padding-top: 2px
     font-weight: 600
+
+    // $Count label CONTEXT: $Count MOD: type color
+    #{$block}_type_color &
+      color: #fff
 
     // $Count label CONTEXT: $Count MOD: type badge
     #{$block}_type_badge &

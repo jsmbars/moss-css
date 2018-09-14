@@ -23,30 +23,44 @@ $block: ".boss-page-main"
     min-height: 100vh
     background-color: #fff
 
+  &_adjust_notifications
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    overflow: hidden
+
+
   // $Page main container dashboard
   &__dashboard
     display: block
     width: 100%
-    padding: 30px 0 0
+    padding: 25px 40px 0
     background-color: #FFF
 
+    #{$block}_adjust_notifications &
+      flex-grow: 0
+      flex-shrink: 1
+
     @media screen and (max-width: 1280px)
-      padding: 30px 40px 0
+      padding: 25px 40px 0
 
     @media screen and (max-width: 1120px)
-      padding: 30px 35px 0
+      padding: 25px 35px 0
 
     @media screen and (max-width: 960px)
-      padding: 30px 30px 0
+      padding: 25px 30px 0
 
     @media screen and (max-width: 800px)
-      padding: 30px 25px 0
+      padding: 25px 25px 0
 
     @media screen and (max-width: 640px)
-      padding: 30px 20px 0
+      padding: 25px 20px 0
 
     @media screen and (max-width: 480px)
-      padding: 30px 15px 0
+      padding: 20px 15px 0
 
 
   // $Page main container content
@@ -54,9 +68,16 @@ $block: ".boss-page-main"
     position: relative
     display: flex
     flex-direction: column
+    justify-content: flex-start
     align-items: stretch
     width: 100%
-    padding: 25px 0 60px
+    padding: 25px 40px 60px
+
+    #{$block}_adjust_notifications &
+      flex-grow: 1
+      flex-shrink: 1
+      display: block
+      padding: 0
 
     @media screen and (max-width: 1280px)
       padding: 25px 40px 50px
@@ -94,7 +115,7 @@ $block: ".boss-page-main"
 
     // $Page main container content MOD: context stack
     &_context_stack
-      padding: 25px 0
+      padding: 25px 40px
 
       @media screen and (max-width: 1280px)
         padding: 25px 40px
@@ -129,12 +150,33 @@ $block: ".boss-page-main"
         display: flex
 
 
+  &__content-inner
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+
+    #{$block}_adjust_notifications &
+      overflow-y: hidden
+      overflow-x: auto
+
+
   // $Page main container inner
   &__inner
     display: block
     width: 100%
     max-width: 1200px
     margin: 0 auto
+
+    #{$block}_adjust_finance-reports &,
+    #{$block}_adjust_payroll-reports &
+      max-width: 100%
+
 
     // $Page main container inner MOD: opaque view
     &_opaque
@@ -178,6 +220,43 @@ $block: ".boss-page-main"
 
       @media screen and (max-width: 400px)
         padding: 20px 15px 30px
+
+
+  // $Page main notifications
+  &__notifications
+    display: block
+    height: 100%
+    padding: 25px 40px
+    white-space: nowrap
+
+    @media screen and (max-width: 1280px)
+      padding: 25px 40px
+
+    @media screen and (max-width: 1120px)
+      padding: 25px 35px
+
+    @media screen and (max-width: 960px)
+      padding: 25px 30px
+
+    @media screen and (max-width: 800px)
+      padding: 25px 25px
+
+    @media screen and (max-width: 640px)
+      padding: 25px 20px
+
+    @media screen and (max-width: 480px)
+      padding: 20px 15px
+
+
+  // $Page main notifications column
+  &__notifications-column
+    display: inline-block
+    width: 300px
+    height: 100%
+    vertical-align: top
+
+    &:not(:last-child)
+      margin-right: 20px
 
 
   // $Page main container tabs
@@ -259,7 +338,9 @@ $block: ".boss-page-main"
     &_adjust_ir-full,
     &_adjust_m-form,
     &_adjust_machine-refloats,
-    &_adjust_ssr-details
+    &_adjust_csv-upload,
+    &_adjust_ssr-requests,
+    &_adjust_wtl-eсp-form
       padding: 25px 25px 35px
       background-color: #FFF
 
@@ -301,7 +382,9 @@ $block: ".boss-page-main"
     &_adjust_maintenance-table,
     &_adjust_invites-table,
     &_adjust_users-table,
-    &_adjust_venues-table
+    &_adjust_wtl-clients-table,
+    &_adjust_venues-table,
+    &_adjust_wages-table
       padding: 25px
       margin-bottom: 30px
       background-color: #FFF
@@ -364,6 +447,7 @@ $block: ".boss-page-main"
   &__scroll-content
     display: inline-block
     text-align: left
+    min-width: 100%
 
 
   // $Page main container flow layout
@@ -631,14 +715,44 @@ $block: ".boss-page-main"
     &_role_alert
       border: 2px solid map-get($boss-app-palette, alert)
 
+    // $Page main container note MOD: role info
+    &_role_info
+      border: 2px solid map-get($boss-app-palette, primary)
+
+
+  // $Page main container note title
+  &__note-title
+    +text-normalizer()
+    display: block
+    font-size: 20px
+
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+  // $Page main container note title marked
+  &__note-title-marked
+    font-weight: 600
+
+
   // $Page main container note text
   &__note-text
-    display: block
     +text-normalizer()
+    display: block
     font-size: 16px
+
+    &_role_important
+      font-weight: 600
+      margin-top: 5px
+      margin-bottom: 5px
 
     &_role_primary
       font-weight: 600
+
+
+  // $Page main container note actions
+  &__note-actions
+    margin-top: 15px
 
 
   // $Page main container text placeholder

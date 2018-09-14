@@ -119,6 +119,43 @@ $block: ".boss-users"
       @media screen and (max-width: 640px)
         padding-bottom: 0
 
+    &_size_third
+      width: 33.3%
+
+      @media screen and (max-width: 960px)
+        width: 50%
+
+      @media screen and (max-width: 640px)
+        width: 100%
+        padding-right: 0
+
+      &:nth-child(3n)
+        @media screen and (min-width: 961px)
+          padding-right: 0
+
+      &:nth-child(2n)
+        @media screen and (min-width: 641px) and (max-width: 960px)
+          padding-right: 0
+
+      &:last-child
+        @media screen and (max-width: 640px)
+          padding-bottom: 0
+
+    &_size_half
+      width: 50%
+
+      @media screen and (max-width: 640px)
+        width: 100%
+        padding-right: 0
+
+      &:nth-child(2n)
+        @media screen and (min-width: 641px)
+          padding-right: 0
+
+      &:last-child
+        @media screen and (max-width: 640px)
+          padding-bottom: 0
+
 
   // $Vetting block person
   &__person

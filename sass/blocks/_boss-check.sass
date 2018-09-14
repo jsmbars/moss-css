@@ -24,22 +24,20 @@ $block: ".boss-check"
 
   // $Check block MOD: role board
   &_role_board
-    margin-bottom: 30px
     background-color: #FFF
     border-radius: 10px
 
-    &:last-of-type
-      margin-bottom: 0
+    &:not(:last-child)
+      margin-bottom: 30px
 
   // $Check block MOD: role panel
   &_role_panel
-    margin-bottom: 30px
     background-color: #FFF
     border-radius: 10px
     box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
 
-    &:last-of-type
-      margin-bottom: 0
+    &:not(:last-child)
+      margin-bottom: 30px
 
   // $Check block MOD: page safe check index
   &_page_safe-checks-index,
@@ -55,10 +53,13 @@ $block: ".boss-check"
   &_page_vouchers-index,
   &_page_voucher-usage,
   &_page_smp-holidays,
+  &_page_smp-holiday-requests,
   &_page_smp-owed-hours,
   &_page_message-board,
   &_page_users-index,
-  &_page_holidays-report-details
+  &_page_wtl-clients-index,
+  &_page_holidays-report-details,
+  &_page_wages-index
     @media screen and (min-width: 961px)
       display: none
 
@@ -66,7 +67,45 @@ $block: ".boss-check"
   &_state_alert
     background-color: #feeeee
 
+  // $Check block MOD: state frozen
+  &_state_frozen
+    background-color: #daecff
 
+  // $Common table cell MOD: state frozen corner
+  &_state_frozen
+    position: relative
+
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 0
+      display: block
+      width: 50px
+      height: 50px
+      background-image: -ms-linear-gradient(-45deg, transparent 0%, transparent 50%, #a7d2ff 50%, #a7d2ff 100%)
+      background-image: -moz-linear-gradient(-45deg, transparent 0%, transparent 50%, #a7d2ff 50%, #a7d2ff 100%)
+      background-image: -o-linear-gradient(-45deg, transparent 0%, transparent 50%, #a7d2ff 50%, #a7d2ff 100%)
+      background-image: -webkit-linear-gradient(-45deg, transparent 0%, transparent 50%, #a7d2ff 50%, #a7d2ff 100%)
+      background-image: linear-gradient(-45deg, transparent 0%, transparent 50%, #a7d2ff 50%, #a7d2ff 100%)
+
+    &:after
+      content: ''
+      position: absolute
+      top: 5px
+      left: 5px
+      z-index: 1
+      display: block
+      width: 20px
+      height: 20px
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+      background-image: url("../icons/icon-snowflake-white.svg")
+
+
+  // $Check block header
   &__header
     position: relative
     display: flex
@@ -78,15 +117,35 @@ $block: ".boss-check"
     padding: 20px 30px
     border-bottom: 1px solid #eee
 
+    #{$block}_page_marketing-index &,
+    #{$block}_page_ops-diary-index &,
+    #{$block}_page_ssr-requests &,
+    #{$block}_page_profile-disciplinary &
+      min-height: 0
+      padding: 15px 15px 10px
+
     @media screen and (max-width: 960px)
       min-height: 60px
       padding: 20px
 
+      #{$block}_page_marketing-index &,
+      #{$block}_page_ops-diary-index &
+        min-height: 0
+        padding: 15px 10px 10px
+
     @media screen and (max-width: 640px)
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_ops-diary-index &,
+      #{$block}_page_ssr-requests &,
+      #{$block}_page_profile-disciplinary &,
+      #{$block}_page_wtl-cards-index &
         flex-wrap: wrap
 
+      #{$block}_page_ops-diary-index &
+        align-items: flex-start
 
+
+  // $Check block header information
   &__header-info
     flex-grow: 1
     flex-shrink: 1
@@ -95,17 +154,79 @@ $block: ".boss-check"
     justify-content: flex-start
     align-items: center
 
+    #{$block}_page_marketing-index &
+      width: calc(100% - 50px)
+
     @media screen and (max-width: 640px)
-      #{$block}_page_maintenance-index &
+      #{$block}_page_maintenance-index &,
+      #{$block}_page_ops-diary-index &
         width: calc(100% - 50px)
 
+      #{$block}_page_marketing-index &
+        flex-wrap: wrap
 
+      #{$block}_page_ops-diary-index &
+        align-items: flex-start
+
+      #{$block}_page_wtl-cards-index &
+        justify-content: center
+
+
+  // $Check block header group
+  &__header-group
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+
+    @media screen and (max-width: 640px)
+      width: 100%
+      margin-top: 10px
+
+      #{$block}_page_ssr-requests &,
+      #{$block}_page_profile-disciplinary &,
+      #{$block}_page_wtl-cards-index &
+        margin-top: 0
+        margin-bottom: 10px
+        padding-bottom: 10px
+        text-align: center
+        border-bottom: 1px solid #eee
+
+
+  // $Check block header meta
+  &__header-meta
+    display: block
+    margin-top: 10px
+
+    &:not(:last-child)
+      @media screen and (max-width: 640px)
+        border-bottom: 1px solid #eee
+
+  // $Check block header meta item
+  &__header-meta-item
+    display: inline-block
+    margin-bottom: 5px
+
+    @media screen and (max-width: 640px)
+      display: block
+      width: 100%
+
+    &:not(:last-child)
+      margin-right: 20px
+
+      @media screen and (max-width: 640px)
+        margin-right: 0
+
+
+  // $Check block header status
   &__header-status
     flex-grow: 0
     flex-shrink: 0
-    padding-right: 10px
-    padding-left: 10px
-    text-align: center
+
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_ops-diary-index &
+      padding-right: 10px
+      padding-left: 10px
+      text-align: center
 
     @media screen and (max-width: 640px)
       #{$block}_page_maintenance-index &
@@ -115,14 +236,78 @@ $block: ".boss-check"
         width: 100%
         margin-top: 20px
         padding: 20px 0 0
-        border-top: 1px solid #eee
+        border-top: 1px solid #d8d8d8
+
+      #{$block}_page_marketing-index &
+        flex-grow: 1
+        flex-shrink: 1
+        width: 100%
+
+      #{$block}_page_ops-diary-index &
+        order: -99
+        flex-grow: 1
+        flex-shrink: 1
+        width: 100%
+
+        &:not(:empty)
+          padding: 0 0 15px
+          border-bottom: 1px solid #ccc
 
 
+  // $Check block header actions
   &__header-actions
     flex-grow: 0
     flex-shrink: 0
 
+    #{$block}_page_ssr-requests &,
+    #{$block}_page_profile-disciplinary &,
+    #{$block}_page_wtl-cards-index &
+      display: flex
+      flex-direction: row
+      justify-content: flex-start
+      align-items: center
 
+    @media screen and (max-width: 960px)
+      #{$block}_page_ssr-requests &,
+      #{$block}_page_profile-disciplinary &
+        flex-direction: column
+        align-items: stretch
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_ssr-requests &,
+      #{$block}_page_profile-disciplinary &,
+      #{$block}_page_wtl-cards-index &
+        flex-grow: 1
+        flex-shrink: 1
+        flex-direction: row
+        justify-content: center
+        align-items: center
+        width: 100%
+
+
+  // $Check block header action
+  &__header-action
+
+    &:not(:first-child)
+      #{$block}_page_ssr-requests &,
+      #{$block}_page_profile-disciplinary &,
+      #{$block}_page_wtl-cards-index &
+        margin-left: 15px
+
+      @media screen and (max-width: 960px)
+        #{$block}_page_ssr-requests &,
+        #{$block}_page_profile-disciplinary &
+          margin-left: 0
+          margin-top: 10px
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_ssr-requests &,
+        #{$block}_page_profile-disciplinary &
+          margin-left: 15px
+          margin-top: 0
+
+
+  // $Check block group
   &__group
 
   // $Check block row
@@ -143,12 +328,21 @@ $block: ".boss-check"
       &:nth-child(even)
         background-color: #FFF
 
+        #{$block}_state_alert &
+          background-color: transparent
+
       &:nth-child(odd)
         background-color: #fbfbfb
+
+        #{$block}_state_alert &
+          background-color: transparent
 
     // $Check block row MOD: marked
     &_marked
       background-color: #fbfbfb
+
+      #{$block}_state_alert &
+        background-color: transparent
 
 
   // $Check block cell
@@ -164,26 +358,20 @@ $block: ".boss-check"
     @media screen and (max-width: 960px)
       padding: 15px 10px
 
+    &:not(:last-child)
+      border-right: 1px solid #eee
+
     &_size_half
       width: 50%
 
-      &:not(:last-child)
-        border-right: 1px solid #eee
-
     &_size_third
-      width: 50%
-
-      &:not(:last-child)
-        border-right: 1px solid #eee
+      width: 33%
 
     &_size_fourth
       width: 25%
 
-      &:not(:last-child)
-        border-right: 1px solid #eee
-
     &_size_half#{&}_delimiter_light,
-    &_size_third#{&}_delimiter_light
+    &_size_third#{&}_delimiter_light,
     &_size_fourth#{&}_delimiter_light
       position: relative
 
@@ -237,6 +425,23 @@ $block: ".boss-check"
       border: none
 
 
+  &__cell-content
+    flex-grow: 0
+    flex-shrink: 1
+    display: block
+    width: auto
+    max-width: 100%
+    text-align: left
+
+
+  &__cell-group
+    display: block
+    width: auto
+
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
   // $Check block box
   &__box
     display: block
@@ -245,6 +450,11 @@ $block: ".boss-check"
     padding: 10px
     border: 2px solid $boss-very-light-gray
     border-radius: 6px
+    text-align: center
+
+    #{$block}_page_marketing-index &,
+    #{$block}_page_ops-diary-index &
+      text-align: left
 
     &:not(:last-child)
       margin-bottom: 15px
@@ -252,6 +462,10 @@ $block: ".boss-check"
     // $Check block box MOD: role clickable action
     &_role_action
       cursor: pointer
+
+
+  &__user-summary
+    width: auto
 
 
   &__title,
@@ -272,7 +486,10 @@ $block: ".boss-check"
     &_role_arcade,
     &_role_message,
     &_role_accessory,
-    &_role_alert-action
+    &_role_alert-action,
+    &_role_date-alert,
+    &_role_details,
+    &_role_edit
 
       &:before
         content: ""
@@ -285,6 +502,11 @@ $block: ".boss-check"
     &_role_date
       &:before
         background-image: url('../icons/icon-calendar-dark-gray.svg')
+
+    &_role_date-alert
+      color: map-get($boss-app-palette, alert)
+      &:before
+        background-image: url('../icons/icon-calendar-alert.svg')
 
     &_role_time
       &:before
@@ -330,9 +552,25 @@ $block: ".boss-check"
       &:before
         background-image: url('../icons/icon-tshirt-dark-gray.svg')
 
+    &_role_details
+      &:before
+        background-image: url('../icons/icon-zoom-dark-gray.svg')
+
+    &_role_edit
+      &:before
+        background-image: url('../icons/icon-pencil-dark-gray.svg')
+
     &_role_alert-action
+      cursor: pointer
+      color: map-get($boss-app-palette, alert)
+      text-decoration: underline
+
       &:before
         background-image: url('../icons/icon-danger-alert.svg')
+
+      &:hover
+        color: map-get($boss-app-palette, alert)
+        text-decoration: none
 
     &_indicator_att,
     &_indicator_notes,
@@ -381,6 +619,16 @@ $block: ".boss-check"
     font-size: 18px
     font-weight: 600
 
+    #{$block}_page_marketing-index &,
+    #{$block}_page_ops-diary-index &
+      font-size: 16px
+
+    #{$block}_page_security-venues &
+      font-size: 24px
+
+    #{$block}_page_wtl-cards-index &
+      text-align: center
+
     &_role_date,
     &_role_date-calendar,
     &_role_time,
@@ -393,30 +641,39 @@ $block: ".boss-check"
     &_role_arcade,
     &_role_message,
     &_role_accessory,
-    &_role_alert-action
+    &_role_alert-action,
+    &_role_date-alert,
+    &_role_details,
+    &_role_edit
       &:before
         width: 18px
         height: 18px
         margin-right: 10px
         margin-top: -3px
 
+        #{$block}_page_security-venues &
+          width: 22px
+          height: 22px
+
+    &_role_alert
+      color: map-get($boss-app-palette, alert)
+
     // $Check block title MOD: role clickable action
     &_role_action
       cursor: pointer
 
-    &_role_alert-action
-      cursor: pointer
-      color: map-get($boss-app-palette, alert)
-      text-decoration: underline
-
-      &:hover
-        color: map-get($boss-app-palette, alert)
-        text-decoration: none
-
     // $Check block title status
-  &__title-status
+  &__title-status,
+  &__title-type
     font-weight: 400
     color: #808080
+
+  &__title-alert
+    color: map-get($boss-app-palette, alert)
+
+
+  &__title-light
+    font-weight: 300
 
 
   // $Check block text
@@ -434,11 +691,14 @@ $block: ".boss-check"
     &_role_arcade,
     &_role_message,
     &_role_accessory,
-    &_role_alert-action
+    &_role_alert-action,
+    &_role_date-alert,
+    &_role_details,
+    &_role_edit
 
       &:before
-        width: 16px
-        height: 16px
+        width: 14px
+        height: 14px
         margin-right: 7px
         margin-top: -3px
 
@@ -507,14 +767,20 @@ $block: ".boss-check"
     &_role_action
       cursor: pointer
 
-    &_role_alert-action
+    // $Check block text MOD: role clickable edit-action
+    &_role_edit-action
       cursor: pointer
-      color: map-get($boss-app-palette, alert)
-      text-decoration: underline
 
-      &:hover
-        color: map-get($boss-app-palette, alert)
-        text-decoration: none
+    &_role_link
+      color: map-get($boss-app-palette, primary)
+
+    &_role_edit#{&}_role_link
+      &:before
+        background-image: url('../icons/icon-pencil-primary.svg')
+
+    &_role_details#{&}_role_link
+      &:before
+        background-image: url('../icons/icon-zoom-primary.svg')
 
 
   // $Check block text line
@@ -524,32 +790,78 @@ $block: ".boss-check"
 
   // $Check block text label
   &__text-label
-    color: #808080
+    font-weight: 300
+
+
+  // $Check block text marked
+  &__text-marked
+    font-weight: 600
+
+
+  // $Check block text action
+  &__text-action
+    cursor: pointer
+
+  &__status
+    +text-normalizer()
+    font-size: 18px
+    text-transform: uppercase
+    text-align: center
+
+    &_role_success
+      color: #86dd75
+
+    &_role_alert
+      color: #ed7f7e
+
+    &_role_pending
+      color: #808080
+
+
+  &__counter
+    +text-normalizer()
+    display: inline-block
+    font-size: 24px
+    font-weight: 600
+
+    &_state_alert
+      color: #ed7f7e
 
 
   // $Check block link
   &__link
     +text-normalizer()
     color: inherit
-    font-weight: inherit
     text-decoration: none
+    ,
+    #{$block}_page_wtl-clients-index &,
+    #{$block}_page_wtl-clients-profile &
+      color: #1585cf
 
     &:hover,
     &:focus
-      outline: none
-      text-decoration: none
       color: inherit
+      text-decoration: none
+
+      #{$block}_page_wtl-clients-index &,
+      #{$block}_page_wtl-clients-profile &
+        color: $boss-medium-gray
 
 
   // $Check block label
   &__label
+    display: inline-block
     margin-top: 5px
-    padding: 6px 12px
+    padding: 4px 12px
+
+    &:not(:last-child)
+      margin-right: 5px
 
     @media screen and (max-width: 400px)
-      padding: 6px 12px
+      padding: 4px 12px
 
 
+  // $Check indicator
   &__indicator
     +text-normalizer()
     flex-grow: 0
@@ -565,39 +877,163 @@ $block: ".boss-check"
     border-radius: 50%
     background-color: map-get($boss-app-palette, primary)
 
+    @media screen and (max-width: 640px)
+      #{$block}_page_ops-diary-index &
+        margin-top: 15px
+
     @media screen and (max-width: 400px)
       width: 30px
       height: 30px
       font-size: 18px
       line-height: 30px
 
+    // $Check indicator MOD: position before
     &_position_before
       margin-right: 20px
 
       @media screen and (max-width: 400px)
         margin-right: 10px
 
+    // $Check indicator MOD: position bafter
     &_position_after
       margin-left: 20px
 
       @media screen and (max-width: 400px)
         margin-left: 10px
 
+    // $Check indicator MOD: priority high
     &_priority_high
       background-color: map-get($boss-app-palette, alert)
 
+    // $Check indicator MOD: priority medium
     &_priority_medium
       background-color: map-get($boss-app-palette, warning)
 
+    // $Check indicator MOD: priority low
     &_priority_low
       background-color: map-get($boss-app-palette, secondary)
+
+    // $Check indicator MOD: status completed
+    &_status_completed
+      background-color: map-get($boss-app-palette, secondary)
+
+    // $Check indicator MOD: status pending
+    &_status_pending
+      background-color: map-get($boss-app-palette, pending)
+
+    // $Check indicator MOD: status deleted
+    &_status_deleted
+      background-color: map-get($boss-app-palette, alert)
+
+
+  // $Check marker
+  &__marker
+    +text-normalizer()
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
+    white-space: nowrap
+
+    @media screen and (max-width: 400px)
+      font-size: 18px
+      line-height: 30px
+
+    &:before
+      content: ""
+      display: inline-block
+      width: 35px
+      height: 35px
+      border-radius: 50%
+      background-color: map-get($boss-app-palette, primary)
+      background-position:  center center
+      background-repeat: no-repeat
+      vertical-align: middle
+
+      @media screen and (max-width: 400px)
+        width: 30px
+        height: 30px
+        font-size: 18px
+        line-height: 30px
+
+    // $Check marker MOD: position before
+    &_position_before
+      margin-right: 20px
+
+      @media screen and (max-width: 400px)
+        margin-right: 10px
+
+    // $Check marker MOD: position after
+    &_position_after
+      margin-left: 20px
+
+      @media screen and (max-width: 400px)
+        margin-left: 10px
+
+    // $Check marker MOD: status completed
+    &_status_completed
+      color: map-get($boss-app-palette, secondary)
+
+      &:before
+        background-color: map-get($boss-app-palette, secondary)
+        background-size: 16px 16px
+        background-image: url('../icons/icon-checked-white.svg')
+
+    // $Check marker MOD: status pending
+    &_status_pending
+      color: map-get($boss-app-palette, pending)
+
+      &:before
+        background-color: map-get($boss-app-palette, pending)
+        background-size: 18px 18px
+        background-image: url('../icons/icon-hour-glass-white.svg')
+
+    // $Check marker MOD: status deleted
+    &_status_deleted
+      color: map-get($boss-app-palette, alert)
+
+      &:before
+        background-color: map-get($boss-app-palette, alert)
+        background-size: 16px 16px
+        background-image: url('../icons/icon-trash-white.svg')
+
+    // $Check marker MOD: role edit action
+    &_role_edit-action
+      cursor: pointer
+      transition: opacity .4s
+
+      &:hover
+        opacity: 0.8
+
+
+  // $Check marker MOD: marker label
+  &__marker-label
+    display: inline-block
+    margin-left: 5px
+    font-size: 18px
+    line-height: 1
+    font-weight: 600
+    vertical-align: middle
+
+    #{$block}_page_marketing-index &
+      display: none
+
+    @media screen and (max-width: 640px)
+      #{$block}_page_marketing-index &
+        display: inline-block
+
+    @media screen and (max-width: 400px)
+      line-height: 30px
 
 
   // $Check block dropdown
   &__dropdown
 
-    #{$block}_page_maintenance-index &
+    #{$block}_page_maintenance-index &,
+    #{$block}_page_marketing-index &
       background-color: #fbfbfb
+
+      #{$block}_state_alert &
+        background-color: transparent
 
     // $Check block dropdown CONTEXT: $Check block MOD: page message board
     #{$block}_page_message-board &
@@ -611,7 +1047,8 @@ $block: ".boss-check"
 
 
   // $Check block dropdown link
-  &__dropdown-link
+  &__dropdown-link,
+  &__tooltip-link
     +text-normalizer()
     color: $boss-dark-gray
     vertical-align: middle
@@ -638,28 +1075,54 @@ $block: ".boss-check"
       background-position: center center
       background-size: contain
       vertical-align: middle
-      transform: rotate(180deg)
 
     &_type_icon
       font-size: 0
       line-height: 0
       color: transparent
+      opacity: .8
+      transition: .4s
 
       &:after
         width: 30px
         height: 30px
         background-size: 15px 15px
 
-    // $Check block dropdown link MOD: state closed
-    &_state_closed
+      &:hover
+        opacity: 1
+
+    &_role_settings
       &:after
-        transform: rotate(0)
+        background-size: 20px 20px
+        background-image: url('../icons/icon-gear-dark-gray.svg')
 
     // $Check block dropdown link MOD: state inactive
     &_state_inactive
       cursor: default
       &:after
         display: none
+
+
+  &__tooltip-link
+    @media screen and (max-width: 640px)
+      #{$block}_page_ops-diary-index &
+        margin-top: 20px
+
+  &__dropdown-link
+    &:after
+      transform: rotate(180deg)
+
+    // $Check block dropdown link MOD: state closed
+    &_state_closed
+      &:after
+        transform: rotate(0)
+
+
+  // $Check block table
+  &__table
+    display: block
+    width: 100%
+    padding: 10px 0
 
 
   // $Check block info
@@ -772,7 +1235,7 @@ $block: ".boss-check"
   // $Check block action
   &__action
     flex-grow: 1
-    width: 50%
+    flex-basis: 50%
     padding: 15px
     border-radius: 0
     text-align: center
@@ -785,6 +1248,12 @@ $block: ".boss-check"
   &__button
     &:not(:last-of-type)
       margin-right: 20px
+
+    &_position_below
+      margin-top: 10px
+
+    &_position_above
+      margin-bottom: 10px
 
 
   // $Check block meta

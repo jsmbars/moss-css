@@ -87,6 +87,25 @@ $block: ".boss-details"
     margin-top: -5px
 
 
+  // $Details text
+  &__text
+    +text-normalizer()
+
+    &_role_alert
+      color: map-get($boss-app-palette, alert)
+
+      &:before
+        content: ""
+        display: inline-block
+        width: 16px
+        height: 16px
+        margin-right: 10px
+        background-size: contain
+        background-repeat: no-repeat
+        vertical-align: middle
+        background-image: url(../icons/icon-danger-alert.svg)
+
+
   // $Details list
   &__list
     list-style: none

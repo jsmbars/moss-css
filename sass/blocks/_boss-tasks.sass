@@ -1,0 +1,214 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Tasks
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".boss-tasks"
+
+#{$block}
+  +box-model-normalizer()
+
+  display: block
+  width: 100%
+
+
+  // $Tasks list
+  &__list
+    display: block
+    width: 100%
+    list-style: none
+    list-style-position: inside
+    margin: 0
+
+
+  // $Tasks item
+  &__item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+    margin-bottom: 30px
+
+    &_role_edit
+      padding: 20px
+      background-color: #f8f8f8
+
+
+  // $Tasks item content
+  &__item-content
+    flex-grow: 1
+    flex-shrink: 1
+
+
+  // $Tasks form
+  &__form
+
+    // $Tasks form MOD: role edit
+    &_role_edit
+
+
+  // $Tasks item meta
+  &__item-meta
+    flex-grow: 0
+    flex-shrink: 0
+
+    // $Tasks item meta MOD: space before
+    &_space_before
+      padding-left: 20px
+
+    // $Tasks item meta MOD: space after
+    &_space_after
+      padding-right: 20px
+
+
+  // $Tasks actions
+  &__actions
+
+    // $Tasks actions MOD: nowrap
+    &_nowrap-fluid
+      white-space: nowrap
+
+      @media screen and (max-width: 640px)
+        white-space: normal
+
+
+
+  // $Tasks action
+  &__action
+    +text-normalizer()
+    position: relative
+    display: inline-block
+    padding-left: 20px
+    padding-top: 2px
+    outline: none
+    cursor: pointer
+    text-decoration: none
+    vertical-align: top
+
+    @media screen and (max-width: 640px)
+      display: block
+
+    &:hover,
+    &:focus
+      color: transparent
+      outline: none
+      text-decoration: underline
+
+    &:before
+      content: ""
+      position: absolute
+      top: 50%
+      left: 0
+      display: block
+      width: 10px
+      height: 10px
+      background-repeat: no-repeat
+      background-size: contain
+      background-position: center center
+      transform: translateY(-50%)
+
+    &:not(:last-child)
+      margin-right: 20px
+
+      @media screen and (max-width: 640px)
+        margin-right: 0
+        margin-bottom: 10px
+
+    // $Tasks action MOD: type icon
+    &_type_icon
+      min-height: 24px
+      font-size: 0
+      line-height: 0
+      color: transparent
+
+    // $Tasks action MOD: role confirm
+    &_role_confirm
+      color: map-get($boss-app-palette, primary)
+      &:before
+        width: 16px
+        height: 16px
+        background-image: url("../icons/icon-checked-primary.svg")
+
+    &_role_confirm#{&}_type_icon
+      padding-left: 16px
+
+    // $Tasks action MOD: role edit
+    &_role_edit
+      color: map-get($boss-app-palette, primary)
+      &:before
+        width: 14px
+        height: 14px
+        background-image: url("../icons/icon-pencil-primary.svg")
+
+    &_role_edit#{&}_type_icon
+      padding-left: 14px
+
+    // $Tasks action MOD: role delete
+    &_role_delete
+      color: map-get($boss-app-palette, alert)
+      &:before
+        width: 12px
+        height: 12px
+        background-image: url("../icons/icon-close-alert.svg")
+
+    &_role_delete#{&}_type_icon
+      padding-left: 12px
+
+
+  // $Tasks title
+  &__title
+    +text-normalizer()
+    font-size: 18px
+    font-weight: 600
+
+    &:not(:last-child)
+      margin-bottom: 10px
+
+
+  &__title-text
+    &:not(:last-child)
+      margin-right: 15px
+
+    &_role_time,
+    &_role_alert
+      white-space: nowrap
+      &:before
+        content: ""
+        display: inline-block
+        width: 14px
+        height: 14px
+        margin-right: 7px
+        margin-top: -3px
+        background-repeat: no-repeat
+        background-position: center center
+        background-size: contain
+        vertical-align: middle
+
+    &_role_time
+      color: $boss-medium-gray
+      &:before
+        background-image: url('../icons/icon-clock-medium-gray.svg')
+
+    &_role_alert
+      color: map-get($boss-app-palette, alert)
+      &:before
+        background-image: url('../icons/icon-danger-alert.svg')
+
+
+  // $Tasks extra
+  &__extra
+    +text-normalizer()
+    padding-left: 20px
+    border-left: 5px solid #eee
+    color: $boss-medium-gray
+

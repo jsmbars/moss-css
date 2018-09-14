@@ -88,7 +88,12 @@
 //  $Tags input.........................
 //  $Requests...........................
 //  $Translate..........................
-//  $Shifts.............................
+//  $Timeline...........................
+//  $Tabs...............................
+//  $Tasks..............................
+//  $Indicator..........................
+//  $Weather............................
+// $Notifications.......................
 
 //  Restyled existing vendor modules
 //  $Date range picker..................
@@ -97,7 +102,6 @@
 //  $Hours chart........................
 //  $Rota chart.........................
 //  $Rota overview chart................
-//  $Weather............................
 //  $Event calendar.....................
 //  $Time picker........................
 
@@ -253,9 +257,11 @@
 // $Steps block
 @import './blocks/boss-steps'
 
-// $Add avatar block
+// $Add avatar block - legacy
 @import './blocks/boss-add-avatar-block'
 
+// $Add avatar
+@import './blocks/boss-add-avatar'
 // $Modal window
 @import './blocks/boss-modal-window'
 
@@ -335,8 +341,11 @@
 // $Count
 @import './blocks/boss-count'
 
-// $Edit image block
+// $Edit image block - Legacy
 @import './blocks/boss-edit-image-block'
+
+// $Edit image
+@import './blocks/boss-edit-image'
 
 // $Loading spinner
 @import './blocks/boss-spinner'
@@ -368,19 +377,41 @@
 //  $Translate
 @import './blocks/boss-translate'
 
-//  $Shifts
-@import './blocks/boss-shifts'
+//  $Timeline
+@import './blocks/boss-timeline'
+
+//  $Tabs
+@import './blocks/boss-tabs'
+
+//  $Tasks
+@import './blocks/boss-tasks'
+
+//  $Indicator
+@import './blocks/boss-indicator'
+
+// $Weather
+@import './blocks/boss-weather'
+
+// $Notifications
+@import './blocks/boss-notifications'
+
+// $Image recognition
+@import './blocks/boss-image-recognition'
+
+// $Corner indicator
+@import './blocks/boss-corner'
 
 
 // Restyled existing vendor modules
 
-// $Date range picker
+// $Date control (based on react-dates, includes single date / week / date range pickers)
+@import './blocks/date-control'
+
+// $Date range picker - Outdated
+// $Date picker - Outdated
+// $Week picker - Outdated
 @import './blocks/date-range-picker'
-
-// $Date picker
 @import './blocks/date-picker'
-
-// $Week picker
 @import './blocks/week-picker'
 
 // $Hours chart
@@ -392,9 +423,6 @@
 // $Rota overview chart
 @import './blocks/rota-overview-chart'
 
-// $Weather
-@import './blocks/weather-forecast'
-
 // $Event calendar
 @import './blocks/event-calendar'
 
@@ -403,6 +431,9 @@
 
 //  $Time picker
 @import './blocks/time-picker'
+
+//  $Google Map
+@import './blocks/google-map'
 
 
 // Refactoring candidates

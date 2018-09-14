@@ -2,8 +2,8 @@ html
   +normalize-block()
   margin: 0 !important
   padding: 0 !important
-  box-sizing: border-box !important
-  height: 100% !important
+  box-sizing: border-box
+  height: auto
 
 .is-ios *
   cursor: pointer;
@@ -13,12 +13,14 @@ html
 
   position: relative
   width: 100%
-  height: 100%
+  height: auto
+  min-height: 100vh
   margin: 0
   padding: 0
   background-color: map-get($boss-app-palette, body-background)
   color: $boss-dark-gray
   overflow-x: hidden
+  overflow-y: auto
 
   @if ($boss-body-antialiased)
     -webkit-font-smoothing: antialiased
@@ -55,3 +57,37 @@ html
 
       @media screen and (max-width: 960px)
         height: 250px
+
+  &_adjust_notifications
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+    height: 100vh
+    overflow-y: hidden
+
+    @media screen and (max-height: 480px) and (max-width: 480px)
+      height: calc(100vh + 200px)
+      overflow-y: auto
+
+    @media screen and (max-height: 480px) and (min-width: 481px)
+      height: calc(100vh + 140px)
+      overflow-y: auto
+
+  // $Body MOD: type background image (url should be set using inline styles)
+  &_type_background
+    background-size: cover
+    background-position: center center
+    background-repeat: no-repeat
+    background-attachment: fixed
+
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: -1
+      background-color: rgba(0,0,0,.6)
+
