@@ -390,6 +390,10 @@ $block: ".boss-modal-window"
     &_warning
       background-color: map-get($boss-app-palette, warning)
 
+    // $Modal window header MOD: info
+    &_info
+      background-color: map-get($boss-app-palette, primary)
+
     // $Modal window header MOD: status success
     &_status_success
       background-color: map-get($boss-app-palette, secondary)
@@ -667,6 +671,19 @@ $block: ".boss-modal-window"
     display: block
     width: 100%
     max-width: 100%
+
+
+  // $Modal window message note
+  &__message-note
+    +text-normalizer()
+    display: block
+    color: $boss-medium-gray
+    font-size: 18px
+
+
+  // $Modal window message line
+  &__message-line
+    display: block
 
 
   &__chart

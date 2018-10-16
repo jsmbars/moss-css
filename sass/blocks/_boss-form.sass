@@ -59,12 +59,22 @@ $block: ".boss-form"
       margin-right: 30px
       margin-bottom: 0
 
+      #{$block}_page_arr &
+        margin-right: 40px
+
       @media screen and (max-width: 1280px)
         margin-right: 20px
+
+        #{$block}_page_arr &
+          margin-right: 40px
 
       @media screen and (max-width: 960px)
         margin-right: 0
         margin-bottom: 20px
+
+        #{$block}_page_arr &
+          margin-right: 0
+          margin-bottom: 40px
 
       &:last-of-type
         margin-right: 0
@@ -351,13 +361,13 @@ $block: ".boss-form"
       margin-bottom: 0
 
       #{$block}_page_arr &
-        margin-right: 60px
+        margin-right: 40px
 
       @media screen and (max-width: 1280px)
         margin-right: 20px
 
         #{$block}_page_arr &
-          margin-right: 60px
+          margin-right: 40px
 
       @media screen and (max-width: 960px)
         margin-right: 0
@@ -367,11 +377,13 @@ $block: ".boss-form"
           margin-right: 0
           margin-bottom: 40px
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           margin-bottom: 0
           margin-right: 20px
 
       @media screen and (max-width: 640px)
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           margin-right: 15px
 
@@ -386,6 +398,7 @@ $block: ".boss-form"
       @media screen and (max-width: 960px)
         width: 100%
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           width: 50%
 
@@ -399,6 +412,7 @@ $block: ".boss-form"
       @media screen and (max-width: 960px)
         width: 100%
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           width: 33%
 
@@ -412,6 +426,7 @@ $block: ".boss-form"
       @media screen and (max-width: 960px)
         width: 100%
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           width: 25%
 
@@ -425,6 +440,7 @@ $block: ".boss-form"
       @media screen and (max-width: 960px)
         width: 100%
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           width: 20%
 
@@ -438,6 +454,7 @@ $block: ".boss-form"
       @media screen and (max-width: 960px)
         width: 100%
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           width: 16.6%
 
@@ -453,6 +470,7 @@ $block: ".boss-form"
       @media screen and (max-width: 960px)
         width: 100%
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           width: auto
 
@@ -470,6 +488,7 @@ $block: ".boss-form"
         flex-shrink: 1
         width: 100%
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           flex-grow: 0
           flex-shrink: 1
@@ -553,10 +572,12 @@ $block: ".boss-form"
       @media screen and (max-width: 960px)
         margin-bottom: 0
 
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           margin-right: 0
 
       @media screen and (max-width: 640px)
+        #{$block}__row_layout_nowrap &,
         #{$block}__row_layout_wrap-xs &
           margin-right: 0
 
@@ -886,13 +907,15 @@ $block: ".boss-form"
     justify-content: flex-start
     width: 100%
 
-    & .field_with_error
+    & .field_with_error,
+    & .field_with_errors
       flex-grow: 1
       display: block
       width: calc(100% - 50px)
       outline: 1px solid map-get($boss-app-palette, alert-border)
 
-    &_size_extra .field_with_error
+    &_size_extra .field_with_error,
+    &_size_extra .field_with_errors
       width: calc(100% - 75px)
 
 
@@ -900,20 +923,32 @@ $block: ".boss-form"
   &__units-value
     flex-grow: 0
     flex-shrink: 0
-    display: block
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
     width: 50px
-    padding: 13px 5px
+    padding: 0 5px
     text-align: center
     font-size: 16px
+    line-height: 1
     background-color: $boss-extra-light-gray
     border: 1px solid $boss-very-light-gray
     border-right: none
     font-weight: bold
     white-space: nowrap
 
+    #{$block}__units_size_compact &
+      width: 35px
+
     #{$block}__units_size_extra &
       width: 75px
 
+    &_position_before,
+    &_position_first
+      border-right: none
+
+    &_position_after,
     &_position_last
       border-left: none
       border-right: 1px solid $boss-very-light-gray
@@ -1092,11 +1127,35 @@ $block: ".boss-form"
       z-index: 1
       width: calc(100% - 50px)
 
+    #{$block}__units_size_compact &
+      width: calc(100% - 35px)
+
     #{$block}__units_size_extra &
       width: calc(100% - 75px)
 
+    &_size_nano
+      min-width: 75px
+
+      #{$block}__units_size_compact &,
+      #{$block}__units_size_extra &
+        min-width: 75px
+
+    &_size_micro
+      min-width: 100px
+
+      #{$block}__units_size_compact &,
+      #{$block}__units_size_extra &
+        min-width: 100px
+
     &_size_min
-      min-width: 130px
+      min-width: 125px
+
+      #{$block}__units_size_compact &,
+      #{$block}__units_size_extra &
+        min-width: 125px
+
+    &_type_compact
+      padding: 0 10px
 
     &_type_inline
       height: 25px
@@ -1153,12 +1212,68 @@ $block: ".boss-form"
     border-radius: 2px
     box-shadow: none
 
+    #{$block}__search &
+      border: none
+
+    #{$block}__units &
+      position: relative
+      z-index: 1
+      width: calc(100% - 50px)
+
+    #{$block}__units_size_compact &
+      width: calc(100% - 35px)
+      width: 75px
+
+    #{$block}__units_size_extra &
+      width: calc(100% - 75px)
+
+    #{$block}__units .field_with_error &,
+    #{$block}__units .field_with_errors &
+      width: 100%
+      height: 100%
+
+    &:focus
+      outline: none
+      box-shadow: 0 0 5px 0 $boss-very-light-gray
+      border-color: $boss-very-light-gray
+
+    &[type=text]::-ms-clear
+      display: none
+
+    &[readonly]
+      background-color: #FFF
+      cursor: text
+
+    &_size_nano
+      min-width: 75px
+
+      #{$block}__units_size_compact &,
+      #{$block}__units_size_extra &
+        min-width: 75px
+
+    &_size_micro
+      min-width: 100px
+
+      #{$block}__units_size_compact &,
+      #{$block}__units_size_extra &
+        min-width: 100px
+
     &_size_min
-      min-width: 130px
+      min-width: 125px
+
+      #{$block}__units_size_compact &,
+      #{$block}__units_size_extra &
+        min-width: 125px
 
     &_type_fake
       height: 50px
       cursor: text
+
+    &_type_compact
+      padding: 0 10px
+
+      &[type="number"]
+        padding-right: 5px
 
     &_type_narrow
       height: 30px
@@ -1194,33 +1309,6 @@ $block: ".boss-form"
         height: 20px
         font-size: 13px
         line-height: 20px
-
-    #{$block}__search &
-      border: none
-
-    #{$block}__units &
-      position: relative
-      z-index: 1
-      width: calc(100% - 50px)
-
-    #{$block}__units_size_extra &
-      width: calc(100% - 75px)
-
-    #{$block}__units .field_with_error &
-      width: 100%
-      height: 100%
-
-    &:focus
-      outline: none
-      box-shadow: 0 0 5px 0 $boss-very-light-gray
-      border-color: $boss-very-light-gray
-
-    &[type=text]::-ms-clear
-      display: none
-
-    &[readonly]
-      background-color: #FFF
-      cursor: text
 
     // $Common form input MOD: state error
     &_state_error
@@ -1899,6 +1987,9 @@ $block: ".boss-form"
       &:after
         background-color: map-get($boss-app-palette, primary)
 
+    & b
+      font-weight: bold
+
 
   // $Common form checkbox control
   &__checkbox-control
@@ -1984,7 +2075,17 @@ $block: ".boss-form"
       #{$block}__checkbox-input:checked ~ &
         visibility: visible
 
+    &_state_checked,
     &_type_checked
+
+      &:before
+        background-color: map-get($boss-app-palette, primary)
+        border-color: map-get($boss-app-palette, primary)
+
+      &:after
+        visibility: visible
+
+    &_type_checked-inactive
       cursor: default
 
       &:before
@@ -2014,6 +2115,9 @@ $block: ".boss-form"
         @media screen and (max-width: 640px)
           left: auto
           right: 3px
+
+    &_no-wrap
+      white-space: nowrap
 
 
   // $Common form pagination
@@ -2101,24 +2205,45 @@ $block: ".boss-form"
     line-height: 30px
     vertical-align: middle
 
+
   &__text-line
     display: block
 
     &:not(:last-child)
       margin-bottom: 10px
 
+
   &__text-part
     display: inline-block
     vertical-align: middle
 
+
   &__text-primary
     font-weight: 600
+
 
   &__text-secondary
     font-weight: 300
 
+
   &__text-large
     font-size: 16px
+
+
+  &__text-extra-large
+    font-size: 18px
+
+
+  &__text-space-before
+    padding-left: 20px
+
+
+  &__text-space-after
+    padding-right: 20px
+
+
+  &__text-alert
+    color: map-get($boss-app-palette, alert)
 
 
   // $Common form link
@@ -2182,6 +2307,9 @@ $block: ".boss-form"
       background-position: center center
       background-repeat: no-repeat
       background-size: contain
+
+    &_no-space
+      margin: 0
 
     &_size_min
       width: fit-content

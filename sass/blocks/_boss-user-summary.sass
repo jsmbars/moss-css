@@ -551,6 +551,9 @@ $block: ".boss-user-summary"
     &_role_alert
       color: map-get($boss-app-palette, alert)
 
+    & b
+      font-weight: 600
+
 
   // $User summary label
   &__label
@@ -825,6 +828,7 @@ $block: ".boss-user-summary"
       color: #4c4c4c
       font-weight: 600
 
+
   &__review-action
     margin-left: 20px
 
@@ -834,6 +838,17 @@ $block: ".boss-user-summary"
     word-wrap: break-word
     word-break: break-word
     hyphens: auto
+
+
+  &__review-link
+    display: inline-block
+    color: #1585cf
+    text-decoration: none
+    transition: all .3s
+
+    &:hover
+      color: #1585cf
+      text-decoration: underline
 
 
   // $User summary controls

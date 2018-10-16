@@ -102,6 +102,12 @@ $block: ".boss"
 
     &__actions
 
+      &_role_row
+        display: flex
+        flex-direction:
+        justify-content: flex-start
+        align-items: center
+
       &_role_column
         display: flex
         flex-direction: column
@@ -110,8 +116,24 @@ $block: ".boss"
 
 
     &__action
+      flex-grow: 0
+      flex-shrink: 0
+
       &:not(:last-child)
-        margin-bottom: 15px
+        #{$block}-tooltip-portal__actions_role_row &
+          margin-right: 15px
+
+        #{$block}-tooltip-portal__actions_role_column &
+           margin-bottom: 15px
+
+
+    &__text
+      +text-normalizer()
+      display: block
+
+
+    &__text-marked
+      font-weight: 800
 
 
   &-hidden
