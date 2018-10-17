@@ -197,16 +197,13 @@ $block: ".boss-button"
   &_type_panel
     display: block
     width: 100%
-    min-height: 75px
-    padding: 25px 20px
+    min-height: 70px
+    padding: 20px 15px
     box-shadow: 0 5px 30px -5px rgba(0,0,0,.3)
-    font-size: 20px
-    line-height: 1
+    font-size: 18px
+    line-height: 1.2
     white-space: nowrap
     vertical-align: middle
-
-    @media screen and (max-width: 480px)
-      padding: 20px
 
   // $Common button MOD: state disabled
   &_state_disabled[disabled],
@@ -420,6 +417,23 @@ $block: ".boss-button"
 
 
   // Buttons with icons
+  &_role_clock-in
+    $background-color: map-get($boss-sign-palette, clocked-in)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-clock-in-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+  &_role_clock-out
+    $background-color: map-get($boss-sign-palette, clocked-out)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-clock-out-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+  &_role_break
+    $background-color: map-get($boss-sign-palette, break)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-hour-glass-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
 
   // $Common button MOD: role next
   &_role_next
@@ -453,15 +467,10 @@ $block: ".boss-button"
 
 
   // $Common button MOD: role publish
-  &_role_publish
-    $background-color: map-get($boss-app-palette, primary)
-    +button-common($background-color: $background-color)
-    +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
-    +button-common-hover-behavior($background-color: $background-color)
-
-
   // $Common button MOD: role edit
-  &_role_edit
+  &_role_publish,
+  &_role_edit,
+  &_role_add-note
     $background-color: map-get($boss-app-palette, primary)
     +button-common($background-color: $background-color)
     +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
@@ -469,6 +478,9 @@ $block: ".boss-button"
 
 
   // $Common button MOD: role edit alternative
+  // $Common button MOD: role view order
+  &_role_view-order,
+  &_role_update,
   &_role_edit-alt
     $background-color: map-get($boss-app-palette, secondary)
     +button-common($background-color: $background-color)
@@ -479,6 +491,12 @@ $block: ".boss-button"
   // $Common button MOD: role edit mode
   &_role_edit-mode
     $background-color: map-get($boss-app-palette, edit)
+    +button-common($background-color: $background-color)
+    +button-with-icon-left($icon-url: '../icons/icon-lock-white.svg')
+    +button-common-hover-behavior($background-color: $background-color)
+
+  &_role_change-pin
+    $background-color: map-get($boss-app-palette, secondary)
     +button-common($background-color: $background-color)
     +button-with-icon-left($icon-url: '../icons/icon-lock-white.svg')
     +button-common-hover-behavior($background-color: $background-color)
@@ -507,23 +525,9 @@ $block: ".boss-button"
     +button-common-hover-behavior($background-color: $background-color)
 
 
-  // $Common button MOD: role view order
-  &_role_view-order
-    $background-color: map-get($boss-app-palette, secondary)
-    +button-common($background-color: $background-color)
-    +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
-    +button-common-hover-behavior($background-color: $background-color)
-
-
   // $Common button MOD: role view report
-  &_role_view-report
-    $background-color: map-get($boss-app-palette, primary)
-    +button-common($background-color: $background-color)
-    +button-with-icon-left($icon-url: '../icons/icon-zoom-white.svg', $background-size: 12px)
-    +button-common-hover-behavior($background-color: $background-color)
-
-
   // $Common button MOD: role view details
+  &_role_view-report,
   &_role_view-details
     $background-color: map-get($boss-app-palette, primary)
     +button-common($background-color: $background-color)
@@ -536,14 +540,6 @@ $block: ".boss-button"
     $background-color: map-get($boss-app-palette, secondary)
     +button-common($background-color: $background-color)
     +button-with-icon-left($icon-url: '../icons/icon-zoom-white.svg', $background-size: 12px)
-    +button-common-hover-behavior($background-color: $background-color)
-
-
-  // $Common button MOD: update
-  &_role_update
-    $background-color: map-get($boss-app-palette, secondary)
-    +button-common($background-color: $background-color)
-    +button-with-icon-left($icon-url: '../icons/icon-pencil-white.svg')
     +button-common-hover-behavior($background-color: $background-color)
 
 
@@ -758,10 +754,22 @@ $block: ".boss-button"
 
   // Bordered buttons
 
+  // $Common button MOD: primary light
   &_primary-light
     +button-bordered($color: #84bef0, $border-color: #84bef0, $background-color: #fff)
     +button-bordered-hover-behavior($color: #fff, $border-color: #84bef0, $background-color: #84bef0)
     font-weight: 600
+
+  // $Common button MOD: role primary light
+  &_role_primary-light
+    +button-bordered($color: #84bef0, $border-color: #84bef0, $background-color: #fff)
+    +button-bordered-hover-behavior($color: #fff, $border-color: #84bef0, $background-color: #84bef0)
+
+  // $Common button MOD: role alert light
+  &_role_alert-light
+    $primary-color: map-get($boss-app-palette, alert)
+    +button-bordered($color: $primary-color, $border-color: $primary-color, $background-color: #fff)
+    +button-bordered-hover-behavior($color: #fff, $border-color: $primary-color, $background-color: $primary-color)
 
   // $Common button MOD: role edit-light
   &_role_edit-light
@@ -981,7 +989,7 @@ $block: ".boss-button"
     display: inline-block
     height: 30px
     min-width: 30px
-    margin-right: 5px
+    margin-right: 10px
     font-size: 16px
     line-height: 30px
     font-weight: 600

@@ -37,7 +37,18 @@
     width: 100%
     position: fixed
     top: 0
+    left: 0
+    right: 0
     z-index: 10
+
+
+  &__add-cell
+    display: table-cell
+    width: 1px
+    min-width: 150px
+    height: $header-min-height
+    vertical-align: middle
+    background-color: map-get($boss-app-palette, secondary)
 
 
   &__reload-cell
@@ -46,6 +57,20 @@
     height: $header-min-height
     vertical-align: middle
     background-color: map-get($boss-app-palette, primary)
+
+
+  &__add-button
+    $background-color: map-get($boss-app-palette, secondary)
+
+    +button-hover-behavior($background-color)
+    +link-to-button($color: white)
+    display: block
+    padding: 0 $cell-min-padding 0 $cell-pic-padding
+    font-size: 1.1em
+    line-height: 1.2em
+    color: white
+    background: $background-color url('../icons/icon-plus-white.svg') $img-offset-left center no-repeat
+    background-size: 1em
 
 
   &__reload-button

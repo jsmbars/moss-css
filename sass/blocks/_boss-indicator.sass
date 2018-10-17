@@ -53,19 +53,30 @@ $block: ".boss-indicator"
     color: #fff
     vertical-align: middle
 
+    // $Indicator marker CONTEXT: $Indicator MOD: role info primary
+    #{$block}_role_info-primary &
+      background-color: map-get($boss-app-palette, primary)
+
+    // $Indicator marker CONTEXT: $Indicator MOD: role info secondary
     // $Indicator marker CONTEXT: $Indicator MOD: status success
     // $Indicator marker CONTEXT: $Indicator MOD: status collected
+    #{$block}_role_info-secondary &,
     #{$block}_status_success &,
     #{$block}_status_collected &
       background-color: map-get($boss-app-palette, secondary)
 
+    // $Indicator marker CONTEXT: $Indicator MOD: role info alert
     // $Indicator marker CONTEXT: $Indicator MOD: status error
+    // $Indicator marker CONTEXT: $Indicator MOD: status sent-back
+    #{$block}_role_info-alert &,
     #{$block}_status_error &,
     #{$block}_status_sent-back &
       background-color: map-get($boss-app-palette, alert)
 
+    // $Indicator marker CONTEXT: $Indicator MOD: role info
     // $Indicator marker CONTEXT: $Indicator MOD: status uncollected
     // $Indicator marker CONTEXT: $Indicator MOD: status pending
+    #{$block}_role_info &,
     #{$block}_status_uncollected &,
     #{$block}_status_pending &
       background-color: map-get($boss-app-palette, pending)
@@ -95,19 +106,30 @@ $block: ".boss-indicator"
     font-weight: 600
     vertical-align: middle
 
+    // $Indicator label CONTEXT: $Indicator MOD: role info primary
+    #{$block}_role_info-primary &
+      color: map-get($boss-app-palette, primary)
+
+    // $Indicator label CONTEXT: $Indicator MOD: role info secondary
     // $Indicator label CONTEXT: $Indicator MOD: status success
     // $Indicator label CONTEXT: $Indicator MOD: status collected
+    #{$block}_role_info-secondary &,
     #{$block}_status_success &,
     #{$block}_status_collected &
       color: map-get($boss-app-palette, secondary)
 
+    // $Indicator label CONTEXT: $Indicator MOD: role info alert
     // $Indicator label CONTEXT: $Indicator MOD: status error
+    // $Indicator label CONTEXT: $Indicator MOD: status sent-back
+    #{$block}_role_info-alert &,
     #{$block}_status_error &,
     #{$block}_status_sent-back &
       color: map-get($boss-app-palette, alert)
 
+    // $Indicator label CONTEXT: $Indicator MOD: role info
     // $Indicator label CONTEXT: $Indicator MOD: status uncollected
     // $Indicator label CONTEXT: $Indicator MOD: status pending
+    #{$block}_role_info &,
     #{$block}_status_uncollected &,
     #{$block}_status_pending &
       color: map-get($boss-app-palette, pending)

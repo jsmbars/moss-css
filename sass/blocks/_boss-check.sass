@@ -772,6 +772,7 @@ $block: ".boss-check"
       cursor: pointer
 
     &_role_link
+      cursor: pointer
       color: map-get($boss-app-palette, primary)
 
     &_role_edit#{&}_role_link
@@ -781,6 +782,10 @@ $block: ".boss-check"
     &_role_details#{&}_role_link
       &:before
         background-image: url('../icons/icon-zoom-primary.svg')
+
+    &_role_note#{&}_role_link
+      &:before
+        background-image: url('../icons/icon-envelope-primary.svg')
 
 
   // $Check block text line
@@ -1242,6 +1247,9 @@ $block: ".boss-check"
 
     @media screen and (max-width: 400px)
       padding: 15px
+
+  // $Check block buttons
+  &__buttons
 
 
   // $Check block button
